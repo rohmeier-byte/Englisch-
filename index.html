@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AdFloor</title>
+<meta name="description" content="Ein kleines klickbares B2-Business-Englisch-Spiel zu Advertising, Retail Media &amp; Marketplace – Vokabeln lernen und Satzstruktur trainieren.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --bg: #f6f7f2;
+    --surface: #ffffff;
+    --surface-2: #edefe6;
+    --ink: #1b2430;
+    --ink-soft: #55636a;
+    --ink-faint: #8b9599;
+    --border: #dde1d6;
+
+    --accent: #e2a63b;         /* amber – "sponsored" */
+    --accent-strong: #c98c22;
+    --accent-ink: #201400;
+
+    --accent2: #1f6f78;        /* teal – marketplace / structure */
+    --accent2-ink: #ffffff;
+    --accent2-bg-soft: #e3f1f1;
+    --accent2-text: #155159;
+
+    --success: #3c8a5b;
+    --success-bg: #e4f3ea;
+    --success-text: #206b44;
+
+    --error: #c1503d;
+    --error-bg: #fbe7e1;
+    --error-text: #9a3524;
+
+    --shadow: rgba(27, 36, 48, 0.10);
+    --shadow-lg: rgba(27, 36, 48, 0.16);
+
+    --font-display: 'Fraunces', Georgia, 'Iowan Old Style', serif;
+    --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #11161c;
+      --surface: #1a222b;
+      --surface-2: #212b35;
+      --ink: #edefe9;
+      --ink-soft: #a6b1b6;
+      --ink-faint: #6f7a80;
+      --border: #2c3641;
+
+      --accent: #f0b959;
+      --accent-strong: #f6cc82;
+      --accent-ink: #1c1300;
+
+      --accent2: #59c2cb;
+      --accent2-ink: #06272a;
+      --accent2-bg-soft: #17323a;
+      --accent2-text: #83dbe2;
+
+      --success: #63c893;
+      --success-bg: #163425;
+      --success-text: #8fe0b5;
+
+      --error: #e28b73;
+      --error-bg: #3a1e17;
+      --error-text: #f0a690;
+
+      --shadow: rgba(0, 0, 0, 0.35);
+      --shadow-lg: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #11161c;
+    --surface: #1a222b;
+    --surface-2: #212b35;
+    --ink: #edefe9;
+    --ink-soft: #a6b1b6;
+    --ink-faint: #6f7a80;
+    --border: #2c3641;
+
+    --accent: #f0b959;
+    --accent-strong: #f6cc82;
+    --accent-ink: #1c1300;
+
+    --accent2: #59c2cb;
+    --accent2-ink: #06272a;
+    --accent2-bg-soft: #17323a;
+    --accent2-text: #83dbe2;
+
+    --success: #63c893;
+    --success-bg: #163425;
+    --success-text: #8fe0b5;
+
+    --error: #e28b73;
+    --error-bg: #3a1e17;
+    --error-text: #f0a690;
+
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-lg: rgba(0, 0, 0, 0.5);
+  }
+
+  /* ---------- Reset-ish ---------- */
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  button { font: inherit; color: inherit; }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  :focus-visible { outline: 2.5px solid var(--accent2); outline-offset: 2px; border-radius: 4px; }
+
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap; border: 0; padding: 0; margin: -1px;
+  }
+
+  /* ---------- Shell ---------- */
+  .app {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 20px 18px 48px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .ticker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px var(--shadow);
+    flex-wrap: wrap;
+  }
+  .ticker-brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+  }
+  .ticker-brand::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .ticker-stats {
+    display: flex;
+    gap: 18px;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.78rem;
+  }
+  .ticker-stats .stat {
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .ticker-stats .stat b {
+    display: block;
+    font-size: 1rem;
+    color: var(--ink);
+    letter-spacing: normal;
+    font-weight: 600;
+  }
+
+  main { display: flex; flex-direction: column; }
+  .screen { display: none; flex-direction: column; gap: 22px; animation: rise 0.35s ease both; }
+  .screen.active { display: flex; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2-text);
+    background: var(--accent2-bg-soft);
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 999px;
+    width: fit-content;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  .btn:hover { filter: brightness(1.06); }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; filter: none; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-secondary { background: var(--accent2); color: var(--accent2-ink); }
+  .btn-ghost { background: transparent; color: var(--ink-soft); border: 1px solid var(--border); }
+
+  /* ---------- Start screen ---------- */
+  .hero-mock {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 2px 10px;
+  }
+  .hero-tile {
+    flex: 0 0 148px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-tile .swatch {
+    height: 64px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent2) 0%, var(--accent2-bg-soft) 100%);
+  }
+  .hero-tile .sponsored {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 2px 7px;
+    border-radius: 5px;
+  }
+  .hero-tile .name { font-size: 0.82rem; font-weight: 600; }
+  .hero-tile .price { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); }
+
+  .start-copy h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 700; }
+  .start-copy p { color: var(--ink-soft); margin-top: 10px; max-width: 60ch; }
+  .rules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .rule-card {
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .rule-card .rule-title { font-weight: 600; font-size: 0.92rem; }
+  .rule-card p { font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ---------- Level headers ---------- */
+  .level-head { display: flex; flex-direction: column; gap: 6px; }
+  .level-head h2 { font-size: 1.4rem; }
+  .level-head p { color: var(--ink-soft); font-size: 0.92rem; }
+
+  /* ---------- Level 1: matching ---------- */
+  .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 620px) {
+    .memory-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 420px) {
+    .memory-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .card {
+    aspect-ratio: 3 / 4;
+    perspective: 800px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .card-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.45s cubic-bezier(.2,.7,.3,1);
+  }
+  .card.flipped .card-inner,
+  .card.matched .card-inner { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute; inset: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+    backface-visibility: hidden;
+    border: 1px solid var(--border);
+    font-size: 0.78rem;
+  }
+  .card-front {
+    background: var(--surface-2);
+    background-image: repeating-linear-gradient(135deg, transparent 0 8px, var(--border) 8px 9px);
+  }
+  .card-front::after {
+    content: '?';
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink-faint);
+  }
+  .card-back {
+    background: var(--surface);
+    transform: rotateY(180deg);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .card-back.is-term { font-family: var(--font-mono); font-weight: 600; color: var(--accent2-text); background: var(--accent2-bg-soft); }
+  .card.matched .card-back { background: var(--success-bg); color: var(--success-text); border-color: var(--success); }
+  .card.wrong .card-back { background: var(--error-bg); color: var(--error-text); border-color: var(--error); }
+  .card.matched { cursor: default; }
+
+  .card.shake .card-inner { animation: shake 0.4s; }
+  @keyframes shake {
+    0%, 100% { transform: rotateY(180deg) translateX(0); }
+    25% { transform: rotateY(180deg) translateX(-5px); }
+    75% { transform: rotateY(180deg) translateX(5px); }
+  }
+
+  /* ---------- Level 2: sentence builder ---------- */
+  .progress-dots { display: flex; gap: 6px; }
+  .progress-dots span {
+    width: 22px; height: 6px; border-radius: 3px;
+    background: var(--border);
+  }
+  .progress-dots span.done { background: var(--accent2); }
+  .progress-dots span.current { background: var(--accent); }
+
+  .build-slot {
+    min-height: 64px;
+    border: 1.5px dashed var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    background: var(--surface-2);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .build-slot.correct { border-style: solid; border-color: var(--success); background: var(--success-bg); }
+  .build-slot.incorrect { border-style: solid; border-color: var(--error); background: var(--error-bg); animation: shake-row 0.4s; }
+  .build-slot .placeholder { color: var(--ink-faint); font-size: 0.85rem; }
+  @keyframes shake-row {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+
+  .chip-pool { display: flex; flex-wrap: wrap; gap: 8px; min-height: 40px; }
+
+  .chip {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 9px;
+    padding: 9px 14px;
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    cursor: pointer;
+    box-shadow: 0 1px 2px var(--shadow);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .chip:hover { transform: translateY(-1px); background: var(--surface-2); }
+  .chip.placed { background: var(--accent2); color: var(--accent2-ink); border-color: transparent; cursor: default; }
+  .chip.placed.removable { cursor: pointer; }
+  .chip.placed.removable:hover { filter: brightness(0.95); }
+  .chip.placed.removable::after { content: ' ✕'; opacity: 0.7; font-size: 0.75em; }
+
+  .level2-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .tip-card {
+    border: 1px solid var(--accent2);
+    background: var(--accent2-bg-soft);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tip-card.show { display: flex; }
+  .tip-card .tip-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2-text);
+  }
+  .tip-card .tip-formula { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+  .tip-card .tip-explain { font-size: 0.88rem; color: var(--ink-soft); }
+
+  /* ---------- Complete screen ---------- */
+  .score-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .score-tile {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .score-tile .num { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .score-tile .label { font-size: 0.78rem; color: var(--ink-soft); margin-top: 2px; }
+
+  .cheat-sheet { display: flex; flex-direction: column; gap: 10px; }
+  .cheat-item {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: var(--surface-2);
+  }
+  .cheat-item .term { font-weight: 600; }
+  .cheat-item .def { color: var(--ink-soft); font-size: 0.88rem; margin-top: 2px; }
+  .cheat-item .example { font-family: var(--font-mono); font-size: 0.85rem; margin-top: 6px; color: var(--accent2-text); }
+
+  footer {
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 0.78rem;
+    margin-top: 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="ticker">
+    <div class="ticker-brand">AdFloor</div>
+    <div class="ticker-stats">
+      <span class="stat">Level<b id="stat-level">–</b></span>
+      <span class="stat">Score<b id="stat-score">0</b></span>
+      <span class="stat">Streak<b id="stat-streak">0</b></span>
+    </div>
+  </header>
+
+  <main id="screen-root">
+
+    <!-- START -->
+    <section class="screen active" id="screen-start">
+      <div class="hero-mock" aria-hidden="true">
+        <div class="hero-tile"><span class="sponsored">Sponsored</span><div class="swatch"></div><div class="name">Wireless Earbuds Pro</div><div class="price">€49.99</div></div>
+        <div class="hero-tile"><div class="swatch"></div><div class="name">Running Shoes X2</div><div class="price">€79.90</div></div>
+        <div class="hero-tile"><span class="sponsored">Sponsored</span><div class="swatch"></div><div class="name">Smart Kettle 1.7L</div><div class="price">€34.50</div></div>
+        <div class="hero-tile"><div class="swatch"></div><div class="name">Desk Lamp LED</div><div class="price">€22.00</div></div>
+      </div>
+
+      <div class="start-copy panel">
+        <span class="eyebrow">B2 Business English</span>
+        <h1 style="margin-top:10px;">Willkommen auf der AdFloor</h1>
+        <p>Ein kleines Spiel für Business-Englisch B2 im Bereich <strong>Advertising, Retail Media &amp; Marketplace</strong>. Du trainierst zentrales Vokabular und lernst dabei ganz nebenbei, wie typische Satzstrukturen im Business-Englisch immer korrekt aufgebaut sind.</p>
+
+        <div class="rules">
+          <div class="rule-card">
+            <div class="rule-title">Level 1 · The Bidding Floor</div>
+            <p>Finde per Klick die passenden Begriffspaare – Fachbegriff trifft Definition.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-title">Level 2 · Campaign Report Builder</div>
+            <p>Klicke die Satzbausteine in der richtigen Reihenfolge und erhalte die passende Grammatikregel dazu.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <button class="btn btn-primary" id="btn-start">Training starten</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEVEL 1 -->
+    <section class="screen" id="screen-level1">
+      <div class="level-head">
+        <span class="eyebrow">Level 1 / 2</span>
+        <h2>The Bidding Floor</h2>
+        <p>Klicke zwei Karten an. Passt der Fachbegriff zur Definition, bleibt das Paar aufgedeckt.</p>
+      </div>
+      <div class="panel">
+        <div class="memory-grid" id="memory-grid" lang="en"></div>
+      </div>
+    </section>
+
+    <!-- LEVEL 2 -->
+    <section class="screen" id="screen-level2">
+      <div class="level-head">
+        <span class="eyebrow">Level 2 / 2</span>
+        <h2>Campaign Report Builder</h2>
+        <p>Setze die Satzteile per Klick in die richtige Reihenfolge. Danach zeigen wir dir die Regel, die dahintersteckt.</p>
+      </div>
+
+      <div class="panel" style="gap: 16px; display:flex; flex-direction:column;">
+        <div class="progress-dots" id="progress-dots" aria-hidden="true"></div>
+
+        <div class="build-slot" id="build-slot" lang="en">
+          <span class="placeholder">Klicke unten die Bausteine an …</span>
+        </div>
+
+        <div class="chip-pool" id="chip-pool" lang="en"></div>
+
+        <div class="level2-actions">
+          <button class="btn btn-ghost" id="btn-reset-sentence">Zurücksetzen</button>
+          <button class="btn btn-secondary" id="btn-next-sentence" disabled>Weiter →</button>
+        </div>
+
+        <div class="tip-card" id="tip-card">
+          <span class="tip-label">Structure Insight</span>
+          <div class="tip-formula" id="tip-formula"></div>
+          <div class="tip-explain" id="tip-explain"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLETE -->
+    <section class="screen" id="screen-complete">
+      <div class="level-head">
+        <span class="eyebrow">Geschafft</span>
+        <h2>Campaign Report: Complete</h2>
+        <p>Hier ist deine Zusammenfassung – Vokabeln und Satzstrukturen zum Nachschlagen.</p>
+      </div>
+
+      <div class="panel">
+        <div class="score-summary" id="score-summary"></div>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-size:1.05rem; margin-bottom:12px;">Vokabel-Spickzettel</h3>
+        <div class="cheat-sheet" id="vocab-sheet" lang="en"></div>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-size:1.05rem; margin-bottom:12px;">Satzstruktur-Spickzettel</h3>
+        <div class="cheat-sheet" id="grammar-sheet"></div>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" id="btn-restart">Nochmal spielen</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>AdFloor · ein kleines B2-Übungsspiel für Business-Englisch im Advertising- &amp; Retail-Media-Kontext</footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ================= DATA ================= */
+
+  var VOCAB = [
+    { id: 'v1', term: 'impression', def: 'Each time an ad is displayed to a user — no matter if they click on it.' },
+    { id: 'v2', term: 'click-through rate (CTR)', def: 'The percentage of viewers who click on an ad after seeing it.' },
+    { id: 'v3', term: 'conversion rate', def: 'The share of visitors who complete a purchase or another goal.' },
+    { id: 'v4', term: 'bid', def: 'The amount an advertiser offers to pay for a click or an impression.' },
+    { id: 'v5', term: 'retail media network', def: 'An advertising platform that a retailer runs on its own website or app.' },
+    { id: 'v6', term: 'return on ad spend (ROAS)', def: 'The revenue a company earns for every euro it spends on advertising.' }
+  ];
+
+  var SENTENCES = [
+    {
+      chunks: ['A retail media network', 'generates', 'additional revenue', 'for retailers.'],
+      formula: 'Subjekt + Verb (+s in der 3. Person Singular) + Objekt + Adverbiale',
+      explain: 'Present Simple: für Fakten, Prozesse und Dinge, die allgemein gelten. Achtung auf das -s bei "he / she / it".',
+      label: 'Present Simple'
+    },
+    {
+      chunks: ['The campaign', 'has increased', 'our conversion rate', 'by ten percent.'],
+      formula: 'Subjekt + have/has + Partizip II + Objekt + Adverbiale',
+      explain: 'Present Perfect: für ein Ergebnis, das bis jetzt gilt — perfekt für Kampagnen-Reports und Performance-Updates.',
+      label: 'Present Perfect'
+    },
+    {
+      chunks: ['Ad placements', 'are optimized', 'by the algorithm', 'in real time.'],
+      formula: 'Subjekt (Betroffenes) + to be + Partizip II + by + Verursacher',
+      explain: 'Passive Voice: im Business-Englisch üblich, wenn der Prozess wichtiger ist als die handelnde Person.',
+      label: 'Passive Voice'
+    },
+    {
+      chunks: ['If we raise', 'our bid,', 'our impressions', 'will increase.'],
+      formula: 'If + Subjekt + Present Simple, Subjekt + will + Grundform',
+      explain: 'First Conditional: für realistische Vorhersagen — "wenn wir X tun, passiert wahrscheinlich Y".',
+      label: 'First Conditional'
+    },
+    {
+      chunks: ['Programmatic advertising', 'is', 'more efficient', 'than traditional media buying.'],
+      formula: 'Subjekt + to be + more + Adjektiv + than + Vergleich',
+      explain: 'Comparative: um Entscheidungen zu begründen, z. B. warum ein Kanal einem anderen vorgezogen wird.',
+      label: 'Comparative'
+    },
+    {
+      chunks: ['We should target', 'a younger audience', 'to improve', 'the click-through rate.'],
+      formula: 'Subjekt + should + Grundform + Objekt + to + Verb (Zweck)',
+      explain: 'Modalverben wie should/could geben Empfehlungen; "to + Verb" erklärt den Zweck der Handlung.',
+      label: 'Modal + Purpose'
+    }
+  ];
+
+  /* ================= STATE ================= */
+
+  var state = {
+    score: 0,
+    streak: 0,
+    level1: { matches: 0, attempts: 0, locked: false, flipped: [] },
+    level2: { index: 0, built: [], attemptedCurrent: false, checking: false, firstTryCorrect: 0, solved: 0 }
+  };
+
+  var els = {
+    statLevel: document.getElementById('stat-level'),
+    statScore: document.getElementById('stat-score'),
+    statStreak: document.getElementById('stat-streak'),
+    screens: {
+      start: document.getElementById('screen-start'),
+      level1: document.getElementById('screen-level1'),
+      level2: document.getElementById('screen-level2'),
+      complete: document.getElementById('screen-complete')
+    },
+    grid: document.getElementById('memory-grid'),
+    dots: document.getElementById('progress-dots'),
+    slot: document.getElementById('build-slot'),
+    pool: document.getElementById('chip-pool'),
+    resetBtn: document.getElementById('btn-reset-sentence'),
+    nextBtn: document.getElementById('btn-next-sentence'),
+    tipCard: document.getElementById('tip-card'),
+    tipFormula: document.getElementById('tip-formula'),
+    tipExplain: document.getElementById('tip-explain'),
+    scoreSummary: document.getElementById('score-summary'),
+    vocabSheet: document.getElementById('vocab-sheet'),
+    grammarSheet: document.getElementById('grammar-sheet')
+  };
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function showScreen(name) {
+    Object.keys(els.screens).forEach(function (key) {
+      els.screens[key].classList.toggle('active', key === name);
+    });
+    var labelMap = { start: '–', level1: '1', level2: '2', complete: '✓' };
+    els.statLevel.textContent = labelMap[name] || '–';
+  }
+
+  function addScore(points, goodStreak) {
+    state.score += points;
+    if (goodStreak) { state.streak += 1; } else { state.streak = 0; }
+    els.statScore.textContent = state.score;
+    els.statStreak.textContent = state.streak;
+  }
+
+  /* ================= LEVEL 1 ================= */
+
+  function buildLevel1() {
+    state.level1 = { matches: 0, attempts: 0, locked: false, flipped: [] };
+    var cards = [];
+    VOCAB.forEach(function (v) {
+      cards.push({ pairId: v.id, type: 'term', label: v.term });
+      cards.push({ pairId: v.id, type: 'def', label: v.def });
+    });
+    cards = shuffle(cards);
+
+    els.grid.innerHTML = '';
+    cards.forEach(function (c, idx) {
+      var btn = document.createElement('button');
+      btn.className = 'card';
+      btn.dataset.index = idx;
+      btn.dataset.pairId = c.pairId;
+      btn.dataset.type = c.type;
+      btn.setAttribute('aria-label', 'Karte ' + (idx + 1));
+      btn.innerHTML =
+        '<div class="card-inner">' +
+          '<div class="card-face card-front"></div>' +
+          '<div class="card-face card-back' + (c.type === 'term' ? ' is-term' : '') + '">' + c.label + '</div>' +
+        '</div>';
+      btn.addEventListener('click', function () { onCardClick(btn, c); });
+      els.grid.appendChild(btn);
+    });
+  }
+
+  function onCardClick(btn, cardData) {
+    var l1 = state.level1;
+    if (l1.locked) return;
+    if (btn.classList.contains('flipped') || btn.classList.contains('matched')) return;
+    if (l1.flipped.length === 2) return;
+
+    btn.classList.add('flipped');
+    l1.flipped.push({ btn: btn, data: cardData });
+
+    if (l1.flipped.length === 2) {
+      l1.attempts += 1;
+      l1.locked = true;
+      var a = l1.flipped[0], b = l1.flipped[1];
+      var isMatch = a.data.pairId === b.data.pairId && a.data.type !== b.data.type;
+
+      setTimeout(function () {
+        if (isMatch) {
+          a.btn.classList.add('matched');
+          b.btn.classList.add('matched');
+          l1.matches += 1;
+          addScore(10, true);
+          if (l1.matches === VOCAB.length) {
+            setTimeout(goToLevel2, 500);
+          }
+        } else {
+          a.btn.classList.add('wrong');
+          b.btn.classList.add('wrong');
+          a.btn.classList.add('shake');
+          b.btn.classList.add('shake');
+          addScore(0, false);
+          setTimeout(function () {
+            a.btn.classList.remove('flipped', 'wrong', 'shake');
+            b.btn.classList.remove('flipped', 'wrong', 'shake');
+          }, 650);
+        }
+        l1.flipped = [];
+        l1.locked = false;
+      }, 550);
+    }
+  }
+
+  function goToLevel2() {
+    showScreen('level2');
+    state.level2 = { index: 0, built: [], attemptedCurrent: false, firstTryCorrect: 0, solved: 0 };
+    renderDots();
+    renderSentence();
+  }
+
+  /* ================= LEVEL 2 ================= */
+
+  function renderDots() {
+    els.dots.innerHTML = '';
+    SENTENCES.forEach(function (_, i) {
+      var span = document.createElement('span');
+      if (i < state.level2.index) span.classList.add('done');
+      else if (i === state.level2.index) span.classList.add('current');
+      els.dots.appendChild(span);
+    });
+  }
+
+  function renderSentence() {
+    var l2 = state.level2;
+    var sentence = SENTENCES[l2.index];
+    l2.built = [];
+    l2.attemptedCurrent = false;
+    l2.checking = false;
+
+    els.tipCard.classList.remove('show');
+    els.nextBtn.disabled = true;
+    els.slot.classList.remove('correct', 'incorrect');
+
+    var order = shuffle(sentence.chunks.map(function (text, i) { return i; }));
+    // avoid an accidental already-correct shuffle for sentences with few chunks
+    var isSorted = order.every(function (v, i) { return v === i; });
+    if (isSorted && order.length > 1) {
+      var tmp = order[0]; order[0] = order[1]; order[1] = tmp;
+    }
+
+    renderPool(sentence, order);
+    renderSlot(sentence);
+  }
+
+  function renderPool(sentence, order) {
+    els.pool.innerHTML = '';
+    order.forEach(function (chunkIndex) {
+      if (state.level2.built.indexOf(chunkIndex) !== -1) return;
+      var chip = document.createElement('button');
+      chip.className = 'chip';
+      chip.textContent = sentence.chunks[chunkIndex];
+      chip.addEventListener('click', function () { placeChip(chunkIndex); });
+      els.pool.appendChild(chip);
+    });
+  }
+
+  function renderSlot(sentence) {
+    var l2 = state.level2;
+    els.slot.innerHTML = '';
+    if (l2.built.length === 0) {
+      var ph = document.createElement('span');
+      ph.className = 'placeholder';
+      ph.textContent = 'Klicke unten die Bausteine an …';
+      els.slot.appendChild(ph);
+      return;
+    }
+    l2.built.forEach(function (chunkIndex, i) {
+      var chip = document.createElement('span');
+      chip.className = 'chip placed';
+      if (i === l2.built.length - 1 && !els.slot.classList.contains('correct')) {
+        chip.classList.add('removable');
+        chip.addEventListener('click', function () { removeLastChip(); });
+      }
+      chip.textContent = sentence.chunks[chunkIndex];
+      els.slot.appendChild(chip);
+    });
+  }
+
+  function placeChip(chunkIndex) {
+    var l2 = state.level2;
+    if (els.slot.classList.contains('correct') || l2.checking) return;
+    if (l2.built.indexOf(chunkIndex) !== -1) return;
+    l2.built.push(chunkIndex);
+    var sentence = SENTENCES[l2.index];
+    renderSlotAndPool(sentence);
+
+    if (l2.built.length === sentence.chunks.length) {
+      setTimeout(checkSentence, 300);
+    }
+  }
+
+  function renderSlotAndPool(sentence) {
+    // keep pool chips in their current DOM order rather than reshuffling
+    var l2 = state.level2;
+    var remaining = [];
+    for (var i = 0; i < sentence.chunks.length; i++) {
+      if (l2.built.indexOf(i) === -1) remaining.push(i);
+    }
+    els.pool.innerHTML = '';
+    remaining.forEach(function (chunkIndex) {
+      var chip = document.createElement('button');
+      chip.className = 'chip';
+      chip.textContent = sentence.chunks[chunkIndex];
+      chip.addEventListener('click', function () { placeChip(chunkIndex); });
+      els.pool.appendChild(chip);
+    });
+    renderSlot(sentence);
+  }
+
+  function removeLastChip() {
+    var l2 = state.level2;
+    if (els.slot.classList.contains('correct') || l2.checking) return;
+    l2.built.pop();
+    renderSlotAndPool(SENTENCES[l2.index]);
+  }
+
+  function checkSentence() {
+    var l2 = state.level2;
+    var sentence = SENTENCES[l2.index];
+    var correct = l2.built.every(function (chunkIndex, i) { return chunkIndex === i; });
+
+    if (correct) {
+      els.slot.classList.add('correct');
+      els.slot.classList.remove('incorrect');
+      renderSlot(sentence); // redraw without the "removable" affordance
+      els.tipFormula.textContent = sentence.formula;
+      els.tipExplain.textContent = sentence.explain;
+      els.tipCard.classList.add('show');
+      els.nextBtn.disabled = false;
+      l2.solved += 1;
+      if (!l2.attemptedCurrent) {
+        l2.firstTryCorrect += 1;
+        addScore(20, true);
+      } else {
+        addScore(10, true);
+      }
+    } else {
+      l2.attemptedCurrent = true;
+      l2.checking = true;
+      els.slot.classList.add('incorrect');
+      addScore(0, false);
+      setTimeout(function () {
+        l2.built = [];
+        l2.checking = false;
+        els.slot.classList.remove('incorrect');
+        renderSlotAndPool(sentence);
+      }, 700);
+    }
+  }
+
+  els.resetBtn.addEventListener('click', function () {
+    if (els.slot.classList.contains('correct') || state.level2.checking) return;
+    state.level2.built = [];
+    renderSlotAndPool(SENTENCES[state.level2.index]);
+  });
+
+  els.nextBtn.addEventListener('click', function () {
+    var l2 = state.level2;
+    if (l2.index < SENTENCES.length - 1) {
+      l2.index += 1;
+      renderDots();
+      renderSentence();
+    } else {
+      goToComplete();
+    }
+  });
+
+  /* ================= COMPLETE ================= */
+
+  function goToComplete() {
+    showScreen('complete');
+    var l1 = state.level1, l2 = state.level2;
+
+    els.scoreSummary.innerHTML = '';
+    var tiles = [
+      { num: state.score, label: 'Gesamtpunkte' },
+      { num: l1.matches + ' / ' + VOCAB.length, label: 'Level 1 · gefundene Paare' },
+      { num: l1.attempts, label: 'Level 1 · Versuche' },
+      { num: l2.firstTryCorrect + ' / ' + SENTENCES.length, label: 'Level 2 · Sätze im ersten Versuch' }
+    ];
+    tiles.forEach(function (t) {
+      var div = document.createElement('div');
+      div.className = 'score-tile';
+      div.innerHTML = '<div class="num">' + t.num + '</div><div class="label">' + t.label + '</div>';
+      els.scoreSummary.appendChild(div);
+    });
+
+    els.vocabSheet.innerHTML = '';
+    VOCAB.forEach(function (v) {
+      var div = document.createElement('div');
+      div.className = 'cheat-item';
+      div.innerHTML = '<div class="term">' + v.term + '</div><div class="def">' + v.def + '</div>';
+      els.vocabSheet.appendChild(div);
+    });
+
+    els.grammarSheet.innerHTML = '';
+    SENTENCES.forEach(function (s) {
+      var div = document.createElement('div');
+      div.className = 'cheat-item';
+      div.innerHTML =
+        '<div class="term">' + s.label + '</div>' +
+        '<div class="def">' + s.formula + '</div>' +
+        '<div class="example" lang="en">' + s.chunks.join(' ') + '</div>';
+      els.grammarSheet.appendChild(div);
+    });
+  }
+
+  document.getElementById('btn-restart').addEventListener('click', function () {
+    state.score = 0; state.streak = 0;
+    els.statScore.textContent = 0; els.statStreak.textContent = 0;
+    showScreen('start');
+  });
+
+  document.getElementById('btn-start').addEventListener('click', function () {
+    showScreen('level1');
+    buildLevel1();
+  });
+
+})();
+</script>
+</body>
+</html>
