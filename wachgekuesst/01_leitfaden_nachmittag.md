@@ -232,7 +232,7 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 >
 > Und er hört zu. Wenn du an etwas Schönes denkst, wirkt das im Körper. Wenn du dir etwas Peinliches vorstellst, wirst du rot. Das haben wir bei der Zitrone schon gesehen.
 >
-> Jetzt kommen zwei Mini Experimente. Zuerst spürst du deinen Puls, ganz bodenständig, mit zwei Fingern am Handgelenk. Und dann bekommst du ein Pendel, das ist ein Faden mit einem Ring. Ich sage dir gleich ehrlich, warum es sich bewegt. Es ist kein Zauber und kein Orakel. Es ist ein schönes Beispiel dafür, wie Gedanken im Körper winzige Bewegungen auslösen können.
+> Jetzt kommen zwei Mini Experimente. Zuerst spürst du deinen Puls, ganz bodenständig, mit zwei Fingern am Handgelenk. Und dann bekommst du ein Pendel, das ist ein Faden mit einem Ring. Ich sage dir gleich ehrlich, warum es sich bewegt. Es ist ein schönes Beispiel dafür, wie Gedanken im Körper winzige Bewegungen auslösen können.
 
 **Experiment: Puls und Pendel**
 
@@ -339,7 +339,7 @@ Teil B, Pendel (6 Minuten):
 
 **Moderationstext:**
 
-> Schau dich um. Dieser Stuhl, dieser Tisch, das Haus, in dem wir sitzen: Alles davon war irgendwann ein Gedanke. Jemand hat sich das vorgestellt, gezeichnet, gebaut. Nichts davon war erst da und dann gedacht. Das ist keine Magie, das ist ganz normale Menschengeschichte.
+> Schau dich um. Dieser Stuhl, dieser Tisch, das Haus, in dem wir sitzen: Alles davon war irgendwann ein Gedanke. Jemand hat sich das vorgestellt, gezeichnet, gebaut. Nichts davon war erst da und dann gedacht. Das ist ganz normale Menschengeschichte.
 >
 > Mit Manifestation meine ich genau das, nur im Kleinen. Du richtest deine Aufmerksamkeit auf etwas, du fühlst dich schon ein Stück hinein, und dann tust du den ersten Schritt. Du kennst es vom Autokauf. Du überlegst dir ein bestimmtes Modell, und plötzlich siehst du es überall. Die Autos waren vorher da. Dein Filter hat sich umgestellt.
 >
