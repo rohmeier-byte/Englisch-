@@ -46,3 +46,8 @@ Ziel: Die Texte sollen sich lesen, als hätte ein Mensch sie geschrieben. Grundl
 - (24.10.2026) Texte waren zu unemotional. Ab jetzt gilt: emotional erzählen, mit Storytelling. Grundlage sind Nicoles Inhalte und Übungen aus Datei 06, ohne Dornröschen (siehe nächste Regel). Emotion entsteht durch konkrete Szenen, Sinneseindrücke, persönliche Momente, Pausen und Rückgriffe auf die wiederkehrenden Bilder des roten Fadens. Sicherheitshinweise und Einordnungen gehören in Regiehinweise, damit der Sprechtext fließt. Persönliche Erlebnisse der Coachin werden nie erfunden, dafür gibt es Platzhalter.
 - (24.10.2026) KEIN Dornröschen Bogen (kein Märchen, keine Prinzessin, keine Hecke, keine Dornen, kein Prinz) und KEIN Schokogesicht. Die Auftraggeberin kann diese Bilder nicht mehr hören. Gewünscht ist ein empathischer, moderner roter Faden im Storytelling.
 - (24.10.2026) Die erfundene Frau im roten Faden heißt Susi (nicht Anna).
+
+## Entscheidungen der Auftraggeberin
+- (25.10.2026) Statt eines gedruckten Heftchens bekommt jede Frau ein liniertes Notizbuch mit dem Wachgeküsst Logo. Die Übungen werden im Raum angesagt und frei hineingeschrieben. Unterlagen werden Schritt für Schritt ausgebaut.
+- (25.10.2026) Zwei Stufen: Wachgeküsst (offen, Nachmittag, Notizbuch) und Wachgeküsst Club (nur auf Einladung für Frauen, die schon da waren). Die Auftraggeberin wählt selbst aus, wer in den Club kommt.
+- (25.10.2026) Raum in der Nähe für etwa 200 bis 225 € pro Nachmittag. Startpreis 29 €.
