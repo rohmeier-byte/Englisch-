@@ -41,3 +41,6 @@ Ziel: Die Texte sollen sich lesen, als hätte ein Mensch sie geschrieben. Grundl
 - Keine Floskeln wie "tauche ein", "Reise zu dir selbst", "transformativ", "ganzheitlich", "kraftvoll", "es ist wichtig zu beachten", "insgesamt", "letztendlich", "in der heutigen schnelllebigen Zeit".
 - Keine Dreierlisten aus Gewohnheit, keine Häufung von Adjektiven, kein Fettdruck in jedem Satz, keine Emojis in Fließtexten (in Instagram Captions höchstens sparsam).
 - Kurze und lange Sätze mischen, konkrete Beispiele statt Abstraktion, auch mal ein lockerer Halbsatz.
+
+## Dauerhafte Regeln aus Korrekturen
+- (24.10.2026) Texte waren zu unemotional. Ab jetzt gilt: emotional erzählen, mit Storytelling. Grundlage ist Nicoles Skript mit dem Dornröschen Bogen (Datei 06). Emotion entsteht durch konkrete Szenen, Sinneseindrücke, persönliche Momente, Pausen und Rückgriffe auf die Bilder (kleines Mädchen, Hecke, Dornen, Kuss). Sicherheitshinweise und Einordnungen gehören in Regiehinweise, damit der Sprechtext fließt. Persönliche Erlebnisse der Coachin werden nie erfunden, dafür gibt es Platzhalter.
