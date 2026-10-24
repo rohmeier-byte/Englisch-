@@ -51,3 +51,6 @@ Ziel: Die Texte sollen sich lesen, als hätte ein Mensch sie geschrieben. Grundl
 - (25.10.2026) Statt eines gedruckten Heftchens bekommt jede Frau ein liniertes Notizbuch mit dem Wachgeküsst Logo. Die Übungen werden im Raum angesagt und frei hineingeschrieben. Unterlagen werden Schritt für Schritt ausgebaut.
 - (25.10.2026) Zwei Stufen: Wachgeküsst (offen, Nachmittag, Notizbuch) und Wachgeküsst Club (nur auf Einladung für Frauen, die schon da waren). Die Auftraggeberin wählt selbst aus, wer in den Club kommt.
 - (25.10.2026) Raum in der Nähe für etwa 200 bis 225 € pro Nachmittag. Startpreis 29 €.
+- (25.10.2026) Korrektur: Verteilt wird ausschließlich ein leeres, liniertes Notizbuch mit Logo. Keine Karten, keine Einlegeblätter, kein Handout. Alles, was die Frauen mitnehmen, schreiben sie selbst hinein; Satzanfänge und Listen sagt die Coachin an.
+- (25.10.2026) Instagram: Gewählt ist die Richtung „Rosé mit Kuss“ (Rosé, Lila, Creme, Serifenschrift kursiv, Pink aus dem Logo als Akzent für das wichtigste Wort).
+- (25.10.2026) Sprechskripte werden als lesefreundliche HTML Seite im Layout der langen Fassung geliefert (Design Rosé), nicht im Notizheftstil.
