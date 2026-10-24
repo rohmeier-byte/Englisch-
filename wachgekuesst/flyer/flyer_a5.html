@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Wachgeküsst Flyer A5</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Mulish:wght@400;600;800&display=swap">
+<style>
+/* A5 mit 3 mm Beschnitt rundum: 154 x 216 mm. Texte bleiben mindestens 10 mm innerhalb des Endformats. */
+@page{size:154mm 216mm;margin:0}
+:root{--rose:#F6E4E8;--creme:#FBF4EC;--lila:#ECE1F2;--pflaume:#2E1426;--pink:#C2185B;--weinrot:#7A2453}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:Mulish,sans-serif;color:var(--pflaume);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.seite{width:154mm;height:216mm;position:relative;overflow:hidden;page-break-after:always;padding:15mm 14mm 13mm}
+.seite:last-child{page-break-after:auto}
+.vorn{background:var(--rose)}
+.hinten{background:var(--creme)}
+.ober{font-size:7pt;font-weight:800;letter-spacing:.22em;color:var(--weinrot);margin:0}
+h1,h2{font-family:"Playfair Display",serif;font-weight:500;margin:0;line-height:1.05}
+em{font-style:italic;color:var(--pink)}
+
+/* Vorderseite */
+.logo{width:42mm;height:42mm;border-radius:50%;background:#fff;overflow:hidden;margin:7mm auto 0;display:block;border:1.2mm solid #fff;box-shadow:0 0 0 .35mm var(--weinrot)}
+.logo img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.marke{text-align:center;font-weight:600;letter-spacing:.32em;font-size:9pt;margin:4mm 0 0}
+.vorn h1{text-align:center;font-size:30pt;margin-top:8mm}
+.vorn h1 em{display:block;font-size:38pt}
+.unter{text-align:center;font-size:10pt;line-height:1.5;margin:5mm auto 0;max-width:100mm}
+.ritual{background:#fff;border-radius:4mm;padding:5mm 6mm;margin-top:8mm}
+.ritual h2{font-size:14pt;font-style:italic;color:var(--pink)}
+.ritual .zeit{font-size:7pt;font-weight:800;letter-spacing:.18em;color:var(--weinrot);margin:0 0 1.5mm}
+.ritual ol{margin:2.5mm 0 0;padding-left:5mm;font-size:9pt;line-height:1.55}
+.ritual li::marker{color:var(--pink);font-weight:800}
+.fuss{position:absolute;left:14mm;right:14mm;bottom:13mm;display:flex;justify-content:space-between;font-size:8pt;font-weight:600;color:var(--weinrot)}
+
+/* Rückseite */
+.hinten h2{font-size:21pt;margin-top:3mm}
+.hinten h2 em{font-size:21pt}
+.intro{font-size:9pt;line-height:1.5;margin:3mm 0 0}
+.tage{list-style:none;margin:4mm 0 0;padding:0;display:grid;gap:1.5mm}
+.tage li{display:grid;grid-template-columns:5mm 13mm 1fr;align-items:start;gap:2mm;font-size:8.8pt;line-height:1.4;padding-bottom:1.5mm;border-bottom:.25mm solid #E7D3DA}
+.tage li:last-child{border-bottom:0}
+.kreis{width:3.6mm;height:3.6mm;border-radius:50%;border:.35mm solid var(--pink);margin-top:.6mm}
+.tag{font-family:"Playfair Display",serif;font-style:italic;font-size:10pt;color:var(--pink)}
+.tipp{font-size:8.5pt;font-style:italic;margin:3mm 0 0}
+.termin{background:var(--lila);border-radius:4mm;padding:3.5mm 5mm;margin-top:4mm;display:flex;justify-content:space-between;align-items:center;gap:4mm}
+.termin .ober{margin-bottom:1mm}
+.termin .datum{font-family:"Playfair Display",serif;font-size:15pt}
+.termin .rechts{text-align:right;font-size:8pt;line-height:1.5;font-weight:600}
+.club{margin-top:4mm;border:.35mm solid var(--pink);border-radius:4mm;padding:4mm 5mm}
+.club h3{font-family:"Playfair Display",serif;font-weight:500;font-size:13pt;margin:0 0 1.5mm}
+.club p{margin:0;font-size:8.6pt;line-height:1.5}
+.hinweis{position:absolute;left:14mm;right:14mm;bottom:13mm;font-size:7.2pt;line-height:1.45;color:#5E4A57}
+.platz{background:#FFE08A;padding:0 1mm;border-radius:1mm}
+</style>
+</head>
+<body>
+
+<section class="seite vorn">
+  <p class="ober" style="text-align:center">FÜR DIE NÄCHSTEN SIEBEN TAGE</p>
+  <div class="logo"><img src="logo_kopf.jpg" alt="Wachgeküsst Logo"></div>
+  <p class="marke">WACHGEKÜSST</p>
+  <h1>Küss dich selbst <em>wach.</em></h1>
+  <p class="unter">Der Nachmittag ist vorbei.<br>Deine Woche fängt gerade erst an.</p>
+  <div class="ritual">
+    <p class="zeit">JEDEN MORGEN · 2 MINUTEN</p>
+    <h2>Bevor der Tag dich holt</h2>
+    <ol>
+      <li>Füße auf den Boden, drei Atemzüge, länger aus als ein.</li>
+      <li>Wofür bin ich heute dankbar?</li>
+      <li>Was möchte ich heute erschaffen?</li>
+      <li>Wer möchte ich heute für mich selbst sein?</li>
+      <li>Hand aufs Herz: „Ich bin der Thermostat.“</li>
+    </ol>
+  </div>
+  <div class="fuss"><span>@wachgekuesst.club</span><span class="platz">[DOMAIN]</span></div>
+</section>
+
+<section class="seite hinten">
+  <p class="ober">DEINE WOCHE</p>
+  <h2>Sieben Tage, sieben kleine <em>Missionen</em></h2>
+  <p class="intro">Eine pro Tag. Hak sie ab, schreib ins Notizbuch, was du bemerkst.</p>
+  <ul class="tage">
+    <li><span class="kreis"></span><span class="tag">Tag 1</span><span>Schreib abends drei Dinge auf, die dein Körper heute für dich geleistet hat.</span></li>
+    <li><span class="kreis"></span><span class="tag">Tag 2</span><span>Erwisch einen alten Satz und frag ihn: Stimmt das überhaupt?</span></li>
+    <li><span class="kreis"></span><span class="tag">Tag 3</span><span>Dreh vor einem schwierigen Gespräch eine Minute lang deinen Thermostat hoch.</span></li>
+    <li><span class="kreis"></span><span class="tag">Tag 4</span><span>Hol dir an einer roten Ampel dein lebendiges Bild zurück.</span></li>
+    <li><span class="kreis"></span><span class="tag">Tag 5</span><span>Geh mit einer neuen Erwartung in ein Gespräch, das sonst immer gleich läuft.</span></li>
+    <li><span class="kreis"></span><span class="tag">Tag 6</span><span>Drei Minuten Zukunftsbild. Dann tu eine Sache, die diese Frau tun würde.</span></li>
+    <li><span class="kreis"></span><span class="tag">Tag 7</span><span>Hände aufs Herz, ein Kuss auf die Hand. Und ruf eine Freundin an.</span></li>
+  </ul>
+  <p class="tipp">Einen Tag verpasst? Du kommst einfach zurück. Genau das haben wir geübt.</p>
+  <div class="termin">
+    <div>
+      <p class="ober">NÄCHSTER NACHMITTAG</p>
+      <div class="datum"><span class="platz">[DATUM, UHRZEIT]</span></div>
+    </div>
+    <div class="rechts">Hamburg Eppendorf<br><span class="platz">[ORT]</span><br>Anmeldung über Instagram</div>
+  </div>
+  <div class="club">
+    <h3>Und danach? Der Wachgeküsst <em>Club</em></h3>
+    <p>Ein Nachmittag im Monat, jedes Mal eine Stufe in der Tiefe, zum Beispiel der Brief an dich selbst oder dein persönlicher Anker. Wer einmal da war, kann eine Einladung bekommen. Sprich mich einfach an.</p>
+  </div>
+  <p class="hinweis">Wachgeküsst ist ein Coachingangebot und ersetzt keine ärztliche oder psychotherapeutische Behandlung. Alle Übungen sind freiwillig. Wenn starke Gefühle oder alte Erinnerungen hochkommen, wende dich bitte an eine Ärztin oder Psychotherapeutin.<br>Kontakt: <span class="platz">[NICOLE NACHNAME, ANSCHRIFT, MAIL]</span></p>
+</section>
+
+</body>
+</html>
