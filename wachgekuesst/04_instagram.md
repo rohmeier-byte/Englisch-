@@ -24,7 +24,7 @@ Empfehlung: Vorschlag A. Der Name ist kurz, gut zu merken, und das Wort Coaching
 
 Frauen jeden Alters, die sich wieder lebendiger und selbstwirksamer fühlen wollen. Das kann die 28 jährige Berufseinsteigerin sein, die sich nach dem ersten Jahr im Job fragt, wo ihre Leichtigkeit geblieben ist. Das kann die 45 jährige Mutter sein, die zwischen Kindern und Arbeit funktioniert. Und das kann die 63 jährige sein, die nach dem Berufsleben noch einmal neugierig auf sich wird.
 
-Gemeinsam ist ihnen der Wunsch nach einem warmen, ehrlichen Rahmen unter Frauen, ohne Leistungsdruck. Sie suchen Gespräche mit Tiefe und gleichzeitig Humor. Viele haben schon Ratgeber gelesen und mögen es, Dinge selbst zu erleben, statt nur davon zu hören.
+Gemeinsam ist ihnen der Wunsch nach einem warmen, ehrlichen Rahmen unter Frauen, ohne Leistungsdruck. Sie suchen Gespräche mit Tiefe und gleichzeitig Humor. Viele haben schon Ratgeber gelesen und mögen es, Dinge selbst zu erleben.
 
 Ansprache: durchgehend Du, warm, bodenständig, mit Augenzwinkern. Jeder spirituelle Begriff bekommt ein Alltagsbild.
 
@@ -108,10 +108,10 @@ Folie 2: „Stell dir eine Zitrone vor. Gelb, saftig, kühl in der Hand."
 Folie 3: „Du schneidest sie durch. Der Saft spritzt ein bisschen."
 Folie 4: „Du beißt hinein."
 Folie 5: „Läuft dir jetzt das Wasser im Mund zusammen?"
-Folie 6: „Vorstellung wirkt auf den Körper. Das ist der Start von Stufe 3."
+Folie 6: „Vorstellung wirkt auf den Körper. Mit diesem Experiment beginnt der Wachgeküsst Nachmittag."
 
 Caption:
-Eine Zitrone, die es gar nicht gibt, und dein Mund reagiert trotzdem. Ein kleines Experiment, das zeigt, wie eng Gedanken und Körper verbunden sind. Wie war es bei dir? Wasser im Mund oder nichts? Beides ist völlig normal. Mehr dazu im Reel zu den Glaubenssätzen.
+Eine Zitrone, die es gar nicht gibt, und dein Mund reagiert trotzdem. Ein kleines Experiment, das zeigt, wie eng Gedanken und Körper verbunden sind. Wie war es bei dir? Jede Reaktion ist normal, auch gar keine. Mehr dazu im Reel zu den Glaubenssätzen.
 #wachgekuesst #zitronenexperiment #nervensystem #kopfkino
 
 ### P3: Zitat zum Kind sein (Bildpost)
@@ -146,7 +146,7 @@ Folie 5: „Challenge für morgen: Zähl einen Tag lang rote Autos. Nicht am Ste
 Folie 6: „Am Tag danach: Zähl kleine Freuden. Was siehst du mehr?"
 
 Caption:
-Eine Spielregel aus alter Weisheitstradition lautet „Gleiches zieht Gleiches an". Ich erkläre sie als Denkmodell und nicht als Naturgesetz. Mit den roten Autos kannst du die Idee selbst testen: Wohin du schaust, davon siehst du mehr. Wie viele rote Autos hast du gezählt?
+Eine Spielregel aus alter Weisheitstradition lautet „Gleiches zieht Gleiches an". Ich erkläre sie als Denkmodell. Ein Naturgesetz ist sie nicht. Mit den roten Autos kannst du die Idee selbst testen: Wohin du schaust, davon siehst du mehr. Wie viele rote Autos hast du gezählt?
 #wachgekuesst #roteautos #aufmerksamkeit #spielregelndeslebens
 
 ### P6: Dein Körper heute (Karussell)
@@ -172,7 +172,7 @@ Folie 5: „Dein Experiment: Atme aus, lockere die Schultern, grüße freundlich
 Folie 6: „Was kommt zurück? Schreib es auf."
 
 Caption:
-Du kannst nicht kontrollieren, wie andere gelaunt sind. Du kannst aber beobachten, was deine Stimmung bei ihnen auslöst. Probier es an der nächsten Kasse. Wie verhältst du dich, wenn du die Regel kennst? Erzähl uns, was du bemerkt hast.
+Du kannst nicht kontrollieren, wie andere gelaunt sind. Du kannst aber beobachten, was deine Stimmung bei ihnen auslöst. Probier es an der nächsten Kasse. Wie verhältst du dich, wenn du die Regel kennst? Mein Vorschlag: Darauf achte ich jetzt, an der Kasse erst auszuatmen und dann zu grüßen. Erzähl uns, was du bemerkt hast.
 #wachgekuesst #resonanz #alltagsexperiment #stimmung
 
 ### P8: Dein Regler (Karussell)
@@ -207,7 +207,7 @@ Folie 5: „Das ist der ideomotorische Effekt. Winzige Bewegungen folgen deinen 
 Folie 6: „Wie innen so außen: ein Denkmodell zum Ausprobieren."
 
 Caption:
-Das ist kein Hexenwerk. Es ist ein bekannter Effekt, der zeigt, wie schnell der Körper Gedanken umsetzt. Wenn du Lust hast, probier es mit einer Kette. Dann erzähl uns, ob dein Pendel gependelt hat. Alle Übungen sind freiwillig, Augen dürfen offen bleiben.
+Dahinter steckt ein bekannter Effekt, der zeigt, wie schnell der Körper Gedanken umsetzt. Wenn du Lust hast, probier es mit einer Kette. Dann erzähl uns, ob dein Pendel gependelt hat. Alle Übungen sind freiwillig, Augen dürfen offen bleiben.
 #wachgekuesst #pendelexperiment #wieinnensoaussen #spielregeln
 
 ### P11: Einladung (Bildpost)
@@ -228,7 +228,7 @@ Folie 4: „Danke an alle, die dabei waren."
 Folie 5: „Der nächste Termin ist in Planung. Schreib uns, wenn du Bescheid wissen möchtest."
 
 Caption:
-Ein Nachmittag voller Tee, kleiner Experimente und guter Gespräche. Danke an jede Einzelne für das Vertrauen und die Offenheit. Wenn du beim nächsten Mal dabei sein möchtest, schreib mir eine Nachricht. Die Fotos zeigen nur Frauen, die ausdrücklich zugestimmt haben.
+Was für ein Nachmittag. Wir haben viel Tee getrunken und noch mehr gelacht. Danke an jede Einzelne für das Vertrauen und die Offenheit. Wenn du beim nächsten Mal dabei sein möchtest, schreib mir eine Nachricht. Die Fotos zeigen nur Frauen, die ausdrücklich zugestimmt haben.
 #wachgekuesst #rueckblick #frauenzusammen #teeundtiefgang
 
 ## 7. Freundinnen für den ersten Nachmittag einladen

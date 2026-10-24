@@ -10,7 +10,7 @@ Geprüft wurden Kombinationen aus "Wachgeküsst" und "wachgekuesst" (mit und ohn
 
 - Kein Coaching Angebot, keine Marke und kein Instagram Account mit diesem Namen im Bereich Coaching, Frauen oder Persönlichkeitsentwicklung gefunden. Die Websuche deckt Instagram nur lückenhaft ab, deshalb ist das kein Freibrief.
 - Die Domain wachgekuesst.de ließ sich über die Suche nicht zuordnen. Sie bitte direkt aufrufen und bei Bedarf über die Denic Abfrage prüfen.
-- Fund: Die ZDF Reisereportage "Wachgeküsst" (Staffel 1, Folge 3 "Urlaub mal wieder in Deutschland", 2021). Quelle: https://www.news.de/tv-aktuell/855917368/wachgekuesst-am-montag-verpasst-folge-3-aus-staffel-1-urlaub-mal-wieder-in-deutschland-tv-wiederholung-und-online-in-der-zdf-mediathek/1/
+- Fund: Die ZDF Reportagereihe "Wachgeküsst" (Staffel 1, Folge 3 "Urlaub mal wieder in Deutschland", 2021). Quelle: https://www.news.de/tv-aktuell/855917368/wachgekuesst-am-montag-verpasst-folge-3-aus-staffel-1-urlaub-mal-wieder-in-deutschland-tv-wiederholung-und-online-in-der-zdf-mediathek/1/
   Einordnung: Ein Fernsehtitel ist kein Coaching Angebot. Wenn er als Werktitel oder Marke geschützt ist, könnte er in den Klassen Bildung und Unterhaltung mit dem Namen kollidieren. Das Risiko schätze ich als gering bis mittel ein, es muss aber im Register geprüft werden.
 - Das Wort kommt aus dem Märchenmotiv (wachküssen). Viele Angebote arbeiten mit diesem Bild, deshalb ist der Name schwerer exklusiv zu machen.
 
@@ -44,7 +44,7 @@ Mustertext Einwilligung Fotos und Videos:
 
 Mustertext Gesundheitshinweis (fürs Heftchen):
 
-> Wachgeküsst ersetzt keine ärztliche, psychotherapeutische oder heilkundliche Behandlung. Die Coachin hat keine Heilerlaubnis und stellt keine Diagnosen. Wenn du körperliche Beschwerden hast, starke Gefühle erlebst oder alte Erinnerungen auftauchen, wende dich bitte an eine Ärztin oder Psychotherapeutin. Jede Übung ist freiwillig. Du darfst die Augen offen lassen, eine Übung auslassen und jederzeit aussteigen.
+> Wachgeküsst ersetzt keine ärztliche, psychotherapeutische oder heilkundliche Behandlung. Die Coachin hat keine Heilerlaubnis und stellt keine Diagnosen. Wenn du körperliche Beschwerden hast, starke Gefühle erlebst oder alte Erinnerungen hochkommen, wende dich bitte an eine Ärztin oder Psychotherapeutin. Jede Übung ist freiwillig. Du darfst die Augen offen lassen, eine Übung auslassen und jederzeit aussteigen.
 
 ## 3. Checkliste für später (Club, Videocall, Angebot online)
 
@@ -54,7 +54,7 @@ Mustertext Gesundheitshinweis (fürs Heftchen):
 - Berufshaftpflicht für die Coaching Tätigkeit, auch online.
 - Teilnahmebedingungen und AGB für den Club, inklusive Widerrufsbelehrung für Verbraucher (Fernabsatz, § 312g BGB).
 - Kündigungsbutton bei Abos (§ 312k BGB): Seit 2022 müssen Abos online über einen gut sichtbaren Button kündbar sein. Der Button führt direkt zum Kündigungsvorgang, Bestätigung per Mail.
-- Urheberrecht im Heftchen: Eigene Texte und Übungen. Zitate aus Büchern oder Bildern nur mit Quelle oder Lizenz. Die Geistigen Gesetze als Denkmodelle, nicht als bewiesene Fakten kennzeichnen.
+- Urheberrecht im Heftchen: Eigene Texte und Übungen. Zitate aus Büchern oder Bildern nur mit Quelle oder Lizenz. Die Geistigen Gesetze ausdrücklich als Denkmodelle kennzeichnen.
 - Markenanmeldung, falls die Prüfung frei ist.
 
 ### 3.1 Heilmittelwerbegesetz (HWG) und Heilpraktikergesetz (HPG)

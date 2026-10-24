@@ -108,7 +108,7 @@ Du brauchst: deine Augen und 30 Sekunden.
 
 So geht es:
 
-1. Lies erst weiter, wenn die Coachin es sagt.
+1. Lies diese Seite erst, wenn die Coachin das Experiment angeleitet hat. Sonst verrät sie dir den Trick.
 2. Schau dich 30 Sekunden im Raum um und zähle still alles, was rot ist.
 3. Trage die Zahl auf Seite 6 ein.
 4. Dann senke den Blick oder schließe die Augen. Welche blauen Dinge hast du gesehen? Schreibe auf, wie viele dir einfallen.
@@ -170,7 +170,7 @@ So geht es:
 
 1. Trage auf Seite 8 ein, wie angespannt du gerade bist (vorher).
 2. Atme durch die Nase auf vier gezählt ein. Atme auf sechs gezählt langsam aus, durch den Mund oder die Nase, so leise wie durch einen Strohhalm.
-3. Mach das etwa sechs bis acht Runden lang, eine Minute. Die Augen darfst du offen lassen.
+3. Mach das etwa sechs Runden lang, das ist eine Minute. Die Augen darfst du offen lassen.
 4. Atme nie gegen dein Gefühl. Wird dir schwindelig oder kribbelig, atme ganz normal weiter. Du kannst jederzeit aufhören.
 5. Trage danach den Wert nachher ein.
 
@@ -414,7 +414,7 @@ Die Regel dieser Stufe heißt Anziehung (siehe Seite 17).
 
 **Der Stuhl**
 
-Wer hat ihn sich ausgedacht, und was war zuerst da, der Gedanke oder der Stuhl? ______________________________
+Wer hat ihn sich ausgedacht? Wie sah der Gedanke aus, bevor es den Stuhl gab? ______________________________
 
 **Mein Wunsch in einem Satz**
 
@@ -448,33 +448,33 @@ ______________________________________________________________
 
 ### Die Spielregeln des Lebens
 
-Sieben alte Denkmodelle aus der Weisheitstradition zum Ausprobieren. Sie sind keine bewiesenen Naturgesetze. Du prüfst selbst, ob sie in deinem Alltag etwas verändern.
+Sieben alte Denkmodelle aus der Weisheitstradition zum Ausprobieren. Naturwissenschaftlich bewiesen sind sie nicht. Du prüfst selbst, ob sie in deinem Alltag etwas verändern.
 
-**1. Rhythmus.** Alles im Leben schwingt zwischen Tun und Ruhen, wie Ebbe und Flut. Wer Pausen als Teil des Spiels einplant, hält länger durch.
-
-So probiere ich es diese Woche aus: ______________________________
-
-**2. Polarität.** Jede Eigenschaft hat ein Gegenstück, und beide gehören zu mir. Ich darf brav und frech sein, je nachdem, was gerade passt.
+**1. Rhythmus.** Alles im Leben schwingt zwischen Tun und Ruhen, wie Ebbe und Flut. Darauf achte ich jetzt: Wenn ich merke, dass ich durchhetze, plane ich eine Pause ein.
 
 So probiere ich es diese Woche aus: ______________________________
 
-**3. Ursache und Wirkung.** Was ich denke und tue, hat Folgen, und oft zeigen sie sich später. Bei einer starken Reaktion frage ich mich, was sie ausgelöst hat.
+**2. Polarität.** Jede Eigenschaft hat ein Gegenstück, und beide gehören zu mir. Darauf achte ich jetzt: Wenn mir automatisch ein Ja rausrutscht, prüfe ich, ob ein freundliches Nein dran ist.
 
 So probiere ich es diese Woche aus: ______________________________
 
-**4. Entsprechung.** Wie innen, so außen, sagt eine alte Weisheit. Mein Inneres und meine Umgebung färben einander, und ich kann an beiden Enden anfangen.
+**3. Ursache und Wirkung.** Was ich denke und tue, hat Folgen, und oft zeigen sie sich später. Darauf achte ich jetzt: Wenn mich etwas stark trifft, atme ich einmal lang aus und frage mich, was die Reaktion ausgelöst hat.
 
 So probiere ich es diese Woche aus: ______________________________
 
-**5. Resonanz.** Wir stecken einander mit Stimmungen an, wie zwei Saiten, die mitschwingen. Ich achte darauf, welche Stimmung ich in einen Raum mitbringe.
+**4. Entsprechung.** Wie innen, so außen, sagt eine alte Weisheit. Mein Inneres und meine Umgebung färben einander. Darauf achte ich jetzt: Wenn ich innerlich hetze, nehme ich mir eine Minute, bevor ich losgehe.
 
 So probiere ich es diese Woche aus: ______________________________
 
-**6. Schwingung.** Alles ist in Bewegung, auch meine Gefühle, und ich kann ihre Tonlage ein Stück verändern. Kleine Handgriffe wie Atmen, Musik oder Erinnern verändern meinen Ton.
+**5. Resonanz.** Wir stecken einander mit Stimmungen an, wie zwei Saiten, die mitschwingen. Darauf achte ich jetzt: Bevor ich einen Raum betrete, atme ich einmal aus und spüre, welche Stimmung ich mitbringe.
 
 So probiere ich es diese Woche aus: ______________________________
 
-**7. Anziehung.** Gleiches zieht Gleiches an, als Bild gesprochen. Meine Aufmerksamkeit richtet sich aus, und wer handelt, trifft die passenden Gelegenheiten eher.
+**6. Schwingung.** Alles ist in Bewegung, auch meine Gefühle, und ich kann ihre Tonlage ein Stück verändern. Darauf achte ich jetzt: Wenn meine Stimmung kippt, greife ich zu meinem Regler von Seite 14.
+
+So probiere ich es diese Woche aus: ______________________________
+
+**7. Anziehung.** Gleiches zieht Gleiches an, als Bild gesprochen. Meine Aufmerksamkeit richtet sich aus, und wer handelt, trifft die passenden Gelegenheiten eher. Darauf achte ich jetzt: Wenn ich mir etwas wünsche, erzähle ich jemandem davon und gehe einen kleinen Schritt.
 
 So probiere ich es diese Woche aus: ______________________________
 

@@ -14,6 +14,8 @@ Zehn kurze Videos, die du selbst mit dem Handy drehst. Jedes Video hat zwei Aufg
 
 Die Texteinblendungen sind kurz gehalten, damit man sie auch ohne Ton lesen kann. Viele schauen Reels unterwegs mit abgeschaltetem Ton.
 
+Zum Heftchen: Manche Videos greifen das Experiment vom Nachmittag auf, andere bringen ein neues mit. Die passenden Heftchenseiten sind Seite 14 (Video 1 und 6), Seite 6 (Video 2 und 9), Seite 4 und 8 (Video 3), Seite 10 (Video 4 und 10), Seite 12 (Video 5 und 8) und Seite 16 (Video 7). Was dort keinen Platz hat, kommt auf die Notizseite 20.
+
 ---
 
 ## Video 1: Kind sein (Stufe 1)
@@ -66,7 +68,7 @@ Wann warst du zuletzt richtig albern? Probier die Minute aus: Stimmung aufschrei
 
 Kennst du das? Du sitzt in einer Runde, jemand fragt „Kannst du das noch übernehmen?", und noch bevor du nachgedacht hast, kommt aus deinem Mund: „Klar, mach ich."
 
-Ich nenne das die Matrix. Damit meine ich keinen Science Fiction Film. Ich meine das unsichtbare Regelwerk, in das wir hineinwachsen. Sei brav. Sei nett. Funktionier. Mach kein Theater. Mädchen sind lieb. Frauen halten zusammen, was zusammengehört.
+Ich nenne das die Matrix, frei nach dem Film. Gemeint ist das unsichtbare Regelwerk, in das wir hineinwachsen. Sei brav. Sei nett. Funktionier. Mach kein Theater. Mädchen sind lieb. Frauen halten zusammen, was zusammengehört.
 
 Keine dieser Regeln wurde uns böse beigebracht. Die meisten kamen von Menschen, die es gut mit uns meinten. Und sie haben ja auch etwas geleistet: Wir haben dazugehört. Das ist für ein Kind überlebenswichtig.
 
@@ -108,15 +110,15 @@ Stell dir vor, ich halte hier eine Zitrone in der Hand. Eine richtig saftige, ge
 
 Merkst du, was in deinem Mund passiert? Bei vielen läuft jetzt Speichel zusammen, manche verziehen sogar das Gesicht. Dabei ist hier gar keine Zitrone. Das war nur ein Bild in deinem Kopf, und dein Körper hat reagiert, als wäre es echt.
 
-Das ist ein ganz einfaches Beispiel für etwas Großes: Dein Nervensystem unterscheidet nicht immer zwischen Vorstellung und Wirklichkeit. Es reagiert auf das, was du ihm zeigst.
+Daran sieht man etwas Wichtiges: Dein Nervensystem unterscheidet nicht immer zwischen Vorstellung und Wirklichkeit. Es reagiert auf das, was du ihm zeigst.
 
 Und genau so funktionieren alte Glaubenssätze. Stell dir einen Satz vor wie „Ich darf keine Fehler machen" oder „Ich muss es allen recht machen". Den hast du irgendwann gelernt, weil er damals geholfen hat. Dein Körper hat gespeichert: Wenn ich es nicht schaffe, wird es gefährlich. Und heute, bei einer kleinen Kritik vom Chef, springt dasselbe Alarmprogramm an. Herz klopft, Magen zieht sich zusammen, die Stimme wird dünn.
 
-Das ist kein Charakterfehler. Dein Körper erinnert sich nur sehr gewissenhaft. Er hat es gelernt, also kann er es auch umlernen.
+Mit deinem Charakter hat das wenig zu tun. Dein Körper erinnert sich einfach sehr gewissenhaft. Er hat es gelernt, und was gelernt ist, lässt sich oft Schritt für Schritt neu lernen.
 
 Dein Experiment: Spür beim nächsten Mal, wenn du dich über etwas aufregst, kurz nach. Wo im Körper sitzt es? Brust, Bauch, Hals? Lege eine Hand dorthin und sag dir innerlich: „Das ist ein altes Programm, und ich bin jetzt hier." Mehr nicht. Schreib abends ins Heftchen, was du beobachtet hast.
 
-Wenn du merkst, dass dich so ein Gefühl sehr stark überrollt, such dir bitte Unterstützung bei einer Therapeutin oder einem Therapeuten. Das ist eine gute Entscheidung, keine Schwäche.
+Wenn du merkst, dass dich so ein Gefühl sehr stark überrollt, such dir bitte Unterstützung bei einer Therapeutin oder einem Therapeuten. Das ist eine gute und mutige Entscheidung.
 
 **Mitmachexperiment:** Zitrone vorstellen und den Mund beobachten. Danach im Alltag bei einem Aufreger kurz nachspüren, wo der Körper reagiert, und abends im Heftchen notieren. Alles freiwillig, Augen offen, jederzeit aussteigen.
 
@@ -126,10 +128,10 @@ Wenn du merkst, dass dich so ein Gefühl sehr stark überrollt, such dir bitte U
 * Skizze im Heftchen: Körperumriss, in den du die Stelle einzeichnest
 * Hand auf der Brust, ruhiger Atem, Lichtstimmung warm
 
-**Texteinblendung:** „Deine Zitrone gibt es gar nicht. Dein Mund hat trotzdem reagiert." und „Alte Programme lassen sich umlernen."
+**Texteinblendung:** „Deine Zitrone gibt es gar nicht. Dein Mund hat trotzdem reagiert." und „Was gelernt ist, darf neu gelernt werden."
 
 **Caption für Instagram:**
-Dein Mund hat gerade auf eine Zitrone reagiert, die nie da war. So schnell wirkt Vorstellung auf den Körper. Genau deshalb haben alte Glaubenssätze so viel Einfluss. Wie war es bei dir: Wasser im Mund, Gesicht verzogen oder nichts? Schreib es mir. Bei starken Gefühlen suche dir bitte therapeutische Unterstützung.
+Dein Mund hat gerade auf eine Zitrone reagiert, die nie da war. So schnell wirkt Vorstellung auf den Körper. Genau deshalb haben alte Glaubenssätze so viel Einfluss. Was hat dein Mund gemacht? Schreib es mir, jede Reaktion ist normal, auch keine. Bei starken Gefühlen suche dir bitte therapeutische Unterstützung.
 #wachgekuesst #glaubenssaetze #nervensystem #zitronenexperiment #selbstfuersorge
 
 ---
@@ -148,7 +150,7 @@ Und jetzt denk mal an alles, worum du dich nie kümmern musst. Dein Herz schläg
 
 Ich bin keine Ärztin und werde dir niemals erzählen, was du gegen irgendeine Krankheit tun sollst. Aber ich finde, wir sollten öfter staunen, wie viel unser Körper leistet, bevor wir uns über ihn ärgern, weil der Bauch rund ist oder das Knie knackt.
 
-Dazu gehört auch die Vorstellungskraft. Du hast vorhin bei der Zitrone gesehen, wie schnell das Gehirn Bilder in Körpergefühl verwandelt. Das ist Hochleistung.
+Dazu gehört auch die Vorstellungskraft. Im Zitronenvideo hast du gesehen, wie schnell das Gehirn Bilder in Körpergefühl verwandelt. Das ist Hochleistung.
 
 Dein Experiment dauert eine Minute. Setz dich bequem hin, Augen auf oder zu, wie du magst. Zähl deine Atemzüge. Spür, wie der Brustkorb sich hebt. Leg dann zwei Finger an den Hals oder ans Handgelenk und such deinen Puls. Du wirst ihn finden. Er ist seit deiner Geburt da, jede einzelne Sekunde.
 
@@ -180,7 +182,7 @@ Wie oft hast du heute schon geatmet? Du hast vermutlich nicht mitgezählt. Dein 
 
 Kennst du das? Du kommst nach Hause, die Tür ist kaum zu, und du weißt: Heute ist dicke Luft. Niemand hat etwas gesagt. Du hast es trotzdem gespürt.
 
-In der Physik gibt es ein schönes Bild dafür. Alles um uns herum, selbst ein Tisch oder eine Tasse, besteht im Kern aus winzigen Teilchen, die ständig in Bewegung sind. Ich verwende das als Bild, nicht als Beweis für irgendetwas Esoterisches. Es erinnert mich daran, dass nichts wirklich still steht.
+In der Physik gibt es ein schönes Bild dafür. Alles um uns herum, selbst ein Tisch oder eine Tasse, besteht im Kern aus winzigen Teilchen, die ständig in Bewegung sind. Ich verwende das ausdrücklich als Bild. Beweisen lässt sich damit nichts über Gefühle. Mich erinnert es daran, dass nichts wirklich still steht.
 
 Für unser Zusammenleben gibt es dafür nüchterne, gut untersuchte Erklärungen. Wir haben Spiegelneuronen, die uns Bewegungen und Gefühle anderer innerlich mitvollziehen lassen. Wir stecken uns mit Gefühlen an, so wie beim Gähnen. Und unser Nervensystem beruhigt sich in der Nähe eines ruhigen Menschen, Fachleute nennen das Co Regulation. Jede, die schon einmal ein Baby beruhigt hat, kennt das: Das Kind wird ruhig, wenn du selbst ruhig wirst.
 
@@ -216,11 +218,11 @@ Warum stecken uns Stimmungen an? Spiegelneuronen, Gefühlsansteckung und gegense
 
 Ich höre manchmal den Satz: „Ich kann nichts dafür, ich bin eben so drauf." Und ich verstehe das. Manche Tage sind schwer, manche Gefühle sind größer als wir. Das ist völlig in Ordnung.
 
-Und trotzdem haben wir mehr Einfluss, als wir oft glauben. Auf alles, was passiert, vielleicht nicht, aber auf das, was in uns daraus wird.
+Und trotzdem haben wir mehr Einfluss, als wir oft glauben. Was passiert, können wir oft nicht steuern. Was in uns daraus wird, schon eher.
 
 Stell dir dein Innenleben vor wie ein Radio. Du kannst den Sender nicht jederzeit ganz frei wählen, aber du hast einen Drehregler. Einen kleinen Spielraum. Und der reicht oft aus, um zu verändern, wie du in eine Begegnung gehst. Wenn du ruhiger bist, antwortest du ruhiger, und dein Gegenüber schwingt meist ein Stück mit. Das hatten wir ja schon bei der Resonanz.
 
-Ein einfacher Drehregler ist der Atem. Wenn du länger ausatmest als einatmest, schaltet dein Körper nach und nach auf Beruhigung. Das ist gut belegt und gleichzeitig angenehm einfach.
+Ein einfacher Drehregler ist der Atem. Wenn du länger ausatmest als einatmest, schaltet dein Körper nach und nach auf Beruhigung. Dafür gibt es gute Hinweise aus der Forschung, und es ist angenehm einfach.
 
 Dein Experiment: Trag zuerst deine Stimmung auf der Skala von 1 bis 10 ein. Dann atme sechs Mal durch die Nase ein, zähl dabei bis vier, und durch den Mund wieder aus, zähl dabei bis sechs. Stell die Füße fest auf den Boden und richte dich ein Stück auf. Augen offen ist völlig in Ordnung. Wenn dir schwindelig wird oder es unangenehm ist, hör sofort auf und atme einfach normal.
 
@@ -258,7 +260,7 @@ Das ist für mich der Kern von Manifestation. Ein Wunsch oder ein Bild gibt die 
 
 Ich verspreche dir keine Wunder. Dass dir alles zufliegt, wenn du nur fest genug daran denkst, halte ich für Quatsch. Und ich sage ganz klar: Niemand ist schuld an einer Krankheit, an einem Verlust oder daran, wenig Geld zu haben. Das Leben ist nicht so einfach gestrickt, dass man alles mit einem Gedanken steuern könnte.
 
-Was ich dir anbieten kann, ist eine Einladung. Eine Ausrichtung. Wenn du innerlich schon ein bisschen so fühlst, als hättest du, was du dir wünschst, handelst du anders. Du gehst aufrechter, sprichst freier, bemerkst Gelegenheiten, die vorher an dir vorbeigezogen sind. Das nenne ich aus der Fülle handeln statt aus dem Mangel.
+Was ich dir anbieten kann, ist eine Einladung. Eine Ausrichtung. Wenn du innerlich schon ein bisschen so fühlst, als hättest du, was du dir wünschst, handelst du oft anders. Du gehst aufrechter, sprichst freier, bemerkst Gelegenheiten, die vorher an dir vorbeigezogen sind. Das nenne ich aus der Fülle handeln.
 
 Dein Experiment hat zwei Schritte. Erstens: Schließ die Augen oder schau einfach vor dich hin und stell dir eine Minute lang vor, wie ein Tag aussieht, an dem es dir richtig gut geht. Wo bist du? Was hast du an? Wer ist dabei? Wie fühlt sich dein Körper an? Schreib danach drei Stichworte ins Heftchen.
 
@@ -292,9 +294,9 @@ Stell dir die Supermarktkasse vor. Lange Schlange, zwei Kassen offen, eine Kundi
 
 Dann bist du dran. Die Kassiererin schaut dich an, sagt nichts, und trotzdem spürst du ihre Stimmung. Gestresst? Müde? Freundlich?
 
-Eine geistige Spielregel aus alter Weisheitstradition heißt Resonanz. Gemeint ist: Was in mir schwingt, findet in anderen eine Antwort. Ich erzähle sie dir als Denkmodell zum Ausprobieren, nicht als bewiesene Naturwissenschaft. Aber der Kern lässt sich im Alltag gut überprüfen. Wir stecken uns an mit Gefühlen. Wenn ich gehetzt und genervt ankomme, wird mein Gegenüber meist auch angespannter. Wenn ich ruhig und freundlich ankomme, passiert oft das Gegenteil.
+Eine geistige Spielregel aus alter Weisheitstradition heißt Resonanz. Gemeint ist: Was in mir schwingt, findet in anderen eine Antwort. Ich erzähle sie dir als Denkmodell zum Ausprobieren, bewiesen ist sie naturwissenschaftlich nicht. Der Kern lässt sich im Alltag gut überprüfen. Wir stecken uns an mit Gefühlen. Wenn ich gehetzt und genervt ankomme, wird mein Gegenüber meist auch angespannter. Wenn ich ruhig und freundlich ankomme, passiert oft das Gegenteil.
 
-Das Schöne an dieser Regel ist die Frage, die daraus folgt: Wie verhalte ich mich jetzt, wo ich sie kenne?
+Das Schöne an dieser Regel ist die Frage, die daraus folgt: Wie verhalte ich mich jetzt, wo ich sie kenne? Darauf achte ich jetzt: Bevor ich irgendwo an der Reihe bin, atme ich erst aus und rede dann.
 
 Dein Experiment für die nächste Kasse, an der du stehst. Atme einmal tief aus, bevor du an der Reihe bist. Lass die Schultern sinken. Schau der Kassiererin kurz in die Augen und sag ein ehrlich gemeintes „Guten Tag, wie läuft's bei Ihnen?" Dann beobachte, was zurückkommt.
 
@@ -332,11 +334,11 @@ Und jetzt, ohne noch einmal hinzuschauen: Wie viele blaue Dinge waren im Raum? K
 
 Dein Gehirn hat gefiltert. Es hat dir gezeigt, wonach du gesucht hast, und den Rest ausgeblendet. Psychologinnen sprechen von selektiver Aufmerksamkeit.
 
-Jetzt kommt die geistige Spielregel dazu. In alter Weisheitstradition heißt sie „Gleiches zieht Gleiches an". Ich erkläre sie dir als Denkmodell, nicht als bewiesenes Naturgesetz. Mein Alltagsbild dafür sind die roten Autos. Wenn du dir heute vornimmst, auf rote Autos zu achten, siehst du plötzlich überall welche. Gestern waren sie auch da, du hast sie nur nicht gesehen.
+Jetzt kommt die geistige Spielregel dazu. In alter Weisheitstradition heißt sie „Gleiches zieht Gleiches an". Ich erkläre sie dir als Denkmodell. Ein bewiesenes Naturgesetz ist sie nicht. Mein Alltagsbild dafür sind die roten Autos. Wenn du dir heute vornimmst, auf rote Autos zu achten, siehst du plötzlich überall welche. Gestern waren sie auch da, du hast sie nur nicht gesehen.
 
 Übertrag das auf dein Leben. Wenn ich morgens denke „Heute geht bestimmt alles schief", dann sammelt mein Blick Beweise dafür: den Stau, den kalten Kaffee, die genervte Kollegin. Wenn ich mir vornehme, Kleinigkeiten zu bemerken, die mich freuen, sehe ich eben davon mehr. Das Leben ist dasselbe, mein Suchprogramm ist ein anderes.
 
-Und wieder die Frage: Wie verhalte ich mich jetzt, wo ich diese Regel kenne?
+Und wieder die Frage: Wie verhalte ich mich jetzt, wo ich diese Regel kenne? Darauf achte ich jetzt: Wenn ich morgens merke, dass ich Beweise für einen schlechten Tag sammle, gebe ich meinem Blick einen freundlicheren Suchauftrag.
 
 Dein Experiment für morgen: Such dir eine Farbe oder ein Objekt aus, zum Beispiel gelbe Blumen oder rote Autos. Zähle sie einen Tag lang, und zwar als Fußgängerin oder Beifahrerin, nicht am Steuer. Abends schreibst du ins Heftchen die Zahl auf. Und am Tag darauf wählst du eine kleine Freude als Suchauftrag, zum Beispiel „freundliche Gesichter", und zählst auch diese.
 
@@ -368,13 +370,13 @@ Ich habe hier eine Kette. Ein Faden mit einem kleinen Anhänger daran würde auc
 
 Jetzt denke ich nur ein einziges Wort: „vor und zurück". Ich bewege nichts, ich denke es nur. Schau mal. Der Anhänger beginnt zu schwingen.
 
-Das hat keine Geheimkraft. Es ist der sogenannte ideomotorische Effekt. Winzige Muskelbewegungen, die wir gar nicht merken, folgen unseren Gedanken. Dein Körper setzt aus, was du dir vorstellst. Und genau das macht das Experiment so spannend: Ein Gedanke von innen zeigt sich als Bewegung außen.
+Dahinter steckt der sogenannte ideomotorische Effekt. Winzige Muskelbewegungen, die wir gar nicht merken, folgen unseren Gedanken. Dein Körper setzt um, was du dir vorstellst. Und genau das macht das Experiment so spannend: Ein Gedanke von innen zeigt sich als Bewegung außen.
 
-Hier kommt eine geistige Spielregel aus alter Weisheitstradition ins Spiel: „Wie innen so außen", oft Entsprechung genannt. Sie sagt: Was in mir los ist, spiegelt sich in dem, was ich draußen erlebe und wie ich es wahrnehme. Ich biete dir das als Denkmodell zum Ausprobieren an, nicht als wissenschaftlichen Beweis.
+Hier kommt eine geistige Spielregel aus alter Weisheitstradition ins Spiel: „Wie innen so außen", oft Entsprechung genannt. Sie sagt: Was in mir los ist, spiegelt sich in dem, was ich draußen erlebe und wie ich es wahrnehme. Ich biete dir das als Denkmodell zum Ausprobieren an. Wissenschaftlich bewiesen ist es nicht.
 
 Ein Alltagsbeispiel: Du bist innerlich unter Druck, und plötzlich nervt dich alles. Der Nachbar, der Verkehr, die Mails. Bist du entspannt, sieht dieselbe Welt freundlicher aus. Dein Innen färbt dein Außen, wie eine Sonnenbrille die Landschaft.
 
-Und wieder die Frage: Wie verhalte ich mich jetzt, wo ich diese Regel kenne? Vielleicht frage ich mich, wenn mich jemand ärgert: Was hat das gerade mit mir zu tun? Ohne Schuldzuweisung, nur mit Neugier. Manchmal lautet die Antwort „Nichts, die Person hatte einen schlechten Tag", und das ist auch eine gute Antwort.
+Und wieder die Frage: Wie verhalte ich mich jetzt, wo ich diese Regel kenne? Darauf achte ich jetzt: Wenn mich jemand ärgert, frage ich mich kurz, was das gerade mit mir zu tun hat. Ohne Schuldzuweisung, nur mit Neugier. Manchmal lautet die Antwort „Nichts, die Person hatte einen schlechten Tag", und das ist auch eine gute Antwort.
 
 Dein Experiment: Hol dir einen Faden oder eine Kette mit etwas Gewicht dran. Halte sie ruhig. Denk nur „vor und zurück" und schau. Dann denk „im Kreis". Du darfst die Augen offen lassen. Notiere im Heftchen, was passiert ist, und überlege, welche Gedanken noch ihre Spuren in dir hinterlassen.
 
@@ -386,8 +388,8 @@ Dein Experiment: Hol dir einen Faden oder eine Kette mit etwas Gewicht dran. Hal
 * Du hältst eine Sonnenbrille vor die Kamera und setzt sie dir auf
 * Split Screen: gleicher Straßenblick einmal grau gefiltert, einmal warm
 
-**Texteinblendung:** „Denk nur: vor und zurück." und „Wie innen, so außen: Ausprobieren statt glauben."
+**Texteinblendung:** „Denk nur: vor und zurück." und „Wie innen, so außen: einfach ausprobieren."
 
 **Caption für Instagram:**
-Ein Faden, ein Gedanke, ein schwingender Anhänger. Der ideomotorische Effekt zeigt, wie schnell der Körper Gedanken umsetzt. Daran erkläre ich die Spielregel „Wie innen so außen". Hast du es probiert? Erzähl mir, ob dein Pendel schwingt. Als Denkmodell zum Ausprobieren, nicht als Beweis.
+Ein Faden, ein Gedanke, ein schwingender Anhänger. Der ideomotorische Effekt zeigt, wie schnell der Körper Gedanken umsetzt. Daran erkläre ich die Spielregel „Wie innen so außen". Hast du es probiert? Erzähl mir, ob dein Pendel schwingt. Ein Denkmodell zum Ausprobieren.
 #wachgekuesst #wieinnensoaussen #pendelexperiment #spielregeln #frauenwissen

@@ -91,7 +91,7 @@ Puffer: Wenn es läuft, ist die Pause die Stelle zum Aufholen. Kürze bei Zeitno
 
 > Ihr habt eben erzählt, womit ihr als Kind gespielt habt. Hast du gemerkt, wie sich dein Gesicht verändert hat, als du davon gesprochen hast? Da blitzt etwas auf. Kinder sind noch nicht auf Funktionieren eingestellt. Sie laufen, wenn ihnen danach ist, sie lachen laut, sie fragen hundertmal warum, und wenn sie müde sind, schlafen sie mitten auf dem Teppich ein.
 >
-> Irgendwo in dir sitzt dieses Kind noch. Es ist nicht weg, es wartet nur ab. Heute geht es nicht um Kindheitsdramen, die lassen wir in der Schublade. Wir nehmen nur das Leichte, das Neugierige, das Spielerische.
+> Irgendwo in dir sitzt dieses Kind noch. Es wartet nur ab. Kindheitsdramen lassen wir heute in der Schublade. Wir nehmen nur das Leichte, das Neugierige, das Spielerische.
 >
 > Fangen wir mit einem Mini Spiel an, das jedes Kind sofort versteht. Vorstellungskraft. Kinder brauchen keinen Zauberstab, ihnen reicht ein Stock, und schon ist es ein Schwert oder ein Pferd. Und unser Körper spielt mit. Das zeigt dir gleich eine Zitrone.
 >
@@ -111,7 +111,7 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 
 **Heftchenaufgabe:** Seite 3 (Gedanke und Anleitung), Seite 4 (Zitrone eintragen, Kindheitsfrage, Reflexion).
 
-**Geistige Regel: Rhythmus.** Alles im Leben schwingt zwischen Tun und Ruhen, wie Ebbe und Flut. Alltagsbeispiel: Kinder toben und kippen dann um. Erwachsene schieben die Pause weg und wundern sich über den Absturz am Abend. Frage an die Gruppe: Wie verhalte ich mich jetzt, wenn ich weiß, dass Pausen zum Spiel gehören? Eine Antwort darf klein sein: heute Abend 15 Minuten ohne Handy.
+**Geistige Regel: Rhythmus.** Alles im Leben schwingt zwischen Tun und Ruhen, wie Ebbe und Flut. Alltagsbeispiel: Kinder toben und kippen dann um. Erwachsene schieben die Pause weg und wundern sich über den Absturz am Abend. Frage an die Gruppe: Wie verhalte ich mich jetzt, wenn ich weiß, dass Pausen zum Spiel gehören? Darauf achte ich jetzt: Wenn ich merke, dass ich durchhetze, plane ich eine kleine Pause ein, heute Abend zum Beispiel 15 Minuten ohne Handy.
 
 **Sicherheit:** Zitrone nur riechen oder probieren, wenn es passt (Zitrusallergie, Magenprobleme, Zahnschmelz). Kindheitserinnerungen bleiben bei leichten Szenen. Wem etwas Schweres hochkommt, darf auf einen anderen Moment wechseln oder aussetzen.
 
@@ -137,7 +137,7 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 
 **Experiment: Alles Rote zählen**
 
-1. Alle öffnen Heftchen Seite 6. Sie lesen noch nicht weiter.
+1. Alle legen das Heftchen geschlossen auf den Schoß. Seite 5 und 6 schlagen sie erst nach dem Zählen auf, sonst verrät das Heftchen den Trick.
 2. Du sagst: "Schau dich 30 Sekunden im Raum um und zähle alles, was rot ist. Zähl still und trage die Zahl nachher ein."
 3. Stoppe 30 Sekunden.
 4. Dann: "Augen schließen oder Blick senken. Nenne in Gedanken alles Blaue, das du gesehen hast." Pause von 20 Sekunden.
@@ -146,11 +146,11 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 
 **Austausch (9 Minuten):** In Paaren: "Wo bin ich brav, obwohl niemand zuschaut?" Jede Frau hat 3 Minuten, die andere hört nur zu. Danach 3 Minuten Blitzlicht im Kreis.
 
-**Heftchenaufgabe:** Seite 5 (Gedanke und Anleitung), Seite 6 (Rot und Blau eintragen, drei Sätze "Das tue ich, weil man das so macht", Reflexionsfrage).
+**Heftchenaufgabe:** Seite 5 (Gedanke und Anleitung), Seite 6 (Rot und Blau eintragen, drei Sätze "Das tue ich, weil man das eben so macht", Autopilot Skala, Reflexionsfrage).
 
-**Geistige Regel: Polarität.** Jede Eigenschaft hat ein Gegenstück, und beide gehören zu mir. Alltagsbeispiel: Eine Frau ist im Büro verlässlich und freundlich. Sie darf am Wochenende auch frech und laut sein. Beides ist sie. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass das Gegenteil meiner Rolle auch in mir wohnt? Vielleicht erlaube ich mir morgen ein freundliches Nein.
+**Geistige Regel: Polarität.** Jede Eigenschaft hat ein Gegenstück, und beide gehören zu mir. Alltagsbeispiel: Eine Frau ist im Büro verlässlich und freundlich. Sie darf am Wochenende auch frech und laut sein. Beides ist sie. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass das Gegenteil meiner Rolle auch in mir wohnt? Darauf achte ich jetzt: Wenn mir automatisch ein Ja rausrutscht, prüfe ich kurz, ob gerade ein freundliches Nein dran ist.
 
-**Sicherheit:** Es geht um Anpassung, nicht um Schuld der Eltern oder anderer. Bremse Gespräche, die in Anklage kippen, freundlich mit: "Schau, was du für dich mitnimmst."
+**Sicherheit:** Es geht um Anpassung. Schuld suchen wir weder bei den Eltern noch bei anderen. Bremse Gespräche, die in Anklage kippen, freundlich mit: "Schau, was du für dich mitnimmst."
 
 ---
 
@@ -174,15 +174,15 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 
 1. Heftchen Seite 8 aufschlagen. Anspannung vorher auf der Skala von 1 bis 10 eintragen.
 2. Bequem sitzen, Füße auf dem Boden, Augen offen oder geschlossen, ganz nach Wunsch.
-3. Einatmen durch die Nase auf vier gezählt. Ausatmen durch den Mund oder die Nase auf sechs gezählt, leise, wie durch einen Strohhalm. Insgesamt eine Minute, also etwa sechs bis acht Runden. Du zählst langsam laut mit.
+3. Einatmen durch die Nase auf vier gezählt. Ausatmen durch den Mund oder die Nase auf sechs gezählt, leise, wie durch einen Strohhalm. Das Ganze dauert eine Minute, also etwa sechs Runden. Du zählst langsam laut mit.
 4. Danach Anspannung nachher eintragen.
 5. Eine kurze Runde: Wer ist ruhiger geworden? Wer unverändert? Beides ist in Ordnung.
 
-**Austausch (9 Minuten):** Zuerst alleine einen Satz aus Seite 7 ankreuzen oder einen eigenen aufschreiben ("Ein Satz, den ich früh gehört habe"). Dann in Dreiergruppen: Nur sagen, wo im Körper man den Satz spürt. Kein Erklären, kein Bewerten.
+**Austausch (9 Minuten):** Zuerst alleine auf Seite 8 einen Satz aus den Beispielen wählen oder einen eigenen aufschreiben ("Ein Satz, den ich früh gehört habe"). Dann in Dreiergruppen: Nur sagen, wo im Körper man den Satz spürt. Kein Erklären, kein Bewerten.
 
-**Heftchenaufgabe:** Seite 7 (Gedanke, Glaubenssatz finden), Seite 8 (Atemexperiment, Körperstelle ankreuzen, Reflexionsfrage).
+**Heftchenaufgabe:** Seite 7 (Gedanke, Anleitung zur langen Ausatmung), Seite 8 (Anspannung vorher und nachher, Glaubenssatz finden, Körperstelle ankreuzen, Reflexionsfrage).
 
-**Geistige Regel: Ursache und Wirkung.** Was ich denke und tue, hat Folgen, und oft zeigen sie sich später. Alltagsbeispiel: Du reagierst auf eine Bemerkung scharf. Die Ursache liegt oft früher, als der Satz zum ersten Mal wehgetan hat. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass meine Reaktion eine Vorgeschichte hat? Vielleicht atme ich einmal lang aus, bevor ich antworte.
+**Geistige Regel: Ursache und Wirkung.** Was ich denke und tue, hat Folgen, und oft zeigen sie sich später. Alltagsbeispiel: Du reagierst auf eine Bemerkung scharf. Die Ursache liegt oft früher, als der Satz zum ersten Mal wehgetan hat. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass meine Reaktion eine Vorgeschichte hat? Darauf achte ich jetzt: Wenn mich eine Bemerkung trifft, atme ich einmal lang aus, bevor ich antworte.
 
 **Sicherheit:**
 
@@ -204,7 +204,7 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 >
 > Ein kleiner Tipp für diese Viertelstunde: Sprich mit jemandem, mit der du heute noch nicht gesprochen hast. Frag sie, was sie bisher am meisten überrascht hat. Aber bitte nur, wenn dir danach ist. Ein Stück Kuchen am Fenster zählt auch als Beitrag.
 >
-> Um 1:25 Uhr geht es weiter, ich läute ein Glöckchen. Danach geht es um deinen Körper, den wahrscheinlich größten Mitarbeiter, den du je hattest. Und du hast ihm nie ein Gehalt gezahlt.
+> In einer Viertelstunde geht es weiter, ich läute ein Glöckchen. Danach geht es um deinen Körper, den wahrscheinlich größten Mitarbeiter, den du je hattest. Und du hast ihm nie ein Gehalt gezahlt.
 >
 > Die Heftchen bleiben auf den Plätzen. Wenn dir etwas einfällt, schreib es gern auf, aber du musst nicht.
 
@@ -230,7 +230,7 @@ Erklärung: Eine lebhafte Vorstellung aktiviert im Körper ähnliche Abläufe wi
 >
 > Ich bin keine Ärztin und sage dir nichts über Heilen. Ich lade dich zum Staunen ein. Dein Körper arbeitet mit dir, so gut er kann, jeden Tag.
 >
-> Und er hört zu. Wenn du an etwas Schönes denkst, wirkt das im Körper. Wenn du dir etwas Peinliches vorstellst, wirst du rot. Das haben wir bei der Zitrone schon gesehen.
+> Und er hört zu. Wenn du an etwas Schönes denkst, wirkt das im Körper. Wenn du dir etwas Peinliches vorstellst, wirst du manchmal sogar rot. Das haben wir bei der Zitrone schon gesehen.
 >
 > Jetzt kommen zwei Mini Experimente. Zuerst spürst du deinen Puls, ganz bodenständig, mit zwei Fingern am Handgelenk. Und dann bekommst du ein Pendel, das ist ein Faden mit einem Ring. Ich sage dir gleich ehrlich, warum es sich bewegt. Es ist ein schönes Beispiel dafür, wie Gedanken im Körper winzige Bewegungen auslösen können.
 
@@ -247,7 +247,7 @@ Teil B, Pendel (6 Minuten):
 1. Jede Frau bekommt einen Faden mit Ring. Ellbogen auf den Tisch oder auf das Knie stützen, Faden zwischen Daumen und Zeigefinger, Ring ruhig und knapp über dem Boden oder Tisch.
 2. Sprich: "Halte den Ring ganz still. Schau auf ihn und denke nur: vor und zurück. Nicht bewegen, nur denken. Eine halbe Minute."
 3. Pause. Dann: "Jetzt denke: im Kreis. Wieder eine halbe Minute."
-4. Ergebnisse im Heftchen ankreuzen: vor und zurück, kreisen oder kaum Bewegung.
+4. Ergebnisse im Heftchen ankreuzen: vor und zurück, im Kreis oder kaum Bewegung.
 5. Erklärung: ideomotorischer Effekt. Gedanken an Bewegung lösen kleinste Muskelbewegungen aus, die wir nicht bemerken. Der Faden vergrößert sie. Das Pendel weiß nichts, wir bewegen es unbewusst selbst. Genau deshalb stellen wir ihm keine Fragen.
 6. Wenn bei einer Frau nichts passiert: normal, auch das ist ein Ergebnis. Nicht anstrengen.
 
@@ -255,7 +255,7 @@ Teil B, Pendel (6 Minuten):
 
 **Heftchenaufgabe:** Seite 9 (Gedanke, Anleitung), Seite 10 (Puls, Pendel, Wunder des Tages, Reflexionsfrage).
 
-**Geistige Regel: Entsprechung.** Wie innen, so außen, sagt eine alte Weisheit. Alltagsbeispiel: Wenn ich innerlich hetze, fällt mir die Tasse aus der Hand. Wenn ich innerlich ruhig bin, geht der Morgen leichter. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass mein Innenleben meine Umgebung mitfärbt? Vielleicht nehme ich mir vor dem Losgehen eine Minute.
+**Geistige Regel: Entsprechung.** Wie innen, so außen, sagt eine alte Weisheit. Alltagsbeispiel: Wenn ich innerlich hetze, fällt mir die Tasse aus der Hand. Wenn ich innerlich ruhig bin, geht der Morgen leichter. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass mein Innenleben meine Umgebung mitfärbt? Darauf achte ich jetzt: Wenn ich innerlich hetze, nehme ich mir vor dem Losgehen eine Minute.
 
 **Sicherheit:** Beim Puls keine Panik bei Abweichungen, die Zahl ist nur ein Richtwert. Bei Herzproblemen die Pulsmessung freiwillig lassen. Keine Fragen ans Pendel (Ja oder Nein Fragen, Lebensentscheidungen). Kein Pendel über Körpern anderer.
 
@@ -269,7 +269,7 @@ Teil B, Pendel (6 Minuten):
 
 **Moderationstext:**
 
-> Ich möchte dir ein Bild schenken. In der Physik heißt es, alles, was wir anfassen, besteht im Kern aus winzigen Teilchen in Bewegung, die meiste Zeit ist dazwischen Raum. Ein Tisch fühlt sich fest an, aber im Kleinen tanzt da einiges. Ich sage dazu ganz deutlich: Das ist ein Bild, eine Metapher. Ich beweise damit nichts über Gefühle. Aber ein Bild darf trotzdem helfen, wenn es uns etwas erklärt.
+> Ich möchte dir ein Bild schenken. In der Physik heißt es, alles, was wir anfassen, besteht im Kern aus winzigen Teilchen in Bewegung, und dazwischen ist viel Raum. Ein Tisch fühlt sich fest an, aber im Kleinen tanzt da einiges. Ich sage dazu ganz deutlich: Das ist ein Bild, eine Metapher. Ich beweise damit nichts über Gefühle. Ein Bild darf trotzdem helfen, wenn es uns etwas erklärt.
 >
 > Und was es erklärt, kennst du längst. Du kommst in einen Raum und merkst, hier ist dicke Luft. Die Kassiererin hat schlechte Laune, und plötzlich bist du selbst gereizt. Dein Chef kommt gestresst rein, und die ganze Abteilung atmet flacher. Die Wissenschaft hat dafür Namen: Gefühlsansteckung, Spiegelneuronen, Co Regulation. Unsere Nervensysteme kommunizieren miteinander, oft ohne Worte.
 >
@@ -279,18 +279,18 @@ Teil B, Pendel (6 Minuten):
 
 **Experiment: Lächeln zu zweit**
 
-1. Paare bilden, Dreiergruppe bei ungerader Zahl. Gegenüber sitzen, ein Stuhllänge Abstand, kein Körperkontakt.
+1. Paare bilden, Dreiergruppe bei ungerader Zahl. Gegenüber sitzen, eine Stuhllänge Abstand, kein Körperkontakt.
 2. Runde 1 (je 30 Sekunden): A schaut mit ruhigem, neutralem Gesicht. B beobachtet, was in ihr entsteht. Skala von 1 bis 10: Wie warm wird mir?
 3. Runde 2 (je 30 Sekunden): A lächelt freundlich, ohne zu sprechen. B beobachtet wieder und trägt die Wärme ein.
 4. Tauschen.
 5. Gemeinsames Gespräch: Hat sich etwas verändert? Bei wem hat das Lächeln etwas ausgelöst, ohne dass sie wollte?
-6. Erklärung: Wir spiegeln mimische Signale und erleben danach ähnliche Gefühle. Das ist gut untersucht und kein Hexenwerk.
+6. Erklärung: Wir spiegeln mimische Signale und erleben danach ähnliche Gefühle. Das ist gut untersucht.
 
 **Austausch (8 Minuten):** Runde: "Wessen Stimmung spüre ich als erste, wenn ich nach Hause komme?" Danach: Wie fände sie es, wenn ich anders hereinkäme?
 
 **Heftchenaufgabe:** Seite 11 (Gedanke, Anleitung), Seite 12 (Lächelexperiment eintragen, Stimmungsradar, Reflexionsfrage).
 
-**Geistige Regel: Resonanz.** Wir stecken einander mit Stimmungen an, wie zwei Saiten, die mitschwingen. Alltagsbeispiel: Eine freundliche Begrüßung am Bäckertresen verändert oft den nächsten Satz der Verkäuferin. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass meine Stimmung im Raum ankommt? Vielleicht atme ich vor der Haustür einmal aus, bevor ich klingele.
+**Geistige Regel: Resonanz.** Wir stecken einander mit Stimmungen an, wie zwei Saiten, die mitschwingen. Alltagsbeispiel: Eine freundliche Begrüßung am Bäckertresen verändert oft den nächsten Satz der Verkäuferin. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass meine Stimmung im Raum ankommt? Darauf achte ich jetzt: Vor der Haustür atme ich einmal aus, bevor ich klingele.
 
 **Sicherheit:** Augenkontakt ist freiwillig, und wer Nähe schwierig findet, darf in den Raum schauen oder mit mir üben. Keine Umarmungen und kein Anfassen. Niemand muss lächeln, wenn ihr nicht danach ist. Sage das ausdrücklich.
 
@@ -325,7 +325,7 @@ Teil B, Pendel (6 Minuten):
 
 **Heftchenaufgabe:** Seite 13 (Gedanke), Seite 14 (Skala vorher und nachher, Regler, Reflexionsfrage).
 
-**Geistige Regel: Schwingung.** Alles ist in Bewegung, auch meine Gefühle, und ich kann ihre Tonlage ein Stück verändern. Alltagsbeispiel: Du hörst im Auto ein altes Lieblingslied und singst plötzlich mit. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass kleine Handgriffe meine Tonlage verändern? Vielleicht lege ich mir eine Playlist für Montagmorgen an.
+**Geistige Regel: Schwingung.** Alles ist in Bewegung, auch meine Gefühle, und ich kann ihre Tonlage ein Stück verändern. Alltagsbeispiel: Du hörst im Auto ein altes Lieblingslied und singst plötzlich mit. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass kleine Handgriffe meine Tonlage verändern? Darauf achte ich jetzt: Wenn meine Stimmung kippt, greife ich zu meinem Regler, zum Beispiel zu einer Playlist für Montagmorgen.
 
 **Sicherheit:** Erinnerungen leicht halten. Wer Tränen bekommt, darf sie haben, du bleibst ruhig (siehe Abschnitt "Wenn es mal emotional wird"). Nenne offen: Nicht jeden Tag wirkt es gleich, und wer wenig spürt, macht nichts falsch.
 
@@ -358,7 +358,7 @@ Teil B, Pendel (6 Minuten):
 
 **Heftchenaufgabe:** Seite 15 (Gedanke), Seite 16 (Stuhl, Wunsch, Gefühl, erster Schritt, Reflexionsfrage).
 
-**Geistige Regel: Anziehung.** Gleiches zieht Gleiches an, als Bild gesprochen. Meine Aufmerksamkeit richtet sich aus, und wer handelt, trifft die passenden Gelegenheiten eher. Alltagsbeispiel: Wer eine neue Stelle sucht und es drei Freundinnen erzählt, hört plötzlich von einer Anzeige. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass Aufmerksamkeit und Handeln zusammengehören? Vielleicht erzähle ich morgen jemandem von meinem Wunsch.
+**Geistige Regel: Anziehung.** Gleiches zieht Gleiches an, als Bild gesprochen. Meine Aufmerksamkeit richtet sich aus, und wer handelt, trifft die passenden Gelegenheiten eher. Alltagsbeispiel: Wer eine neue Stelle sucht und es drei Freundinnen erzählt, hört plötzlich von einer Anzeige. Frage: Wie verhalte ich mich jetzt, wenn ich weiß, dass Aufmerksamkeit und Handeln zusammengehören? Darauf achte ich jetzt: Wenn ich mir etwas wünsche, erzähle ich jemandem davon und gehe einen kleinen Schritt.
 
 **Sicherheit:** Wünsche bleiben im Rahmen: keine Heilversprechen für Krankheiten, keine Aussagen wie "Du hast es dir angezogen". Falls eine Frau von einem Verlust spricht, würdige ihn und bleibe bei der Haltung: Das war nicht deine Schuld.
 
@@ -374,7 +374,7 @@ Teil B, Pendel (6 Minuten):
 
 > Wir sind am Ende. Zurück zu Seite 2 am Anfang: Dort hast du eine Zahl angekreuzt. Schau jetzt auf Seite 18 und trage deine Stimmung von heute Nachmittag ein. Ob die Zahl höher oder niedriger ist, bleibt ganz dir überlassen. Sie ist eine Momentaufnahme.
 >
-> Auf Seite 17 stehen die Spielregeln des Lebens, die uns heute begleitet haben. Das sind Denkmodelle aus alter Weisheitstradition, keine bewiesenen Naturgesetze. Wähle eine aus, die dich angesprochen hat, und schreibe in die Zeile darunter, wie du sie diese Woche ausprobierst. Eine kleine Idee reicht.
+> Auf Seite 17 stehen die Spielregeln des Lebens, die uns heute begleitet haben. Das sind Denkmodelle aus alter Weisheitstradition. Naturwissenschaftlich bewiesen sind sie nicht. Wähle eine aus, die dich angesprochen hat, und schreibe in die Zeile darunter, wie du sie diese Woche ausprobierst. Eine kleine Idee reicht.
 >
 > Jetzt kommt der schönste Teil, finde ich: der Wachküssbrief. Du schreibst einen Brief an dich selbst. Was du heute gespürt hast, was du dir gönnst, was du in den nächsten drei Wochen ausprobieren willst. Schreib so, wie du mit einer guten Freundin reden würdest. Ich lege leise Musik auf, du hast acht Minuten. Der Brief kommt in den Umschlag, den du für dich beschriftest. Er bleibt bei dir. Ich lese ihn nicht.
 >
