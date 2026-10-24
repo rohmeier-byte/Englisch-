@@ -45,3 +45,4 @@ Ziel: Die Texte sollen sich lesen, als hätte ein Mensch sie geschrieben. Grundl
 ## Dauerhafte Regeln aus Korrekturen
 - (24.10.2026) Texte waren zu unemotional. Ab jetzt gilt: emotional erzählen, mit Storytelling. Grundlage sind Nicoles Inhalte und Übungen aus Datei 06, ohne Dornröschen (siehe nächste Regel). Emotion entsteht durch konkrete Szenen, Sinneseindrücke, persönliche Momente, Pausen und Rückgriffe auf die wiederkehrenden Bilder des roten Fadens. Sicherheitshinweise und Einordnungen gehören in Regiehinweise, damit der Sprechtext fließt. Persönliche Erlebnisse der Coachin werden nie erfunden, dafür gibt es Platzhalter.
 - (24.10.2026) KEIN Dornröschen Bogen (kein Märchen, keine Prinzessin, keine Hecke, keine Dornen, kein Prinz) und KEIN Schokogesicht. Die Auftraggeberin kann diese Bilder nicht mehr hören. Gewünscht ist ein empathischer, moderner roter Faden im Storytelling.
+- (24.10.2026) Die erfundene Frau im roten Faden heißt Susi (nicht Anna).
