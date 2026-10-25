@@ -55,3 +55,4 @@ Ziel: Die Texte sollen sich lesen, als hätte ein Mensch sie geschrieben. Grundl
 - (25.10.2026) Ergänzung: Zum Abschied gibt es zusätzlich einen Flyer in DIN A5 (Druck über Vistaprint) mit Morgenritual, sieben Missionen, nächstem Termin und Clubhinweis. Während des Nachmittags wird weiterhin nur das leere Notizbuch genutzt.
 - (25.10.2026) Instagram: Gewählt ist die Richtung „Rosé mit Kuss“ (Rosé, Lila, Creme, Serifenschrift kursiv, Pink aus dem Logo als Akzent für das wichtigste Wort).
 - (25.10.2026) Sprechskripte werden als lesefreundliche HTML Seite im Layout der langen Fassung geliefert (Design Rosé), nicht im Notizheftstil.
+- (25.10.2026) Korrektur: Der Thermostat ist NICHT der Kern und nicht die Leitmetapher. Er ist zu technisch und zu weit weg von der Lebenswelt der Frauen. Er darf höchstens als Nebenbild vorkommen. Die Leitmetapher muss aus dem Alltag und Gefühlsleben von Frauen kommen; welche, entscheidet die Auftraggeberin.
