@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Layout: eine schmale Handyspalte. Startseite ist ein Pfad mit 7 Stationen, in der Übung zeigt eine Notenlinie deine Tonhöhe. */
+  /* Bewusst immer hell. Layout: eine schmale Handyspalte. Startseite ist ein Pfad mit 7 Stationen, in der Übung zeigt eine Notenlinie deine Tonhöhe. */
   :root {
     --bg: #eef5f1;
     --panel: #ffffff;
@@ -27,24 +27,7 @@
     --font-display: 'Bricolage Grotesque', 'Outfit', system-ui, sans-serif;
     --font-body: 'Outfit', 'Segoe UI', system-ui, sans-serif;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0f1d18; --panel: #16271f; --ink: #e3efe8; --soft: #93ab9f; --line: #27402f;
-      --accent: #4cc28a; --accent-ink: #0b2219; --gold: #f4b63f; --gold-ink: #12352a;
-      --staff: #b9c8ff; --staff-line: #2c3b52; --mark: #6b5a1c; --rest: #ff8a5c;
-      --ok-bg: #1d4733; --ok-ink: #bdf0d4; --warn-bg: #4a3812; --warn-ink: #ffd98a;
-      --rec: #ff6b5e; --shadow: rgba(0, 0, 0, .35);
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0f1d18; --panel: #16271f; --ink: #e3efe8; --soft: #93ab9f; --line: #27402f;
-    --accent: #4cc28a; --accent-ink: #0b2219; --gold: #f4b63f; --gold-ink: #12352a;
-    --staff: #b9c8ff; --staff-line: #2c3b52; --mark: #6b5a1c; --rest: #ff8a5c;
-    --ok-bg: #1d4733; --ok-ink: #bdf0d4; --warn-bg: #4a3812; --warn-ink: #ffd98a;
-    --rec: #ff6b5e; --shadow: rgba(0, 0, 0, .35);
-    color-scheme: dark;
-  }
+  :root { color-scheme: light; }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
   body {
@@ -441,7 +424,8 @@ function recorderBlock() {
     : `<p class="small soft">Hier kann ich nicht direkt aufnehmen. Nimm ein Sprachmemo auf und lade es hoch, dann messe ich Pausen, Lautstärke und Melodie. Den Text sprichst du über das Mikrofon auf deiner Tastatur ins Feld unten.</p>`}
     <div class="row"><label class="btn filebtn" for="upl">Sprachmemo hochladen<input type="file" id="upl" accept="audio/*"></label>${ex.analyzing ? '<span class="small"><span class="spinner"></span>Ich messe…</span>' : ''}</div>
     ${ex.audioUrl ? `<audio controls src="${ex.audioUrl}"></audio>` : ''}
-    <label class="small soft" for="txt">Was du gesagt hast. ${hasSR ? 'Wird beim Aufnehmen mitgeschrieben, wenn dein Browser das kann.' : 'Diktier es über die Tastatur oder tippe es grob ab.'} Für Tempo und Füllwörter.</label>
+    <label class="small soft" for="txt">Was du gesagt hast. ${hasSR ? 'Wird beim Aufnehmen mitgeschrieben, wenn dein Browser das kann.' : 'Diktier es mit Wispr Flow oder dem Mikrofon auf der Tastatur.'} Für Tempo und Füllwörter.</label>
+    <p class="small soft">Tipp: Sprich zuerst die Aufnahme, danach diktierst du denselben Text mit Wispr Flow ins Feld. Wispr Flow glättet den Text und lässt „ähm“ weg, die Füllwörter zählst du dann am besten beim Anhören selbst.</p>
     <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
   </div>`;
 }
@@ -647,7 +631,7 @@ function resultBlock(e) {
       ${m('fill', ts.words ? ts.fill : null, '', 'Füllwörter im Text')}
       <div class="metric${p.id === 'melodie' ? ' focus' : ''}"><span class="v">${ends ? r.ends.fall + ' von ' + ends : 'offen'}</span><span class="k">Satzenden nach unten</span>${ends ? (r.ends.fall / ends >= 0.6 ? '<span class="chip ok">sicher</span>' : '<span class="chip warn">mehr nach unten</span>') : ''}</div>
     </div>
-    <p class="small soft">Dauer ${fmtTime(r.dur)}. Die Richtwerte sind eine grobe Orientierung von mir. Diktat lässt „ähm“ oft weg, dann zählt das Tool zu wenig Füllwörter.</p>
+    <p class="small soft">Dauer ${fmtTime(r.dur)}. Die Richtwerte sind eine grobe Orientierung von mir. Diktat und Wispr Flow lassen „ähm“ oft weg, dann zählt das Tool zu wenig Füllwörter.</p>
   </div>`;
 }
 
