@@ -411,7 +411,7 @@ let runSeq = 0;
 function newRun(o) {
   try { clearInterval(tIv); } catch (e) {}
   if (o && o.audioUrl) { try { URL.revokeObjectURL(o.audioUrl); } catch (e) {} }
-  return { run: ++runSeq, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '', t0: 0, secs: 0 };
+  return { run: ++runSeq, timed: false, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '', t0: 0, secs: 0 };
 }
 function resetRun() { Object.assign(ex, newRun(ex)); }
 function startExercise(id) {
@@ -434,7 +434,7 @@ const GUIDE = {
   t1: { steps: ['Lies die ersten beiden Sätze zügig und mit Schwung.', 'Vor dem markierten Wort machst du die Pause.', 'Den letzten Satz sagst du deutlich langsamer, Wort für Wort.'] },
   t2: { steps: ['Starte mit einem Satz: Woran arbeitest du?', 'Nenne die größte Herausforderung, mit einer Zahl oder einem Beispiel.', 'Beim wichtigsten Punkt wirst du langsamer.', 'Schließe mit einem Satz: Was kommt als Nächstes?'],
     frame: { de: 'Ich arbeite gerade an … ‖ Die größte Herausforderung ist … ‖ Als Nächstes …', en: 'I am working on … ‖ The biggest challenge is … ‖ Next, I will …' } },
-  p1: { steps: ['Zähl bei jedem Pausenzeichen innerlich bis zwei.', 'Atme in der Pause ruhig aus, statt „ähm“ zu sagen.', 'Das markierte Wort sagst du danach etwas langsamer und betont.'] },
+  p1: { steps: ['Zähl bei jedem Pausenzeichen innerlich bis zwei.', 'Atme in der Pause ruhig aus. Das ersetzt das „ähm“.', 'Das markierte Wort sagst du danach etwas langsamer und betont.'] },
   p2: { steps: ['Sprich in kurzen Sätzen von höchstens zehn Wörtern.', 'Nach jedem Satz schließt du den Mund und zählst bis zwei.', 'Kommt ein „ähm“ auf, bleibt der Mund zu, bis die Pause vorbei ist.'],
     frame: { de: 'Gut gelaufen ist … ‖ Der Grund dafür war … ‖ Daraus nehme ich mit …', en: 'What went well was … ‖ The reason was … ‖ What I take from it is …' } },
   l1: { steps: ['Stufe 1 leise, als säßest du neben jemandem.', 'Stufe 2 in normaler Meetingstimme.', 'Stufe 3 kräftig aus dem Bauch. Die Stimme trägt bis in die letzte Reihe.'] },
@@ -564,8 +564,10 @@ function timerToggle() {
   }
   if (ex.recording || ex.starting || ex.analyzing) return;
   const keep = ex.measureOpen;
+  const box0 = document.getElementById('txt');
+  const keepText = ex.secs > 0 ? '' : (box0 ? box0.value : ex.transcript);
   Object.assign(ex, newRun(ex));
-  ex.measureOpen = keep; ex.t0 = Date.now(); ex.secs = 0;
+  ex.measureOpen = keep; ex.transcript = keepText; ex.t0 = Date.now(); ex.secs = 0;
   clearInterval(tIv);
   tIv = setInterval(() => { if (!ex || !ex.t0) { clearInterval(tIv); return; } const el = $('#tmr2'); if (el) el.textContent = fmtTime((Date.now() - ex.t0) / 1000); }, 250);
   render();
@@ -578,6 +580,7 @@ function recordTimerRun(my) {
   h.push({ d: today(), dur: my.secs, wpm: ts.wpm, pz: null, mel: null, vol: null, fill: ts.fill, f: my.followUp ? 1 : 0 });
   state.hist[e.id] = h.slice(-20);
   state.done[e.id] = (state.done[e.id] || 0) + 1;
+  my.timed = true;
   markDay(); save();
 }
 
@@ -589,7 +592,7 @@ let media = null;
 async function toggleRec() {
   const my = ex;
   if (my.recording) { stopRec(); return; }
-  if (my.starting || my.analyzing) return;
+  if (my.starting || my.analyzing || my.t0) return;
   my.starting = true; my.micMsg = ''; render();
   let stream = null, ac = null;
   try {
@@ -619,7 +622,9 @@ async function toggleRec() {
     const acRef = ac;
     media = { mr, stop: () => { cancelAnimationFrame(raf); try { acRef.close(); } catch (e) {} } };
     mr.start();
+    const keepTxt = useSR ? '' : my.transcript;
     Object.assign(my, newRun(my));
+    my.transcript = keepTxt;
     my.starting = false; my.recording = true;
     startSR(my);
     render(); tick();
@@ -773,9 +778,10 @@ function finishRun(my) {
   if (r && !r.empty) {
     const ts = textStats(my.transcript, r.dur);
     const h = state.hist[e.id] || (state.hist[e.id] = []);
-    h.push({ d: today(), dur: Math.round(r.dur), wpm: ts.wpm, pz: r.pauses, mel: r.pitchRange === null ? null : +r.pitchRange.toFixed(1), vol: +r.volRange.toFixed(1), fill: ts.fill, f: my.followUp ? 1 : 0 });
+    const entry = { d: today(), dur: Math.round(r.dur), wpm: ts.wpm, pz: r.pauses, mel: r.pitchRange === null ? null : +r.pitchRange.toFixed(1), vol: +r.volRange.toFixed(1), fill: ts.fill, f: my.followUp ? 1 : 0 };
+    if (my.timed && h.length) h[h.length - 1] = entry;
+    else { h.push(entry); state.done[e.id] = (state.done[e.id] || 0) + 1; my.timed = true; }
     state.hist[e.id] = h.slice(-20);
-    state.done[e.id] = (state.done[e.id] || 0) + 1;
     markDay(); save();
   }
   if (ex === my && view === 'ex') render();
@@ -948,7 +954,7 @@ async function askCoach() {
 }
 async function askQuestion() {
   const my = ex;
-  if (my.recording || my.starting || my.analyzing) return;
+  if (my.recording || my.starting || my.analyzing || my.t0) return;
   const sample = await getSample();
   if (ex !== my) return;
   if (!sample) { render(); return; }
@@ -1038,7 +1044,7 @@ document.addEventListener('click', e => {
   if (t.dataset.focus) { state.focus = { p: t.dataset.focus, since: today() }; save(); render(); return; }
   if (t.dataset.lang) {
     if (state.lang === t.dataset.lang) return;
-    if (ex && (ex.recording || ex.starting || ex.analyzing) && view === 'ex') return;
+    if (ex && (ex.recording || ex.starting || ex.analyzing || ex.t0) && view === 'ex') return;
     state.lang = t.dataset.lang; save();
     if (view === 'ex' && ex) {
       const e = EX(ex.id);
@@ -1050,7 +1056,7 @@ document.addEventListener('click', e => {
   if (t.hasAttribute('data-timer')) { timerToggle(); return; }
   if (t.hasAttribute('data-togglemeasure')) { ex.measureOpen = !(ex.measureOpen || ex.result || ex.analyzing || ex.err || ex.recording || ex.starting || ex.audioUrl); const bx = document.getElementById('txt'); if (bx) ex.transcript = bx.value; render(); return; }
   if (t.hasAttribute('data-rec')) { toggleRec(); return; }
-  if (t.hasAttribute('data-roll')) { rollDie(EX(ex.id)); resetRun(); render(); return; }
+  if (t.hasAttribute('data-roll')) { if (ex.t0 || ex.recording || ex.starting || ex.analyzing) return; rollDie(EX(ex.id)); resetRun(); render(); return; }
   if (t.hasAttribute('data-coach')) { askCoach(); return; }
   if (t.hasAttribute('data-copycoach')) { copyCoach(); return; }
   if (t.hasAttribute('data-askq')) { askQuestion(); return; }
