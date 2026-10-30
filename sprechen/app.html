@@ -561,10 +561,10 @@ function stopSR() { const r = sr; sr = null; if (r) { try { r.stop(); } catch (e
 async function handleAudio(blob, my) {
   my = my || ex;
   if (!my) return;
-  if (blob.size > 150 * 1024 * 1024) { my.err = 'Die Aufnahme ist zu groß für dein Handy. Nimm eine kürzere auf, am besten unter zwei Minuten.'; if (ex === my) render(); return; }
+  if (blob.size > 80 * 1024 * 1024) { const keep = my.transcript; Object.assign(my, newRun(my)); my.transcript = keep; my.err = 'Die Aufnahme ist zu groß für dein Handy. Nimm eine kürzere auf, am besten unter zwei Minuten.'; if (ex === my) render(); return; }
   if (my.audioUrl) { try { URL.revokeObjectURL(my.audioUrl); } catch (e) {} }
   my.audioUrl = URL.createObjectURL(blob);
-  my.isVideo = /^video\//.test(blob.type || '');
+  my.isVideo = /^video\//.test(blob.type || '') || /\.(mp4|mov|m4v|webm|3gp)$/i.test(blob.name || '');
   my.analyzing = true; my.err = ''; my.result = null; my.coach = null;
   if (ex === my) render();
   const AC = window.AudioContext || window.webkitAudioContext;
