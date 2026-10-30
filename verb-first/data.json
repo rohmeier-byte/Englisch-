@@ -181,7 +181,7 @@
       ],
       "de": "starten, anfangen",
       "group": "next steps",
-      "ex": "We start | the campaign | on Monday.",
+      "ex": "We're starting | the campaign | on Monday.",
       "exDe": "Wir starten die Kampagne am Montag."
     },
     {
@@ -391,7 +391,7 @@
       ],
       "de": "starten, launchen",
       "group": "next steps",
-      "ex": "We launch | the new campaign | next week.",
+      "ex": "We're launching | the new campaign | next week.",
       "exDe": "Wir starten die neue Kampagne nächste Woche."
     },
     {
@@ -476,7 +476,7 @@
       "de": "sagen, mitteilen",
       "group": "next steps",
       "ex": "I'll tell | the team | about the new deadline.",
-      "exDe": "Ich sage dem Team Bescheid über die neue Deadline."
+      "exDe": "Ich informiere das Team über die neue Deadline."
     },
     {
       "id": "give",
@@ -688,7 +688,7 @@
       "de": "berichten",
       "group": "reporting",
       "ex": "We report | the results | to the client every Monday.",
-      "exDe": "Wir berichten dem Kunden jeden Montag die Ergebnisse."
+      "exDe": "Wir berichten dem Kunden jeden Montag über die Ergebnisse."
     },
     {
       "id": "compare",
@@ -898,7 +898,7 @@
       "de": "sich konzentrieren auf",
       "group": "meetings",
       "ex": "Let's focus on | the best products | first.",
-      "exDe": "Lass uns zuerst auf die besten Produkte konzentrieren."
+      "exDe": "Konzentrieren wir uns zuerst auf die besten Produkte."
     },
     {
       "id": "achieve",
@@ -965,7 +965,7 @@
         "grown",
         "growing"
       ],
-      "de": "wachsen",
+      "de": "wachsen, steigern",
       "group": "reporting",
       "ex": "We've grown | the brand's sales | by 8 percent.",
       "exDe": "Wir haben die Verkäufe der Marke um 8 Prozent gesteigert."
@@ -1066,7 +1066,7 @@
       ],
       "de": "lösen",
       "group": "next steps",
-      "ex": "We've solved | the tracking problem | this morning.",
+      "ex": "We solved | the tracking problem | this morning.",
       "exDe": "Wir haben das Tracking-Problem heute Morgen gelöst."
     },
     {
@@ -1335,7 +1335,7 @@
       ],
       "de": "warten auf",
       "group": "next steps",
-      "ex": "We wait for | the client's feedback | before we start.",
+      "ex": "We're waiting for | the client's feedback | before we start.",
       "exDe": "Wir warten auf das Feedback des Kunden, bevor wir starten."
     },
     {
@@ -1463,7 +1463,7 @@
       "de": "Sag deine Meinung zum Budget.",
       "verb": "think",
       "model": "I think we should raise the budget.",
-      "detail": "Search ads perform well right now. We can test it for two weeks."
+      "detail": "Search ads are performing well right now. We can test it for two weeks."
     },
     {
       "id": "s08",
@@ -1543,7 +1543,7 @@
       "de": "Schlage vor, den Plan Schritt für Schritt durchzugehen.",
       "verb": "go_through",
       "model": "Let's go through the plan step by step.",
-      "detail": "First we look at the goals. Then we talk about the budget."
+      "detail": "First we'll look at the goals. Then we'll talk about the budget."
     },
     {
       "id": "s18",
@@ -1599,15 +1599,15 @@
       "de": "Bitte jemanden, einen Raum für Freitag zu buchen.",
       "verb": "book",
       "model": "Can you book a room for Friday?",
-      "detail": "We have eight people. The meeting starts at ten."
+      "detail": "There will be eight of us. The meeting starts at ten."
     },
     {
       "id": "s25",
       "topic": "client call",
       "de": "Nenne dem Kunden den Starttermin der Kampagne.",
       "verb": "launch",
-      "model": "We launch the campaign next Monday.",
-      "detail": "All ads are ready. We check the tracking on Friday."
+      "model": "We're launching the campaign next Monday.",
+      "detail": "All ads are ready. We'll check the tracking on Friday."
     },
     {
       "id": "s26",
@@ -1615,7 +1615,7 @@
       "de": "Schlage einen A/B-Test mit zwei Überschriften vor.",
       "verb": "test",
       "model": "Let's test two different headlines.",
-      "detail": "We run both for one week. Then we keep the better one."
+      "detail": "We'll run both for one week. Then we keep the better one."
     },
     {
       "id": "s27",
@@ -1703,7 +1703,7 @@
       "de": "Dränge auf eine Entscheidung zum Budget.",
       "verb": "decide",
       "model": "Let's decide on the budget today.",
-      "detail": "The client waits for our answer. We need a clear plan."
+      "detail": "The client is waiting for our answer. We need a clear plan."
     },
     {
       "id": "s38",
@@ -1719,7 +1719,7 @@
       "de": "Schlage ein Review der Kampagne am Monatsende vor.",
       "verb": "review",
       "model": "Let's review the campaign at the end of the month.",
-      "detail": "We look at the cost and the sales. Then we decide what to change."
+      "detail": "We'll look at the cost and the sales. Then we'll decide what to change."
     },
     {
       "id": "s40",
@@ -1751,7 +1751,7 @@
       "de": "Nenne deine Erwartung für den nächsten Monat.",
       "verb": "expect",
       "model": "We expect a higher ROAS next month.",
-      "detail": "The new keywords look strong. We see more sales every day."
+      "detail": "The new keywords look strong. We're seeing more sales every day."
     },
     {
       "id": "s44",
@@ -1808,6 +1808,406 @@
       "verb": "achieve",
       "model": "We've achieved a ROAS of 6 this quarter.",
       "detail": "That is above the target of 5. Let's keep this setup next quarter."
+    },
+    {
+      "id": "s51",
+      "topic": "meeting",
+      "de": "Sag, dass ihr heute noch eine Entscheidung treffen müsst.",
+      "verb": "make",
+      "model": "Let's make a decision before the call ends.",
+      "detail": "The client needs an answer by five. I'll write the summary afterwards."
+    },
+    {
+      "id": "s52",
+      "topic": "team call",
+      "de": "Sag, dass ihr für das Targeting den Produktfeed nutzt.",
+      "verb": "use",
+      "model": "We use the product feed for targeting.",
+      "detail": "It updates every night, so the data is fresh. Please check the feed on Monday."
+    },
+    {
+      "id": "s53",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass die Kampagne am Montag startet.",
+      "verb": "start",
+      "model": "We're starting the campaign on Monday.",
+      "detail": "The ads go live at eight in the morning. I'll send you the first numbers on Tuesday."
+    },
+    {
+      "id": "s54",
+      "topic": "meeting",
+      "de": "Sag, dass du den Kunden diese Woche triffst.",
+      "verb": "meet",
+      "model": "I'm meeting the client on Wednesday.",
+      "detail": "We'll talk about the budget for May. I'll tell you the result on Thursday."
+    },
+    {
+      "id": "s55",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass die Banner geliefert wurden.",
+      "verb": "deliver",
+      "model": "We've delivered all the banners.",
+      "detail": "They arrived on Monday, two days early. Please check them by Wednesday."
+    },
+    {
+      "id": "s56",
+      "topic": "report",
+      "de": "Sag, dass du dem Kunden jeden Montag Bericht erstattest.",
+      "verb": "report",
+      "model": "We report to the client every Monday.",
+      "detail": "The report has ten pages because the client wants all details. Let's make it shorter next month."
+    },
+    {
+      "id": "s57",
+      "topic": "team call",
+      "de": "Sag, dass ihr die Keywords für die Aktion optimiert habt.",
+      "verb": "optimize",
+      "model": "We've optimized the keywords for the sale.",
+      "detail": "We removed 20 weak terms and added 15 new ones. I'll check the results on Friday."
+    },
+    {
+      "id": "s58",
+      "topic": "meeting",
+      "de": "Schlage vor, die schwachen Produkte aus der Kampagne zu nehmen.",
+      "verb": "remove",
+      "model": "Let's remove the weak products from the campaign.",
+      "detail": "They cost 300 euros last week and sold nothing. We'll use the budget for the best sellers."
+    },
+    {
+      "id": "s59",
+      "topic": "team call",
+      "de": "Schlage vor, den Test jetzt zu stoppen.",
+      "verb": "stop",
+      "model": "Let's stop the test today.",
+      "detail": "We have enough data after 14 days. I'll send you the results tomorrow."
+    },
+    {
+      "id": "s60",
+      "topic": "team call",
+      "de": "Sag, dass du den Report vor Mittag fertigstellst.",
+      "verb": "finish",
+      "model": "I'll finish the report before noon.",
+      "detail": "Only the last chart is missing. Then I'll send it to the client."
+    },
+    {
+      "id": "s61",
+      "topic": "client call",
+      "de": "Bitte den Kunden, für nächsten Dienstag einen Call zu planen.",
+      "verb": "schedule",
+      "model": "Can you schedule a call for Tuesday?",
+      "detail": "I'm free between ten and twelve. Please send me a calendar invite."
+    },
+    {
+      "id": "s62",
+      "topic": "meeting",
+      "de": "Sag, dass du die Agentur zum nächsten Meeting einlädst.",
+      "verb": "invite",
+      "model": "I'll invite the agency to the next meeting.",
+      "detail": "They know the creatives best because they made them. I'll send the invite today."
+    },
+    {
+      "id": "s63",
+      "topic": "client call",
+      "de": "Bitte den Kunden, das neue Angebot in seiner E-Mail zu erwähnen.",
+      "verb": "mention",
+      "model": "Can you mention the new offer in your email?",
+      "detail": "It starts on 1 May and runs for two weeks. Please add the link to the landing page."
+    },
+    {
+      "id": "s64",
+      "topic": "meeting",
+      "de": "Schlage einen kleinen Test für nächste Woche vor.",
+      "verb": "suggest",
+      "model": "I suggest a small test for next week.",
+      "detail": "We use 10 percent of the budget because the risk is low. Let's look at the results on Friday."
+    },
+    {
+      "id": "s65",
+      "topic": "meeting",
+      "de": "Schlage vor, euch zuerst auf die besten Produkte zu konzentrieren.",
+      "verb": "focus_on",
+      "model": "Let's focus on the best products first.",
+      "detail": "The top 20 products bring 70 percent of the sales. We'll look at the rest later."
+    },
+    {
+      "id": "s66",
+      "topic": "report",
+      "de": "Sag, dass ihr schon 80 Prozent des Monatsbudgets ausgegeben habt.",
+      "verb": "spend",
+      "model": "We've spent 80 percent of the monthly budget.",
+      "detail": "There are still ten days left in the month. Let's slow down the daily spend."
+    },
+    {
+      "id": "s67",
+      "topic": "meeting",
+      "de": "Schlage vor, etwas Budget für die letzte Woche aufzuheben.",
+      "verb": "save",
+      "model": "Let's save some budget for the last week.",
+      "detail": "Sales are usually higher at the end of the month. I'd keep about 2,000 euros."
+    },
+    {
+      "id": "s68",
+      "topic": "team call",
+      "de": "Sag, dass ihr das Budget für schwache Produkte gekürzt habt.",
+      "verb": "cut",
+      "model": "We've cut the budget for weak products.",
+      "detail": "We saved 400 euros this week. I'll move the money to the best sellers."
+    },
+    {
+      "id": "s69",
+      "topic": "report",
+      "de": "Sag, dass ihr die Verkäufe der Marke um 8 Prozent gesteigert habt.",
+      "verb": "grow",
+      "model": "We've grown the brand's sales by 8 percent.",
+      "detail": "Most of the growth came from sponsored products. We'll keep this setup in May."
+    },
+    {
+      "id": "s70",
+      "topic": "report",
+      "de": "Sag, dass die Verkäufe letzte Woche gefallen sind.",
+      "verb": "drop",
+      "model": "Sales dropped by 5 percent last week.",
+      "detail": "One top product was out of stock on Tuesday. I'll check the stock levels tomorrow."
+    },
+    {
+      "id": "s71",
+      "topic": "report",
+      "de": "Sag, dass die Kosten im März gestiegen sind.",
+      "verb": "rise",
+      "model": "Costs rose by 10 percent in March.",
+      "detail": "The cost per click went up because of the spring sale. Let's lower the bids next week."
+    },
+    {
+      "id": "s72",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass ihr euer Quartalsziel erreicht habt.",
+      "verb": "reach",
+      "model": "We've reached our target for the quarter.",
+      "detail": "We hit a ROAS of 5.2 on 28 March. Please see the full numbers in the report."
+    },
+    {
+      "id": "s73",
+      "topic": "team call",
+      "de": "Sag, dass ihr die Deadline für die Banner verpasst habt.",
+      "verb": "miss",
+      "model": "We've missed the deadline for the banners.",
+      "detail": "The agency was late because the images changed on Monday. We'll send them tomorrow at ten."
+    },
+    {
+      "id": "s74",
+      "topic": "meeting",
+      "de": "Schlage vor, die Bestseller mit Sponsored Ads zu pushen.",
+      "verb": "push",
+      "model": "Let's push the best sellers with sponsored ads.",
+      "detail": "They have the highest margin, about 25 percent. I'll raise their bids on Monday."
+    },
+    {
+      "id": "s75",
+      "topic": "team call",
+      "de": "Sag, dass du den Call mit der Agentur übernimmst.",
+      "verb": "handle",
+      "model": "I'll handle the call with the agency.",
+      "detail": "It's on Thursday at two. I'll send you a short summary afterwards."
+    },
+    {
+      "id": "s76",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass ihr das Tracking-Problem heute Morgen gelöst habt.",
+      "verb": "solve",
+      "model": "We solved the tracking problem this morning.",
+      "detail": "The tag was missing on two pages. Please check the numbers again tomorrow."
+    },
+    {
+      "id": "s77",
+      "topic": "team call",
+      "de": "Bitte einen Kollegen, den Link in der Anzeige zu reparieren.",
+      "verb": "fix",
+      "model": "Can you fix the link in the ad?",
+      "detail": "It goes to the old page. Please do it before the campaign starts at noon."
+    },
+    {
+      "id": "s78",
+      "topic": "client call",
+      "de": "Bitte den Kunden, das Ziel der Kampagne zu klären.",
+      "verb": "clarify",
+      "model": "Can you clarify the goal of the campaign?",
+      "detail": "Do you want more sales or more reach? We need to know by Friday because the budget depends on it."
+    },
+    {
+      "id": "s79",
+      "topic": "report",
+      "de": "Sag, dass du die Daten heute Abend analysierst.",
+      "verb": "analyze",
+      "model": "I'll analyze the data tonight.",
+      "detail": "I want to compare the last three campaigns. I'll send you the findings tomorrow morning."
+    },
+    {
+      "id": "s80",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass du ihm am Freitag die Ergebnisse präsentierst.",
+      "verb": "present",
+      "model": "I'll present the results on Friday.",
+      "detail": "The presentation takes 20 minutes. Please send me your questions before the call."
+    },
+    {
+      "id": "s81",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass ihr einen Rabatt auf ausgewählte Produkte anbietet.",
+      "verb": "offer",
+      "model": "We offer a discount on selected products.",
+      "detail": "It's 10 percent for the first two weeks of May. Please tell me if you want more products."
+    },
+    {
+      "id": "s82",
+      "topic": "meeting",
+      "de": "Schlage vor, den Preis mit der Agentur zu verhandeln.",
+      "verb": "negotiate",
+      "model": "Let's negotiate the price with the agency.",
+      "detail": "Their offer is 15 percent higher than last year. I'll ask for a better deal on Monday."
+    },
+    {
+      "id": "s83",
+      "topic": "client call",
+      "de": "Bitte den Kunden, den Vertrag bis Freitag zu unterschreiben.",
+      "verb": "sign",
+      "model": "Can you sign the contract by Friday?",
+      "detail": "We can only book the ad space after that. I'll send the final version today."
+    },
+    {
+      "id": "s84",
+      "topic": "meeting",
+      "de": "Sag, dass ihr die Agentur am Monatsende bezahlt.",
+      "verb": "pay",
+      "model": "We pay the agency at the end of the month.",
+      "detail": "The invoice is due within 30 days. I'll ask finance to check it this week."
+    },
+    {
+      "id": "s85",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass du ihm Ende Juni die Rechnung stellst.",
+      "verb": "invoice",
+      "model": "I'll invoice the client at the end of June.",
+      "detail": "The total is 12,000 euros. Please tell me the right invoice address."
+    },
+    {
+      "id": "s86",
+      "topic": "client call",
+      "de": "Bitte den Kunden, die E-Mail an sein Team weiterzuleiten.",
+      "verb": "forward",
+      "model": "Can you forward the email to your team?",
+      "detail": "It has the new deadline in it. Please do it today because we start on Monday."
+    },
+    {
+      "id": "s87",
+      "topic": "report",
+      "de": "Sag, dass ihr den Report an die E-Mail angehängt habt.",
+      "verb": "attach",
+      "model": "We've attached the report to the email.",
+      "detail": "It has 12 pages and a short summary on page one. Let's go through it on Thursday."
+    },
+    {
+      "id": "s88",
+      "topic": "team call",
+      "de": "Sag, dass du nach dem Meeting eine kurze Zusammenfassung schreibst.",
+      "verb": "write",
+      "model": "I'll write a short summary after the meeting.",
+      "detail": "It will have five bullet points. I'll send it to everybody by four."
+    },
+    {
+      "id": "s89",
+      "topic": "team call",
+      "de": "Bitte einen Kollegen, um 10 Uhr am Call teilzunehmen.",
+      "verb": "join",
+      "model": "Can you join the call at 10 a.m.?",
+      "detail": "The client wants to see the new dashboard. We'll start on time, so please don't be late."
+    },
+    {
+      "id": "s90",
+      "topic": "client call",
+      "de": "Frage, ob dich der Kunde jetzt gut hören kann.",
+      "verb": "hear",
+      "model": "Can you hear me okay now?",
+      "detail": "I changed my headset because the sound was bad. If not, I'll call you on the phone."
+    },
+    {
+      "id": "s91",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass du seine Sorge wegen des Budgets verstehst.",
+      "verb": "understand",
+      "model": "We understand your concern about the budget.",
+      "detail": "The costs went up by 10 percent this month. We'll send you a new plan by Wednesday."
+    },
+    {
+      "id": "s92",
+      "topic": "report",
+      "de": "Sag, dass ihr einen starken Anstieg bei den Klicks gesehen habt.",
+      "verb": "see",
+      "model": "We've seen a strong increase in clicks.",
+      "detail": "They went up by 25 percent since Monday. Let's keep the budget as it is."
+    },
+    {
+      "id": "s93",
+      "topic": "client call",
+      "de": "Sag, dass ihr den Hauptgrund für den Rückgang kennt.",
+      "verb": "know",
+      "model": "We know the main reason for the drop.",
+      "detail": "The best product was out of stock for three days. I'll send you the stock report today."
+    },
+    {
+      "id": "s94",
+      "topic": "meeting",
+      "de": "Schlage vor, ein neues Bild für das Banner auszuprobieren.",
+      "verb": "try",
+      "model": "Let's try a new image for the banner.",
+      "detail": "The old one has a low click rate of 0.4 percent. We'll test the new one for a week."
+    },
+    {
+      "id": "s95",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass ihr auf sein Feedback wartet.",
+      "verb": "wait_for",
+      "model": "We're waiting for your feedback.",
+      "detail": "We can't start before you approve the banners. Please send it by Thursday."
+    },
+    {
+      "id": "s96",
+      "topic": "report",
+      "de": "Sag, dass ihr seit dem Kampagnenstart mehr Einheiten verkauft habt.",
+      "verb": "sell",
+      "model": "We've sold more units since the start.",
+      "detail": "It's 1,200 units, which is 15 percent more than before. I'll add the details to the report."
+    },
+    {
+      "id": "s97",
+      "topic": "meeting",
+      "de": "Sag, dass ihr die Werbefläche beim Marktplatz einkauft.",
+      "verb": "buy",
+      "model": "We buy the ad space from the marketplace.",
+      "detail": "We book it every month because the prices are better. Please check the new rates on Monday."
+    },
+    {
+      "id": "s98",
+      "topic": "team call",
+      "de": "Sag, dass ihr jeden Tag auf die Top-Keywords bietet.",
+      "verb": "bid_on",
+      "model": "We bid on the top keywords every day.",
+      "detail": "The average bid is 0.45 euros. I'll adjust it on Friday if the cost goes up."
+    },
+    {
+      "id": "s99",
+      "topic": "meeting",
+      "de": "Sag, dass ihr mit diesen Anzeigen junge Eltern ansprecht.",
+      "verb": "target",
+      "model": "We target young parents with these ads.",
+      "detail": "They buy a lot of baby products in spring. We'll test a second group next month."
+    },
+    {
+      "id": "s100",
+      "topic": "report",
+      "de": "Sag, dass ihr auf Mobile etwas Sichtbarkeit verloren habt.",
+      "verb": "lose",
+      "model": "We've lost some visibility on mobile.",
+      "detail": "Our share fell from 30 to 24 percent last week. I'll raise the mobile bids tomorrow."
     }
   ]
 }

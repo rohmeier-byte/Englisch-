@@ -15,6 +15,7 @@
     --coral: #ff8a7a;
     --coral-deep: #e86d5d;
     --coral-ink: #3d1712;
+    --de-mark: #c4503f;
     --mint: #bfeadb;
     --mint-ink: #1f6b54;
     --yellow: #ffd66b;
@@ -30,7 +31,7 @@
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg: #2a201d; --card: #3a2d29; --ink: #fbeee6; --soft: #c9b2a9; --line: #54423c;
-      --coral: #ff8f80; --coral-deep: #c9675a; --coral-ink: #3d1712;
+      --coral: #ff8f80; --coral-deep: #c9675a; --coral-ink: #3d1712; --de-mark: #ffa597;
       --mint: #26594b; --mint-ink: #c8f2e3; --yellow: #f2c75a;
       --warn-bg: #4f3c14; --warn-ink: #ffd98a; --bad-bg: #5c2b25; --bad-ink: #ffc2b7;
       --shadow: rgba(0, 0, 0, .35);
@@ -39,7 +40,7 @@
   }
   :root[data-theme="dark"] {
     --bg: #2a201d; --card: #3a2d29; --ink: #fbeee6; --soft: #c9b2a9; --line: #54423c;
-    --coral: #ff8f80; --coral-deep: #c9675a; --coral-ink: #3d1712;
+    --coral: #ff8f80; --coral-deep: #c9675a; --coral-ink: #3d1712; --de-mark: #ffa597;
     --mint: #26594b; --mint-ink: #c8f2e3; --yellow: #f2c75a;
     --warn-bg: #4f3c14; --warn-ink: #ffd98a; --bad-bg: #5c2b25; --bad-ink: #ffc2b7;
     --shadow: rgba(0, 0, 0, .35);
@@ -77,7 +78,7 @@
   .steps span.on { background: var(--coral); }
   .pill { background: var(--card); border-radius: 99px; padding: 4px 11px; font-family: var(--font-display); font-weight: 500; font-size: .88rem; display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
   .pill i { width: 10px; height: 10px; border-radius: 50%; background: var(--yellow); display: inline-block; }
-  .linkbtn { background: none; border: 0; padding: 4px 2px; color: var(--soft); font: 600 .9rem var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .linkbtn { min-height: 44px; min-width: 44px; background: none; border: 0; padding: 4px 6px; color: var(--soft); font: 600 .9rem var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
   /* bird and bubbles */
   .coach { display: flex; gap: 10px; align-items: flex-end; }
@@ -86,7 +87,7 @@
   .bubble .label { display: block; margin-bottom: 2px; }
   .bubble p + p { margin-top: 6px; }
   .de { font-size: .88rem; color: var(--soft); font-style: italic; }
-  .de::before { content: "DE "; font-style: normal; font-weight: 800; font-size: .7rem; letter-spacing: .06em; color: var(--coral-deep); }
+  .de::before { content: "DE "; font-style: normal; font-weight: 800; font-size: .7rem; letter-spacing: .06em; color: var(--de-mark); }
 
   .card { background: var(--card); border-radius: 18px; padding: 14px 16px; display: grid; gap: 8px; min-width: 0; }
 
@@ -95,7 +96,7 @@
   .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--coral-deep); }
   .btn.quiet { background: var(--card); color: var(--ink); box-shadow: 0 3px 0 var(--line); }
   .btn[disabled] { opacity: .5; cursor: default; }
-  .iconbtn { border: 0; background: var(--bg); color: var(--ink); border-radius: 99px; padding: 6px 12px; font: 600 .88rem var(--font-display); cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+  .iconbtn { border: 0; background: var(--bg); color: var(--ink); border-radius: 99px; min-height: 44px; padding: 8px 16px; font: 600 .92rem var(--font-display); cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
   .iconbtn svg { width: 16px; height: 16px; }
   button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 3px solid var(--coral-deep); outline-offset: 2px; }
 
@@ -135,9 +136,9 @@
   /* build */
   .slots { min-height: 58px; border: 2px dashed var(--line); border-radius: 16px; padding: 8px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
   .pool { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chunk { border: 0; border-radius: 12px; padding: 9px 12px; font: 600 1rem var(--font-body); background: var(--card); color: var(--ink); box-shadow: 0 3px 0 var(--line); cursor: pointer; text-align: left; }
+  .chunk { border: 0; border-radius: 12px; min-height: 44px; padding: 10px 14px; font: 600 1rem var(--font-body); background: var(--card); color: var(--ink); box-shadow: 0 3px 0 var(--line); cursor: pointer; text-align: left; }
   .slots .chunk { background: var(--bg); }
-  .chunk.first { background: var(--mint); color: var(--mint-ink); box-shadow: 0 3px 0 var(--mint-ink); }
+  summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
   .result { border-radius: 14px; padding: 10px 14px; font-weight: 600; }
   .result.ok { background: var(--mint); color: var(--mint-ink); }
   .result.bad { background: var(--bad-bg); color: var(--bad-ink); }
@@ -156,7 +157,7 @@
   /* verbs list */
   .search { width: 100%; border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; font: 500 1rem var(--font-body); background: var(--card); color: var(--ink); }
   .vlist { display: grid; gap: 6px; }
-  .vitem { display: flex; gap: 10px; align-items: center; background: var(--card); border-radius: 14px; padding: 8px 12px; border: 0; width: 100%; text-align: left; color: var(--ink); font: inherit; cursor: pointer; }
+  .vitem { display: flex; gap: 10px; align-items: center; background: var(--card); border-radius: 14px; min-height: 48px; padding: 8px 12px; border: 0; width: 100%; text-align: left; color: var(--ink); font: inherit; cursor: pointer; }
   .vitem .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--line); flex: none; }
   .vitem .dot.learning { background: var(--yellow); }
   .vitem .dot.known { background: var(--mint-ink); }
@@ -168,7 +169,7 @@
 
   /* nav */
   nav.tabs { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line); display: flex; justify-content: center; gap: 4px; padding: 8px max(16px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); z-index: 5; }
-  nav.tabs button { flex: 1; max-width: 170px; border: 0; background: none; color: var(--soft); font: 600 .95rem var(--font-display); padding: 8px; border-radius: 12px; cursor: pointer; }
+  nav.tabs button { flex: 1; max-width: 170px; border: 0; background: none; color: var(--soft); font: 600 .95rem var(--font-display); min-height: 48px; padding: 10px 8px; border-radius: 12px; cursor: pointer; }
   nav.tabs button[aria-current="page"] { background: var(--bg); color: var(--ink); }
 
   .pattern { display: grid; gap: 4px; }
@@ -306,12 +307,12 @@ function say(text) {
 }
 
 let rec = null;
-function micBlock(id) {
+function micBlock(id, value = '') {
   return `<button class="mic" type="button" data-mic="${id}" aria-label="Speak">${MIC}</button>
     <p class="miclabel" id="${id}-miclabel">Tap and speak</p>
     <div class="hint" id="${id}-hint" hidden>The speak button does not work in this browser. Tap the text field, then the <b>microphone key</b> on your iPhone keyboard and speak. <span class="de">Tippe ins Textfeld und nutze das Mikrofon auf der Tastatur.</span></div>
     <label class="label" for="${id}">Your answer</label>
-    <textarea id="${id}" autocapitalize="sentences" spellcheck="true" placeholder="Speak, or type here"></textarea>`;
+    <textarea id="${id}" autocapitalize="sentences" spellcheck="true" placeholder="Speak, or type here">${esc(value)}</textarea>`;
 }
 function toggleMic(id) {
   const box = $('#' + id), btn = $(`[data-mic="${id}"]`), label = $('#' + id + '-miclabel'), hint = $('#' + id + '-hint');
@@ -384,37 +385,42 @@ function findVerb(ws) {
     const w = ws[i].toLowerCase();
     let prev = i ? ws[i - 1].toLowerCase() : '';
     if (NOT_VERBS.has(prev) && i > 1) prev = ws[i - 2].toLowerCase();
-    if (w === "let's" || w === 'lets') { if (auxAt < 0) auxAt = i; continue; }
+    if (w === "let's" || w === 'lets') return i;
     const m = w.match(/^(\w+)'(ll|ve|re|m|d|s)$/);
     if (m) {
       if (['re', 'm'].includes(m[2]) || (m[2] === 's' && ['it', 'that', 'he', 'she', 'there', 'what', 'here'].includes(m[1]))) return auxAt >= 0 ? auxAt : i;
-      if (m[2] !== 's') { if (auxAt < 0) auxAt = i; continue; }
+      if (m[2] !== 's') return i;
     }
-    if (AUX.has(w) && !DETERMINERS.has(prev)) { if (auxAt < 0) auxAt = i; continue; }
+    if (AUX.has(w) && !DETERMINERS.has(prev)) return i;
     if (isVerbWord(w, prev)) return (auxAt >= 0 && i - auxAt <= 3) ? auxAt : i;
   }
   return auxAt;
 }
-function verbAtEnd(ws, vi) {
+function verbAtEnd(ws) {
   // German habit: a helper comes early ("must", "can you", "would like") and the real verb closes the sentence.
-  if (ws.length < 5 || vi < 0 || vi >= ws.length - 1) return false;
+  if (ws.length < 4) return false;
   const lw = ws.map(w => w.toLowerCase());
-  const last = lw[lw.length - 1], prev = lw[lw.length - 2], prev2 = lw.length > 2 ? lw[lw.length - 3] : '';
+  const n = lw.length, last = lw[n - 1], prev = lw[n - 2], prev2 = n > 2 ? lw[n - 3] : '';
   const id = FORM_TO_VERB[last];
-  if (!id || VERB[id].verb.toLowerCase().split(' ')[0] !== last) return false;
-  const head = lw[vi];
-  const isHelper = AUX.has(head) || /'(ll|d|ve)$/.test(head) || head === "let's" || head === 'lets';
-  if (!isHelper) return false;
-  for (let i = vi + 1; i < lw.length - 1; i++) {
-    const w = lw[i], p = lw[i - 1];
-    if (['like', 'love', 'prefer'].includes(w) && (p === 'would' || /'d$/.test(p))) continue;
-    if (AUX.has(w) || BE.has(w)) continue;
-    if (isVerbWord(w, p)) return false;
+  const isBase = (id && VERB[id].verb.toLowerCase().split(' ')[0] === last) || (EXTRA_VERBS.has(last) && !/(s|ed)$/.test(last));
+  if (!isBase) return false;
+  if (DETERMINERS.has(prev) || PREPS.has(prev) || (NO_END.has(prev) && ws[n - 2] !== 'May')) {
+    if (!(['you', 'him', 'her', 'them', 'us', 'me'].includes(prev) && ['with', 'for', 'to'].includes(prev2))) return false;
   }
-  if (DETERMINERS.has(prev) || PREPS.has(prev) || NO_END.has(prev)) {
-    return ['you', 'him', 'her', 'them', 'us', 'me'].includes(prev) && ['with', 'for', 'to'].includes(prev2);
+  let h = -1;
+  for (let i = 0; i < Math.min(n - 1, 4); i++) {
+    const w = lw[i];
+    if (AUX.has(w) || /'(ll|d|ve)$/.test(w) || w === "let's" || w === 'lets') { h = i; break; }
   }
-  return true;
+  if (h < 0) return false;
+  let j = h + 1;
+  while (j < n - 1 && (SUBJECTS.has(lw[j]) || NOT_VERBS.has(lw[j]) && !['me', 'him', 'her', 'them', 'us'].includes(lw[j]))) j++;
+  if (j >= n - 1) return false;
+  if (['like', 'love', 'prefer'].includes(lw[j]) && (lw[h] === 'would' || /'d$/.test(lw[h]))) return lw[j + 1] !== 'to';
+  if (lw[j] === 'to') j++;
+  const w = lw[j];
+  // after a helper English needs the verb; an article, object pronoun, preposition or number there means German order
+  return DETERMINERS.has(w) || PREPS.has(w) || ['me', 'him', 'her', 'them', 'us'].includes(w) || /^\d/.test(w);
 }
 function usesVerb(text, verbId) {
   const low = ' ' + text.toLowerCase().replace(/[’‘]/g, "'").replace(/[^\w' ]+/g, ' ').replace(/\s+/g, ' ') + ' ';
@@ -434,17 +440,16 @@ function analyzeFirst(text, targetVerb) {
   const sents = splitSentences(text);
   const first = sents[0] || '';
   const ws = words(first);
-  const vi = findVerb(ws);
+  const atEnd = verbAtEnd(ws);
+  const vi = atEnd ? ws.length - 1 : findVerb(ws);
   const checks = [];
-  if (vi < 0) checks.push({ s: 'warn', en: 'I could not find your verb. Check that the sentence says who does what.', de: 'Jeder Satz braucht ein Verb: Wer macht was?' });
+  if (atEnd) checks.push({ s: 'bad', en: 'The verb is at the end, like in German.', de: 'Deutsche Satzstellung: Verb am Ende. Im Englischen kommt es direkt nach dem Subjekt.' });
+  else if (vi < 0) checks.push({ s: 'bad', en: 'I could not find your verb. Say who does what.', de: 'Jeder Satz braucht ein Verb: Wer macht was?' });
   else if (vi <= 2) checks.push({ s: 'ok', en: `Verb in word ${vi + 1}. Great!`, de: 'Das Verb steht ganz vorne. Genau so.' });
   else if (vi === 3) checks.push({ s: 'warn', en: `Verb in word ${vi + 1}. Almost.`, de: 'Fast. Versuch, schneller zum Verb zu kommen.' });
   else checks.push({ s: 'bad', en: `Verb in word ${vi + 1}. Too late.`, de: 'Zu spät. Sag zuerst, wer was tut. Zeit und Grund kommen danach.' });
 
-  if (OPENERS.test(first)) checks.push({ s: 'warn', en: 'Start with the action. Put "because" or "regarding" later.', de: 'Nicht mit Grund oder Thema beginnen. Erst die Aktion.' });
-  if (verbAtEnd(ws, vi)) {
-    checks.push({ s: 'bad', en: 'The verb is at the end, like in German.', de: 'Deutsche Satzstellung: Verb am Ende. Im Englischen kommt es nach vorne.' });
-  }
+  if (OPENERS.test(first)) checks.push({ s: 'warn', en: 'Start with the action. Put "because" or "regarding" later.', de: 'Fang mit der Aktion an. Grund oder Thema kommen später.' });
   if (ws.length === 0) {}
   else if (ws.length <= 12) checks.push({ s: 'ok', en: `Short first sentence, ${ws.length} words.`, de: 'Kurz und klar. Details kommen im nächsten Satz.' });
   else if (ws.length <= 18) checks.push({ s: 'warn', en: `First sentence has ${ws.length} words. A bit long.`, de: 'Lieber teilen: kurzer Satz zuerst, dann die Details.' });
@@ -454,22 +459,22 @@ function analyzeFirst(text, targetVerb) {
     if (usesVerb(text, targetVerb)) checks.push({ s: 'ok', en: `You used "${VERB[targetVerb].verb}".`, de: 'Zielverb benutzt.' });
     else checks.push({ s: 'warn', en: `Try to use "${VERB[targetVerb].verb}".`, de: `Zielverb: ${VERB[targetVerb].verb} (${VERB[targetVerb].de}).` });
   }
-  const good = (vi < 0 || vi <= 2) && !checks.some(c => c.s === 'bad');
-  return { first, ws, vi, checks, good, html: highlight(first, vi, vi > 3) };
+  const good = vi >= 0 && vi <= 2 && !checks.some(c => c.s === 'bad');
+  return { first, ws, vi, checks, good, html: highlight(first, vi, atEnd || vi > 3) };
 }
 function analyzeDetails(text) {
   const sents = splitSentences(text);
-  const rows = sents.map(s => { const ws = words(s); const vi = findVerb(ws); return { s, vi, html: highlight(s, vi, vi > 3), n: ws.length }; });
+  const rows = sents.map(s => { const ws = words(s); const atEnd = verbAtEnd(ws); const vi = atEnd ? ws.length - 1 : findVerb(ws); return { s, vi, atEnd, html: highlight(s, vi, atEnd || vi > 4), n: ws.length }; });
   const checks = [];
   if (!sents.length) checks.push({ s: 'bad', en: 'Add one or two sentences.', de: 'Ergänze ein bis zwei Sätze.' });
   else if (sents.length <= 3) checks.push({ s: 'ok', en: `${sents.length} detail sentence${sents.length > 1 ? 's' : ''}.`, de: 'Gut: Details in eigenen, kurzen Sätzen.' });
   else checks.push({ s: 'warn', en: `${sents.length} sentences. Keep it to two or three.`, de: 'Weniger ist mehr. Zwei bis drei Sätze reichen.' });
-  const late = rows.filter(r => r.vi > 4 || verbAtEnd(words(r.s), r.vi));
+  const late = rows.filter(r => r.vi > 4 || r.atEnd);
   if (sents.length) {
     if (!late.length) checks.push({ s: 'ok', en: 'Every sentence has its verb early.', de: 'Jeder Satz startet mit Subjekt und Verb.' });
     else checks.push({ s: 'warn', en: `${late.length} sentence${late.length > 1 ? 's have' : ' has'} the verb late.`, de: 'Auch in den Detail-Sätzen: Verb nach vorne.' });
   }
-  if (/\d|percent|because|so we|next|tomorrow|monday|tuesday|wednesday|thursday|friday|week|month|quarter|budget/i.test(text)) checks.push({ s: 'ok', en: 'You added a real detail: a number, a reason or a next step.', de: 'Konkretes Detail gefunden.' });
+  if (/\d|percent|because|so we|next|tomorrow|today|tonight|noon|monday|tuesday|wednesday|thursday|friday|week|month|quarter|budget|i'll|we'll|let's|please|then|plan|soon|asap|deadline|every|each|more|less|without|before|after|until|on time|daily|but |so |since|\b(one|two|three|four|five|six|seven|eight|nine|ten|twenty|fifty|hundred)\b/i.test(text)) checks.push({ s: 'ok', en: 'You added a real detail: a number, a reason or a next step.', de: 'Konkretes Detail gefunden.' });
   else if (sents.length) checks.push({ s: 'warn', en: 'Add a number, a reason (because…) or a next step.', de: 'Was macht es konkret? Zahl, Grund oder nächster Schritt.' });
   return { rows, checks, good: sents.length > 0 && !late.length };
 }
@@ -483,7 +488,7 @@ function pickVerbs() {
   const t = today();
   const due = VERBS.filter(v => state.verbs[v.id] && state.verbs[v.id].due <= t).sort((a, b) => state.verbs[a.id].due.localeCompare(state.verbs[b.id].due));
   const fresh = VERBS.filter(v => !state.verbs[v.id]);
-  const pick = due.slice(0, fresh.length ? 2 : 3);
+  const pick = due.slice(0, 3);
   for (const v of fresh) { if (pick.length >= 3) break; pick.push(v); }
   for (const v of due.slice(pick.length)) { if (pick.length >= 3) break; if (!pick.includes(v)) pick.push(v); }
   if (pick.length < 3) {
@@ -505,7 +510,7 @@ function startSession() {
   session = {
     ids, step: 1, situation: pickSituation(ids),
     build: { i: 0, placed: [], pool: [], checked: null },
-    results: Object.fromEntries(ids.map(id => [id, true])),
+    results: {}, buildOk: {}, sayOk: null,
     first: null, firstText: '', details: null, detailsText: '', coach: null
   };
   setupBuild();
@@ -521,6 +526,7 @@ function setupBuild() {
 }
 function finishSession() {
   const t = today();
+  for (const id of session.ids) session.results[id] = session.buildOk[id] !== false && (id !== session.situation.verb || session.sayOk !== false);
   for (const id of session.ids) {
     const s = state.verbs[id] || { box: 0, due: t, right: 0, wrong: 0 };
     if (session.results[id]) { s.box = Math.min(s.box + 1, INTERVALS.length - 1); s.right++; }
@@ -576,7 +582,7 @@ function viewLearn() {
     const v = VERB[id];
     const isReview = !!state.verbs[id];
     const ws = words(exText(v));
-    const vi = (() => { for (let i = 0; i < ws.length; i++) { const w = ws[i].toLowerCase().replace(/^\w+'(ll|ve)$/, ''); if (v.forms.some(f => f.toLowerCase().split(' ')[0] === ws[i].toLowerCase())) return i; } return findVerb(ws); })();
+    const vi = (() => { for (let i = 0; i < ws.length; i++) { if (v.forms.some(f => f.toLowerCase().split(' ')[0] === ws[i].toLowerCase())) return i; } return findVerb(ws); })();
     return `<div class="card verb pop">
       <div class="head"><span class="name">${esc(v.verb)}</span><span class="tag ${isReview ? 'review' : ''}">${isReview ? 'review' : 'new'}</span></div>
       <span class="forms">${esc(v.forms.join(' · '))}</span>
@@ -624,7 +630,7 @@ function viewSay() {
   }
   return `${topBar(3)}
   ${coach(`<p>${esc(s.de)}</p><p class="de">Ein kurzer Satz. Verb in den ersten drei Wörtern. Zielverb: <b>${esc(VERB[s.verb].verb)}</b></p>`, `Step 3 · Say it · ${s.topic}`)}
-  ${f ? fb : `${micBlock('answer1')}<button class="btn" type="button" data-act="checkfirst">Check my sentence</button>`}`;
+  ${f ? fb : `${micBlock('answer1', session.firstText)}<button class="btn" type="button" data-act="checkfirst">Check my sentence</button>`}`;
 }
 
 function viewDetails() {
@@ -644,7 +650,7 @@ function viewDetails() {
   }
   return `${topBar(4)}
   ${coach(`<p>Nice start: <b>${esc(session.first.first)}</b></p><p>Now add one or two short sentences: a number, a reason, or the next step.</p><p class="de">Jetzt die Details: Zahl, Grund oder nächster Schritt. Jeder Satz wieder mit dem Verb vorne.</p>`, 'Step 4 · Add details')}
-  ${d ? fb : `${micBlock('answer2')}<button class="btn" type="button" data-act="checkdetails">Check my details</button>`}`;
+  ${d ? fb : `${micBlock('answer2', session.detailsText)}<button class="btn" type="button" data-act="checkdetails">Check my details</button>`}`;
 }
 
 function viewDone() {
@@ -660,22 +666,24 @@ function viewDone() {
   <button class="btn" type="button" data-act="home">Back to today</button>`;
 }
 
-function viewVerbs() {
+function verbItems() {
   const q = verbQuery.trim().toLowerCase();
   const list = VERBS.filter(v => !q || v.verb.toLowerCase().includes(q) || v.de.toLowerCase().includes(q) || v.group.includes(q));
-  const items = list.map(v => {
+  return list.map(v => {
     const st = verbStatus(v.id);
     const open = openVerb === v.id;
     return `<div><button class="vitem" type="button" data-verb="${v.id}" aria-expanded="${open}"><span class="dot ${st}" aria-label="${st}"></span><span class="v">${esc(v.verb)}</span><span class="g">${esc(v.de)}</span></button>
       ${open ? `<div class="vdetail"><span class="soft small">${esc(v.forms.join(' · '))} · ${esc(v.group)}</span><p>${esc(exText(v))}</p><p class="de">${esc(v.exDe)}</p><div class="row"><button class="iconbtn" type="button" data-say="${esc(exText(v))}">${SPEAKER}Hear it</button></div></div>` : ''}</div>`;
-  }).join('');
+  }).join('') || '<p class="soft">No verb found.</p>';
+}
+function viewVerbs() {
   return `${topBar(0)}
   <div class="spread"><h1>100 verbs</h1><span class="pill">${knownCount()} known</span></div>
   <p class="soft">These verbs cover most of what you say in meetings and client calls. That is your 20 percent.</p>
   <div class="legend"><span><i class="dot" style="width:10px;height:10px;border-radius:50%;background:var(--line);display:inline-block"></i>new</span><span><i style="width:10px;height:10px;border-radius:50%;background:var(--yellow);display:inline-block"></i>learning</span><span><i style="width:10px;height:10px;border-radius:50%;background:var(--mint-ink);display:inline-block"></i>known</span></div>
   <label class="label" for="vsearch">Search</label>
   <input class="search" id="vsearch" type="search" placeholder="e.g. send, schicken, clients" value="${esc(verbQuery)}">
-  <div class="vlist">${items || '<p class="soft">No verb found.</p>'}</div>`;
+  <div class="vlist" id="vlist">${verbItems()}</div>`;
 }
 
 function viewRules() {
@@ -693,7 +701,7 @@ function viewRules() {
     <p><b>1. Action:</b> We've increased the CTR.</p>
     <p><b>2. Detail:</b> It went up by 12 percent last week.</p>
     <p><b>3. Next step:</b> Let's keep this setup in May.</p>
-    <p class="de">Aktion, Detail, nächster Schritt. Drei kurze Sätze statt einem langen.</p>
+    <p class="de">Aktion, Detail, nächster Schritt. Drei kurze Sätze sind leichter als ein langer.</p>
   </div>
   <h2>5 core patterns</h2>
   ${PATTERNS.map((p, i) => `<div class="card pattern"><span class="label">Pattern ${i + 1} · ${esc(p.name)}</span><p class="ex">${esc(p.ex)}</p><p class="de">${esc(p.de)}</p><div class="row"><button class="iconbtn" type="button" data-say="${esc(p.ex)}">${SPEAKER}Hear it</button></div></div>`).join('')}`;
@@ -771,7 +779,7 @@ document.addEventListener('click', e => {
   if (t.dataset.say !== undefined) { say(t.dataset.say); return; }
   if (t.dataset.tab) { view = t.dataset.tab; openVerb = null; render(true); return; }
   if (t.dataset.mic) { toggleMic(t.dataset.mic); return; }
-  if (t.dataset.verb) { openVerb = openVerb === t.dataset.verb ? null : t.dataset.verb; render(); return; }
+  if (t.dataset.verb) { openVerb = openVerb === t.dataset.verb ? null : t.dataset.verb; $('#vlist').innerHTML = verbItems(); return; }
   if (t.dataset.place !== undefined) {
     const b = session.build; if (b.checked !== null) return;
     b.placed.push(b.pool.splice(+t.dataset.place, 1)[0]); render(); return;
@@ -789,7 +797,7 @@ document.addEventListener('click', e => {
   else if (act === 'checkbuild') {
     const b = session.build;
     b.checked = b.placed.every((c, i) => c.i === i);
-    if (!b.checked) session.results[session.ids[b.i]] = false;
+    session.buildOk[session.ids[b.i]] = b.checked;
     render();
   }
   else if (act === 'nextbuild') {
@@ -802,7 +810,7 @@ document.addEventListener('click', e => {
     if (!text) { $('#answer1').focus(); return; }
     session.firstText = text;
     session.first = analyzeFirst(text, session.situation.verb);
-    if (session.ids.includes(session.situation.verb) && !session.first.good) session.results[session.situation.verb] = false;
+    session.sayOk = session.first.good;
     render();
   }
   else if (act === 'retry') {
@@ -822,9 +830,7 @@ document.addEventListener('click', e => {
 document.addEventListener('input', e => {
   if (e.target.id === 'vsearch') {
     verbQuery = e.target.value;
-    const pos = e.target.selectionStart;
-    render();
-    const s = $('#vsearch'); s.focus(); try { s.setSelectionRange(pos, pos); } catch (err) {}
+    $('#vlist').innerHTML = verbItems();
   }
 });
 try { window.speechSynthesis && window.speechSynthesis.getVoices(); } catch (e) {}
