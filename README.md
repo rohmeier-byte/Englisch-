@@ -25,3 +25,14 @@ Ein Sprechtrainer für Business-Englisch (B1 bis Business-Niveau) im Ordner [`ve
 - **iPhone:** Klappt der Sprechen-Knopf im Browser nicht, nutzt du im Textfeld das Mikrofon auf der Tastatur.
 
 Inhalte stehen in `verb-first/data.json`, die App in `verb-first/app.html`. `node verb-first/build.js` baut daraus `verb-first/index.html`.
+
+# Stimmwerk
+
+Ein Sprechtrainer für Meetings und Webinare im Ordner [`sprechen/`](./sprechen/index.html), nach den Techniken von Vinh Giang, in eigenen Worten.
+
+- **Pfad mit 7 Säulen:** Tempo, Pause, Lautstärke, Melodie, Klangfarbe, Aufbau mit 3·2·1, Körper und Kamera. Zu jeder Säule zwei bis drei kurze Übungen.
+- **Aufnahme und Messung:** Tempo, Pausen, Lautstärke, Melodie als Notenlinie und Satzenden. Die Audiodatei bleibt auf dem Gerät. Im claude.ai Link geht das über ein hochgeladenes Sprachmemo, direkt im Browser auch live.
+- **Coach mit Claude:** Über den claude.ai Link gibt Claude Feedback und stellt eine Rückfrage wie im Meeting.
+- **Vor dem Meeting:** ein Schnellcheck in sechs Schritten.
+
+Die App steht in `sprechen/app.html`. `node sprechen/build.js` baut daraus `sprechen/index.html`.

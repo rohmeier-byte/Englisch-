@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stimmwerk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Sieben Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: eine schmale Handyspalte. Startseite ist ein Pfad mit 7 Stationen, in der Übung zeigt eine Notenlinie deine Tonhöhe. */
+  :root {
+    --bg: #eef5f1;
+    --panel: #ffffff;
+    --ink: #12352a;
+    --soft: #557064;
+    --line: #d3e6dc;
+    --accent: #1f8a5b;
+    --accent-ink: #ffffff;
+    --gold: #f4b63f;
+    --gold-ink: #12352a;
+    --staff: #1b2a4a;
+    --staff-line: #dfe4ee;
+    --mark: #ffe08a;
+    --rest: #c2410c;
+    --ok-bg: #d8f0e3; --ok-ink: #145c3c;
+    --warn-bg: #fff0cf; --warn-ink: #7a4b00;
+    --rec: #d8473b;
+    --shadow: rgba(18, 53, 42, .10);
+    --font-display: 'Bricolage Grotesque', 'Outfit', system-ui, sans-serif;
+    --font-body: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1d18; --panel: #16271f; --ink: #e3efe8; --soft: #93ab9f; --line: #27402f;
+      --accent: #4cc28a; --accent-ink: #0b2219; --gold: #f4b63f; --gold-ink: #12352a;
+      --staff: #b9c8ff; --staff-line: #2c3b52; --mark: #6b5a1c; --rest: #ff8a5c;
+      --ok-bg: #1d4733; --ok-ink: #bdf0d4; --warn-bg: #4a3812; --warn-ink: #ffd98a;
+      --rec: #ff6b5e; --shadow: rgba(0, 0, 0, .35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1d18; --panel: #16271f; --ink: #e3efe8; --soft: #93ab9f; --line: #27402f;
+    --accent: #4cc28a; --accent-ink: #0b2219; --gold: #f4b63f; --gold-ink: #12352a;
+    --staff: #b9c8ff; --staff-line: #2c3b52; --mark: #6b5a1c; --rest: #ff8a5c;
+    --ok-bg: #1d4733; --ok-ink: #bdf0d4; --warn-bg: #4a3812; --warn-ink: #ffd98a;
+    --rec: #ff6b5e; --shadow: rgba(0, 0, 0, .35);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 16px 100px;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 560px; margin: 0 auto; display: grid; gap: 16px; }
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; line-height: 1.15; }
+  h1 { font-size: 1.9rem; font-weight: 800; letter-spacing: -.01em; }
+  h2 { font-size: 1.4rem; font-weight: 800; }
+  h3 { font-size: 1.08rem; font-weight: 600; }
+  p { margin: 0; }
+  .soft { color: var(--soft); }
+  .small { font-size: .88rem; }
+  .label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--soft); }
+  .stack { display: grid; gap: 10px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
+  button, .btn { font: inherit; cursor: pointer; border: 0; border-radius: 12px; padding: 11px 16px; font-weight: 600; background: var(--panel); color: var(--ink); border: 1px solid var(--line); }
+  button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  button.gold { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); font-weight: 700; }
+  button.wide { width: 100%; }
+  button:disabled { opacity: .55; cursor: default; }
+  button.link { background: none; border: 0; padding: 4px 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  textarea { width: 100%; min-height: 110px; font: inherit; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); resize: vertical; }
+  .chip { display: inline-block; font-size: .78rem; padding: 2px 9px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+  .chip.ok { background: var(--ok-bg); color: var(--ok-ink); border-color: transparent; }
+  .chip.warn { background: var(--warn-bg); color: var(--warn-ink); border-color: transparent; }
+  .chip.mine { background: var(--warn-bg); color: var(--warn-ink); border-color: transparent; }
+
+  /* Kopf */
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .lang button { border: 0; border-radius: 0; padding: 6px 12px; font-size: .85rem; background: var(--panel); }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+
+  /* Pfad */
+  .path { display: grid; gap: 10px; position: relative; padding-left: 28px; }
+  .path::before { content: ""; position: absolute; left: 11px; top: 14px; bottom: 14px; width: 3px; background: var(--line); border-radius: 2px; }
+  .station { position: relative; text-align: left; display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; padding: 12px 14px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); width: 100%; }
+  .station::before { content: ""; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; border-radius: 50%; background: var(--line); border: 3px solid var(--bg); }
+  .station.done::before { background: var(--accent); }
+  .station.now { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .station.now::before { background: var(--gold); width: 18px; height: 18px; left: -26px; }
+  .station .nm { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
+  .station .sub { font-size: .82rem; opacity: .75; grid-column: 1; }
+  .station .cnt { grid-row: 1 / span 2; grid-column: 2; font-size: .8rem; font-variant-numeric: tabular-nums; opacity: .8; }
+  .group { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); font-weight: 600; margin: 4px 0 -4px; }
+  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .quick button { text-align: left; display: grid; gap: 2px; padding: 14px; }
+  .quick b { font-family: var(--font-display); font-size: 1.02rem; }
+  .quick span { font-size: .8rem; color: var(--soft); font-weight: 400; }
+
+  /* Übungsliste */
+  .ex { text-align: left; display: grid; gap: 2px; width: 100%; padding: 12px 14px; }
+  .ex .t { font-weight: 600; }
+  .ex .d { font-size: .85rem; color: var(--soft); font-weight: 400; }
+
+  /* Aufgabe */
+  .task { font-size: 1.12rem; line-height: 1.6; }
+  .task mark { background: var(--mark); color: inherit; padding: 0 2px; border-radius: 3px; }
+  .task .ps { color: var(--rest); font-weight: 800; padding: 0 4px; }
+  .task .lo { font-size: .88em; opacity: .75; }
+  .task .hi { font-weight: 700; font-size: 1.12em; }
+  .task .dn::after { content: " ↘"; color: var(--accent); font-weight: 700; }
+  .task .up::after { content: " ↗"; color: var(--rest); font-weight: 700; }
+  .dice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .die { display: grid; justify-items: center; gap: 2px; padding: 12px 6px; border-radius: 12px; border: 2px solid var(--line); background: var(--bg); }
+  .die b { font-family: var(--font-display); font-size: 1.8rem; line-height: 1; }
+  .die span { font-size: .78rem; text-align: center; }
+  .die.on { border-color: var(--accent); background: var(--ok-bg); color: var(--ok-ink); }
+  .question { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; }
+
+  /* Aufnahme */
+  .recbar { display: flex; gap: 12px; align-items: center; }
+  .recbtn { width: 64px; height: 64px; border-radius: 50%; padding: 0; background: var(--rec); border: 4px solid var(--panel); box-shadow: 0 0 0 3px var(--rec); flex: none; display: grid; place-items: center; color: #fff; }
+  .recbtn.live { border-radius: 16px; animation: pulse 1.2s infinite; }
+  .recbtn svg { width: 26px; height: 26px; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 8px transparent; } }
+  @media (prefers-reduced-motion: reduce) { .recbtn.live { animation: none; } }
+  .meter { flex: 1; height: 12px; background: var(--bg); border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+  .meter i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s; }
+  .timer { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 3.2em; text-align: right; }
+  audio { width: 100%; }
+  .filebtn { position: relative; overflow: hidden; display: inline-block; }
+  .filebtn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+  /* Ergebnis */
+  .staff { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 8px 6px 4px; overflow-x: auto; }
+  .staff svg { display: block; width: 100%; height: auto; min-width: 280px; }
+  .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .metric { background: var(--bg); border-radius: 12px; padding: 10px 12px; display: grid; gap: 2px; border: 1px solid transparent; }
+  .metric.focus { border-color: var(--accent); }
+  .metric .v { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .metric .k { font-size: .78rem; color: var(--soft); }
+  .coach { border-left: 4px solid var(--gold); }
+  .bubble { background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; vertical-align: -2px; margin-right: 6px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .hist { display: grid; gap: 4px; font-size: .85rem; font-variant-numeric: tabular-nums; }
+  .hist div { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dashed var(--line); padding: 3px 0; }
+
+  /* Checkliste */
+  .checks { display: grid; gap: 8px; }
+  .checks label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--bg); cursor: pointer; }
+  .checks input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+
+  /* Schnellcheck */
+  .breath { width: 150px; height: 150px; border-radius: 50%; margin: 8px auto; display: grid; place-items: center; background: var(--ok-bg); color: var(--ok-ink); font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; transform: scale(.7); transition: transform 4s ease-in-out; }
+  .breath.in { transform: scale(1); }
+  .steps { display: flex; gap: 6px; }
+  .steps i { flex: 1; height: 5px; border-radius: 3px; background: var(--line); }
+  .steps i.on { background: var(--accent); }
+
+  /* Karte */
+  .pillars { display: grid; gap: 8px; }
+  .pillar { display: grid; gap: 4px; padding: 12px 14px; border-radius: 12px; background: var(--bg); }
+
+  /* Leiste unten */
+  nav.tabs { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; gap: 4px; padding: 8px max(16px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); background: var(--panel); border-top: 1px solid var(--line); z-index: 5; }
+  nav.tabs button { flex: 1; max-width: 140px; border: 0; padding: 8px 4px; font-size: .85rem; background: none; border-radius: 10px; }
+  nav.tabs button[aria-current="page"] { background: var(--bg); color: var(--accent); }
+</style>
+</head>
+<body>
+
+<main id="app" aria-live="polite"></main>
+<nav class="tabs" id="tabs" aria-label="Bereiche">
+  <button type="button" data-tab="home">Pfad</button>
+  <button type="button" data-tab="quick">Vor dem Meeting</button>
+  <button type="button" data-tab="map">Landkarte</button>
+</nav>
+
+<script>
+/* ---------- Inhalte ---------- */
+const PILLARS = [
+  { id: 'tempo', group: 'Stimme', name: 'Tempo', sub: 'Gas geben und bremsen',
+    idea: 'Schneller Sprechen bringt Energie. Langsamer Sprechen zeigt: Jetzt kommt das Wichtige. Wirkung entsteht durch den Wechsel. Ein gleichmäßiges Tempo schläfert ein, egal wie schnell.',
+    src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'wpm' },
+  { id: 'pause', group: 'Stimme', name: 'Pause', sub: 'Stille vor dem Kernpunkt',
+    idea: 'Eine Pause gibt deinen Zuhörern Zeit, das Gesagte zu verarbeiten. Vor dem wichtigsten Wort erzeugt sie Spannung. Und sie ist der beste Ersatz für „ähm“.',
+    src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'pauses' },
+  { id: 'laut', group: 'Stimme', name: 'Lautstärke', sub: 'Nachdruck und Nähe',
+    idea: 'Lauter gibt Nachdruck. Leiser holt die Leute näher heran und macht neugierig. Wer immer gleich laut spricht, verschenkt beides.',
+    src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'vol' },
+  { id: 'melodie', group: 'Stimme', name: 'Melodie', sub: 'Satzende nach unten',
+    idea: 'Deine Tonhöhe darf sich bewegen, das hält Aufmerksamkeit. Aussagen enden unten und klingen dadurch sicher. Geht das Satzende nach oben, klingt jede Aussage wie eine Frage.',
+    src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'pitch' },
+  { id: 'farbe', group: 'Stimme', name: 'Klangfarbe', sub: 'Das Gesicht als Fernbedienung',
+    idea: 'Die Gefühlslage deiner Stimme steuerst du über dein Gesicht. Lächeln hört man. Ernst hört man auch. Dein Gesicht ist die Fernbedienung für den Klang.',
+    src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'pitch' },
+  { id: 'aufbau', group: 'Inhalt', name: 'Aufbau mit 3·2·1', sub: 'Nie mehr ins Schwafeln',
+    idea: 'Wenn du spontan antworten musst, gibt dir ein fester Rahmen eine Route, und dein Kopf bleibt nicht leer. Du ordnest deine Antwort in drei Schritte, in zwei Arten oder um eine Kernaussage. Sein Beispiel ist die Avocado: halbieren, zerdrücken, würzen.',
+    src: 'Vinh Giang, Video zum 3·2·1 Trick', focus: 'fill' },
+  { id: 'koerper', group: 'Wirkung', name: 'Körper und Kamera', sub: 'Bewegung macht die Stimme lebendig',
+    idea: 'Körper und Stimme hängen zusammen. Wer starr sitzt, klingt oft flach. Für Webinare kommen Blick in die Linse und Gesten im Bild dazu.',
+    src: 'Körper: Vinh Giang. Kamera: Ergänzung im Tool', focus: 'pitch' }
+];
+
+/* Texte: ‖ = Pause, [w] = markiertes Wort, {lo:..} leiser, {hi:..} lauter, {dn:..} Satzende runter, {up:..} Satzende hoch */
+const EXERCISES = [
+  { id: 't1', p: 'tempo', kind: 'read', name: 'Gas und Bremse',
+    how: 'Lies die ersten Sätze zügig. Ab dem markierten Satz wirst du deutlich langsamer.',
+    de: 'Letzte Woche lief alles schief. Der Kunde hat die Kampagne zweimal geändert, das Budget wurde plötzlich halbiert, und am Freitagabend fiel auch noch das Tracking aus. ‖ [Und trotzdem] haben wir am Montag pünktlich geliefert.',
+    en: 'Last week everything went wrong. The client changed the campaign twice, the budget was suddenly cut in half, and on Friday night the tracking went down. ‖ [And still] we delivered on time on Monday.' },
+  { id: 't2', p: 'tempo', kind: 'free', name: 'Eine Minute Alltag',
+    how: 'Erzähl eine Minute lang, woran du gerade arbeitest. Achte darauf, dass du nicht davonläufst.',
+    q: { de: 'Woran arbeitest du gerade, und was ist dabei die größte Herausforderung?', en: 'What are you working on right now, and what is the biggest challenge?' } },
+  { id: 'p1', p: 'pause', kind: 'read', name: 'Schweig dich zum Punkt',
+    how: 'Bei jedem roten Zeichen bleibst du zwei Sekunden still. Zähl innerlich: einundzwanzig, zweiundzwanzig.',
+    de: 'Wir haben uns drei Ziele gesetzt. ‖ Erstens: mehr [Reichweite]. ‖ Zweitens: bessere [Daten]. ‖ Und drittens, ‖ und das ist das Wichtigste: ‖ zufriedene [Kunden].',
+    en: 'We set ourselves three goals. ‖ First: more [reach]. ‖ Second: better [data]. ‖ And third, ‖ and this matters most: ‖ happy [customers].' },
+  { id: 'p2', p: 'pause', kind: 'free', name: 'Pause statt Ähm',
+    how: 'Beantworte die Frage frei. Sobald du merkst, dass ein „ähm“ kommt, schließt du den Mund und machst eine Pause.',
+    q: { de: 'Was hat in deinem letzten Projekt besonders gut funktioniert?', en: 'What worked especially well in your last project?' } },
+  { id: 'l1', p: 'laut', kind: 'read', name: 'Drei Stufen',
+    how: 'Sag den Satz dreimal: erst leise, dann normal, dann kräftig. Kräftig heißt aus dem Bauch, ohne zu schreien.',
+    de: '{lo:Das ist unser wichtigstes Projekt in diesem Jahr.} ‖ Das ist unser wichtigstes Projekt in diesem Jahr. ‖ {hi:Das ist unser wichtigstes Projekt in diesem Jahr.}',
+    en: '{lo:This is our most important project this year.} ‖ This is our most important project this year. ‖ {hi:This is our most important project this year.}' },
+  { id: 'l2', p: 'laut', kind: 'read', name: 'Leiser zieht heran',
+    how: 'Sprich normal. Den klein gesetzten Satz sagst du deutlich leiser, als würdest du ein Geheimnis verraten.',
+    de: 'Die Zahlen sind gut, das wisst ihr alle. ‖ {lo:Aber ich verrate euch, was kaum jemand gesehen hat.} ‖ Die Kunden kommen [wieder].',
+    en: 'The numbers are good, you all know that. ‖ {lo:But let me tell you what hardly anyone noticed.} ‖ The customers come [back].' },
+  { id: 'm1', p: 'melodie', kind: 'read', name: 'Satzende nach unten',
+    how: 'Lies jede Aussage so, dass deine Stimme am Ende nach unten geht. Stell dir vor, du setzt am Satzende einen Punkt auf den Tisch.',
+    de: '{dn:Wir starten am Montag.} ‖ {dn:Das Budget ist freigegeben.} ‖ {dn:Ich übernehme die Abstimmung.} ‖ {dn:Bis Freitag habt ihr den Entwurf.}',
+    en: '{dn:We start on Monday.} ‖ {dn:The budget is approved.} ‖ {dn:I will handle the alignment.} ‖ {dn:You will have the draft by Friday.}' },
+  { id: 'm2', p: 'melodie', kind: 'read', name: 'Frage oder Aussage',
+    how: 'Derselbe Satz zweimal: einmal als Frage mit dem Ende nach oben, dann als klare Aussage mit dem Ende nach unten. Hör danach den Unterschied.',
+    de: '{up:Wir starten am Montag?} ‖ {dn:Wir starten am Montag.}',
+    en: '{up:We start on Monday?} ‖ {dn:We start on Monday.}' },
+  { id: 'k1', p: 'farbe', kind: 'read', name: 'Drei Gesichter',
+    how: 'Sag den Satz dreimal. Erst mit einem echten Lächeln, dann mit ernstem Gesicht, dann überrascht mit hochgezogenen Augenbrauen. Danach hörst du nur den Ton an.',
+    de: 'Wir haben die Zahlen von letzter Woche. ‖ Wir haben die Zahlen von letzter Woche. ‖ Wir haben die Zahlen von letzter Woche.',
+    en: 'We have the numbers from last week. ‖ We have the numbers from last week. ‖ We have the numbers from last week.' },
+  { id: 'k2', p: 'farbe', kind: 'read', name: 'Gefühl im Wort',
+    how: 'Lass jedes Wort so klingen, wie es gemeint ist. Riesig klingt groß, winzig klingt klein, endlich klingt erleichtert.',
+    de: 'riesig ‖ winzig ‖ endlich ‖ leider ‖ sofort ‖ fantastisch ‖ vorsichtig',
+    en: 'huge ‖ tiny ‖ finally ‖ unfortunately ‖ immediately ‖ fantastic ‖ careful' },
+  { id: 'a1', p: 'aufbau', kind: 'dice', name: '3·2·1 Würfel',
+    how: 'Du bekommst eine Frage, der Würfel wählt die Struktur. Nimm dir 15 Sekunden zum Sortieren, dann antworte in höchstens einer Minute.' },
+  { id: 'a2', p: 'aufbau', kind: 'free', name: 'Avocado Prinzip',
+    how: 'Erkläre etwas aus deinem Alltag in genau drei Schritten. Sag am Anfang „in drei Schritten“ und zähl laut mit.',
+    q: { de: 'Wie bereitest du ein wichtiges Meeting vor?', en: 'How do you prepare for an important meeting?' } },
+  { id: 'a3', p: 'aufbau', kind: 'dice', name: 'Rückfrage im Meeting', fixed: 1,
+    how: 'Eine Frage, wie sie dir in einem Meeting gestellt wird. Antworte mit einer einzigen Kernaussage und begründe sie kurz. Danach stellt dir der Coach eine Rückfrage.' },
+  { id: 'c1', p: 'koerper', kind: 'free', name: 'Sitzen und Stehen',
+    how: 'Nimm die Antwort zweimal auf. Einmal sitzend mit den Händen im Schoß, einmal stehend mit Gesten. Vergleich danach die Melodie.',
+    q: { de: 'Was möchtest du in den nächsten drei Monaten erreichen?', en: 'What do you want to achieve in the next three months?' } },
+  { id: 'c2', p: 'koerper', kind: 'check', name: 'Drei Durchgänge',
+    how: 'Nimm dich mit der Kamera deines Handys fünf Minuten lang auf, über ein Thema, das du gut kennst. Dann schaust du die Aufnahme dreimal an.',
+    checks: ['Durchgang 1 ohne Ton: Was macht mein Körper? Hände, Haltung, Gesicht.', 'Durchgang 2 nur Ton, Bildschirm weg: Wie klingt meine Stimme? Tempo, Pausen, Melodie.', 'Durchgang 3 als Text: Wo wiederhole ich mich? Wo fehlt der rote Faden?', 'Ich habe mir eine Sache für die nächste Woche vorgenommen.'] },
+  { id: 'c3', p: 'koerper', kind: 'check', name: 'Blick in die Linse',
+    how: 'Für Webinare. Sprich 30 Sekunden in die Kamera und prüfe die Punkte.',
+    checks: ['Kamera auf Augenhöhe, ein Stapel Bücher hilft.', 'Bei wichtigen Sätzen geht mein Blick in die Linse. Mein eigenes Bild habe ich ausgeblendet.', 'Meine Hände sind im Bild, wenn ich gestikuliere.', 'Das Licht kommt von vorn. Hinter mir ist kein helles Fenster.', 'Ich spreche mit etwas mehr Energie als im Raum, weil die Kamera Energie schluckt.'] }
+];
+
+const DICE = {
+  3: { name: '3 Schritte', hint: 'Erstens, zweitens, drittens. Wie beim Avocado Beispiel.', en: 'three steps' },
+  2: { name: '2 Arten', hint: 'Zwei Seiten oder zwei Arten, zum Beispiel vorher und nachher, Chance und Risiko.', en: 'two types or sides' },
+  1: { name: '1 Kernpunkt', hint: 'Eine einzige Aussage zuerst, dann ein Grund und ein Beispiel.', en: 'one main point' }
+};
+
+const QUESTIONS = {
+  de: ['Wie läuft dein aktuelles Projekt?', 'Warum sollten wir mehr Budget in diesen Kanal stecken?', 'Was hast du aus dem letzten Quartal gelernt?', 'Wie würdest du einem neuen Kollegen unser Team erklären?', 'Was ist dein Vorschlag für das Problem mit den Lieferzeiten?', 'Wie gehst du mit einem unzufriedenen Kunden um?', 'Was macht eine gute Kampagne aus?', 'Wie organisierst du deine Woche?', 'Warum hat die Kampagne nicht so performt wie geplant?', 'Was würdest du an unseren Meetings ändern?', 'Wie überzeugst du jemanden, der skeptisch ist?', 'Was erwartest du vom nächsten Jahr?'],
+  en: ['How is your current project going?', 'Why should we put more budget into this channel?', 'What did you learn from the last quarter?', 'How would you explain our team to a new colleague?', 'What do you suggest for the problem with delivery times?', 'How do you handle an unhappy client?', 'What makes a good campaign?', 'How do you organise your week?', 'Why did the campaign not perform as planned?', 'What would you change about our meetings?', 'How do you convince someone who is sceptical?', 'What do you expect from next year?']
+};
+
+const FILLERS = {
+  de: ['äh', 'ähm', 'öhm', 'hm', 'also', 'halt', 'sozusagen', 'quasi', 'eigentlich', 'irgendwie', 'genau', 'ja also', 'im prinzip', 'gewissermaßen'],
+  en: ['um', 'uh', 'erm', 'like', 'you know', 'basically', 'actually', 'kind of', 'sort of', 'i mean', 'literally', 'so yeah']
+};
+
+/* ---------- Zustand ---------- */
+const STORE_KEY = 'stimmwerk.v1';
+function blank() { return { v: 1, lang: 'de', done: {}, hist: {}, days: [], updated: 0 }; }
+function loadLocal() {
+  try { const s = JSON.parse(localStorage.getItem(STORE_KEY)); if (s && s.v === 1) return Object.assign(blank(), s); } catch (e) {}
+  return blank();
+}
+let state = loadLocal();
+let cloud = null, cloudTimer = null, cloudWriting = Promise.resolve();
+function save() {
+  state.updated = Date.now();
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  if (cloud) {
+    clearTimeout(cloudTimer);
+    cloudTimer = setTimeout(() => {
+      const body = JSON.parse(JSON.stringify(state));
+      cloudWriting = cloudWriting.then(() => cloud.set(body)).catch(() => {});
+    }, 700);
+  }
+}
+async function connectCloud() {
+  try {
+    if (!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([window.claude.use('db'), window.claude.use('user')]);
+    if (!db || !user) return;
+    const id = await user.id();
+    if (!id) return;
+    const ref = db.collection('data/users/' + id).doc('progress');
+    const snap = await ref.get();
+    cloud = ref;
+    const remote = snap.exists ? snap.data() : null;
+    if (remote && remote.v === 1 && (remote.updated || 0) > (state.updated || 0)) {
+      state = Object.assign(blank(), JSON.parse(JSON.stringify(remote)));
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+      if (!busy()) render();
+    } else if (state.updated) save();
+  } catch (e) { cloud = null; }
+}
+function today() { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+function markDay() { const t = today(); if (!state.days.includes(t)) { state.days.push(t); state.days = state.days.slice(-120); } }
+function streak() {
+  const set = new Set(state.days); let n = 0; const d = new Date();
+  if (!set.has(today())) d.setDate(d.getDate() - 1);
+  for (;;) { const k = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); if (!set.has(k)) break; n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+
+/* ---------- Helfer ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const P = id => PILLARS.find(p => p.id === id);
+const EX = id => EXERCISES.find(e => e.id === id);
+const exOf = pid => EXERCISES.filter(e => e.p === pid);
+const doneIn = pid => exOf(pid).filter(e => state.done[e.id]).length;
+function fmtTime(s) { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+function textFor(ex) { return state.lang === 'en' ? ex.en : ex.de; }
+function markup(t) {
+  return esc(t)
+    .replace(/‖/g, '<span class="ps" aria-label="Pause">‖</span>')
+    .replace(/\[([^\]]+)\]/g, '<mark>$1</mark>')
+    .replace(/\{(lo|hi|dn|up):([^}]+)\}/g, '<span class="$1">$2</span>');
+}
+function plain(t) { return String(t || '').replace(/‖/g, '').replace(/\[([^\]]+)\]/g, '$1').replace(/\{(?:lo|hi|dn|up):([^}]+)\}/g, '$1').replace(/\s+/g, ' ').trim(); }
+
+/* ---------- Ansichten ---------- */
+let view = 'home', curPillar = null, ex = null;
+function busy() { return view === 'ex' && ex && (ex.recording || ex.analyzing); }
+
+function nextPillar() { return PILLARS.find(p => doneIn(p.id) < exOf(p.id).length) || PILLARS[0]; }
+
+function viewHome() {
+  const now = nextPillar();
+  let lastGroup = '';
+  const stations = PILLARS.map(p => {
+    const d = doneIn(p.id), n = exOf(p.id).length;
+    const cls = p.id === now.id ? 'now' : (d >= n ? 'done' : '');
+    const g = p.group !== lastGroup ? `<div class="group">${esc(p.group)}</div>` : '';
+    lastGroup = p.group;
+    return `${g}<button type="button" class="station ${cls}" data-pillar="${p.id}"><span class="nm">${esc(p.name)}</span><span class="sub">${esc(p.sub)}</span><span class="cnt">${d} von ${n}</span></button>`;
+  }).join('');
+  const st = streak();
+  return `
+  <div class="top"><div><span class="label">Stimmwerk</span><h1>Dein Weg</h1></div>${langSwitch()}</div>
+  <p class="soft">${st ? `Du übst seit ${st} ${st === 1 ? 'Tag' : 'Tagen'} am Stück.` : 'Wähl eine Station, egal wie viel Zeit du hast. Jede Übung dauert ein bis drei Minuten.'}</p>
+  <button type="button" class="gold wide" data-pillar="${now.id}">Weiter mit ${esc(now.name)}</button>
+  <div class="quick">
+    <button type="button" data-start="a1"><b>3·2·1 Würfel</b><span>Spontan antworten</span></button>
+    <button type="button" data-tab="quick"><b>Vor dem Meeting</b><span>Schnellcheck</span></button>
+  </div>
+  <div class="path">${stations}</div>`;
+}
+
+function langSwitch() {
+  return `<div class="lang" role="group" aria-label="Sprache der Übungstexte"><button type="button" data-lang="de" aria-pressed="${state.lang === 'de'}">DE</button><button type="button" data-lang="en" aria-pressed="${state.lang === 'en'}">EN</button></div>`;
+}
+
+function viewPillar() {
+  const p = P(curPillar);
+  const list = exOf(p.id).map(e => `<button type="button" class="ex" data-start="${e.id}"><span class="t">${state.done[e.id] ? '✓ ' : ''}${esc(e.name)}</span><span class="d">${esc(e.how)}</span></button>`).join('');
+  return `
+  <div class="top"><button type="button" class="link" data-tab="home">Zurück zum Pfad</button>${langSwitch()}</div>
+  <div><span class="label">${esc(p.group)}</span><h2>${esc(p.name)}</h2></div>
+  <div class="card"><p>${esc(p.idea)}</p><span class="chip${/Ergänzung/.test(p.src) ? ' mine' : ''}">${esc(p.src)}</span></div>
+  <div class="stack">${list}</div>`;
+}
+
+/* ---------- Übung ---------- */
+function startExercise(id) {
+  const e = EX(id);
+  ex = { id, recording: false, analyzing: false, result: null, audioUrl: null, transcript: '', coach: null, checked: [], die: null, question: null, followUp: null };
+  if (e.kind === 'dice') { rollDie(e); }
+  if (e.kind === 'free') ex.question = e.q[state.lang];
+  curPillar = e.p; view = 'ex'; render(true);
+}
+function rollDie(e) {
+  ex.die = e.fixed || [1, 2, 3][Math.floor(Math.random() * 3)];
+  const list = QUESTIONS[state.lang];
+  let q; do { q = list[Math.floor(Math.random() * list.length)]; } while (list.length > 1 && q === ex.question);
+  ex.question = q; ex.followUp = null;
+}
+
+function viewExercise() {
+  const e = EX(ex.id), p = P(e.p);
+  let task = '';
+  if (e.kind === 'read') task = `<div class="card"><span class="label">Lies laut</span><p class="task">${markup(textFor(e))}</p></div>`;
+  if (e.kind === 'free') task = `<div class="card"><span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage'}</span><p class="question">${esc(ex.question)}</p>${claudeQuestionBtn()}</div>`;
+  if (e.kind === 'dice') task = `<div class="card">
+      <span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Frage im Meeting'}</span><p class="question">${esc(ex.question)}</p>
+      <div class="dice">${[3, 2, 1].map(n => `<div class="die${ex.die === n ? ' on' : ''}"><b>${n}</b><span>${esc(DICE[n].name)}</span></div>`).join('')}</div>
+      <p class="small">${esc(DICE[ex.die].hint)}</p>
+      <div class="row">${e.fixed ? '' : '<button type="button" data-roll>Neu würfeln</button>'}${claudeQuestionBtn()}</div>
+      <p class="small soft">Die Bedeutung der 2 ist aus Zusammenfassungen des Videos abgeleitet und noch nicht am Original geprüft.</p></div>`;
+  if (e.kind === 'check') {
+    task = `<div class="card"><div class="checks">${e.checks.map((c, i) => `<label><input type="checkbox" id="chk-${e.id}-${i}" data-check="${i}"${ex.checked.includes(i) ? ' checked' : ''}><span>${esc(c)}</span></label>`).join('')}</div>
+      <button type="button" class="primary" data-finish-check>Fertig</button></div>`;
+  }
+  return `
+  <div class="top"><button type="button" class="link" data-pillar="${p.id}">Zurück zu ${esc(p.name)}</button>${e.kind === 'check' ? '' : langSwitch()}</div>
+  <div><span class="label">${esc(p.name)}</span><h2>${esc(e.name)}</h2></div>
+  <p>${esc(e.how)}</p>
+  ${task}
+  ${e.kind === 'check' ? '' : recorderBlock(e)}
+  ${ex.result ? resultBlock(e) : ''}
+  ${e.kind === 'check' ? '' : coachBlock()}
+  ${historyBlock(e)}`;
+}
+
+function claudeQuestionBtn() { return sampleOk === false ? '' : '<button type="button" data-askq>Frage vom Coach</button>'; }
+
+function recorderBlock() {
+  const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder) && micOk !== false;
+  return `<div class="card">
+    <span class="label">Sprechen</span>
+    ${canRec ? `<div class="recbar">
+      <button type="button" class="recbtn${ex.recording ? ' live' : ''}" data-rec aria-label="${ex.recording ? 'Aufnahme stoppen' : 'Aufnahme starten'}">${ex.recording ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>'}</button>
+      <div class="meter" aria-hidden="true"><i id="lvl"></i></div><span class="timer" id="tmr">${ex.recording ? '0:00' : ''}</span></div>
+      <p class="small soft">${ex.recording ? 'Ich höre zu. Tippe auf das Quadrat, wenn du fertig bist.' : 'Tippe auf den roten Knopf und sprich.'}</p>`
+    : `<p class="small soft">Hier kann ich nicht direkt aufnehmen. Nimm ein Sprachmemo auf und lade es hoch, dann messe ich Pausen, Lautstärke und Melodie. Den Text sprichst du über das Mikrofon auf deiner Tastatur ins Feld unten.</p>`}
+    <div class="row"><label class="btn filebtn" for="upl">Sprachmemo hochladen<input type="file" id="upl" accept="audio/*"></label>${ex.analyzing ? '<span class="small"><span class="spinner"></span>Ich messe…</span>' : ''}</div>
+    ${ex.audioUrl ? `<audio controls src="${ex.audioUrl}"></audio>` : ''}
+    <label class="small soft" for="txt">Was du gesagt hast. ${hasSR ? 'Wird beim Aufnehmen mitgeschrieben, wenn dein Browser das kann.' : 'Diktier es über die Tastatur oder tippe es grob ab.'} Für Tempo und Füllwörter.</label>
+    <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
+  </div>`;
+}
+
+/* ---------- Aufnahme ---------- */
+const hasSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+let micOk = null, media = null;
+async function toggleRec() {
+  if (ex.recording) { stopRec(); return; }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    micOk = true;
+    const chunks = [];
+    const mr = new MediaRecorder(stream);
+    mr.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+    mr.onstop = () => {
+      stream.getTracks().forEach(t => t.stop());
+      const blob = new Blob(chunks, { type: mr.mimeType || 'audio/mp4' });
+      handleAudio(blob);
+    };
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ac = new AC(); const src = ac.createMediaStreamSource(stream); const an = ac.createAnalyser(); an.fftSize = 1024; src.connect(an);
+    const buf = new Float32Array(an.fftSize);
+    const t0 = performance.now();
+    let raf = 0;
+    const tick = () => {
+      an.getFloatTimeDomainData(buf); let s = 0; for (let i = 0; i < buf.length; i++) s += buf[i] * buf[i];
+      const db = 20 * Math.log10(Math.sqrt(s / buf.length) + 1e-9);
+      const l = $('#lvl'), t = $('#tmr');
+      if (l) l.style.width = Math.max(0, Math.min(100, (db + 60) * 2)) + '%';
+      if (t) t.textContent = fmtTime((performance.now() - t0) / 1000);
+      raf = requestAnimationFrame(tick);
+    };
+    media = { mr, ac, stop: () => { cancelAnimationFrame(raf); try { ac.close(); } catch (e) {} } };
+    ex.recording = true; ex.result = null; ex.coach = null;
+    const box = $('#txt'); ex.transcript = box ? box.value : ex.transcript;
+    startSR();
+    mr.start();
+    render(); tick();
+  } catch (e) {
+    micOk = false; render();
+  }
+}
+function stopRec() {
+  if (!media) return;
+  ex.recording = false;
+  stopSR();
+  media.stop(); try { media.mr.stop(); } catch (e) {}
+  media = null; ex.analyzing = true; render();
+}
+let sr = null;
+function startSR() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return;
+  try {
+    const r = new SR(); r.lang = state.lang === 'en' ? 'en-US' : 'de-DE'; r.continuous = true; r.interimResults = true;
+    const base = ex.transcript ? ex.transcript.trim() + ' ' : '';
+    r.onresult = e => { let t = ''; for (let i = 0; i < e.results.length; i++) t += e.results[i][0].transcript + ' '; ex.transcript = (base + t).replace(/\s+/g, ' ').trim(); const b = $('#txt'); if (b) b.value = ex.transcript; };
+    r.onerror = () => {};
+    r.onend = () => { if (sr === r && ex && ex.recording) { try { r.start(); } catch (e) {} } };
+    sr = r; r.start();
+  } catch (e) { sr = null; }
+}
+function stopSR() { const r = sr; sr = null; if (r) { try { r.stop(); } catch (e) {} } }
+
+async function handleAudio(blob) {
+  if (!ex) return;
+  ex.analyzing = true; render();
+  try {
+    if (ex.audioUrl) URL.revokeObjectURL(ex.audioUrl);
+    ex.audioUrl = URL.createObjectURL(blob);
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ac = new AC();
+    const arr = await blob.arrayBuffer();
+    const audio = await new Promise((res, rej) => { const p = ac.decodeAudioData(arr, res, rej); if (p && p.then) p.then(res, rej); });
+    try { ac.close(); } catch (e) {}
+    await new Promise(r => setTimeout(r, 30));
+    ex.result = analyze(audio.getChannelData(0), audio.sampleRate);
+    ex.analyzing = false;
+    finishRun();
+  } catch (e) {
+    ex.analyzing = false; ex.result = null;
+    render();
+    const t = $('#txt'); if (t) t.insertAdjacentHTML('afterend', '<p class="small soft">Diese Audiodatei konnte ich nicht lesen. Versuch es mit einer anderen Aufnahme, zum Beispiel m4a oder mp3.</p>');
+  }
+}
+
+/* ---------- Messung ---------- */
+function pct(arr, q) { if (!arr.length) return 0; const a = arr.slice().sort((x, y) => x - y); return a[Math.min(a.length - 1, Math.max(0, Math.floor(q * (a.length - 1))))]; }
+function analyze(x, sr0) {
+  const f = Math.max(1, Math.floor(sr0 / 11025)); const sr = sr0 / f;
+  const n = Math.floor(x.length / f); const y = new Float32Array(n);
+  for (let i = 0; i < n; i++) { let s = 0; for (let k = 0; k < f; k++) s += x[i * f + k]; y[i] = s / f; }
+  const hop = Math.round(sr * 0.02), win = Math.round(sr * 0.04);
+  const frames = Math.max(0, Math.floor((n - win) / hop));
+  const db = new Float32Array(frames);
+  for (let i = 0; i < frames; i++) { let s = 0; const o = i * hop; for (let k = 0; k < win; k++) s += y[o + k] * y[o + k]; db[i] = 10 * Math.log10(s / win + 1e-12); }
+  const all = Array.from(db);
+  const floor = pct(all, 0.1), peak = pct(all, 0.97);
+  const thr = Math.max(floor + 8, peak - 32);
+  let sp = all.map(v => v > thr);
+  const fill = Math.round(0.25 / 0.02);
+  for (let i = 0; i < frames;) { if (!sp[i]) { let j = i; while (j < frames && !sp[j]) j++; if (i > 0 && j < frames && j - i <= fill) for (let k = i; k < j; k++) sp[k] = true; i = j; } else i++; }
+  const first = sp.indexOf(true), last = sp.lastIndexOf(true);
+  if (first < 0) return { empty: true, dur: frames * 0.02 };
+  const minLag = Math.floor(sr / 400), maxLag = Math.ceil(sr / 75);
+  const st = new Array(frames).fill(null);
+  for (let i = first; i <= last; i++) {
+    if (!sp[i] || db[i] < thr + 3) continue;
+    const o = i * hop; let e0 = 0; for (let k = 0; k < win; k++) e0 += y[o + k] * y[o + k];
+    const rs = [];
+    let best = 0;
+    for (let lag = minLag; lag <= maxLag; lag++) {
+      if (o + lag + win > n) break;
+      let s = 0, e1 = 0; for (let k = 0; k < win; k++) { const b = y[o + k + lag]; s += y[o + k] * b; e1 += b * b; }
+      const r = s / Math.sqrt(e0 * e1 + 1e-12); rs.push(r); if (r > best) best = r;
+    }
+    if (best <= 0.6) continue;
+    // erster deutlicher Gipfel statt globalem Maximum, sonst springt die Tonhöhe eine Oktave nach unten
+    let bi = -1;
+    for (let j = 1; j < rs.length - 1; j++) if (rs[j] >= 0.9 * best && rs[j] >= rs[j - 1] && rs[j] >= rs[j + 1]) { bi = j; break; }
+    if (bi < 0) continue;
+    const a = rs[bi - 1], c = rs[bi], d = rs[bi + 1], den = a - 2 * c + d;
+    const lag = minLag + bi + (den ? 0.5 * (a - d) / den : 0);
+    st[i] = 12 * Math.log2((sr / lag) / 100);
+  }
+  const voiced = st.filter(v => v !== null);
+  const med = pct(voiced, 0.5);
+  for (let i = 0; i < frames; i++) if (st[i] !== null && Math.abs(st[i] - med) > 12) st[i] = null;
+  const v2 = st.filter(v => v !== null);
+  const pauses = [];
+  for (let i = first; i <= last;) { if (!sp[i]) { let j = i; while (j <= last && !sp[j]) j++; if ((j - i) * 0.02 >= 0.5) pauses.push([i, j]); i = j; } else i++; }
+  const segs = []; let s0 = first;
+  for (const [a, b] of pauses) { segs.push([s0, a]); s0 = b; } segs.push([s0, last + 1]);
+  let fall = 0, rise = 0, flat = 0;
+  for (const [a, b] of segs) {
+    const seg = st.slice(a, b).filter(v => v !== null); if (seg.length < 25) continue;
+    const tail = []; for (let i = b - 1; i >= a && tail.length < 15; i--) if (st[i] !== null) tail.push(st[i]);
+    const d = pct(tail, 0.5) - pct(seg, 0.5);
+    if (d < -1) fall++; else if (d > 1) rise++; else flat++;
+  }
+  const spDb = all.filter((v, i) => sp[i] && i >= first && i <= last);
+  return {
+    empty: false,
+    dur: (last - first + 1) * 0.02,
+    pauses: pauses.length,
+    longPauses: pauses.filter(([a, b]) => (b - a) * 0.02 >= 1.5).length,
+    pausePerMin: pauses.length / Math.max(0.1, ((last - first + 1) * 0.02) / 60),
+    pitchRange: v2.length > 20 ? pct(v2, 0.9) - pct(v2, 0.1) : null,
+    volRange: pct(spDb, 0.9) - pct(spDb, 0.1),
+    ends: { fall, rise, flat },
+    curve: { st, sp, first, last, pauses, med }
+  };
+}
+function textStats(t, durSec) {
+  const words = (t.toLowerCase().match(/[\p{L}\p{N}']+/gu) || []);
+  let fill = 0; const found = {};
+  const joined = ' ' + words.join(' ') + ' ';
+  for (const fw of FILLERS[state.lang]) { const re = new RegExp(' ' + fw + ' ', 'g'); const m = joined.match(re); if (m) { fill += m.length; found[fw] = m.length; } }
+  return { words: words.length, wpm: durSec && words.length > 5 ? Math.round(words.length / (durSec / 60)) : null, fill, found };
+}
+
+function finishRun() {
+  const e = EX(ex.id); const r = ex.result;
+  const box = $('#txt'); if (box) ex.transcript = box.value;
+  if (r && !r.empty) {
+    const ts = textStats(ex.transcript, r.dur);
+    const h = state.hist[e.id] || (state.hist[e.id] = []);
+    h.push({ d: today(), dur: Math.round(r.dur), wpm: ts.wpm, pz: r.pauses, mel: r.pitchRange === null ? null : +r.pitchRange.toFixed(1), vol: +r.volRange.toFixed(1), fill: ts.fill });
+    state.hist[e.id] = h.slice(-12);
+    state.done[e.id] = (state.done[e.id] || 0) + 1;
+    markDay(); save();
+  }
+  render();
+}
+
+function verdict(kind, v) {
+  if (v === null || v === undefined) return '';
+  const c = (cls, t) => `<span class="chip ${cls}">${t}</span>`;
+  if (kind === 'wpm') return v < 110 ? c('warn', 'ruhig') : v <= 160 ? c('ok', 'angenehm') : c('warn', 'schnell');
+  if (kind === 'pauses') return v < 4 ? c('warn', 'wenig Pausen') : v <= 14 ? c('ok', 'gut verteilt') : c('warn', 'sehr viele');
+  if (kind === 'pitch') return v < 4 ? c('warn', 'eher flach') : v <= 9 ? c('ok', 'lebendig') : c('ok', 'sehr bewegt');
+  if (kind === 'vol') return v < 6 ? c('warn', 'gleichförmig') : c('ok', 'abwechslungsreich');
+  if (kind === 'fill') return v === 0 ? c('ok', 'keine gehört') : v <= 2 ? c('ok', 'wenige') : c('warn', 'achte drauf');
+  return '';
+}
+
+function resultBlock(e) {
+  const r = ex.result; const p = P(e.p);
+  if (r.empty) return `<div class="card"><p>Ich habe kaum Stimme gehört. Sprich etwas näher am Mikrofon und probier es noch einmal.</p></div>`;
+  const ts = textStats(ex.transcript, r.dur);
+  const m = (key, val, unit, label) => `<div class="metric${p.focus === key ? ' focus' : ''}"><span class="v">${val === null ? 'offen' : val}${val === null ? '' : unit}</span><span class="k">${label}</span>${verdict(key, typeof val === 'string' ? parseFloat(val) : val)}</div>`;
+  const ends = r.ends.fall + r.ends.rise + r.ends.flat;
+  return `<div class="card">
+    <span class="label">Deine Notenlinie</span>
+    <div class="staff">${staffSvg(r)}</div>
+    <p class="small soft">Die Linie zeigt deine Tonhöhe. Rote Zeichen sind Pausen ab einer halben Sekunde.</p>
+    <div class="metrics">
+      ${m('wpm', ts.wpm, ' W/min', ts.wpm === null ? 'Tempo: dafür brauche ich den Text' : 'Tempo')}
+      <div class="metric${p.focus === 'pauses' ? ' focus' : ''}"><span class="v">${r.pauses}</span><span class="k">Pausen, davon ${r.longPauses} lang, ${r.pausePerMin.toFixed(0)} pro Minute</span>${verdict('pauses', r.pausePerMin)}</div>
+      ${m('pitch', r.pitchRange === null ? null : r.pitchRange.toFixed(1), ' HT', 'Melodie, Spannweite in Halbtönen')}
+      ${m('vol', r.volRange.toFixed(0), ' dB', 'Lautstärke, Spannweite')}
+      ${m('fill', ts.words ? ts.fill : null, '', 'Füllwörter im Text')}
+      <div class="metric${p.id === 'melodie' ? ' focus' : ''}"><span class="v">${ends ? r.ends.fall + ' von ' + ends : 'offen'}</span><span class="k">Satzenden nach unten</span>${ends ? (r.ends.fall / ends >= 0.6 ? '<span class="chip ok">sicher</span>' : '<span class="chip warn">mehr nach unten</span>') : ''}</div>
+    </div>
+    <p class="small soft">Dauer ${fmtTime(r.dur)}. Die Richtwerte sind eine grobe Orientierung von mir. Diktat lässt „ähm“ oft weg, dann zählt das Tool zu wenig Füllwörter.</p>
+  </div>`;
+}
+
+function staffSvg(r) {
+  const W = 320, H = 110, top = 12, bot = 92;
+  const { st, first, last, pauses, med } = r.curve;
+  const span = Math.max(1, last - first);
+  const xs = i => 6 + (i - first) / span * (W - 12);
+  const lo = med - 8, hi = med + 8;
+  const ys = v => bot - (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo) * (bot - top);
+  let lines = '';
+  for (let k = 0; k < 5; k++) { const yy = top + k * (bot - top) / 4; lines += `<line x1="0" x2="${W}" y1="${yy}" y2="${yy}" stroke="var(--staff-line)" stroke-width="1"/>`; }
+  const step = Math.max(1, Math.floor(span / 300));
+  let d = '', pen = false, lastX = 0, lastY = 0;
+  for (let i = first; i <= last; i += step) {
+    const win = st.slice(i, i + step).filter(v => v !== null);
+    if (!win.length) { pen = false; continue; }
+    const v = win.reduce((a, b) => a + b, 0) / win.length;
+    lastX = xs(i); lastY = ys(v);
+    d += (pen ? 'L' : 'M') + lastX.toFixed(1) + ' ' + lastY.toFixed(1) + ' '; pen = true;
+  }
+  const rests = pauses.map(([a, b]) => { const x = xs(a), w = Math.max(2, xs(b) - x); return `<rect x="${x.toFixed(1)}" y="${top}" width="${w.toFixed(1)}" height="${bot - top}" fill="var(--rest)" opacity=".12"/><text x="${(x + w / 2).toFixed(1)}" y="${bot + 14}" font-size="12" text-anchor="middle" fill="var(--rest)" font-weight="700">‖</text>`; }).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Tonhöhenkurve deiner Aufnahme">${lines}${rests}<path d="${d}" fill="none" stroke="var(--staff)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>${d ? `<circle cx="${lastX.toFixed(1)}" cy="${lastY.toFixed(1)}" r="4" fill="var(--accent)"/>` : ''}</svg>`;
+}
+
+function historyBlock(e) {
+  const h = state.hist[e.id];
+  if (!h || h.length < 1) return '';
+  const rows = h.slice().reverse().slice(0, 6).map(x => `<div><span>${esc(x.d.slice(8, 10) + '.' + x.d.slice(5, 7) + '.')}</span><span>${x.wpm ? x.wpm + ' W/min' : '·'}</span><span>${x.pz} Pausen</span><span>${x.mel === null ? '·' : x.mel + ' HT'}</span></div>`).join('');
+  return `<div class="card"><span class="label">Vorher und nachher</span><div class="hist">${rows}</div><p class="small soft">Vinh Giang empfiehlt, eine Fähigkeit eine Woche lang zu üben und die erste mit der letzten Aufnahme zu vergleichen.</p></div>`;
+}
+
+/* ---------- Coach mit Claude ---------- */
+let sampleOk = null;
+async function getSample() {
+  try { const s = window.claude && window.claude.use ? await window.claude.use('sample') : null; sampleOk = !!s; return s; } catch (e) { sampleOk = false; return null; }
+}
+function coachBlock() {
+  if (sampleOk === false) return `<div class="card coach"><span class="label">Coach</span><p class="small soft">Der Coach mit Claude antwortet nur, wenn du Stimmwerk über deinen claude.ai Link öffnest. Aufnahme und Messung funktionieren trotzdem.</p></div>`;
+  const c = ex.coach;
+  let body = '';
+  if (c && c.loading) body = `<p class="soft"><span class="spinner"></span>Der Coach hört sich das an…</p>`;
+  else if (c && c.error) body = `<p class="small soft">${esc(c.error)}</p>`;
+  else if (c && c.data) body = `<div class="stack">
+      <div class="bubble"><span class="label">Das war stark</span><p>${esc(c.data.lob)}</p></div>
+      <div class="bubble"><span class="label">Dein Hebel</span><p>${esc(c.data.hebel)}</p></div>
+      ${c.data.besser ? `<div class="bubble"><span class="label">So könnte es klingen</span><p>${esc(c.data.besser)}</p></div>` : ''}
+      ${c.data.rueckfrage ? `<div class="bubble"><span class="label">Rückfrage</span><p class="question">${esc(c.data.rueckfrage)}</p><button type="button" class="primary" data-followup>Darauf antworten</button></div>` : ''}
+    </div>`;
+  return `<div class="card coach"><span class="label">Coach</span>
+    ${body || '<p class="small soft">Wenn du fertig bist, gib dem Coach deinen Text und die Messwerte. Er sagt dir, was gut war, nennt dir einen Hebel und stellt dir eine Rückfrage wie im echten Meeting.</p>'}
+    ${c && c.loading ? '' : '<button type="button" class="gold" data-coach>' + (c && c.data ? 'Noch einmal bewerten' : 'Feedback holen') + '</button>'}</div>`;
+}
+async function askCoach() {
+  const e = EX(ex.id), p = P(e.p);
+  const box = $('#txt'); if (box) ex.transcript = box.value;
+  if (!ex.transcript.trim() && !ex.result) { ex.coach = { error: 'Sprich oder tippe zuerst etwas, dann kann der Coach dir helfen.' }; render(); return; }
+  const sample = await getSample();
+  if (!sample) { render(); return; }
+  ex.coach = { loading: true }; render();
+  const r = ex.result && !ex.result.empty ? ex.result : null;
+  const ts = textStats(ex.transcript, r ? r.dur : 0);
+  const metrics = r ? `Dauer ${Math.round(r.dur)} s, Tempo ${ts.wpm ?? 'unbekannt'} Wörter pro Minute, ${r.pauses} Pausen ab 0,5 s (davon ${r.longPauses} lang), Melodie Spannweite ${r.pitchRange === null ? 'unbekannt' : r.pitchRange.toFixed(1) + ' Halbtöne'}, Lautstärke Spannweite ${r.volRange.toFixed(0)} dB, Satzenden: ${r.ends.fall} fallend, ${r.ends.rise} steigend, ${r.ends.flat} gleich, Füllwörter im Text ${ts.fill}.` : `Keine Audiomessung, nur Text. Füllwörter im Text ${ts.fill}.`;
+  let task = '';
+  if (e.kind === 'read') task = `Vorgelesener Text: ${plain(textFor(e))}`;
+  else task = `Frage: ${ex.question}` + (e.kind === 'dice' ? `\nVorgegebene Struktur: ${DICE[ex.die].name} (${DICE[ex.die].hint})` : '');
+  const answerLang = state.lang === 'en' ? 'English' : 'Deutsch';
+  const wantFollow = e.kind !== 'read';
+  const prompt = `Du bist ein warmer, direkter Sprechcoach. Du arbeitest mit den Techniken von Vinh Giang: fünf Stimmgrundlagen (Tempo, Lautstärke, Tonhöhe und Melodie, Klangfarbe, Pause), dazu der 3·2·1 Rahmen für spontane Antworten (drei Schritte, zwei Arten oder Seiten, eine Kernaussage). Deine Schülerin ist Deutsche, arbeitet im Marketing und will in Meetings und Webinaren sicherer und klarer sprechen.
+
+Säule dieser Übung: ${p.name}. Idee: ${p.idea}
+Übung: ${e.name}. Anleitung: ${e.how}
+${task}
+Messwerte aus der Aufnahme: ${metrics}
+Gesprochener Text (kann aus Spracherkennung stammen, ignoriere fehlende Satzzeichen und kleine Erkennungsfehler): ${ex.transcript || '(kein Text)'}
+
+Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
+"lob": ein bis zwei kurze Sätze auf Deutsch, was konkret gut war,
+"hebel": ein bis zwei kurze Sätze auf Deutsch mit der einen wichtigsten Verbesserung, passend zur Säule, gerne mit Bezug auf einen Messwert,
+"besser": ${e.kind === 'read' ? 'ein leerer String' : `eine verbesserte Version der Antwort auf ${answerLang}, höchstens vier kurze Sätze, gleiche Ideen, klar nach der Struktur geordnet`},
+"rueckfrage": ${wantFollow ? `eine natürliche Rückfrage auf ${answerLang}, wie sie ein Kollege im Meeting stellen würde, höchstens 15 Wörter` : 'ein leerer String'}.
+Schreib schlicht und menschlich. Keine Bindestriche oder Gedankenstriche, keine Formulierungen wie "nicht X, sondern Y".`;
+  try {
+    const d = await sample.json(prompt, { modelTier: 'default' });
+    ex.coach = { data: { lob: String(d.lob || ''), hebel: String(d.hebel || ''), besser: String(d.besser || ''), rueckfrage: wantFollow ? String(d.rueckfrage || '') : '' } };
+  } catch (err) {
+    if (err && err.code === 'not_granted') { sampleOk = false; ex.coach = null; }
+    else if (err && err.code === 'rate_limited') ex.coach = { error: 'Gerade kommen zu viele Anfragen. Warte eine Minute und tippe dann noch einmal.' };
+    else ex.coach = { error: 'Der Coach hat nicht geantwortet. Tippe noch einmal.' };
+  }
+  if (view === 'ex') render();
+}
+async function askQuestion() {
+  const sample = await getSample();
+  if (!sample) { render(); return; }
+  const btn = document.querySelector('[data-askq]'); if (btn) { btn.disabled = true; btn.textContent = 'Einen Moment…'; }
+  const e = EX(ex.id);
+  const lang = state.lang === 'en' ? 'English' : 'Deutsch';
+  try {
+    const d = await sample.json(`Erfinde eine realistische Frage, wie sie einer Marketing Managerin in einem Meeting oder Webinar gestellt wird, zum Beispiel zu Kampagnen, Budget, Team, Kunden oder Zahlen. ${e.kind === 'dice' ? 'Sie soll gut mit diesem Rahmen beantwortbar sein: ' + DICE[ex.die].name + '.' : ''} Sprache: ${lang}. Höchstens 18 Wörter, keine Bindestriche. Vermeide diese Frage: ${ex.question}. Antworte nur mit JSON: {"frage": "..."}`, { modelTier: 'quick', cache: false });
+    if (d && d.frage) { ex.question = String(d.frage); ex.followUp = null; ex.result = null; ex.coach = null; ex.transcript = ''; }
+  } catch (err) { if (err && err.code === 'not_granted') sampleOk = false; }
+  render();
+}
+
+/* ---------- Vor dem Meeting ---------- */
+const QUICK = [
+  { t: 'Atmen', d: 'Vier Sekunden ein, sechs Sekunden aus. Dreimal. Das lange Ausatmen beruhigt.', breath: true, src: 'Ergänzung im Tool' },
+  { t: 'Stimme wecken', d: 'Summ 20 Sekunden lang ein „mmm“ von tief nach hoch und zurück. Dann lass die Lippen flattern wie ein Pferd.', src: 'Ergänzung im Tool' },
+  { t: 'Gesicht an', d: 'Lächle bewusst, zieh die Augenbrauen hoch, mach das Gesicht wach. Dein Gesicht ist die Fernbedienung für den Klang.', src: 'Vinh Giang' },
+  { t: 'Kernaussage', d: 'Was ist die eine Sache, die die anderen nach dem Meeting wissen sollen? Schreib sie in einem Satz auf.', input: true, src: '3·2·1 Rahmen' },
+  { t: 'Erster Satz laut', d: 'Sag deinen Kernsatz laut. Eine Pause davor, das Satzende geht nach unten. Zweimal.', echo: true, src: 'Vinh Giang' },
+  { t: 'Los', d: 'Du hast eine Struktur und eine warme Stimme. Wenn du hängst: Pause machen und mit „Erstens“ weiter.', src: '' }
+];
+let quick = { i: 0, core: '' };
+function viewQuick() {
+  const s = QUICK[quick.i];
+  return `
+  <div><span class="label">Vor dem Meeting · etwa 2 Minuten</span><h2>${esc(s.t)}</h2></div>
+  <div class="steps" aria-hidden="true">${QUICK.map((_, i) => `<i class="${i <= quick.i ? 'on' : ''}"></i>`).join('')}</div>
+  <div class="card">
+    ${s.breath ? '<div class="breath" id="breath">Bereit</div><button type="button" data-breathe>Atmung starten</button>' : ''}
+    <p class="task">${esc(s.d)}</p>
+    ${s.input ? `<textarea id="core" placeholder="Meine Kernaussage">${esc(quick.core)}</textarea>` : ''}
+    ${s.echo && quick.core ? `<p class="question">${esc(quick.core)}</p>` : ''}
+    ${s.src ? `<span class="chip${/Ergänzung/.test(s.src) ? ' mine' : ''}">${esc(s.src)}</span>` : ''}
+  </div>
+  <div class="row">${quick.i > 0 ? '<button type="button" data-qprev>Zurück</button>' : ''}${quick.i < QUICK.length - 1 ? '<button type="button" class="primary" data-qnext>Weiter</button>' : '<button type="button" class="gold" data-qdone>Viel Erfolg</button>'}</div>`;
+}
+let breathTimer = null;
+function breathe() {
+  clearTimeout(breathTimer);
+  let round = 0;
+  const step = phase => {
+    const b = $('#breath'); if (!b) return;
+    if (phase === 'in') { b.classList.add('in'); b.textContent = 'Einatmen'; breathTimer = setTimeout(() => step('out'), 4000); }
+    else { b.classList.remove('in'); b.textContent = 'Ausatmen'; round++; breathTimer = setTimeout(() => { if (round < 3) step('in'); else if ($('#breath')) $('#breath').textContent = 'Gut so'; }, 6000); }
+  };
+  step('in');
+}
+
+/* ---------- Landkarte ---------- */
+function viewMap() {
+  return `
+  <div><span class="label">Überblick</span><h2>Die Landkarte</h2></div>
+  <p>Sieben Säulen. Fünf davon sind deine Stimme, eine ist der Inhalt, eine ist die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
+  <div class="pillars">${PILLARS.map(p => `<button type="button" class="pillar ex" data-pillar="${p.id}"><span class="label">${esc(p.group)}</span><span class="t">${esc(p.name)}</span><span class="d">${esc(p.sub)}</span></button>`).join('')}</div>
+  <div class="card"><h3>So übst du</h3>
+    <p>Eine Säule pro Woche im Mittelpunkt. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
+  <div class="card"><h3>Datenschutz</h3><p class="small">Aufnahmen bleiben auf deinem Gerät und werden nur hier gemessen. Wenn du den Coach fragst, gehen dein Text und die Messwerte an Claude, die Audiodatei nicht.</p></div>
+  <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus seinem Gespräch mit Jay Shetty. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm.</p></div>`;
+}
+
+/* ---------- Rendern ---------- */
+function render(scrollTop) {
+  let html;
+  if (view === 'pillar') html = viewPillar();
+  else if (view === 'ex' && ex) html = viewExercise();
+  else if (view === 'quick') html = viewQuick();
+  else if (view === 'map') html = viewMap();
+  else { view = 'home'; html = viewHome(); }
+  const ta = $('#txt'); if (ta && ex) ex.transcript = ta.value;
+  $('#app').innerHTML = html;
+  const tabView = view === 'pillar' || view === 'ex' ? 'home' : view;
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === tabView ? 'page' : 'false'));
+  if (scrollTop) window.scrollTo(0, 0);
+}
+
+/* ---------- Ereignisse ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button');
+  if (!t) return;
+  if (t.dataset.tab) { if (ex && ex.recording) stopRec(); view = t.dataset.tab; if (view === 'quick') quick.i = 0; render(true); return; }
+  if (t.dataset.pillar) { if (ex && ex.recording) stopRec(); curPillar = t.dataset.pillar; view = 'pillar'; render(true); return; }
+  if (t.dataset.start) { startExercise(t.dataset.start); return; }
+  if (t.dataset.lang) {
+    state.lang = t.dataset.lang; save();
+    if (view === 'ex' && ex) { const e = EX(ex.id); if (e.kind === 'free' && !ex.followUp) ex.question = e.q[state.lang]; if (e.kind === 'dice' && !ex.followUp) rollDie(e); }
+    render(); return;
+  }
+  if (t.hasAttribute('data-rec')) { toggleRec(); return; }
+  if (t.hasAttribute('data-roll')) { rollDie(EX(ex.id)); ex.result = null; ex.coach = null; ex.transcript = ''; render(); return; }
+  if (t.hasAttribute('data-coach')) { askCoach(); return; }
+  if (t.hasAttribute('data-askq')) { askQuestion(); return; }
+  if (t.hasAttribute('data-followup')) {
+    const q = ex.coach && ex.coach.data && ex.coach.data.rueckfrage; if (!q) return;
+    ex.question = q; ex.followUp = true; ex.result = null; ex.coach = null; ex.transcript = '';
+    if (ex.audioUrl) { URL.revokeObjectURL(ex.audioUrl); ex.audioUrl = null; }
+    render(true); return;
+  }
+  if (t.hasAttribute('data-finish-check')) {
+    const e = EX(ex.id); state.done[e.id] = (state.done[e.id] || 0) + 1; markDay(); save();
+    curPillar = e.p; view = 'pillar'; render(true); return;
+  }
+  if (t.hasAttribute('data-breathe')) { breathe(); return; }
+  if (t.hasAttribute('data-qnext')) { const c = $('#core'); if (c) quick.core = c.value.trim(); quick.i = Math.min(QUICK.length - 1, quick.i + 1); render(true); return; }
+  if (t.hasAttribute('data-qprev')) { const c = $('#core'); if (c) quick.core = c.value.trim(); quick.i = Math.max(0, quick.i - 1); render(true); return; }
+  if (t.hasAttribute('data-qdone')) { markDay(); save(); view = 'home'; render(true); return; }
+});
+document.addEventListener('change', e => {
+  const t = e.target;
+  if (t.id === 'upl' && t.files && t.files[0]) { const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(t.files[0]); return; }
+  if (t.dataset && t.dataset.check !== undefined && ex) { const i = +t.dataset.check; ex.checked = t.checked ? [...new Set([...ex.checked, i])] : ex.checked.filter(x => x !== i); }
+});
+document.addEventListener('input', e => { if (e.target.id === 'txt' && ex) ex.transcript = e.target.value; });
+
+render();
+connectCloud();
+getSample().then(() => { if (!busy()) render(); });
+</script>
+
+</body>
+</html>
