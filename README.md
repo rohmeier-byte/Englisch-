@@ -36,3 +36,7 @@ Ein Sprechtrainer für Meetings und Webinare im Ordner [`sprechen/`](./sprechen/
 - **Vor dem Meeting:** ein Schnellcheck in sechs Schritten.
 
 Die App steht in `sprechen/app.html`. `node sprechen/build.js` baut daraus `sprechen/index.html`.
+
+## Stimmwerk als Webseite mit Mikrofon
+
+Im claude.ai Link ist das Mikrofon gesperrt. Als normale Webseite nimmt Stimmwerk live auf, sodass du den Text lesen kannst, während du sprichst. Dafür in den GitHub Einstellungen unter Pages die Quelle „Deploy from a branch“ mit dem Branch `claude/englisch-b2-business-game-ht22gw` und dem Ordner `/ (root)` wählen. Danach liegt die App unter `https://rohmeier-byte.github.io/Englisch-/sprechen/`. Dort antwortet der Coach nicht selbst. Ein Knopf kopiert die Anfrage, die du in einen Chat mit Claude einfügst.

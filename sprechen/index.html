@@ -765,7 +765,11 @@ async function getSample() {
   try { const s = window.claude && window.claude.use ? await window.claude.use('sample') : null; sampleOk = !!s; return s; } catch (e) { sampleOk = false; return null; }
 }
 function coachBlock() {
-  if (sampleOk === false) return `<div class="card coach"><span class="label">Coach</span><p class="small soft">Der Coach mit Claude antwortet nur, wenn du Stimmwerk über deinen claude.ai Link öffnest. Aufnahme und Messung funktionieren trotzdem.</p></div>`;
+  if (sampleOk === false) return `<div class="card coach"><span class="label">Coach</span>
+    <p class="small soft">Hier antwortet der Coach nicht selbst. Kopiere deine Anfrage und füge sie in einen Chat mit Claude ein. Dort bekommst du das gleiche Feedback samt Rückfrage. Über deinen claude.ai Link antwortet er direkt in der App.</p>
+    <button type="button" class="gold" data-copycoach>Anfrage für Claude kopieren</button>
+    <p class="small" id="copyinfo" role="status"></p>
+    <textarea id="copybox" hidden readonly aria-label="Anfrage an Claude"></textarea></div>`;
   const c = ex.coach;
   let body = '';
   if (c && c.loading) body = `<p class="soft"><span class="spinner"></span>Der Coach hört sich das an…</p>`;
@@ -781,17 +785,9 @@ function coachBlock() {
     ${c && c.loading ? '' : '<button type="button" class="gold" data-coach>' + (c && c.data ? 'Noch einmal bewerten' : 'Feedback holen') + '</button>'}</div>`;
 }
 function clean(s) { return String(s || '').replace(/\s*[–—]\s*/g, ', ').replace(/(\p{L})-(\p{L})/gu, '$1 $2').replace(/\s+-\s+/g, ', ').trim(); }
-async function askCoach() {
-  const my = ex;
+function coachPrompt(my, chat) {
   const e = EX(my.id), p = P(e.p);
-  const box = $('#txt'); if (box) my.transcript = box.value;
   const hasAudio = my.result && !my.result.empty;
-  if (!my.transcript.trim() && !hasAudio) { my.coach = { error: 'Sprich oder tippe zuerst etwas, dann kann der Coach dir helfen.' }; render(); return; }
-  const sample = await getSample();
-  if (ex !== my) return;
-  if (!sample) { render(); return; }
-  my.coach = { loading: true }; render();
-  const run = my.run;
   const r = hasAudio ? my.result : null;
   const ts = textStats(my.transcript, r ? r.dur : 0);
   const want = expectedPauses(e);
@@ -812,12 +808,37 @@ ${task}
 Messwerte aus der Aufnahme: ${metrics}
 Gesprochener Text (kann aus Spracherkennung oder Wispr Flow stammen, ignoriere fehlende Satzzeichen und kleine Erkennungsfehler): ${my.transcript || '(kein Text)'}
 
-Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
+${chat ? `Antworte als kurze, freundliche Nachricht auf Deutsch mit genau diesen vier Abschnitten und diesen Überschriften: Das war stark, Dein Hebel, So könnte es klingen, Rückfrage. Dann warte auf meine Antwort auf deine Rückfrage.` : `Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
 "lob": ein bis zwei kurze Sätze auf Deutsch, was konkret gut war,
 "hebel": ein bis zwei kurze Sätze auf Deutsch mit der einen wichtigsten Verbesserung, passend zur Säule, gerne mit Bezug auf einen Messwert,
 "besser": ${e.kind === 'read' ? 'ein leerer String' : `eine verbesserte Version der Antwort auf ${answerLang}, höchstens vier kurze Sätze, gleiche Ideen, klar nach der Struktur geordnet`},
-"rueckfrage": ${wantFollow ? `eine natürliche Rückfrage auf ${answerLang}, wie sie ein Kollege im Meeting stellen würde, höchstens 15 Wörter` : 'ein leerer String'}.
+"rueckfrage": ${wantFollow ? `eine natürliche Rückfrage auf ${answerLang}, wie sie ein Kollege im Meeting stellen würde, höchstens 15 Wörter` : 'ein leerer String'}.`}
 Schreib schlicht und menschlich. Keine Bindestriche oder Gedankenstriche, keine Formulierungen wie "nicht X, sondern Y".`;
+  return prompt;
+}
+async function copyCoach() {
+  const my = ex; const box = $('#txt'); if (box) my.transcript = box.value;
+  const info = $('#copyinfo'), cb = $('#copybox');
+  if (!my.transcript.trim() && !(my.result && !my.result.empty)) { if (info) info.textContent = 'Sprich oder tippe zuerst etwas, dann kann ich die Anfrage bauen.'; return; }
+  const text = coachPrompt(my, true);
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch (e) {}
+  if (ok) { if (cb) cb.hidden = true; if (info) info.textContent = 'Kopiert. Öffne Claude, füge den Text ein und sende ihn ab.'; }
+  else if (cb) { cb.value = text; cb.hidden = false; cb.focus(); cb.select(); if (info) info.textContent = 'Das Kopieren hat nicht geklappt. Markiere den Text unten, kopiere ihn und füge ihn in Claude ein.'; }
+}
+async function askCoach() {
+  const my = ex;
+  const e = EX(my.id), p = P(e.p);
+  const box = $('#txt'); if (box) my.transcript = box.value;
+  const hasAudio = my.result && !my.result.empty;
+  if (!my.transcript.trim() && !hasAudio) { my.coach = { error: 'Sprich oder tippe zuerst etwas, dann kann der Coach dir helfen.' }; render(); return; }
+  const sample = await getSample();
+  if (ex !== my) return;
+  if (!sample) { render(); return; }
+  my.coach = { loading: true }; render();
+  const run = my.run;
+  const prompt = coachPrompt(my, false);
+  const wantFollow = e.kind !== 'read';
   try {
     const d = await sample.json(prompt, { modelTier: 'default' });
     if (my.run !== run) return;
@@ -935,6 +956,7 @@ document.addEventListener('click', e => {
   if (t.hasAttribute('data-rec')) { toggleRec(); return; }
   if (t.hasAttribute('data-roll')) { rollDie(EX(ex.id)); resetRun(); render(); return; }
   if (t.hasAttribute('data-coach')) { askCoach(); return; }
+  if (t.hasAttribute('data-copycoach')) { copyCoach(); return; }
   if (t.hasAttribute('data-askq')) { askQuestion(); return; }
   if (t.hasAttribute('data-followup')) {
     const q = ex.coach && ex.coach.data && ex.coach.data.rueckfrage; if (!q) return;
