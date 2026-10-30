@@ -252,7 +252,7 @@ const EXERCISES = [
   { id: 'c2', p: 'koerper', kind: 'check', name: 'Drei Durchgänge',
     how: 'Nimm dich mit der Kamera deines Handys fünf Minuten lang auf, über ein Thema, das du gut kennst. Dann schaust du die Aufnahme dreimal an.',
     checks: ['Durchgang 1 ohne Ton: Was macht mein Körper? Hände, Haltung, Gesicht.', 'Durchgang 2 nur Ton, Bildschirm weg: Wie klingt meine Stimme? Tempo, Pausen, Melodie.', 'Durchgang 3 als Text: Wo wiederhole ich mich? Wo fehlt der rote Faden?', 'Ich habe mir eine Sache für die nächste Woche vorgenommen.'] },
-  { id: 'c3', p: 'koerper', kind: 'check', name: 'Blick in die Linse',
+  { id: 'c3', p: 'koerper', kind: 'check', name: 'Blick in die Linse', src: 'Ergänzung im Tool',
     how: 'Für Webinare. Sprich 30 Sekunden in die Kamera und prüfe die Punkte.',
     checks: ['Kamera auf Augenhöhe, ein Stapel Bücher hilft.', 'Bei wichtigen Sätzen geht mein Blick in die Linse. Mein eigenes Bild habe ich ausgeblendet.', 'Meine Hände sind im Bild, wenn ich gestikuliere.', 'Das Licht kommt von vorn. Hinter mir ist kein helles Fenster.', 'Ich spreche mit etwas mehr Energie als im Raum, weil die Kamera Energie schluckt.'] }
 ];
@@ -281,7 +281,7 @@ function fix(s) {
   if (!s.done || typeof s.done !== 'object') s.done = {};
   if (!s.hist || typeof s.hist !== 'object') s.hist = {};
   if (s.lang !== 'en') s.lang = 'de';
-  if (s.focus && !PILLARS.some(p => p.id === s.focus.p)) s.focus = null;
+  if (s.focus && (!PILLARS.some(p => p.id === s.focus.p) || typeof s.focus.since !== 'string' || s.focus.since.length < 10)) s.focus = null;
   return s;
 }
 function loadLocal() {
@@ -390,9 +390,10 @@ function viewPillar() {
 }
 
 /* ---------- Übung ---------- */
+let runSeq = 0;
 function newRun(o) {
   if (o && o.audioUrl) { try { URL.revokeObjectURL(o.audioUrl); } catch (e) {} }
-  return { result: null, audioUrl: null, transcript: '', coach: null, analyzing: false, err: '' };
+  return { run: ++runSeq, result: null, audioUrl: null, transcript: '', coach: null, analyzing: false, err: '' };
 }
 function resetRun() { Object.assign(ex, newRun(ex)); }
 function startExercise(id) {
@@ -430,7 +431,7 @@ function viewExercise() {
   <div class="top"><button type="button" class="link" data-pillar="${p.id}">Zurück zu ${esc(p.name)}</button>${e.kind === 'check' ? '' : langSwitch()}</div>
   <div><span class="label">${esc(p.name)}</span><h2>${esc(e.name)}</h2></div>
   <p>${esc(e.how)}</p>
-  <div class="row"><span class="chip${/Ergänzung/.test(p.src) ? ' mine' : ''}">Technik: ${esc(p.src)}</span><span class="chip mine">Übung in eigenen Worten</span></div>
+  <div class="row"><span class="chip${/Ergänzung/.test(e.src || p.src) ? ' mine' : ''}">Technik: ${esc(e.src || p.src)}</span><span class="chip">Übung in eigenen Worten</span></div>
   ${task}
   ${e.kind === 'check' ? '' : recorderBlock(e)}
   ${ex.result ? resultBlock(e) : ''}
@@ -760,6 +761,7 @@ async function askCoach() {
   if (ex !== my) return;
   if (!sample) { render(); return; }
   my.coach = { loading: true }; render();
+  const run = my.run;
   const r = hasAudio ? my.result : null;
   const ts = textStats(my.transcript, r ? r.dur : 0);
   const want = expectedPauses(e);
@@ -788,9 +790,11 @@ Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
 Schreib schlicht und menschlich. Keine Bindestriche oder Gedankenstriche, keine Formulierungen wie "nicht X, sondern Y".`;
   try {
     const d = await sample.json(prompt, { modelTier: 'default' });
+    if (my.run !== run) return;
     const data = { lob: clean(d && d.lob), hebel: clean(d && d.hebel), besser: clean(d && d.besser), rueckfrage: wantFollow ? clean(d && d.rueckfrage) : '' };
     my.coach = data.lob || data.hebel ? { data } : { error: 'Der Coach hat keine brauchbare Antwort geschickt. Tippe noch einmal.' };
   } catch (err) {
+    if (my.run !== run) return;
     if (err && err.code === 'not_granted') { sampleOk = false; my.coach = null; }
     else if (err && err.code === 'rate_limited') my.coach = { error: 'Gerade kommen zu viele Anfragen. Warte eine Minute und tippe dann noch einmal.' };
     else my.coach = { error: 'Der Coach hat nicht geantwortet. Tippe noch einmal.' };
@@ -799,6 +803,7 @@ Schreib schlicht und menschlich. Keine Bindestriche oder Gedankenstriche, keine 
 }
 async function askQuestion() {
   const my = ex;
+  if (my.recording || my.starting || my.analyzing) return;
   const sample = await getSample();
   if (ex !== my) return;
   if (!sample) { render(); return; }
@@ -807,7 +812,7 @@ async function askQuestion() {
   const lang = state.lang === 'en' ? 'English' : 'Deutsch';
   try {
     const d = await sample.json(`Erfinde eine realistische Frage, wie sie einer Marketing Managerin in einem Meeting oder Webinar gestellt wird, zum Beispiel zu Kampagnen, Budget, Team, Kunden oder Zahlen. ${e.kind === 'dice' ? 'Sie soll gut mit diesem Rahmen beantwortbar sein: ' + DICE[my.die].name + '.' : ''} Sprache: ${lang}. Höchstens 18 Wörter, keine Bindestriche. Vermeide diese Frage: ${my.question}. Antworte nur mit JSON: {"frage": "..."}`, { modelTier: 'quick', cache: false });
-    if (ex === my && d && d.frage) { my.question = clean(d.frage); my.followUp = null; my.prev = null; resetRun(); }
+    if (ex === my && d && d.frage && !my.recording && !my.starting && !my.analyzing) { my.question = clean(d.frage); my.followUp = null; my.prev = null; resetRun(); }
   } catch (err) { if (err && err.code === 'not_granted') sampleOk = false; }
   if (ex === my && view === 'ex') render();
 }
@@ -918,7 +923,7 @@ document.addEventListener('click', e => {
 });
 document.addEventListener('change', e => {
   const t = e.target;
-  if (t.id === 'upl' && t.files && t.files[0] && ex && !ex.recording && !ex.analyzing) { const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(t.files[0], ex); return; }
+  if (t.id === 'upl' && t.files && t.files[0] && ex && !ex.recording && !ex.starting && !ex.analyzing) { const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(t.files[0], ex); return; }
   if (t.dataset && t.dataset.check !== undefined && ex) { const i = +t.dataset.check; ex.checked = t.checked ? [...new Set([...ex.checked, i])] : ex.checked.filter(x => x !== i); }
 });
 document.addEventListener('input', e => { if (e.target.id === 'txt' && ex) ex.transcript = e.target.value; });
