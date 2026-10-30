@@ -143,6 +143,8 @@
   /* Schnellcheck */
   .breath { width: 150px; height: 150px; border-radius: 50%; margin: 8px auto; display: grid; place-items: center; background: var(--ok-bg); color: var(--ok-ink); font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; transform: scale(.7); transition: transform 4s ease-in-out; }
   .breath.in { transform: scale(1); }
+  .breath.out { transition-duration: 6s; }
+  @media (prefers-reduced-motion: reduce) { .breath, .breath.out { transition: none; } }
   .steps { display: flex; gap: 6px; }
   .steps i { flex: 1; height: 5px; border-radius: 3px; background: var(--line); }
   .steps i.on { background: var(--accent); }
@@ -157,7 +159,7 @@
   nav.tabs button[aria-current="page"] { background: var(--bg); color: var(--accent); }
 </style>
 
-<main id="app" aria-live="polite"></main>
+<main id="app"></main>
 <nav class="tabs" id="tabs" aria-label="Bereiche">
   <button type="button" data-tab="home">Pfad</button>
   <button type="button" data-tab="quick">Vor dem Meeting</button>
@@ -178,7 +180,7 @@ const PILLARS = [
     src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'vol' },
   { id: 'melodie', group: 'Stimme', name: 'Melodie', sub: 'Satzende nach unten',
     idea: 'Deine Tonhöhe darf sich bewegen, das hält Aufmerksamkeit. Aussagen enden unten und klingen dadurch sicher. Geht das Satzende nach oben, klingt jede Aussage wie eine Frage.',
-    src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'pitch' },
+    src: 'Melodie: Vinh Giang. Satzende nach unten: Ergänzung im Tool', focus: 'pitch' },
   { id: 'farbe', group: 'Stimme', name: 'Klangfarbe', sub: 'Das Gesicht als Fernbedienung',
     idea: 'Die Gefühlslage deiner Stimme steuerst du über dein Gesicht. Lächeln hört man. Ernst hört man auch. Dein Gesicht ist die Fernbedienung für den Klang.',
     src: 'Vinh Giang, fünf Stimmgrundlagen', focus: 'pitch' },
@@ -260,15 +262,23 @@ const QUESTIONS = {
 };
 
 const FILLERS = {
-  de: ['äh', 'ähm', 'öhm', 'hm', 'also', 'halt', 'sozusagen', 'quasi', 'eigentlich', 'irgendwie', 'genau', 'ja also', 'im prinzip', 'gewissermaßen'],
-  en: ['um', 'uh', 'erm', 'like', 'you know', 'basically', 'actually', 'kind of', 'sort of', 'i mean', 'literally', 'so yeah']
+  de: ['äh', 'ähm', 'öhm', 'hm', 'also', 'halt', 'sozusagen', 'quasi', 'eigentlich', 'irgendwie', 'ja also', 'im prinzip', 'gewissermaßen'],
+  en: ['um', 'uh', 'erm', 'you know', 'basically', 'kind of', 'sort of', 'i mean', 'literally', 'so yeah']
 };
 
 /* ---------- Zustand ---------- */
 const STORE_KEY = 'stimmwerk.v1';
-function blank() { return { v: 1, lang: 'de', done: {}, hist: {}, days: [], updated: 0 }; }
+function blank() { return { v: 1, lang: 'de', done: {}, hist: {}, days: [], focus: null, updated: 0 }; }
+function fix(s) {
+  if (!Array.isArray(s.days)) s.days = [];
+  if (!s.done || typeof s.done !== 'object') s.done = {};
+  if (!s.hist || typeof s.hist !== 'object') s.hist = {};
+  if (s.lang !== 'en') s.lang = 'de';
+  if (s.focus && !PILLARS.some(p => p.id === s.focus.p)) s.focus = null;
+  return s;
+}
 function loadLocal() {
-  try { const s = JSON.parse(localStorage.getItem(STORE_KEY)); if (s && s.v === 1) return Object.assign(blank(), s); } catch (e) {}
+  try { const s = JSON.parse(localStorage.getItem(STORE_KEY)); if (s && s.v === 1) return fix(Object.assign(blank(), s)); } catch (e) {}
   return blank();
 }
 let state = loadLocal();
@@ -296,9 +306,9 @@ async function connectCloud() {
     cloud = ref;
     const remote = snap.exists ? snap.data() : null;
     if (remote && remote.v === 1 && (remote.updated || 0) > (state.updated || 0)) {
-      state = Object.assign(blank(), JSON.parse(JSON.stringify(remote)));
+      state = fix(Object.assign(blank(), JSON.parse(JSON.stringify(remote))));
       try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
-      if (!busy()) render();
+      if (!busy() && !typing()) render();
     } else if (state.updated) save();
   } catch (e) { cloud = null; }
 }
@@ -330,9 +340,9 @@ function plain(t) { return String(t || '').replace(/‖/g, '').replace(/\[([^\]]
 
 /* ---------- Ansichten ---------- */
 let view = 'home', curPillar = null, ex = null;
-function busy() { return view === 'ex' && ex && (ex.recording || ex.analyzing); }
+function busy() { return view === 'ex' && ex && (ex.recording || ex.starting || ex.analyzing); }
 
-function nextPillar() { return PILLARS.find(p => doneIn(p.id) < exOf(p.id).length) || PILLARS[0]; }
+function nextPillar() { if (state.focus) return P(state.focus.p); return PILLARS.find(p => doneIn(p.id) < exOf(p.id).length) || PILLARS[0]; }
 
 function viewHome() {
   const now = nextPillar();
@@ -347,8 +357,9 @@ function viewHome() {
   const st = streak();
   return `
   <div class="top"><div><span class="label">Stimmwerk</span><h1>Dein Weg</h1></div>${langSwitch()}</div>
-  <p class="soft">${st ? `Du übst seit ${st} ${st === 1 ? 'Tag' : 'Tagen'} am Stück.` : 'Wähl eine Station, egal wie viel Zeit du hast. Jede Übung dauert ein bis drei Minuten.'}</p>
-  <button type="button" class="gold wide" data-pillar="${now.id}">Weiter mit ${esc(now.name)}</button>
+  <p class="soft">${st ? `Du übst seit ${st} ${st === 1 ? 'Tag' : 'Tagen'} am Stück.` : 'Wähl eine Station, egal wie viel Zeit du hast. Die meisten Übungen dauern ein bis drei Minuten.'}</p>
+  ${state.focus ? `<p class="small">Fokus dieser Woche seit ${esc(state.focus.since.slice(8, 10) + '.' + state.focus.since.slice(5, 7) + '.')}: <b>${esc(now.name)}</b></p>` : ''}
+  <button type="button" class="gold wide" data-pillar="${now.id}">${state.focus ? 'Fokus üben' : 'Weiter mit'}: ${esc(now.name)}</button>
   <div class="quick">
     <button type="button" data-start="a1"><b>3·2·1 Würfel</b><span>Spontan antworten</span></button>
     <button type="button" data-tab="quick"><b>Vor dem Meeting</b><span>Schnellcheck</span></button>
@@ -367,14 +378,22 @@ function viewPillar() {
   <div class="top"><button type="button" class="link" data-tab="home">Zurück zum Pfad</button>${langSwitch()}</div>
   <div><span class="label">${esc(p.group)}</span><h2>${esc(p.name)}</h2></div>
   <div class="card"><p>${esc(p.idea)}</p><span class="chip${/Ergänzung/.test(p.src) ? ' mine' : ''}">${esc(p.src)}</span></div>
+  ${state.focus && state.focus.p === p.id ? '<p class="small"><span class="chip ok">Fokus dieser Woche</span></p>' : `<button type="button" data-focus="${p.id}">Als Fokus dieser Woche wählen</button>`}
   <div class="stack">${list}</div>`;
 }
 
 /* ---------- Übung ---------- */
+function newRun(o) {
+  if (o && o.audioUrl) { try { URL.revokeObjectURL(o.audioUrl); } catch (e) {} }
+  return { result: null, audioUrl: null, transcript: '', coach: null, analyzing: false, err: '' };
+}
+function resetRun() { Object.assign(ex, newRun(ex)); }
 function startExercise(id) {
+  if (ex && (ex.recording || ex.starting)) stopRec();
+  if (ex) newRun(ex);
   const e = EX(id);
-  ex = { id, recording: false, analyzing: false, result: null, audioUrl: null, transcript: '', coach: null, checked: [], die: null, question: null, followUp: null };
-  if (e.kind === 'dice') { rollDie(e); }
+  ex = Object.assign({ id, recording: false, starting: false, checked: [], die: null, question: null, followUp: null, prev: null, micMsg: '' }, newRun());
+  if (e.kind === 'dice') rollDie(e);
   if (e.kind === 'free') ex.question = e.q[state.lang];
   curPillar = e.p; view = 'ex'; render(true);
 }
@@ -382,14 +401,14 @@ function rollDie(e) {
   ex.die = e.fixed || [1, 2, 3][Math.floor(Math.random() * 3)];
   const list = QUESTIONS[state.lang];
   let q; do { q = list[Math.floor(Math.random() * list.length)]; } while (list.length > 1 && q === ex.question);
-  ex.question = q; ex.followUp = null;
+  ex.question = q; ex.followUp = null; ex.prev = null;
 }
 
 function viewExercise() {
   const e = EX(ex.id), p = P(e.p);
   let task = '';
   if (e.kind === 'read') task = `<div class="card"><span class="label">Lies laut</span><p class="task">${markup(textFor(e))}</p></div>`;
-  if (e.kind === 'free') task = `<div class="card"><span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage'}</span><p class="question">${esc(ex.question)}</p>${claudeQuestionBtn()}</div>`;
+  if (e.kind === 'free') task = `<div class="card"><span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage'}</span><p class="question">${esc(ex.question)}</p><div class="row">${claudeQuestionBtn()}</div></div>`;
   if (e.kind === 'dice') task = `<div class="card">
       <span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Frage im Meeting'}</span><p class="question">${esc(ex.question)}</p>
       <div class="dice">${[3, 2, 1].map(n => `<div class="die${ex.die === n ? ' on' : ''}"><b>${n}</b><span>${esc(DICE[n].name)}</span></div>`).join('')}</div>
@@ -404,6 +423,7 @@ function viewExercise() {
   <div class="top"><button type="button" class="link" data-pillar="${p.id}">Zurück zu ${esc(p.name)}</button>${e.kind === 'check' ? '' : langSwitch()}</div>
   <div><span class="label">${esc(p.name)}</span><h2>${esc(e.name)}</h2></div>
   <p>${esc(e.how)}</p>
+  <div class="row"><span class="chip${/Ergänzung/.test(p.src) ? ' mine' : ''}">Technik: ${esc(p.src)}</span><span class="chip mine">Übung in eigenen Worten</span></div>
   ${task}
   ${e.kind === 'check' ? '' : recorderBlock(e)}
   ${ex.result ? resultBlock(e) : ''}
@@ -413,41 +433,49 @@ function viewExercise() {
 
 function claudeQuestionBtn() { return sampleOk === false ? '' : '<button type="button" data-askq>Frage vom Coach</button>'; }
 
+const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
 function recorderBlock() {
-  const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder) && micOk !== false;
+  const lock = ex.analyzing || ex.starting;
   return `<div class="card">
     <span class="label">Sprechen</span>
     ${canRec ? `<div class="recbar">
-      <button type="button" class="recbtn${ex.recording ? ' live' : ''}" data-rec aria-label="${ex.recording ? 'Aufnahme stoppen' : 'Aufnahme starten'}">${ex.recording ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>'}</button>
+      <button type="button" class="recbtn${ex.recording ? ' live' : ''}" data-rec${lock ? ' disabled' : ''} aria-label="${ex.recording ? 'Aufnahme stoppen' : 'Aufnahme starten'}">${ex.recording ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>'}</button>
       <div class="meter" aria-hidden="true"><i id="lvl"></i></div><span class="timer" id="tmr">${ex.recording ? '0:00' : ''}</span></div>
-      <p class="small soft">${ex.recording ? 'Ich höre zu. Tippe auf das Quadrat, wenn du fertig bist.' : 'Tippe auf den roten Knopf und sprich.'}</p>`
-    : `<p class="small soft">Hier kann ich nicht direkt aufnehmen. Nimm ein Sprachmemo auf und lade es hoch, dann messe ich Pausen, Lautstärke und Melodie. Den Text sprichst du über das Mikrofon auf deiner Tastatur ins Feld unten.</p>`}
-    <div class="row"><label class="btn filebtn" for="upl">Sprachmemo hochladen<input type="file" id="upl" accept="audio/*"></label>${ex.analyzing ? '<span class="small"><span class="spinner"></span>Ich messe…</span>' : ''}</div>
+      <p class="small soft">${ex.recording ? 'Ich höre zu. Tippe auf das Quadrat, wenn du fertig bist.' : 'Tippe auf den roten Knopf und sprich.'}</p>` : ''}
+    ${ex.micMsg ? `<p class="small soft">${esc(ex.micMsg)}</p>` : ''}
+    <div class="row"><label class="btn filebtn" for="upl">Sprachmemo hochladen<input type="file" id="upl" accept="audio/*"${ex.recording || lock ? ' disabled' : ''}></label>${ex.analyzing ? '<span class="small"><span class="spinner"></span>Ich messe…</span>' : ''}</div>
+    ${ex.err ? `<p class="small soft">${esc(ex.err)}</p>` : ''}
     ${ex.audioUrl ? `<audio controls src="${ex.audioUrl}"></audio>` : ''}
-    <label class="small soft" for="txt">Was du gesagt hast. ${hasSR ? 'Wird beim Aufnehmen mitgeschrieben, wenn dein Browser das kann.' : 'Diktier es mit Wispr Flow oder dem Mikrofon auf der Tastatur.'} Für Tempo und Füllwörter.</label>
-    <p class="small soft">Tipp: Sprich zuerst die Aufnahme, danach diktierst du denselben Text mit Wispr Flow ins Feld. Wispr Flow glättet den Text und lässt „ähm“ weg, die Füllwörter zählst du dann am besten beim Anhören selbst.</p>
+    <label class="small soft" for="txt">Was du gesagt hast, für Tempo und Füllwörter. ${useSR ? 'Wird beim Aufnehmen mitgeschrieben.' : 'Diktier es mit Wispr Flow oder dem Mikrofon auf der Tastatur.'}</label>
+    <p class="small soft">Tipp: Erst aufnehmen, danach denselben Text mit Wispr Flow ins Feld diktieren. Wispr Flow lässt „ähm“ weg, deine Füllwörter hörst du deshalb am besten beim Anhören selbst.</p>
     <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
   </div>`;
 }
 
 /* ---------- Aufnahme ---------- */
-const hasSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
-let micOk = null, media = null;
+const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+// Auf dem iPhone stört die Spracherkennung die Aufnahme, dort diktiert man per Tastatur
+const useSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition) && !isIOS;
+let media = null;
 async function toggleRec() {
-  if (ex.recording) { stopRec(); return; }
+  const my = ex;
+  if (my.recording) { stopRec(); return; }
+  if (my.starting || my.analyzing) return;
+  my.starting = true; my.micMsg = ''; render();
+  let stream = null, ac = null;
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
-    micOk = true;
+    stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
+    if (ex !== my || view !== 'ex') { stream.getTracks().forEach(t => t.stop()); my.starting = false; return; }
     const chunks = [];
     const mr = new MediaRecorder(stream);
     mr.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
     mr.onstop = () => {
       stream.getTracks().forEach(t => t.stop());
-      const blob = new Blob(chunks, { type: mr.mimeType || 'audio/mp4' });
-      handleAudio(blob);
+      handleAudio(new Blob(chunks, { type: mr.mimeType || 'audio/mp4' }), my);
     };
     const AC = window.AudioContext || window.webkitAudioContext;
-    const ac = new AC(); const src = ac.createMediaStreamSource(stream); const an = ac.createAnalyser(); an.fftSize = 1024; src.connect(an);
+    ac = new AC(); try { await ac.resume(); } catch (e) {}
+    const src = ac.createMediaStreamSource(stream); const an = ac.createAnalyser(); an.fftSize = 1024; src.connect(an);
     const buf = new Float32Array(an.fftSize);
     const t0 = performance.now();
     let raf = 0;
@@ -459,57 +487,71 @@ async function toggleRec() {
       if (t) t.textContent = fmtTime((performance.now() - t0) / 1000);
       raf = requestAnimationFrame(tick);
     };
-    media = { mr, ac, stop: () => { cancelAnimationFrame(raf); try { ac.close(); } catch (e) {} } };
-    ex.recording = true; ex.result = null; ex.coach = null;
-    const box = $('#txt'); ex.transcript = box ? box.value : ex.transcript;
-    startSR();
+    const acRef = ac;
+    media = { mr, stop: () => { cancelAnimationFrame(raf); try { acRef.close(); } catch (e) {} } };
     mr.start();
+    Object.assign(my, newRun(my));
+    my.starting = false; my.recording = true;
+    startSR(my);
     render(); tick();
   } catch (e) {
-    micOk = false; render();
+    if (stream) stream.getTracks().forEach(t => t.stop());
+    if (ac) { try { ac.close(); } catch (x) {} }
+    my.starting = false; my.recording = false;
+    my.micMsg = e && e.name === 'NotAllowedError'
+      ? 'Ich darf das Mikrofon hier nicht benutzen. Auf dem iPhone erlaubst du es unter Einstellungen, Safari, Mikrofon. Im claude.ai Link geht es nicht, dort lädst du ein Sprachmemo hoch.'
+      : 'Die Aufnahme ließ sich nicht starten. Tippe noch einmal oder lade ein Sprachmemo hoch.';
+    if (ex === my) render();
   }
 }
 function stopRec() {
-  if (!media) return;
-  ex.recording = false;
+  const my = ex;
+  if (!media) { if (my) { my.recording = false; my.starting = false; } return; }
+  my.recording = false;
   stopSR();
-  media.stop(); try { media.mr.stop(); } catch (e) {}
-  media = null; ex.analyzing = true; render();
+  const m = media; media = null;
+  m.stop(); my.analyzing = true;
+  try { m.mr.stop(); } catch (e) { my.analyzing = false; }
+  if (ex === my && view === 'ex') render();
 }
 let sr = null;
-function startSR() {
+function startSR(my) {
+  if (!useSR) return;
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) return;
   try {
     const r = new SR(); r.lang = state.lang === 'en' ? 'en-US' : 'de-DE'; r.continuous = true; r.interimResults = true;
-    const base = ex.transcript ? ex.transcript.trim() + ' ' : '';
-    r.onresult = e => { let t = ''; for (let i = 0; i < e.results.length; i++) t += e.results[i][0].transcript + ' '; ex.transcript = (base + t).replace(/\s+/g, ' ').trim(); const b = $('#txt'); if (b) b.value = ex.transcript; };
-    r.onerror = () => {};
-    r.onend = () => { if (sr === r && ex && ex.recording) { try { r.start(); } catch (e) {} } };
+    let base = '', dead = false;
+    r.onresult = e => { let t = ''; for (let i = 0; i < e.results.length; i++) t += e.results[i][0].transcript + ' '; my.transcript = (base + ' ' + t).replace(/\s+/g, ' ').trim(); const b = $('#txt'); if (b && ex === my) b.value = my.transcript; };
+    r.onerror = ev => { if (['not-allowed', 'service-not-allowed', 'audio-capture', 'network'].includes(ev.error)) dead = true; };
+    r.onend = () => { base = my.transcript; if (!dead && sr === r && my.recording) { try { r.start(); } catch (e) {} } };
     sr = r; r.start();
   } catch (e) { sr = null; }
 }
 function stopSR() { const r = sr; sr = null; if (r) { try { r.stop(); } catch (e) {} } }
 
-async function handleAudio(blob) {
-  if (!ex) return;
-  ex.analyzing = true; render();
+async function handleAudio(blob, my) {
+  my = my || ex;
+  if (!my) return;
+  if (my.audioUrl) { try { URL.revokeObjectURL(my.audioUrl); } catch (e) {} }
+  my.audioUrl = URL.createObjectURL(blob);
+  my.analyzing = true; my.err = ''; my.result = null; my.coach = null;
+  if (ex === my) render();
+  const AC = window.AudioContext || window.webkitAudioContext;
+  let ac = null;
   try {
-    if (ex.audioUrl) URL.revokeObjectURL(ex.audioUrl);
-    ex.audioUrl = URL.createObjectURL(blob);
-    const AC = window.AudioContext || window.webkitAudioContext;
-    const ac = new AC();
+    ac = new AC();
     const arr = await blob.arrayBuffer();
     const audio = await new Promise((res, rej) => { const p = ac.decodeAudioData(arr, res, rej); if (p && p.then) p.then(res, rej); });
-    try { ac.close(); } catch (e) {}
     await new Promise(r => setTimeout(r, 30));
-    ex.result = analyze(audio.getChannelData(0), audio.sampleRate);
-    ex.analyzing = false;
-    finishRun();
+    my.result = analyze(audio.getChannelData(0), audio.sampleRate);
+    my.analyzing = false;
+    finishRun(my);
   } catch (e) {
-    ex.analyzing = false; ex.result = null;
-    render();
-    const t = $('#txt'); if (t) t.insertAdjacentHTML('afterend', '<p class="small soft">Diese Audiodatei konnte ich nicht lesen. Versuch es mit einer anderen Aufnahme, zum Beispiel m4a oder mp3.</p>');
+    my.analyzing = false; my.result = null;
+    my.err = 'Diese Audiodatei konnte ich nicht lesen. Versuch es mit einer anderen Aufnahme, zum Beispiel m4a oder mp3.';
+    if (ex === my) render();
+  } finally {
+    if (ac) { try { ac.close(); } catch (e) {} }
   }
 }
 
@@ -581,32 +623,37 @@ function analyze(x, sr0) {
   };
 }
 function textStats(t, durSec) {
-  const words = (t.toLowerCase().match(/[\p{L}\p{N}']+/gu) || []);
-  let fill = 0; const found = {};
-  const joined = ' ' + words.join(' ') + ' ';
-  for (const fw of FILLERS[state.lang]) { const re = new RegExp(' ' + fw + ' ', 'g'); const m = joined.match(re); if (m) { fill += m.length; found[fw] = m.length; } }
-  return { words: words.length, wpm: durSec && words.length > 5 ? Math.round(words.length / (durSec / 60)) : null, fill, found };
+  const words = (String(t || '').toLowerCase().match(/[\p{L}\p{N}']+/gu) || []);
+  const list = FILLERS[state.lang].map(f => f.split(' ')).sort((a, b) => b.length - a.length);
+  let fill = 0;
+  for (let i = 0; i < words.length;) {
+    const hit = list.find(f => f.every((w, k) => words[i + k] === w));
+    if (hit) { fill++; i += hit.length; } else i++;
+  }
+  return { words: words.length, wpm: durSec && words.length > 5 ? Math.round(words.length / (durSec / 60)) : null, fill };
 }
+function expectedPauses(e) { return e.kind === 'read' ? (textFor(e).match(/‖/g) || []).length : 0; }
 
-function finishRun() {
-  const e = EX(ex.id); const r = ex.result;
-  const box = $('#txt'); if (box) ex.transcript = box.value;
+function finishRun(my) {
+  my = my || ex;
+  const e = EX(my.id); const r = my.result;
+  if (ex === my) { const box = $('#txt'); if (box) my.transcript = box.value; }
   if (r && !r.empty) {
-    const ts = textStats(ex.transcript, r.dur);
+    const ts = textStats(my.transcript, r.dur);
     const h = state.hist[e.id] || (state.hist[e.id] = []);
-    h.push({ d: today(), dur: Math.round(r.dur), wpm: ts.wpm, pz: r.pauses, mel: r.pitchRange === null ? null : +r.pitchRange.toFixed(1), vol: +r.volRange.toFixed(1), fill: ts.fill });
-    state.hist[e.id] = h.slice(-12);
+    h.push({ d: today(), dur: Math.round(r.dur), wpm: ts.wpm, pz: r.pauses, mel: r.pitchRange === null ? null : +r.pitchRange.toFixed(1), vol: +r.volRange.toFixed(1), fill: ts.fill, f: my.followUp ? 1 : 0 });
+    state.hist[e.id] = h.slice(-20);
     state.done[e.id] = (state.done[e.id] || 0) + 1;
     markDay(); save();
   }
-  render();
+  if (ex === my && view === 'ex') render();
 }
 
 function verdict(kind, v) {
-  if (v === null || v === undefined) return '';
+  if (v === null || v === undefined || Number.isNaN(v)) return '';
   const c = (cls, t) => `<span class="chip ${cls}">${t}</span>`;
   if (kind === 'wpm') return v < 110 ? c('warn', 'ruhig') : v <= 160 ? c('ok', 'angenehm') : c('warn', 'schnell');
-  if (kind === 'pauses') return v < 4 ? c('warn', 'wenig Pausen') : v <= 14 ? c('ok', 'gut verteilt') : c('warn', 'sehr viele');
+  if (kind === 'pauses') return v < 4 ? c('warn', 'wenig Pausen') : v <= 24 ? c('ok', 'gut verteilt') : c('warn', 'sehr viele');
   if (kind === 'pitch') return v < 4 ? c('warn', 'eher flach') : v <= 9 ? c('ok', 'lebendig') : c('ok', 'sehr bewegt');
   if (kind === 'vol') return v < 6 ? c('warn', 'gleichförmig') : c('ok', 'abwechslungsreich');
   if (kind === 'fill') return v === 0 ? c('ok', 'keine gehört') : v <= 2 ? c('ok', 'wenige') : c('warn', 'achte drauf');
@@ -617,19 +664,22 @@ function resultBlock(e) {
   const r = ex.result; const p = P(e.p);
   if (r.empty) return `<div class="card"><p>Ich habe kaum Stimme gehört. Sprich etwas näher am Mikrofon und probier es noch einmal.</p></div>`;
   const ts = textStats(ex.transcript, r.dur);
-  const m = (key, val, unit, label) => `<div class="metric${p.focus === key ? ' focus' : ''}"><span class="v">${val === null ? 'offen' : val}${val === null ? '' : unit}</span><span class="k">${label}</span>${verdict(key, typeof val === 'string' ? parseFloat(val) : val)}</div>`;
+  const m = (key, val, unit, label, chip) => `<div class="metric${p.focus === key ? ' focus' : ''}"><span class="v">${val === null ? 'offen' : val}${val === null ? '' : unit}</span><span class="k">${label}</span>${chip === undefined ? verdict(key, typeof val === 'string' ? parseFloat(val) : val) : chip}</div>`;
   const ends = r.ends.fall + r.ends.rise + r.ends.flat;
+  const want = expectedPauses(e);
+  const pauseChip = want ? (r.pauses >= Math.round(want * 0.7) ? `<span class="chip ok">${want} verlangt, gut</span>` : `<span class="chip warn">${want} verlangt</span>`) : verdict('pauses', r.pausePerMin);
+  const wpmLabel = ts.wpm !== null ? 'Tempo' : ts.words ? 'Tempo: zu wenig Text' : 'Tempo: dafür brauche ich den Text';
   return `<div class="card">
     <span class="label">Deine Notenlinie</span>
     <div class="staff">${staffSvg(r)}</div>
     <p class="small soft">Die Linie zeigt deine Tonhöhe. Rote Zeichen sind Pausen ab einer halben Sekunde.</p>
     <div class="metrics">
-      ${m('wpm', ts.wpm, ' W/min', ts.wpm === null ? 'Tempo: dafür brauche ich den Text' : 'Tempo')}
-      <div class="metric${p.focus === 'pauses' ? ' focus' : ''}"><span class="v">${r.pauses}</span><span class="k">Pausen, davon ${r.longPauses} lang, ${r.pausePerMin.toFixed(0)} pro Minute</span>${verdict('pauses', r.pausePerMin)}</div>
+      ${m('wpm', ts.wpm, ' W/min', wpmLabel)}
+      ${m('pauses', r.pauses, '', `Pausen, davon ${r.longPauses} lang`, pauseChip)}
       ${m('pitch', r.pitchRange === null ? null : r.pitchRange.toFixed(1), ' HT', 'Melodie, Spannweite in Halbtönen')}
       ${m('vol', r.volRange.toFixed(0), ' dB', 'Lautstärke, Spannweite')}
       ${m('fill', ts.words ? ts.fill : null, '', 'Füllwörter im Text')}
-      <div class="metric${p.id === 'melodie' ? ' focus' : ''}"><span class="v">${ends ? r.ends.fall + ' von ' + ends : 'offen'}</span><span class="k">Satzenden nach unten</span>${ends ? (r.ends.fall / ends >= 0.6 ? '<span class="chip ok">sicher</span>' : '<span class="chip warn">mehr nach unten</span>') : ''}</div>
+      <div class="metric${p.id === 'melodie' ? ' focus' : ''}"><span class="v">${ends ? r.ends.fall + ' von ' + ends : 'offen'}</span><span class="k">Abschnitte vor einer Pause, die unten enden</span>${ends ? (r.ends.fall / ends >= 0.6 ? '<span class="chip ok">sicher</span>' : '<span class="chip warn">mehr nach unten</span>') : ''}</div>
     </div>
     <p class="small soft">Dauer ${fmtTime(r.dur)}. Die Richtwerte sind eine grobe Orientierung von mir. Diktat und Wispr Flow lassen „ähm“ oft weg, dann zählt das Tool zu wenig Füllwörter.</p>
   </div>`;
@@ -658,10 +708,17 @@ function staffSvg(r) {
 }
 
 function historyBlock(e) {
-  const h = state.hist[e.id];
-  if (!h || h.length < 1) return '';
-  const rows = h.slice().reverse().slice(0, 6).map(x => `<div><span>${esc(x.d.slice(8, 10) + '.' + x.d.slice(5, 7) + '.')}</span><span>${x.wpm ? x.wpm + ' W/min' : '·'}</span><span>${x.pz} Pausen</span><span>${x.mel === null ? '·' : x.mel + ' HT'}</span></div>`).join('');
-  return `<div class="card"><span class="label">Vorher und nachher</span><div class="hist">${rows}</div><p class="small soft">Vinh Giang empfiehlt, eine Fähigkeit eine Woche lang zu üben und die erste mit der letzten Aufnahme zu vergleichen.</p></div>`;
+  const h = (state.hist[e.id] || []).filter(x => !x.f);
+  if (!h.length) return '';
+  const cell = (v, u) => v === null || v === undefined ? '·' : v + u;
+  let cmp = '';
+  if (h.length >= 2) {
+    const a = h[0], b = h[h.length - 1];
+    const d = (x, y, u) => x === null || y === null || x === undefined || y === undefined ? '' : `<span>${cell(x, u)} → ${cell(y, u)}</span>`;
+    cmp = `<p class="small"><b>Erste und letzte Aufnahme</b></p><div class="hist"><div><span>Tempo</span>${d(a.wpm, b.wpm, ' W/min') || '<span>·</span>'}</div><div><span>Pausen</span>${d(a.pz, b.pz, '')}</div><div><span>Melodie</span>${d(a.mel, b.mel, ' HT') || '<span>·</span>'}</div><div><span>Lautstärke</span>${d(a.vol, b.vol, ' dB')}</div></div>`;
+  }
+  const rows = h.slice().reverse().slice(0, 5).map(x => `<div><span>${esc(x.d.slice(8, 10) + '.' + x.d.slice(5, 7) + '.')}</span><span>${cell(x.wpm, ' W/min')}</span><span>${x.pz} Pausen</span><span>${cell(x.mel, ' HT')}</span></div>`).join('');
+  return `<div class="card"><span class="label">Vorher und nachher</span>${cmp}<p class="small"><b>Letzte Aufnahmen</b></p><div class="hist">${rows}</div><p class="small soft">Vinh Giang empfiehlt, eine Fähigkeit eine Woche lang zu üben und die erste mit der letzten Aufnahme zu vergleichen.</p></div>`;
 }
 
 /* ---------- Coach mit Claude ---------- */
@@ -685,19 +742,27 @@ function coachBlock() {
     ${body || '<p class="small soft">Wenn du fertig bist, gib dem Coach deinen Text und die Messwerte. Er sagt dir, was gut war, nennt dir einen Hebel und stellt dir eine Rückfrage wie im echten Meeting.</p>'}
     ${c && c.loading ? '' : '<button type="button" class="gold" data-coach>' + (c && c.data ? 'Noch einmal bewerten' : 'Feedback holen') + '</button>'}</div>`;
 }
+function clean(s) { return String(s || '').replace(/\s*[–—]\s*/g, ', ').replace(/(\p{L})-(\p{L})/gu, '$1 $2').replace(/\s+-\s+/g, ', ').trim(); }
 async function askCoach() {
-  const e = EX(ex.id), p = P(e.p);
-  const box = $('#txt'); if (box) ex.transcript = box.value;
-  if (!ex.transcript.trim() && !ex.result) { ex.coach = { error: 'Sprich oder tippe zuerst etwas, dann kann der Coach dir helfen.' }; render(); return; }
+  const my = ex;
+  const e = EX(my.id), p = P(e.p);
+  const box = $('#txt'); if (box) my.transcript = box.value;
+  const hasAudio = my.result && !my.result.empty;
+  if (!my.transcript.trim() && !hasAudio) { my.coach = { error: 'Sprich oder tippe zuerst etwas, dann kann der Coach dir helfen.' }; render(); return; }
   const sample = await getSample();
+  if (ex !== my) return;
   if (!sample) { render(); return; }
-  ex.coach = { loading: true }; render();
-  const r = ex.result && !ex.result.empty ? ex.result : null;
-  const ts = textStats(ex.transcript, r ? r.dur : 0);
-  const metrics = r ? `Dauer ${Math.round(r.dur)} s, Tempo ${ts.wpm ?? 'unbekannt'} Wörter pro Minute, ${r.pauses} Pausen ab 0,5 s (davon ${r.longPauses} lang), Melodie Spannweite ${r.pitchRange === null ? 'unbekannt' : r.pitchRange.toFixed(1) + ' Halbtöne'}, Lautstärke Spannweite ${r.volRange.toFixed(0)} dB, Satzenden: ${r.ends.fall} fallend, ${r.ends.rise} steigend, ${r.ends.flat} gleich, Füllwörter im Text ${ts.fill}.` : `Keine Audiomessung, nur Text. Füllwörter im Text ${ts.fill}.`;
+  my.coach = { loading: true }; render();
+  const r = hasAudio ? my.result : null;
+  const ts = textStats(my.transcript, r ? r.dur : 0);
+  const want = expectedPauses(e);
+  const metrics = r ? `Dauer ${Math.round(r.dur)} s, Tempo ${ts.wpm ?? 'unbekannt'} Wörter pro Minute, ${r.pauses} Pausen ab 0,5 s (davon ${r.longPauses} lang${want ? ', im Text sind ' + want + ' Pausen verlangt' : ''}), Melodie Spannweite ${r.pitchRange === null ? 'unbekannt' : r.pitchRange.toFixed(1) + ' Halbtöne'}, Lautstärke Spannweite ${r.volRange.toFixed(0)} dB, Abschnitte vor Pausen: ${r.ends.fall} enden fallend, ${r.ends.rise} steigend, ${r.ends.flat} gleich, Füllwörter im Text ${ts.fill} (Diktat entfernt Füllwörter oft).` : `Keine Audiomessung, nur Text. Füllwörter im Text ${ts.fill}.`;
   let task = '';
   if (e.kind === 'read') task = `Vorgelesener Text: ${plain(textFor(e))}`;
-  else task = `Frage: ${ex.question}` + (e.kind === 'dice' ? `\nVorgegebene Struktur: ${DICE[ex.die].name} (${DICE[ex.die].hint})` : '');
+  else {
+    task = (my.prev ? `Vorherige Frage: ${my.prev.question}\nIhre vorherige Antwort: ${my.prev.answer}\nRückfrage darauf: ` : 'Frage: ') + my.question;
+    if (e.kind === 'dice') task += `\nVorgegebene Struktur: ${DICE[my.die].name} (${DICE[my.die].hint})`;
+  }
   const answerLang = state.lang === 'en' ? 'English' : 'Deutsch';
   const wantFollow = e.kind !== 'read';
   const prompt = `Du bist ein warmer, direkter Sprechcoach. Du arbeitest mit den Techniken von Vinh Giang: fünf Stimmgrundlagen (Tempo, Lautstärke, Tonhöhe und Melodie, Klangfarbe, Pause), dazu der 3·2·1 Rahmen für spontane Antworten (drei Schritte, zwei Arten oder Seiten, eine Kernaussage). Deine Schülerin ist Deutsche, arbeitet im Marketing und will in Meetings und Webinaren sicherer und klarer sprechen.
@@ -706,7 +771,7 @@ Säule dieser Übung: ${p.name}. Idee: ${p.idea}
 Übung: ${e.name}. Anleitung: ${e.how}
 ${task}
 Messwerte aus der Aufnahme: ${metrics}
-Gesprochener Text (kann aus Spracherkennung stammen, ignoriere fehlende Satzzeichen und kleine Erkennungsfehler): ${ex.transcript || '(kein Text)'}
+Gesprochener Text (kann aus Spracherkennung oder Wispr Flow stammen, ignoriere fehlende Satzzeichen und kleine Erkennungsfehler): ${my.transcript || '(kein Text)'}
 
 Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
 "lob": ein bis zwei kurze Sätze auf Deutsch, was konkret gut war,
@@ -716,25 +781,28 @@ Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
 Schreib schlicht und menschlich. Keine Bindestriche oder Gedankenstriche, keine Formulierungen wie "nicht X, sondern Y".`;
   try {
     const d = await sample.json(prompt, { modelTier: 'default' });
-    ex.coach = { data: { lob: String(d.lob || ''), hebel: String(d.hebel || ''), besser: String(d.besser || ''), rueckfrage: wantFollow ? String(d.rueckfrage || '') : '' } };
+    const data = { lob: clean(d && d.lob), hebel: clean(d && d.hebel), besser: clean(d && d.besser), rueckfrage: wantFollow ? clean(d && d.rueckfrage) : '' };
+    my.coach = data.lob || data.hebel ? { data } : { error: 'Der Coach hat keine brauchbare Antwort geschickt. Tippe noch einmal.' };
   } catch (err) {
-    if (err && err.code === 'not_granted') { sampleOk = false; ex.coach = null; }
-    else if (err && err.code === 'rate_limited') ex.coach = { error: 'Gerade kommen zu viele Anfragen. Warte eine Minute und tippe dann noch einmal.' };
-    else ex.coach = { error: 'Der Coach hat nicht geantwortet. Tippe noch einmal.' };
+    if (err && err.code === 'not_granted') { sampleOk = false; my.coach = null; }
+    else if (err && err.code === 'rate_limited') my.coach = { error: 'Gerade kommen zu viele Anfragen. Warte eine Minute und tippe dann noch einmal.' };
+    else my.coach = { error: 'Der Coach hat nicht geantwortet. Tippe noch einmal.' };
   }
-  if (view === 'ex') render();
+  if (ex === my && view === 'ex') render();
 }
 async function askQuestion() {
+  const my = ex;
   const sample = await getSample();
+  if (ex !== my) return;
   if (!sample) { render(); return; }
   const btn = document.querySelector('[data-askq]'); if (btn) { btn.disabled = true; btn.textContent = 'Einen Moment…'; }
-  const e = EX(ex.id);
+  const e = EX(my.id);
   const lang = state.lang === 'en' ? 'English' : 'Deutsch';
   try {
-    const d = await sample.json(`Erfinde eine realistische Frage, wie sie einer Marketing Managerin in einem Meeting oder Webinar gestellt wird, zum Beispiel zu Kampagnen, Budget, Team, Kunden oder Zahlen. ${e.kind === 'dice' ? 'Sie soll gut mit diesem Rahmen beantwortbar sein: ' + DICE[ex.die].name + '.' : ''} Sprache: ${lang}. Höchstens 18 Wörter, keine Bindestriche. Vermeide diese Frage: ${ex.question}. Antworte nur mit JSON: {"frage": "..."}`, { modelTier: 'quick', cache: false });
-    if (d && d.frage) { ex.question = String(d.frage); ex.followUp = null; ex.result = null; ex.coach = null; ex.transcript = ''; }
+    const d = await sample.json(`Erfinde eine realistische Frage, wie sie einer Marketing Managerin in einem Meeting oder Webinar gestellt wird, zum Beispiel zu Kampagnen, Budget, Team, Kunden oder Zahlen. ${e.kind === 'dice' ? 'Sie soll gut mit diesem Rahmen beantwortbar sein: ' + DICE[my.die].name + '.' : ''} Sprache: ${lang}. Höchstens 18 Wörter, keine Bindestriche. Vermeide diese Frage: ${my.question}. Antworte nur mit JSON: {"frage": "..."}`, { modelTier: 'quick', cache: false });
+    if (ex === my && d && d.frage) { my.question = clean(d.frage); my.followUp = null; my.prev = null; resetRun(); }
   } catch (err) { if (err && err.code === 'not_granted') sampleOk = false; }
-  render();
+  if (ex === my && view === 'ex') render();
 }
 
 /* ---------- Vor dem Meeting ---------- */
@@ -767,8 +835,8 @@ function breathe() {
   let round = 0;
   const step = phase => {
     const b = $('#breath'); if (!b) return;
-    if (phase === 'in') { b.classList.add('in'); b.textContent = 'Einatmen'; breathTimer = setTimeout(() => step('out'), 4000); }
-    else { b.classList.remove('in'); b.textContent = 'Ausatmen'; round++; breathTimer = setTimeout(() => { if (round < 3) step('in'); else if ($('#breath')) $('#breath').textContent = 'Gut so'; }, 6000); }
+    if (phase === 'in') { b.classList.remove('out'); b.classList.add('in'); b.textContent = 'Einatmen'; breathTimer = setTimeout(() => step('out'), 4000); }
+    else { b.classList.remove('in'); b.classList.add('out'); b.textContent = 'Ausatmen'; round++; breathTimer = setTimeout(() => { if (round < 3) step('in'); else if ($('#breath')) $('#breath').textContent = 'Gut so'; }, 6000); }
   };
   step('in');
 }
@@ -780,46 +848,56 @@ function viewMap() {
   <p>Sieben Säulen. Fünf davon sind deine Stimme, eine ist der Inhalt, eine ist die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
   <div class="pillars">${PILLARS.map(p => `<button type="button" class="pillar ex" data-pillar="${p.id}"><span class="label">${esc(p.group)}</span><span class="t">${esc(p.name)}</span><span class="d">${esc(p.sub)}</span></button>`).join('')}</div>
   <div class="card"><h3>So übst du</h3>
-    <p>Eine Säule pro Woche im Mittelpunkt. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
+    <p>Eine Säule pro Woche im Mittelpunkt, du wählst sie auf der Seite der Säule. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
   <div class="card"><h3>Datenschutz</h3><p class="small">Aufnahmen bleiben auf deinem Gerät und werden nur hier gemessen. Wenn du den Coach fragst, gehen dein Text und die Messwerte an Claude, die Audiodatei nicht.</p></div>
   <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus seinem Gespräch mit Jay Shetty. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm.</p></div>`;
 }
 
 /* ---------- Rendern ---------- */
 function render(scrollTop) {
+  if (view !== 'quick') clearTimeout(breathTimer);
   let html;
   if (view === 'pillar') html = viewPillar();
   else if (view === 'ex' && ex) html = viewExercise();
   else if (view === 'quick') html = viewQuick();
   else if (view === 'map') html = viewMap();
   else { view = 'home'; html = viewHome(); }
-  const ta = $('#txt'); if (ta && ex) ex.transcript = ta.value;
   $('#app').innerHTML = html;
   const tabView = view === 'pillar' || view === 'ex' ? 'home' : view;
   document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === tabView ? 'page' : 'false'));
   if (scrollTop) window.scrollTo(0, 0);
 }
+function leaveExercise() { if (ex && (ex.recording || ex.starting)) stopRec(); }
+function typing() { const a = document.activeElement; return a && (a.tagName === 'TEXTAREA' || a.tagName === 'INPUT'); }
 
 /* ---------- Ereignisse ---------- */
 document.addEventListener('click', e => {
   const t = e.target.closest('button');
-  if (!t) return;
-  if (t.dataset.tab) { if (ex && ex.recording) stopRec(); view = t.dataset.tab; if (view === 'quick') quick.i = 0; render(true); return; }
-  if (t.dataset.pillar) { if (ex && ex.recording) stopRec(); curPillar = t.dataset.pillar; view = 'pillar'; render(true); return; }
+  if (!t || t.disabled) return;
+  if (t.dataset.tab) { leaveExercise(); view = t.dataset.tab; if (view === 'quick') quick.i = 0; render(true); return; }
+  if (t.dataset.pillar) { leaveExercise(); curPillar = t.dataset.pillar; view = 'pillar'; render(true); return; }
   if (t.dataset.start) { startExercise(t.dataset.start); return; }
+  if (t.dataset.focus) { state.focus = { p: t.dataset.focus, since: today() }; save(); render(); return; }
   if (t.dataset.lang) {
+    if (state.lang === t.dataset.lang) return;
+    if (ex && (ex.recording || ex.starting || ex.analyzing) && view === 'ex') return;
     state.lang = t.dataset.lang; save();
-    if (view === 'ex' && ex) { const e = EX(ex.id); if (e.kind === 'free' && !ex.followUp) ex.question = e.q[state.lang]; if (e.kind === 'dice' && !ex.followUp) rollDie(e); }
+    if (view === 'ex' && ex) {
+      const e = EX(ex.id);
+      if (!ex.followUp) { if (e.kind === 'free') ex.question = e.q[state.lang]; if (e.kind === 'dice') rollDie(e); }
+      resetRun();
+    }
     render(); return;
   }
   if (t.hasAttribute('data-rec')) { toggleRec(); return; }
-  if (t.hasAttribute('data-roll')) { rollDie(EX(ex.id)); ex.result = null; ex.coach = null; ex.transcript = ''; render(); return; }
+  if (t.hasAttribute('data-roll')) { rollDie(EX(ex.id)); resetRun(); render(); return; }
   if (t.hasAttribute('data-coach')) { askCoach(); return; }
   if (t.hasAttribute('data-askq')) { askQuestion(); return; }
   if (t.hasAttribute('data-followup')) {
     const q = ex.coach && ex.coach.data && ex.coach.data.rueckfrage; if (!q) return;
-    ex.question = q; ex.followUp = true; ex.result = null; ex.coach = null; ex.transcript = '';
-    if (ex.audioUrl) { URL.revokeObjectURL(ex.audioUrl); ex.audioUrl = null; }
+    const box = $('#txt'); if (box) ex.transcript = box.value;
+    ex.prev = { question: ex.question, answer: ex.transcript };
+    ex.question = q; ex.followUp = true; resetRun();
     render(true); return;
   }
   if (t.hasAttribute('data-finish-check')) {
@@ -833,12 +911,12 @@ document.addEventListener('click', e => {
 });
 document.addEventListener('change', e => {
   const t = e.target;
-  if (t.id === 'upl' && t.files && t.files[0]) { const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(t.files[0]); return; }
+  if (t.id === 'upl' && t.files && t.files[0] && ex && !ex.recording && !ex.analyzing) { const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(t.files[0], ex); return; }
   if (t.dataset && t.dataset.check !== undefined && ex) { const i = +t.dataset.check; ex.checked = t.checked ? [...new Set([...ex.checked, i])] : ex.checked.filter(x => x !== i); }
 });
 document.addEventListener('input', e => { if (e.target.id === 'txt' && ex) ex.transcript = e.target.value; });
 
 render();
 connectCloud();
-getSample().then(() => { if (!busy()) render(); });
+getSample().then(() => { if (!busy() && !typing()) render(); });
 </script>
