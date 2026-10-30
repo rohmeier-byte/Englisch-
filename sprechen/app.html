@@ -1,6 +1,6 @@
 <title>Stimmwerk</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Sieben Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
+<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Acht Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -187,6 +187,9 @@ const PILLARS = [
   { id: 'aufbau', group: 'Inhalt', name: 'Aufbau mit 3·2·1', sub: 'Nie mehr ins Schwafeln',
     idea: 'Wenn du spontan antworten musst, gibt dir ein fester Rahmen eine Route, und dein Kopf bleibt nicht leer. Du ordnest deine Antwort in drei Schritte, in zwei Arten oder um eine Kernaussage. Sein Beispiel ist die Avocado: halbieren, zerdrücken, würzen.',
     src: 'Vinh Giang, Video zum 3·2·1 Trick', focus: 'fill' },
+  { id: 'wert', group: 'Inhalt', name: 'Wertschätzung', sub: 'Zuhören, danken, freundlich klar sein',
+    idea: 'Wertschätzend sprechen heißt, dass andere spüren: Du nimmst sie ernst. Du dankst konkret, du fragst nach, bevor du antwortest, und du sprichst Kritik ruhig und zur Sache an. Vinh Giang rät, vor dem Reden über dich drei Rückfragen zu stellen und deine Stimme an die Stimmung der anderen anzupassen. Die Formeln für Dank und Kritik sind meine Ergänzung.',
+    src: 'Rückfragen und Anpassen der Stimme: Vinh Giang. Formeln für Dank und Kritik: Ergänzung im Tool', focus: 'pitch' },
   { id: 'koerper', group: 'Wirkung', name: 'Körper und Kamera', sub: 'Bewegung macht die Stimme lebendig',
     idea: 'Körper und Stimme hängen zusammen. Wer starr sitzt, klingt oft flach. Für Webinare kommen Blick in die Linse und Gesten im Bild dazu.',
     src: 'Körper: Vinh Giang. Kamera: Ergänzung im Tool', focus: 'pitch' }
@@ -239,6 +242,16 @@ const EXERCISES = [
     q: { de: 'Wie bereitest du ein wichtiges Meeting vor?', en: 'How do you prepare for an important meeting?' } },
   { id: 'a3', p: 'aufbau', kind: 'dice', name: 'Rückfrage im Meeting', fixed: 1,
     how: 'Eine Frage, wie sie dir in einem Meeting gestellt wird. Antworte mit einer einzigen Kernaussage und begründe sie kurz. Danach stellt dir der Coach eine Rückfrage.' },
+  { id: 'w1', p: 'wert', kind: 'read', name: 'Konkret danken', src: 'Ergänzung im Tool',
+    how: 'Ein guter Dank nennt die Person, was genau sie getan hat und was es bewirkt hat. Lies ihn warm, mit einem Lächeln im Gesicht. Die Pause lässt den Dank wirken.',
+    de: 'Danke, Jana. [Dein Entwurf] hat uns am Montag eine Stunde gespart. ‖ Besonders hilfreich war die Übersicht auf Seite zwei. ‖ Dadurch konnten wir sofort [entscheiden].',
+    en: 'Thank you, Jana. [Your draft] saved us an hour on Monday. ‖ The overview on page two was especially helpful. ‖ It let us [decide] straight away.' },
+  { id: 'w2', p: 'wert', kind: 'free', name: 'Drei Rückfragen', src: 'Vinh Giang, Rückfragen vor dem eigenen Thema',
+    how: 'Eine Kollegin schildert dir ein Problem. Stell drei Rückfragen, bevor du einen Rat gibst oder von dir erzählst. Sprich die Fragen langsam und interessiert.',
+    q: { de: 'Deine Kollegin sagt: Ich schaffe die Deadline nicht mehr, und ich weiß nicht, wo ich anfangen soll. Was fragst du sie?', en: 'Your colleague says: I will not make the deadline, and I do not know where to start. What do you ask her?' } },
+  { id: 'w3', p: 'wert', kind: 'free', name: 'Kritik freundlich sagen', src: 'Ergänzung im Tool',
+    how: 'Sag es in drei Teilen: was du gesehen hast, was es bewirkt, was du dir wünschst. Beginne mit etwas Anerkennendem. Deine Stimme bleibt ruhig und das Satzende geht nach unten.',
+    q: { de: 'Dein Kollege hat die Zahlen wieder erst kurz vor dem Meeting geschickt. Was sagst du ihm?', en: 'Your colleague again sent the numbers just before the meeting. What do you say to him?' } },
   { id: 'c1', p: 'koerper', kind: 'free', name: 'Sitzen und Stehen',
     how: 'Nimm die Antwort zweimal auf. Einmal sitzend mit den Händen im Schoß, einmal stehend mit Gesten. Vergleich danach die Melodie.',
     q: { de: 'Was möchtest du in den nächsten drei Monaten erreichen?', en: 'What do you want to achieve in the next three months?' } },
@@ -817,6 +830,7 @@ const QUICK = [
   { t: 'Gesicht an', d: 'Lächle bewusst, zieh die Augenbrauen hoch, mach das Gesicht wach. Dein Gesicht ist die Fernbedienung für den Klang.', src: 'Vinh Giang' },
   { t: 'Kernaussage', d: 'Was ist die eine Sache, die die anderen nach dem Meeting wissen sollen? Schreib sie in einem Satz auf.', input: true, src: '3·2·1 Rahmen' },
   { t: 'Erster Satz laut', d: 'Sag deinen Kernsatz laut. Eine Pause davor, das Satzende geht nach unten. Zweimal.', echo: true, src: 'Vinh Giang' },
+  { t: 'Wertschätzung', d: 'Denk an einen Menschen im Meeting und an eine konkrete Sache, für die du ihm danken kannst. Sag sie gleich zu Beginn.', src: 'Ergänzung im Tool' },
   { t: 'Los', d: 'Du hast eine Struktur und eine warme Stimme. Wenn du hängst: Pause machen und mit „Erstens“ weiter.', src: '' }
 ];
 let quick = { i: 0, core: '' };
@@ -850,7 +864,7 @@ function breathe() {
 function viewMap() {
   return `
   <div><span class="label">Überblick</span><h2>Die Landkarte</h2></div>
-  <p>Sieben Säulen. Fünf davon sind deine Stimme, eine ist der Inhalt, eine ist die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
+  <p>Acht Säulen. Fünf davon sind deine Stimme, zwei sind der Inhalt, eine ist die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
   <div class="pillars">${PILLARS.map(p => `<button type="button" class="pillar ex" data-pillar="${p.id}"><span class="label">${esc(p.group)}</span><span class="t">${esc(p.name)}</span><span class="d">${esc(p.sub)}</span></button>`).join('')}</div>
   <div class="card"><h3>So übst du</h3>
     <p>Eine Säule pro Woche im Mittelpunkt, du wählst sie auf der Seite der Säule. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
