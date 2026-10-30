@@ -52,8 +52,8 @@
   .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
   button, .btn { font: inherit; cursor: pointer; border: 0; border-radius: 12px; padding: 11px 16px; font-weight: 600; background: var(--panel); color: var(--ink); border: 1px solid var(--line); }
   button:focus-visible, textarea:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
-  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-  button.gold { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); font-weight: 700; }
+  button.primary, .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  button.gold, .btn.gold { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); font-weight: 700; }
   button.wide { width: 100%; }
   button:disabled { opacity: .55; cursor: default; }
   button.link { background: none; border: 0; padding: 4px 0; color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
@@ -117,7 +117,9 @@
   .meter i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s; }
   .timer { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 3.2em; text-align: right; }
   audio { width: 100%; }
-  .filebtn { position: relative; overflow: hidden; display: inline-block; }
+  .filebtn { position: relative; overflow: hidden; display: block; text-align: center; }
+  .filebtn.off { opacity: .55; }
+  video { width: 100%; border-radius: 12px; background: #000; max-height: 340px; }
   .filebtn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 
   /* Ergebnis */
@@ -399,7 +401,7 @@ function viewPillar() {
 let runSeq = 0;
 function newRun(o) {
   if (o && o.audioUrl) { try { URL.revokeObjectURL(o.audioUrl); } catch (e) {} }
-  return { run: ++runSeq, result: null, audioUrl: null, transcript: '', coach: null, analyzing: false, err: '' };
+  return { run: ++runSeq, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '' };
 }
 function resetRun() { Object.assign(ex, newRun(ex)); }
 function startExercise(id) {
@@ -448,20 +450,32 @@ function viewExercise() {
 function claudeQuestionBtn() { return sampleOk === false ? '' : '<button type="button" data-askq>Frage vom Coach</button>'; }
 
 const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+// In der claude.ai Ansicht sperrt die Seite das Mikrofon. Dort nimmt die Kamera App des Handys auf.
+let inViewer = !!(window.claude && window.claude.use);
+let micBlocked = false;
 function recorderBlock() {
-  const lock = ex.analyzing || ex.starting;
+  const lock = !!(ex.analyzing || ex.starting || ex.recording);
+  const dis = lock ? ' disabled' : '';
+  const off = lock ? ' off' : '';
+  const live = canRec && !inViewer && !micBlocked;
   return `<div class="card">
     <span class="label">Sprechen</span>
-    ${canRec ? `<div class="recbar">
-      <button type="button" class="recbtn${ex.recording ? ' live' : ''}" data-rec${lock ? ' disabled' : ''} aria-label="${ex.recording ? 'Aufnahme stoppen' : 'Aufnahme starten'}">${ex.recording ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>'}</button>
+    ${live ? `<div class="recbar">
+      <button type="button" class="recbtn${ex.recording ? ' live' : ''}" data-rec${ex.analyzing || ex.starting ? ' disabled' : ''} aria-label="${ex.recording ? 'Aufnahme stoppen' : 'Aufnahme starten'}">${ex.recording ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>'}</button>
       <div class="meter" aria-hidden="true"><i id="lvl"></i></div><span class="timer" id="tmr">${ex.recording ? '0:00' : ''}</span></div>
       <p class="small soft">${ex.recording ? 'Ich höre zu. Tippe auf das Quadrat, wenn du fertig bist.' : 'Tippe auf den roten Knopf und sprich.'}</p>` : ''}
     ${ex.micMsg ? `<p class="small soft">${esc(ex.micMsg)}</p>` : ''}
-    <div class="row"><label class="btn filebtn" for="upl">Sprachmemo hochladen<input type="file" id="upl" accept="audio/*"${ex.recording || lock ? ' disabled' : ''}></label>${ex.analyzing ? '<span class="small"><span class="spinner"></span>Ich messe…</span>' : ''}</div>
+    <div class="stack">
+      <label class="btn ${live ? '' : 'gold '}filebtn${off}" for="vid">Mit dem Handy aufnehmen<input type="file" id="vid" accept="video/*" capture="user" data-media${dis}></label>
+      ${isIOS ? '' : `<label class="btn filebtn${off}" for="aud">Nur Ton aufnehmen<input type="file" id="aud" accept="audio/*" capture data-media${dis}></label>`}
+      <label class="btn filebtn${off}" for="upl">Vorhandene Aufnahme wählen<input type="file" id="upl" accept="audio/*,video/*" data-media${dis}></label>
+    </div>
+    <p class="small soft">${inViewer ? 'In diesem Link darf die Seite das Mikrofon nicht selbst benutzen. Deshalb öffnet „Mit dem Handy aufnehmen“ die Kamera App. Nimm dort auf und tippe auf „Video verwenden“. Danach misst Stimmwerk deine Stimme aus dem Ton.' : 'Du kannst auch mit der Kamera App deines Handys aufnehmen.'} Die Aufnahme bleibt auf deinem Gerät. Halte sie unter zwei Minuten.</p>
+    ${ex.analyzing ? '<p class="small"><span class="spinner"></span>Ich messe…</p>' : ''}
     ${ex.err ? `<p class="small soft">${esc(ex.err)}</p>` : ''}
-    ${ex.audioUrl ? `<audio controls src="${ex.audioUrl}"></audio>` : ''}
+    ${ex.audioUrl ? (ex.isVideo ? `<video controls playsinline src="${ex.audioUrl}"></video><p class="small soft">Schau dir deine Aufnahme dreimal an: ohne Ton, nur den Ton, und als Text. Das empfiehlt Vinh Giang.</p>` : `<audio controls src="${ex.audioUrl}"></audio>`) : ''}
     <label class="small soft" for="txt">Was du gesagt hast, für Tempo und Füllwörter. ${useSR ? 'Wird beim Aufnehmen mitgeschrieben.' : 'Diktier es mit Wispr Flow oder dem Mikrofon auf der Tastatur.'}</label>
-    <p class="small soft">Tipp: Erst aufnehmen, danach denselben Text mit Wispr Flow ins Feld diktieren. Wispr Flow lässt „ähm“ weg, deine Füllwörter hörst du deshalb am besten beim Anhören selbst.</p>
+    <p class="small soft">Tipp: Erst aufnehmen, danach denselben Text mit Wispr Flow ins Feld diktieren. Wispr Flow lässt „ähm“ weg, deine Füllwörter hörst du deshalb am besten beim Anhören selbst. Der Coach funktioniert auch nur mit dem Text.</p>
     <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
   </div>`;
 }
@@ -512,8 +526,9 @@ async function toggleRec() {
     if (stream) stream.getTracks().forEach(t => t.stop());
     if (ac) { try { ac.close(); } catch (x) {} }
     my.starting = false; my.recording = false;
+    if (e && e.name === 'NotAllowedError') micBlocked = true;
     my.micMsg = e && e.name === 'NotAllowedError'
-      ? 'Ich darf das Mikrofon hier nicht benutzen. Auf dem iPhone erlaubst du es unter Einstellungen, Safari, Mikrofon. Im claude.ai Link geht es nicht, dort lädst du ein Sprachmemo hoch.'
+      ? 'Hier darf die Seite das Mikrofon nicht selbst benutzen. Nimm stattdessen mit dem Knopf „Mit dem Handy aufnehmen“ auf.'
       : 'Die Aufnahme ließ sich nicht starten. Tippe noch einmal oder lade ein Sprachmemo hoch.';
     if (ex === my) render();
   }
@@ -546,8 +561,10 @@ function stopSR() { const r = sr; sr = null; if (r) { try { r.stop(); } catch (e
 async function handleAudio(blob, my) {
   my = my || ex;
   if (!my) return;
+  if (blob.size > 150 * 1024 * 1024) { my.err = 'Die Aufnahme ist zu groß für dein Handy. Nimm eine kürzere auf, am besten unter zwei Minuten.'; if (ex === my) render(); return; }
   if (my.audioUrl) { try { URL.revokeObjectURL(my.audioUrl); } catch (e) {} }
   my.audioUrl = URL.createObjectURL(blob);
+  my.isVideo = /^video\//.test(blob.type || '');
   my.analyzing = true; my.err = ''; my.result = null; my.coach = null;
   if (ex === my) render();
   const AC = window.AudioContext || window.webkitAudioContext;
@@ -562,7 +579,7 @@ async function handleAudio(blob, my) {
     finishRun(my);
   } catch (e) {
     my.analyzing = false; my.result = null;
-    my.err = 'Diese Audiodatei konnte ich nicht lesen. Versuch es mit einer anderen Aufnahme, zum Beispiel m4a oder mp3.';
+    my.err = 'Den Ton dieser Datei konnte ich nicht lesen. Versuch eine kürzere Aufnahme oder ein Sprachmemo. Den Coach kannst du trotzdem mit deinem Text nutzen.';
     if (ex === my) render();
   } finally {
     if (ac) { try { ac.close(); } catch (e) {} }
@@ -930,7 +947,7 @@ document.addEventListener('click', e => {
 });
 document.addEventListener('change', e => {
   const t = e.target;
-  if (t.id === 'upl' && t.files && t.files[0] && ex && !ex.recording && !ex.starting && !ex.analyzing) { const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(t.files[0], ex); return; }
+  if (t.matches && t.matches('input[data-media]') && t.files && t.files[0] && ex && !ex.recording && !ex.starting && !ex.analyzing) { const f = t.files[0]; try { t.value = ''; } catch (x) {} const b = $('#txt'); if (b) ex.transcript = b.value; handleAudio(f, ex); return; }
   if (t.dataset && t.dataset.check !== undefined && ex) { const i = +t.dataset.check; ex.checked = t.checked ? [...new Set([...ex.checked, i])] : ex.checked.filter(x => x !== i); }
 });
 document.addEventListener('input', e => { if (e.target.id === 'txt' && ex) ex.transcript = e.target.value; });

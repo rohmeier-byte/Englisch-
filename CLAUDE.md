@@ -4,6 +4,8 @@
 - Ein Lerntool ist erst fertig, wenn ich damit üben kann. Nach Blindspot Pass, Fragen und Designauswahl baue ich zügig eine benutzbare Version und frage nicht ewig weiter.
 - Ein Lerntool enthält einen Coach mit Claude (über den claude.ai Link), mit dem ich zusammen üben kann.
 
+- Im claude.ai Link sperrt die Seite das Mikrofon, und es gibt dafür keine Freigabe. Aufnahmen laufen dort über Dateieingaben, die die Kamera App öffnen (`accept="video/*" capture`). Den Ton liest die App danach mit `decodeAudioData` aus.
+
 ## Design
 - Designs sind hell. Kein dunkles Theme, auch nicht automatisch über die Systemeinstellung.
 

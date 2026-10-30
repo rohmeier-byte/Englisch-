@@ -31,7 +31,7 @@ Inhalte stehen in `verb-first/data.json`, die App in `verb-first/app.html`. `nod
 Ein Sprechtrainer für Meetings und Webinare im Ordner [`sprechen/`](./sprechen/index.html), nach den Techniken von Vinh Giang, in eigenen Worten.
 
 - **Pfad mit 8 Säulen:** Tempo, Pause, Lautstärke, Melodie, Klangfarbe, Aufbau mit 3·2·1, Wertschätzung, Körper und Kamera. Zu jeder Säule zwei bis drei kurze Übungen.
-- **Aufnahme und Messung:** Tempo, Pausen, Lautstärke, Melodie als Notenlinie und Satzenden. Die Audiodatei bleibt auf dem Gerät. Im claude.ai Link geht das über ein hochgeladenes Sprachmemo, direkt im Browser auch live.
+- **Aufnahme und Messung:** Tempo, Pausen, Lautstärke, Melodie als Notenlinie und Satzenden. Die Aufnahme bleibt auf dem Gerät. Im claude.ai Link sperrt die Seite das Mikrofon. Dort öffnet „Mit dem Handy aufnehmen“ die Kamera App, und die App misst den Ton des Videos. Öffnest du `index.html` direkt im Browser, nimmt sie auch live auf.
 - **Coach mit Claude:** Über den claude.ai Link gibt Claude Feedback und stellt eine Rückfrage wie im Meeting.
 - **Vor dem Meeting:** ein Schnellcheck in sechs Schritten.
 
