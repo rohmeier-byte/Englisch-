@@ -1,0 +1,1813 @@
+{
+  "verbs": [
+    {
+      "id": "need",
+      "verb": "need",
+      "forms": [
+        "need",
+        "needs",
+        "needed",
+        "needing"
+      ],
+      "de": "brauchen",
+      "group": "next steps",
+      "ex": "We need | your feedback | by Thursday.",
+      "exDe": "Wir brauchen bis Donnerstag dein Feedback."
+    },
+    {
+      "id": "get",
+      "verb": "get",
+      "forms": [
+        "get",
+        "gets",
+        "got",
+        "gotten",
+        "getting"
+      ],
+      "de": "besorgen",
+      "group": "reporting",
+      "ex": "Can you get | me the latest numbers | for this week?",
+      "exDe": "Kannst du mir die aktuellsten Zahlen für diese Woche besorgen?"
+    },
+    {
+      "id": "make",
+      "verb": "make",
+      "forms": [
+        "make",
+        "makes",
+        "made",
+        "making"
+      ],
+      "de": "machen, treffen",
+      "group": "meetings",
+      "ex": "Let's make | a decision | before the call ends.",
+      "exDe": "Lass uns eine Entscheidung treffen, bevor der Call endet."
+    },
+    {
+      "id": "send",
+      "verb": "send",
+      "forms": [
+        "send",
+        "sends",
+        "sent",
+        "sending"
+      ],
+      "de": "schicken, senden",
+      "group": "next steps",
+      "ex": "I'll send | the updated deck | after the call.",
+      "exDe": "Ich schicke das aktualisierte Deck nach dem Call."
+    },
+    {
+      "id": "check",
+      "verb": "check",
+      "forms": [
+        "check",
+        "checks",
+        "checked",
+        "checking"
+      ],
+      "de": "prüfen",
+      "group": "reporting",
+      "ex": "Let's check | the numbers | before the meeting.",
+      "exDe": "Lass uns die Zahlen vor dem Meeting prüfen."
+    },
+    {
+      "id": "share",
+      "verb": "share",
+      "forms": [
+        "share",
+        "shares",
+        "shared",
+        "sharing"
+      ],
+      "de": "teilen",
+      "group": "meetings",
+      "ex": "Can you share | your screen | for a moment?",
+      "exDe": "Kannst du kurz deinen Bildschirm teilen?"
+    },
+    {
+      "id": "think",
+      "verb": "think",
+      "forms": [
+        "think",
+        "thinks",
+        "thought",
+        "thinking"
+      ],
+      "de": "denken, meinen",
+      "group": "meetings",
+      "ex": "I think | we should raise | the budget for search.",
+      "exDe": "Ich denke, wir sollten das Budget für Search erhöhen."
+    },
+    {
+      "id": "want",
+      "verb": "want",
+      "forms": [
+        "want",
+        "wants",
+        "wanted",
+        "wanting"
+      ],
+      "de": "wollen",
+      "group": "clients",
+      "ex": "We want | to test | a new format | next month.",
+      "exDe": "Wir wollen nächsten Monat ein neues Format testen."
+    },
+    {
+      "id": "look_at",
+      "verb": "look at",
+      "forms": [
+        "look at",
+        "looks at",
+        "looked at",
+        "looking at"
+      ],
+      "de": "anschauen",
+      "group": "reporting",
+      "ex": "Let's look at | the results | for last week.",
+      "exDe": "Lass uns die Ergebnisse der letzten Woche anschauen."
+    },
+    {
+      "id": "use",
+      "verb": "use",
+      "forms": [
+        "use",
+        "uses",
+        "used",
+        "using"
+      ],
+      "de": "nutzen, benutzen",
+      "group": "meetings",
+      "ex": "We use | sponsored products | to push new items.",
+      "exDe": "Wir nutzen Sponsored Products, um neue Artikel zu pushen."
+    },
+    {
+      "id": "show",
+      "verb": "show",
+      "forms": [
+        "show",
+        "shows",
+        "showed",
+        "shown",
+        "showing"
+      ],
+      "de": "zeigen",
+      "group": "clients",
+      "ex": "I'll show | you the dashboard | in a minute.",
+      "exDe": "Ich zeige dir gleich das Dashboard."
+    },
+    {
+      "id": "update",
+      "verb": "update",
+      "forms": [
+        "update",
+        "updates",
+        "updated",
+        "updating"
+      ],
+      "de": "aktualisieren",
+      "group": "reporting",
+      "ex": "We've updated | the report | with the new data.",
+      "exDe": "Wir haben den Report mit den neuen Daten aktualisiert."
+    },
+    {
+      "id": "start",
+      "verb": "start",
+      "forms": [
+        "start",
+        "starts",
+        "started",
+        "starting"
+      ],
+      "de": "starten, anfangen",
+      "group": "next steps",
+      "ex": "We start | the campaign | on Monday.",
+      "exDe": "Wir starten die Kampagne am Montag."
+    },
+    {
+      "id": "move",
+      "verb": "move",
+      "forms": [
+        "move",
+        "moves",
+        "moved",
+        "moving"
+      ],
+      "de": "verschieben",
+      "group": "meetings",
+      "ex": "We've moved | some budget | to sponsored products.",
+      "exDe": "Wir haben etwas Budget zu Sponsored Products verschoben."
+    },
+    {
+      "id": "change",
+      "verb": "change",
+      "forms": [
+        "change",
+        "changes",
+        "changed",
+        "changing"
+      ],
+      "de": "ändern",
+      "group": "next steps",
+      "ex": "Can you change | the bid | for this keyword?",
+      "exDe": "Kannst du das Gebot für dieses Keyword ändern?"
+    },
+    {
+      "id": "increase",
+      "verb": "increase",
+      "forms": [
+        "increase",
+        "increases",
+        "increased",
+        "increasing"
+      ],
+      "de": "erhöhen, steigern",
+      "group": "reporting",
+      "ex": "We've increased | the budget | for the spring campaign.",
+      "exDe": "Wir haben das Budget für die Frühjahrskampagne erhöht."
+    },
+    {
+      "id": "reduce",
+      "verb": "reduce",
+      "forms": [
+        "reduce",
+        "reduces",
+        "reduced",
+        "reducing"
+      ],
+      "de": "senken, reduzieren",
+      "group": "reporting",
+      "ex": "Let's reduce | the spend | on weak keywords.",
+      "exDe": "Lass uns die Ausgaben für schwache Keywords senken."
+    },
+    {
+      "id": "follow_up",
+      "verb": "follow up",
+      "forms": [
+        "follow up",
+        "follows up",
+        "followed up",
+        "following up"
+      ],
+      "de": "nachfassen",
+      "group": "next steps",
+      "ex": "I'll follow up | with the agency | tomorrow.",
+      "exDe": "Ich fasse morgen bei der Agentur nach."
+    },
+    {
+      "id": "set_up",
+      "verb": "set up",
+      "forms": [
+        "set up",
+        "sets up",
+        "setting up"
+      ],
+      "de": "aufsetzen, einrichten",
+      "group": "next steps",
+      "ex": "We've set up | a new campaign | for the client.",
+      "exDe": "Wir haben eine neue Kampagne für den Kunden aufgesetzt."
+    },
+    {
+      "id": "go_through",
+      "verb": "go through",
+      "forms": [
+        "go through",
+        "goes through",
+        "went through",
+        "gone through",
+        "going through"
+      ],
+      "de": "durchgehen",
+      "group": "meetings",
+      "ex": "Let's go through | the results | step by step.",
+      "exDe": "Lass uns die Ergebnisse Schritt für Schritt durchgehen."
+    },
+    {
+      "id": "look_into",
+      "verb": "look into",
+      "forms": [
+        "look into",
+        "looks into",
+        "looked into",
+        "looking into"
+      ],
+      "de": "prüfen, untersuchen",
+      "group": "next steps",
+      "ex": "I'll look into | the problem | today.",
+      "exDe": "Ich schaue mir das Problem heute an."
+    },
+    {
+      "id": "find_out",
+      "verb": "find out",
+      "forms": [
+        "find out",
+        "finds out",
+        "found out",
+        "finding out"
+      ],
+      "de": "herausfinden",
+      "group": "next steps",
+      "ex": "I'll find out | why the CTR dropped | and tell you.",
+      "exDe": "Ich finde heraus, warum die Klickrate gefallen ist, und sage dir Bescheid."
+    },
+    {
+      "id": "come_back_to",
+      "verb": "come back to",
+      "forms": [
+        "come back to",
+        "comes back to",
+        "came back to",
+        "coming back to"
+      ],
+      "de": "zurückkommen auf",
+      "group": "meetings",
+      "ex": "I'll come back to | this point | later.",
+      "exDe": "Ich komme später auf diesen Punkt zurück."
+    },
+    {
+      "id": "plan",
+      "verb": "plan",
+      "forms": [
+        "plan",
+        "plans",
+        "planned",
+        "planning"
+      ],
+      "de": "planen",
+      "group": "next steps",
+      "ex": "We plan | to launch | in the first week of May.",
+      "exDe": "Wir planen den Start in der ersten Maiwoche."
+    },
+    {
+      "id": "discuss",
+      "verb": "discuss",
+      "forms": [
+        "discuss",
+        "discusses",
+        "discussed",
+        "discussing"
+      ],
+      "de": "besprechen",
+      "group": "meetings",
+      "ex": "Can you discuss | the plan | with your team?",
+      "exDe": "Kannst du den Plan mit deinem Team besprechen?"
+    },
+    {
+      "id": "agree",
+      "verb": "agree",
+      "forms": [
+        "agree",
+        "agrees",
+        "agreed",
+        "agreeing"
+      ],
+      "de": "zustimmen",
+      "group": "clients",
+      "ex": "We agree | with your idea | for the new banner.",
+      "exDe": "Wir stimmen deiner Idee für das neue Banner zu."
+    },
+    {
+      "id": "book",
+      "verb": "book",
+      "forms": [
+        "book",
+        "books",
+        "booked",
+        "booking"
+      ],
+      "de": "buchen",
+      "group": "next steps",
+      "ex": "Can you book | a room | for the client meeting?",
+      "exDe": "Kannst du einen Raum für das Kundenmeeting buchen?"
+    },
+    {
+      "id": "launch",
+      "verb": "launch",
+      "forms": [
+        "launch",
+        "launches",
+        "launched",
+        "launching"
+      ],
+      "de": "starten, launchen",
+      "group": "next steps",
+      "ex": "We launch | the new campaign | next week.",
+      "exDe": "Wir starten die neue Kampagne nächste Woche."
+    },
+    {
+      "id": "test",
+      "verb": "test",
+      "forms": [
+        "test",
+        "tests",
+        "tested",
+        "testing"
+      ],
+      "de": "testen",
+      "group": "meetings",
+      "ex": "Let's test | two different headlines | for the ad.",
+      "exDe": "Lass uns zwei verschiedene Überschriften für die Anzeige testen."
+    },
+    {
+      "id": "run",
+      "verb": "run",
+      "forms": [
+        "run",
+        "runs",
+        "ran",
+        "running"
+      ],
+      "de": "laufen lassen",
+      "group": "reporting",
+      "ex": "We run | the campaign | on three marketplaces.",
+      "exDe": "Wir lassen die Kampagne auf drei Marktplätzen laufen."
+    },
+    {
+      "id": "improve",
+      "verb": "improve",
+      "forms": [
+        "improve",
+        "improves",
+        "improved",
+        "improving"
+      ],
+      "de": "verbessern",
+      "group": "reporting",
+      "ex": "We've improved | the product pages | to get more clicks.",
+      "exDe": "Wir haben die Produktseiten verbessert, um mehr Klicks zu bekommen."
+    },
+    {
+      "id": "explain",
+      "verb": "explain",
+      "forms": [
+        "explain",
+        "explains",
+        "explained",
+        "explaining"
+      ],
+      "de": "erklären",
+      "group": "clients",
+      "ex": "I'll explain | the results | in simple words.",
+      "exDe": "Ich erkläre die Ergebnisse in einfachen Worten."
+    },
+    {
+      "id": "ask",
+      "verb": "ask",
+      "forms": [
+        "ask",
+        "asks",
+        "asked",
+        "asking"
+      ],
+      "de": "fragen, bitten",
+      "group": "next steps",
+      "ex": "Can you ask | the client | for the product feed?",
+      "exDe": "Kannst du den Kunden nach dem Produktfeed fragen?"
+    },
+    {
+      "id": "tell",
+      "verb": "tell",
+      "forms": [
+        "tell",
+        "tells",
+        "told",
+        "telling"
+      ],
+      "de": "sagen, mitteilen",
+      "group": "next steps",
+      "ex": "I'll tell | the team | about the new deadline.",
+      "exDe": "Ich sage dem Team Bescheid über die neue Deadline."
+    },
+    {
+      "id": "give",
+      "verb": "give",
+      "forms": [
+        "give",
+        "gives",
+        "gave",
+        "given",
+        "giving"
+      ],
+      "de": "geben",
+      "group": "meetings",
+      "ex": "Can you give | me an update | on the budget?",
+      "exDe": "Kannst du mir ein Update zum Budget geben?"
+    },
+    {
+      "id": "take",
+      "verb": "take",
+      "forms": [
+        "take",
+        "takes",
+        "took",
+        "taken",
+        "taking"
+      ],
+      "de": "nehmen",
+      "group": "meetings",
+      "ex": "Let's take | a short break | before the next topic.",
+      "exDe": "Lass uns vor dem nächsten Thema kurz Pause machen."
+    },
+    {
+      "id": "keep",
+      "verb": "keep",
+      "forms": [
+        "keep",
+        "keeps",
+        "kept",
+        "keeping"
+      ],
+      "de": "behalten, beibehalten",
+      "group": "next steps",
+      "ex": "Let's keep | the same budget | for next month.",
+      "exDe": "Lass uns das gleiche Budget für nächsten Monat behalten."
+    },
+    {
+      "id": "help",
+      "verb": "help",
+      "forms": [
+        "help",
+        "helps",
+        "helped",
+        "helping"
+      ],
+      "de": "helfen",
+      "group": "meetings",
+      "ex": "Can you help | me understand | the drop in ROAS?",
+      "exDe": "Kannst du mir helfen, den ROAS-Rückgang zu verstehen?"
+    },
+    {
+      "id": "work_on",
+      "verb": "work on",
+      "forms": [
+        "work on",
+        "works on",
+        "worked on",
+        "working on"
+      ],
+      "de": "arbeiten an",
+      "group": "next steps",
+      "ex": "I'll work on | the presentation | this afternoon.",
+      "exDe": "Ich arbeite heute Nachmittag an der Präsentation."
+    },
+    {
+      "id": "decide",
+      "verb": "decide",
+      "forms": [
+        "decide",
+        "decides",
+        "decided",
+        "deciding"
+      ],
+      "de": "entscheiden",
+      "group": "meetings",
+      "ex": "Let's decide | on the budget | today.",
+      "exDe": "Lass uns heute über das Budget entscheiden."
+    },
+    {
+      "id": "prepare",
+      "verb": "prepare",
+      "forms": [
+        "prepare",
+        "prepares",
+        "prepared",
+        "preparing"
+      ],
+      "de": "vorbereiten",
+      "group": "clients",
+      "ex": "We've prepared | a short summary | for the client.",
+      "exDe": "Wir haben eine kurze Zusammenfassung für den Kunden vorbereitet."
+    },
+    {
+      "id": "review",
+      "verb": "review",
+      "forms": [
+        "review",
+        "reviews",
+        "reviewed",
+        "reviewing"
+      ],
+      "de": "überprüfen",
+      "group": "reporting",
+      "ex": "Let's review | the campaign | at the end of the month.",
+      "exDe": "Lass uns die Kampagne am Monatsende überprüfen."
+    },
+    {
+      "id": "approve",
+      "verb": "approve",
+      "forms": [
+        "approve",
+        "approves",
+        "approved",
+        "approving"
+      ],
+      "de": "freigeben",
+      "group": "clients",
+      "ex": "Can you approve | the budget | by Friday?",
+      "exDe": "Kannst du das Budget bis Freitag freigeben?"
+    },
+    {
+      "id": "confirm",
+      "verb": "confirm",
+      "forms": [
+        "confirm",
+        "confirms",
+        "confirmed",
+        "confirming"
+      ],
+      "de": "bestätigen",
+      "group": "clients",
+      "ex": "I'll confirm | the date | with the client.",
+      "exDe": "Ich bestätige den Termin mit dem Kunden."
+    },
+    {
+      "id": "call",
+      "verb": "call",
+      "forms": [
+        "call",
+        "calls",
+        "called",
+        "calling"
+      ],
+      "de": "anrufen",
+      "group": "clients",
+      "ex": "I'll call | the client | after lunch.",
+      "exDe": "Ich rufe den Kunden nach dem Mittagessen an."
+    },
+    {
+      "id": "meet",
+      "verb": "meet",
+      "forms": [
+        "meet",
+        "meets",
+        "met",
+        "meeting"
+      ],
+      "de": "treffen",
+      "group": "clients",
+      "ex": "We've met | the client | twice this month.",
+      "exDe": "Wir haben den Kunden diesen Monat zweimal getroffen."
+    },
+    {
+      "id": "expect",
+      "verb": "expect",
+      "forms": [
+        "expect",
+        "expects",
+        "expected",
+        "expecting"
+      ],
+      "de": "erwarten",
+      "group": "reporting",
+      "ex": "We expect | a higher ROAS | after the changes.",
+      "exDe": "Wir erwarten nach den Änderungen einen höheren ROAS."
+    },
+    {
+      "id": "deliver",
+      "verb": "deliver",
+      "forms": [
+        "deliver",
+        "delivers",
+        "delivered",
+        "delivering"
+      ],
+      "de": "liefern",
+      "group": "clients",
+      "ex": "We've delivered | all the banners | on time.",
+      "exDe": "Wir haben alle Banner pünktlich geliefert."
+    },
+    {
+      "id": "report",
+      "verb": "report",
+      "forms": [
+        "report",
+        "reports",
+        "reported",
+        "reporting"
+      ],
+      "de": "berichten",
+      "group": "reporting",
+      "ex": "We report | the results | to the client every Monday.",
+      "exDe": "Wir berichten dem Kunden jeden Montag die Ergebnisse."
+    },
+    {
+      "id": "compare",
+      "verb": "compare",
+      "forms": [
+        "compare",
+        "compares",
+        "compared",
+        "comparing"
+      ],
+      "de": "vergleichen",
+      "group": "reporting",
+      "ex": "Let's compare | this month | with last month.",
+      "exDe": "Lass uns diesen Monat mit dem letzten vergleichen."
+    },
+    {
+      "id": "track",
+      "verb": "track",
+      "forms": [
+        "track",
+        "tracks",
+        "tracked",
+        "tracking"
+      ],
+      "de": "tracken, verfolgen",
+      "group": "reporting",
+      "ex": "We track | clicks and sales | in the dashboard.",
+      "exDe": "Wir tracken Klicks und Verkäufe im Dashboard."
+    },
+    {
+      "id": "optimize",
+      "verb": "optimize",
+      "forms": [
+        "optimize",
+        "optimizes",
+        "optimized",
+        "optimizing"
+      ],
+      "de": "optimieren",
+      "group": "reporting",
+      "ex": "We've optimized | the keywords | for the sale.",
+      "exDe": "Wir haben die Keywords für die Aktion optimiert."
+    },
+    {
+      "id": "adjust",
+      "verb": "adjust",
+      "forms": [
+        "adjust",
+        "adjusts",
+        "adjusted",
+        "adjusting"
+      ],
+      "de": "anpassen",
+      "group": "next steps",
+      "ex": "I'll adjust | the bids | tonight.",
+      "exDe": "Ich passe die Gebote heute Abend an."
+    },
+    {
+      "id": "add",
+      "verb": "add",
+      "forms": [
+        "add",
+        "adds",
+        "added",
+        "adding"
+      ],
+      "de": "hinzufügen",
+      "group": "meetings",
+      "ex": "Can you add | this point | to the agenda?",
+      "exDe": "Kannst du diesen Punkt auf die Agenda setzen?"
+    },
+    {
+      "id": "remove",
+      "verb": "remove",
+      "forms": [
+        "remove",
+        "removes",
+        "removed",
+        "removing"
+      ],
+      "de": "entfernen",
+      "group": "next steps",
+      "ex": "Let's remove | the weak products | from the campaign.",
+      "exDe": "Lass uns die schwachen Produkte aus der Kampagne entfernen."
+    },
+    {
+      "id": "pause",
+      "verb": "pause",
+      "forms": [
+        "pause",
+        "pauses",
+        "paused",
+        "pausing"
+      ],
+      "de": "pausieren",
+      "group": "reporting",
+      "ex": "We've paused | the ads | for out-of-stock items.",
+      "exDe": "Wir haben die Anzeigen für nicht lieferbare Artikel pausiert."
+    },
+    {
+      "id": "stop",
+      "verb": "stop",
+      "forms": [
+        "stop",
+        "stops",
+        "stopped",
+        "stopping"
+      ],
+      "de": "stoppen",
+      "group": "next steps",
+      "ex": "Let's stop | the test | and look at the data.",
+      "exDe": "Lass uns den Test stoppen und auf die Daten schauen."
+    },
+    {
+      "id": "finish",
+      "verb": "finish",
+      "forms": [
+        "finish",
+        "finishes",
+        "finished",
+        "finishing"
+      ],
+      "de": "fertigstellen",
+      "group": "next steps",
+      "ex": "I'll finish | the report | before noon.",
+      "exDe": "Ich stelle den Report vor Mittag fertig."
+    },
+    {
+      "id": "schedule",
+      "verb": "schedule",
+      "forms": [
+        "schedule",
+        "schedules",
+        "scheduled",
+        "scheduling"
+      ],
+      "de": "terminieren",
+      "group": "next steps",
+      "ex": "Can you schedule | a call | for next Tuesday?",
+      "exDe": "Kannst du für nächsten Dienstag einen Call ansetzen?"
+    },
+    {
+      "id": "invite",
+      "verb": "invite",
+      "forms": [
+        "invite",
+        "invites",
+        "invited",
+        "inviting"
+      ],
+      "de": "einladen",
+      "group": "next steps",
+      "ex": "I'll invite | the agency | to the next meeting.",
+      "exDe": "Ich lade die Agentur zum nächsten Meeting ein."
+    },
+    {
+      "id": "mention",
+      "verb": "mention",
+      "forms": [
+        "mention",
+        "mentions",
+        "mentioned",
+        "mentioning"
+      ],
+      "de": "erwähnen",
+      "group": "clients",
+      "ex": "Can you mention | the new offer | in your email?",
+      "exDe": "Kannst du das neue Angebot in deiner E-Mail erwähnen?"
+    },
+    {
+      "id": "suggest",
+      "verb": "suggest",
+      "forms": [
+        "suggest",
+        "suggests",
+        "suggested",
+        "suggesting"
+      ],
+      "de": "vorschlagen",
+      "group": "meetings",
+      "ex": "I suggest | a small test | for next week.",
+      "exDe": "Ich schlage für nächste Woche einen kleinen Test vor."
+    },
+    {
+      "id": "recommend",
+      "verb": "recommend",
+      "forms": [
+        "recommend",
+        "recommends",
+        "recommended",
+        "recommending"
+      ],
+      "de": "empfehlen",
+      "group": "clients",
+      "ex": "We recommend | a higher budget | for the peak season.",
+      "exDe": "Wir empfehlen ein höheres Budget für die Hochsaison."
+    },
+    {
+      "id": "focus_on",
+      "verb": "focus on",
+      "forms": [
+        "focus on",
+        "focuses on",
+        "focused on",
+        "focusing on"
+      ],
+      "de": "sich konzentrieren auf",
+      "group": "meetings",
+      "ex": "Let's focus on | the best products | first.",
+      "exDe": "Lass uns zuerst auf die besten Produkte konzentrieren."
+    },
+    {
+      "id": "achieve",
+      "verb": "achieve",
+      "forms": [
+        "achieve",
+        "achieves",
+        "achieved",
+        "achieving"
+      ],
+      "de": "erreichen",
+      "group": "reporting",
+      "ex": "We've achieved | a ROAS of 6 | this quarter.",
+      "exDe": "Wir haben in diesem Quartal einen ROAS von 6 erreicht."
+    },
+    {
+      "id": "spend",
+      "verb": "spend",
+      "forms": [
+        "spend",
+        "spends",
+        "spent",
+        "spending"
+      ],
+      "de": "ausgeben",
+      "group": "reporting",
+      "ex": "We've spent | 80 percent | of the monthly budget.",
+      "exDe": "Wir haben 80 Prozent des Monatsbudgets ausgegeben."
+    },
+    {
+      "id": "save",
+      "verb": "save",
+      "forms": [
+        "save",
+        "saves",
+        "saved",
+        "saving"
+      ],
+      "de": "sparen, aufheben",
+      "group": "reporting",
+      "ex": "Let's save | some budget | for the last week.",
+      "exDe": "Lass uns etwas Budget für die letzte Woche aufheben."
+    },
+    {
+      "id": "cut",
+      "verb": "cut",
+      "forms": [
+        "cut",
+        "cuts",
+        "cutting"
+      ],
+      "de": "kürzen",
+      "group": "reporting",
+      "ex": "We've cut | the budget | for weak products.",
+      "exDe": "Wir haben das Budget für schwache Produkte gekürzt."
+    },
+    {
+      "id": "grow",
+      "verb": "grow",
+      "forms": [
+        "grow",
+        "grows",
+        "grew",
+        "grown",
+        "growing"
+      ],
+      "de": "wachsen",
+      "group": "reporting",
+      "ex": "We've grown | the brand's sales | by 8 percent.",
+      "exDe": "Wir haben die Verkäufe der Marke um 8 Prozent gesteigert."
+    },
+    {
+      "id": "drop",
+      "verb": "drop",
+      "forms": [
+        "drop",
+        "drops",
+        "dropped",
+        "dropping"
+      ],
+      "de": "fallen, sinken",
+      "group": "reporting",
+      "ex": "Sales dropped | by 5 percent | last week.",
+      "exDe": "Die Verkäufe sind letzte Woche um 5 Prozent gefallen."
+    },
+    {
+      "id": "rise",
+      "verb": "rise",
+      "forms": [
+        "rise",
+        "rises",
+        "rose",
+        "risen",
+        "rising"
+      ],
+      "de": "steigen",
+      "group": "reporting",
+      "ex": "Costs rose | by 10 percent | in March.",
+      "exDe": "Die Kosten sind im März um 10 Prozent gestiegen."
+    },
+    {
+      "id": "reach",
+      "verb": "reach",
+      "forms": [
+        "reach",
+        "reaches",
+        "reached",
+        "reaching"
+      ],
+      "de": "erreichen",
+      "group": "reporting",
+      "ex": "We've reached | our target | for the quarter.",
+      "exDe": "Wir haben unser Ziel für das Quartal erreicht."
+    },
+    {
+      "id": "miss",
+      "verb": "miss",
+      "forms": [
+        "miss",
+        "misses",
+        "missed",
+        "missing"
+      ],
+      "de": "verpassen",
+      "group": "reporting",
+      "ex": "We've missed | the deadline | for the banners.",
+      "exDe": "Wir haben die Deadline für die Banner verpasst."
+    },
+    {
+      "id": "push",
+      "verb": "push",
+      "forms": [
+        "push",
+        "pushes",
+        "pushed",
+        "pushing"
+      ],
+      "de": "pushen",
+      "group": "clients",
+      "ex": "Let's push | the best sellers | with sponsored ads.",
+      "exDe": "Lass uns die Bestseller mit Sponsored Ads pushen."
+    },
+    {
+      "id": "handle",
+      "verb": "handle",
+      "forms": [
+        "handle",
+        "handles",
+        "handled",
+        "handling"
+      ],
+      "de": "übernehmen",
+      "group": "next steps",
+      "ex": "I'll handle | the call | with the agency.",
+      "exDe": "Ich übernehme den Call mit der Agentur."
+    },
+    {
+      "id": "solve",
+      "verb": "solve",
+      "forms": [
+        "solve",
+        "solves",
+        "solved",
+        "solving"
+      ],
+      "de": "lösen",
+      "group": "next steps",
+      "ex": "We've solved | the tracking problem | this morning.",
+      "exDe": "Wir haben das Tracking-Problem heute Morgen gelöst."
+    },
+    {
+      "id": "fix",
+      "verb": "fix",
+      "forms": [
+        "fix",
+        "fixes",
+        "fixed",
+        "fixing"
+      ],
+      "de": "beheben, reparieren",
+      "group": "next steps",
+      "ex": "Can you fix | the link | in the ad?",
+      "exDe": "Kannst du den Link in der Anzeige reparieren?"
+    },
+    {
+      "id": "clarify",
+      "verb": "clarify",
+      "forms": [
+        "clarify",
+        "clarifies",
+        "clarified",
+        "clarifying"
+      ],
+      "de": "klären",
+      "group": "meetings",
+      "ex": "Can you clarify | the goal | of the campaign?",
+      "exDe": "Kannst du das Ziel der Kampagne klären?"
+    },
+    {
+      "id": "analyze",
+      "verb": "analyze",
+      "forms": [
+        "analyze",
+        "analyzes",
+        "analyzed",
+        "analyzing"
+      ],
+      "de": "analysieren",
+      "group": "reporting",
+      "ex": "I'll analyze | the data | tonight.",
+      "exDe": "Ich analysiere die Daten heute Abend."
+    },
+    {
+      "id": "present",
+      "verb": "present",
+      "forms": [
+        "present",
+        "presents",
+        "presented",
+        "presenting"
+      ],
+      "de": "präsentieren",
+      "group": "clients",
+      "ex": "I'll present | the results | to the client on Friday.",
+      "exDe": "Ich präsentiere dem Kunden am Freitag die Ergebnisse."
+    },
+    {
+      "id": "offer",
+      "verb": "offer",
+      "forms": [
+        "offer",
+        "offers",
+        "offered",
+        "offering"
+      ],
+      "de": "anbieten",
+      "group": "clients",
+      "ex": "We offer | a discount | on selected products.",
+      "exDe": "Wir bieten einen Rabatt auf ausgewählte Produkte an."
+    },
+    {
+      "id": "negotiate",
+      "verb": "negotiate",
+      "forms": [
+        "negotiate",
+        "negotiates",
+        "negotiated",
+        "negotiating"
+      ],
+      "de": "verhandeln",
+      "group": "clients",
+      "ex": "Let's negotiate | the price | with the agency.",
+      "exDe": "Lass uns den Preis mit der Agentur verhandeln."
+    },
+    {
+      "id": "sign",
+      "verb": "sign",
+      "forms": [
+        "sign",
+        "signs",
+        "signed",
+        "signing"
+      ],
+      "de": "unterschreiben",
+      "group": "clients",
+      "ex": "Can you sign | the contract | by Friday?",
+      "exDe": "Kannst du den Vertrag bis Freitag unterschreiben?"
+    },
+    {
+      "id": "pay",
+      "verb": "pay",
+      "forms": [
+        "pay",
+        "pays",
+        "paid",
+        "paying"
+      ],
+      "de": "bezahlen",
+      "group": "clients",
+      "ex": "We pay | the agency | at the end of the month.",
+      "exDe": "Wir bezahlen die Agentur am Monatsende."
+    },
+    {
+      "id": "invoice",
+      "verb": "invoice",
+      "forms": [
+        "invoice",
+        "invoices",
+        "invoiced",
+        "invoicing"
+      ],
+      "de": "abrechnen",
+      "group": "clients",
+      "ex": "I'll invoice | the client | at the end of June.",
+      "exDe": "Ich stelle dem Kunden Ende Juni die Rechnung."
+    },
+    {
+      "id": "forward",
+      "verb": "forward",
+      "forms": [
+        "forward",
+        "forwards",
+        "forwarded",
+        "forwarding"
+      ],
+      "de": "weiterleiten",
+      "group": "next steps",
+      "ex": "Can you forward | the email | to the client?",
+      "exDe": "Kannst du die E-Mail an den Kunden weiterleiten?"
+    },
+    {
+      "id": "attach",
+      "verb": "attach",
+      "forms": [
+        "attach",
+        "attaches",
+        "attached",
+        "attaching"
+      ],
+      "de": "anhängen",
+      "group": "next steps",
+      "ex": "We've attached | the report | to the email.",
+      "exDe": "Wir haben den Report an die E-Mail angehängt."
+    },
+    {
+      "id": "write",
+      "verb": "write",
+      "forms": [
+        "write",
+        "writes",
+        "wrote",
+        "written",
+        "writing"
+      ],
+      "de": "schreiben",
+      "group": "next steps",
+      "ex": "I'll write | a short summary | after the meeting.",
+      "exDe": "Ich schreibe nach dem Meeting eine kurze Zusammenfassung."
+    },
+    {
+      "id": "join",
+      "verb": "join",
+      "forms": [
+        "join",
+        "joins",
+        "joined",
+        "joining"
+      ],
+      "de": "teilnehmen",
+      "group": "meetings",
+      "ex": "Can you join | the call | at 10 a.m.?",
+      "exDe": "Kannst du um 10 Uhr am Call teilnehmen?"
+    },
+    {
+      "id": "hear",
+      "verb": "hear",
+      "forms": [
+        "hear",
+        "hears",
+        "heard",
+        "hearing"
+      ],
+      "de": "hören",
+      "group": "meetings",
+      "ex": "Can you hear | me | okay now?",
+      "exDe": "Kannst du mich jetzt gut hören?"
+    },
+    {
+      "id": "understand",
+      "verb": "understand",
+      "forms": [
+        "understand",
+        "understands",
+        "understood",
+        "understanding"
+      ],
+      "de": "verstehen",
+      "group": "clients",
+      "ex": "We understand | your concern | about the budget.",
+      "exDe": "Wir verstehen deine Sorge wegen des Budgets."
+    },
+    {
+      "id": "see",
+      "verb": "see",
+      "forms": [
+        "see",
+        "sees",
+        "saw",
+        "seen",
+        "seeing"
+      ],
+      "de": "sehen",
+      "group": "reporting",
+      "ex": "We've seen | a strong increase | in clicks.",
+      "exDe": "Wir haben einen starken Anstieg bei den Klicks gesehen."
+    },
+    {
+      "id": "know",
+      "verb": "know",
+      "forms": [
+        "know",
+        "knows",
+        "knew",
+        "known",
+        "knowing"
+      ],
+      "de": "wissen, kennen",
+      "group": "meetings",
+      "ex": "We know | the main reason | for the drop.",
+      "exDe": "Wir kennen den Hauptgrund für den Rückgang."
+    },
+    {
+      "id": "try",
+      "verb": "try",
+      "forms": [
+        "try",
+        "tries",
+        "tried",
+        "trying"
+      ],
+      "de": "versuchen, ausprobieren",
+      "group": "meetings",
+      "ex": "Let's try | a new image | for the banner.",
+      "exDe": "Lass uns ein neues Bild für das Banner ausprobieren."
+    },
+    {
+      "id": "wait_for",
+      "verb": "wait for",
+      "forms": [
+        "wait for",
+        "waits for",
+        "waited for",
+        "waiting for"
+      ],
+      "de": "warten auf",
+      "group": "next steps",
+      "ex": "We wait for | the client's feedback | before we start.",
+      "exDe": "Wir warten auf das Feedback des Kunden, bevor wir starten."
+    },
+    {
+      "id": "sell",
+      "verb": "sell",
+      "forms": [
+        "sell",
+        "sells",
+        "sold",
+        "selling"
+      ],
+      "de": "verkaufen",
+      "group": "reporting",
+      "ex": "We've sold | more units | since the campaign started.",
+      "exDe": "Wir haben seit dem Kampagnenstart mehr Einheiten verkauft."
+    },
+    {
+      "id": "buy",
+      "verb": "buy",
+      "forms": [
+        "buy",
+        "buys",
+        "bought",
+        "buying"
+      ],
+      "de": "einkaufen, kaufen",
+      "group": "clients",
+      "ex": "We buy | the ad space | from the marketplace.",
+      "exDe": "Wir kaufen die Werbefläche beim Marktplatz ein."
+    },
+    {
+      "id": "bid_on",
+      "verb": "bid on",
+      "forms": [
+        "bid on",
+        "bids on",
+        "bidding on"
+      ],
+      "de": "bieten auf",
+      "group": "reporting",
+      "ex": "We bid on | the top keywords | every day.",
+      "exDe": "Wir bieten jeden Tag auf die Top-Keywords."
+    },
+    {
+      "id": "target",
+      "verb": "target",
+      "forms": [
+        "target",
+        "targets",
+        "targeted",
+        "targeting"
+      ],
+      "de": "ansprechen",
+      "group": "clients",
+      "ex": "We target | young parents | with these ads.",
+      "exDe": "Wir sprechen mit diesen Anzeigen junge Eltern an."
+    },
+    {
+      "id": "lose",
+      "verb": "lose",
+      "forms": [
+        "lose",
+        "loses",
+        "lost",
+        "losing"
+      ],
+      "de": "verlieren",
+      "group": "reporting",
+      "ex": "We've lost | some visibility | on mobile.",
+      "exDe": "Wir haben auf Mobile etwas Sichtbarkeit verloren."
+    }
+  ],
+  "situations": [
+    {
+      "id": "s01",
+      "topic": "client call",
+      "de": "Sag dem Kunden, dass die Klickrate gestiegen ist.",
+      "verb": "increase",
+      "model": "We've increased the click-through rate by 12 percent.",
+      "detail": "It went up because we moved budget to search ads. Let's keep this setup next month."
+    },
+    {
+      "id": "s02",
+      "topic": "meeting",
+      "de": "Sag, dass du bis morgen die Produktdaten brauchst.",
+      "verb": "need",
+      "model": "We need the product data by tomorrow.",
+      "detail": "The agency can't start without it. I'll send you a list of the missing fields."
+    },
+    {
+      "id": "s03",
+      "topic": "meeting",
+      "de": "Schlage vor, zuerst die Zahlen zu prüfen.",
+      "verb": "check",
+      "model": "Let's check the numbers first.",
+      "detail": "I see a difference between the two reports. Then we can talk about the plan."
+    },
+    {
+      "id": "s04",
+      "topic": "client call",
+      "de": "Sag, dass du dem Kunden nach dem Call das Angebot schickst.",
+      "verb": "send",
+      "model": "I'll send you the offer after the call.",
+      "detail": "It includes three options for the summer. Please tell me which one you prefer."
+    },
+    {
+      "id": "s05",
+      "topic": "report",
+      "de": "Teile die wichtigsten Ergebnisse im Monatsreport mit.",
+      "verb": "share",
+      "model": "I'll share the main results in this report.",
+      "detail": "ROAS reached 5.4 this month. Sponsored products brought most of the sales."
+    },
+    {
+      "id": "s06",
+      "topic": "team call",
+      "de": "Bitte einen Kollegen um die aktuellen Zahlen.",
+      "verb": "get",
+      "model": "Can you get me the latest numbers?",
+      "detail": "I need them for the client call at three. A quick export is enough."
+    },
+    {
+      "id": "s07",
+      "topic": "meeting",
+      "de": "Sag deine Meinung zum Budget.",
+      "verb": "think",
+      "model": "I think we should raise the budget.",
+      "detail": "Search ads perform well right now. We can test it for two weeks."
+    },
+    {
+      "id": "s08",
+      "topic": "client call",
+      "de": "Sag, dass ihr ein neues Anzeigenformat testen wollt.",
+      "verb": "want",
+      "model": "We want to test video ads.",
+      "detail": "The first results look good on mobile. We plan to start next week."
+    },
+    {
+      "id": "s09",
+      "topic": "meeting",
+      "de": "Lenke den Blick auf die Conversion Rate.",
+      "verb": "look_at",
+      "model": "Let's look at the conversion rate.",
+      "detail": "It dropped after the price change. I think the new price is too high."
+    },
+    {
+      "id": "s10",
+      "topic": "client call",
+      "de": "Kündige an, dass du das Dashboard zeigst.",
+      "verb": "show",
+      "model": "I'll show you the dashboard now.",
+      "detail": "You can see clicks and sales for each product. We update the data every morning."
+    },
+    {
+      "id": "s11",
+      "topic": "report",
+      "de": "Sag, dass du den Report aktualisiert hast.",
+      "verb": "update",
+      "model": "We've updated the report with new data.",
+      "detail": "It now includes the numbers from last week. The main change is the higher ROAS."
+    },
+    {
+      "id": "s12",
+      "topic": "team call",
+      "de": "Sag, dass du Budget zu Sponsored Products verschoben hast.",
+      "verb": "move",
+      "model": "We've moved budget to sponsored products.",
+      "detail": "They sell better than banners. I'll watch the results for a week."
+    },
+    {
+      "id": "s13",
+      "topic": "meeting",
+      "de": "Bitte darum, das Gebot für ein Keyword zu ändern.",
+      "verb": "change",
+      "model": "Can you change the bid for this keyword?",
+      "detail": "It is too expensive for the result. Please lower it by 20 percent."
+    },
+    {
+      "id": "s14",
+      "topic": "client call",
+      "de": "Schlage vor, die Ausgaben für schwache Keywords zu senken.",
+      "verb": "reduce",
+      "model": "Let's reduce the spend on weak keywords.",
+      "detail": "They bring clicks but no sales. We can use the money for the best sellers."
+    },
+    {
+      "id": "s15",
+      "topic": "team call",
+      "de": "Sag, dass du bei der Agentur nachfasst.",
+      "verb": "follow_up",
+      "model": "I'll follow up with the agency today.",
+      "detail": "They still owe us the new creatives. I'll tell you what they say."
+    },
+    {
+      "id": "s16",
+      "topic": "client call",
+      "de": "Sag, dass ihr eine neue Kampagne aufgesetzt habt.",
+      "verb": "set_up",
+      "model": "We've set up the new campaign.",
+      "detail": "It starts on Monday with a daily budget of 200 euros. We target the top ten products."
+    },
+    {
+      "id": "s17",
+      "topic": "meeting",
+      "de": "Schlage vor, den Plan Schritt für Schritt durchzugehen.",
+      "verb": "go_through",
+      "model": "Let's go through the plan step by step.",
+      "detail": "First we look at the goals. Then we talk about the budget."
+    },
+    {
+      "id": "s18",
+      "topic": "team call",
+      "de": "Sag, dass du ein Tracking-Problem prüfst.",
+      "verb": "look_into",
+      "model": "I'll look into the tracking problem.",
+      "detail": "Some sales are missing in the report. I'll write to you by noon."
+    },
+    {
+      "id": "s19",
+      "topic": "team call",
+      "de": "Sag, dass du herausfindest, warum die Klickrate gefallen ist.",
+      "verb": "find_out",
+      "model": "I'll find out why the CTR dropped.",
+      "detail": "It happened on Tuesday. Maybe the new image is the reason."
+    },
+    {
+      "id": "s20",
+      "topic": "meeting",
+      "de": "Sag, dass du später auf einen Punkt zurückkommst.",
+      "verb": "come_back_to",
+      "model": "I'll come back to this point later.",
+      "detail": "I want to finish the budget first. We have time at the end."
+    },
+    {
+      "id": "s21",
+      "topic": "report",
+      "de": "Erkläre die Planung für das nächste Quartal.",
+      "verb": "plan",
+      "model": "We plan to launch two new campaigns.",
+      "detail": "The first one starts in January. We will use a budget of 30,000 euros."
+    },
+    {
+      "id": "s22",
+      "topic": "meeting",
+      "de": "Schlage vor, das Thema mit dem ganzen Team zu besprechen.",
+      "verb": "discuss",
+      "model": "Let's discuss this with the whole team.",
+      "detail": "We need ideas for the summer sale. Everybody can share one idea."
+    },
+    {
+      "id": "s23",
+      "topic": "client call",
+      "de": "Sag, dass ihr der Idee des Kunden zustimmt.",
+      "verb": "agree",
+      "model": "We agree with your idea.",
+      "detail": "A bigger banner can work well. We'll test it on the home page."
+    },
+    {
+      "id": "s24",
+      "topic": "team call",
+      "de": "Bitte jemanden, einen Raum für Freitag zu buchen.",
+      "verb": "book",
+      "model": "Can you book a room for Friday?",
+      "detail": "We have eight people. The meeting starts at ten."
+    },
+    {
+      "id": "s25",
+      "topic": "client call",
+      "de": "Nenne dem Kunden den Starttermin der Kampagne.",
+      "verb": "launch",
+      "model": "We launch the campaign next Monday.",
+      "detail": "All ads are ready. We check the tracking on Friday."
+    },
+    {
+      "id": "s26",
+      "topic": "meeting",
+      "de": "Schlage einen A/B-Test mit zwei Überschriften vor.",
+      "verb": "test",
+      "model": "Let's test two different headlines.",
+      "detail": "We run both for one week. Then we keep the better one."
+    },
+    {
+      "id": "s27",
+      "topic": "report",
+      "de": "Berichte, auf welchen Marktplätzen die Kampagne läuft.",
+      "verb": "run",
+      "model": "We run the campaign on three marketplaces.",
+      "detail": "Most sales come from the first one. The other two need more time."
+    },
+    {
+      "id": "s28",
+      "topic": "client call",
+      "de": "Sag, dass ihr die Produktseiten verbessert habt.",
+      "verb": "improve",
+      "model": "We've improved the product pages.",
+      "detail": "The new images help a lot. The conversion rate went up by 0.5 points."
+    },
+    {
+      "id": "s29",
+      "topic": "client call",
+      "de": "Erkläre dem Kunden das Ergebnis in einfachen Worten.",
+      "verb": "explain",
+      "model": "I'll explain the result in simple words.",
+      "detail": "More people saw the ads. But fewer people bought, because the price was higher."
+    },
+    {
+      "id": "s30",
+      "topic": "team call",
+      "de": "Bitte einen Kollegen, den Kunden nach dem Produktfeed zu fragen.",
+      "verb": "ask",
+      "model": "Can you ask the client for the product feed?",
+      "detail": "We need it before we start. The deadline is Wednesday."
+    },
+    {
+      "id": "s31",
+      "topic": "team call",
+      "de": "Sag, dass du das Team über die neue Deadline informierst.",
+      "verb": "tell",
+      "model": "I'll tell the team about the new deadline.",
+      "detail": "The report is due on Thursday now. I'll send a calendar invite."
+    },
+    {
+      "id": "s32",
+      "topic": "meeting",
+      "de": "Bitte um ein Update zum Budget.",
+      "verb": "give",
+      "model": "Can you give me an update on the budget?",
+      "detail": "I want to know how much is left. We plan the next steps after that."
+    },
+    {
+      "id": "s33",
+      "topic": "meeting",
+      "de": "Schlage eine kurze Pause vor.",
+      "verb": "take",
+      "model": "Let's take a short break.",
+      "detail": "We continue at 11:15. Then we talk about the report."
+    },
+    {
+      "id": "s34",
+      "topic": "meeting",
+      "de": "Schlage vor, das Budget gleich zu halten.",
+      "verb": "keep",
+      "model": "Let's keep the same budget.",
+      "detail": "The results are stable. We can look at it again next month."
+    },
+    {
+      "id": "s35",
+      "topic": "team call",
+      "de": "Bitte um Hilfe beim Verstehen des ROAS-Rückgangs.",
+      "verb": "help",
+      "model": "Can you help me understand the drop in ROAS?",
+      "detail": "It fell from 6 to 4. I don't see the reason yet."
+    },
+    {
+      "id": "s36",
+      "topic": "team call",
+      "de": "Sag, woran du heute arbeitest.",
+      "verb": "work_on",
+      "model": "I'll work on the presentation today.",
+      "detail": "It will be ready by four. I'll send it to you for feedback."
+    },
+    {
+      "id": "s37",
+      "topic": "meeting",
+      "de": "Dränge auf eine Entscheidung zum Budget.",
+      "verb": "decide",
+      "model": "Let's decide on the budget today.",
+      "detail": "The client waits for our answer. We need a clear plan."
+    },
+    {
+      "id": "s38",
+      "topic": "client call",
+      "de": "Sag, dass ihr eine Zusammenfassung vorbereitet habt.",
+      "verb": "prepare",
+      "model": "We've prepared a short summary for the client.",
+      "detail": "It is one page. It shows the main numbers and the next steps."
+    },
+    {
+      "id": "s39",
+      "topic": "report",
+      "de": "Schlage ein Review der Kampagne am Monatsende vor.",
+      "verb": "review",
+      "model": "Let's review the campaign at the end of the month.",
+      "detail": "We look at the cost and the sales. Then we decide what to change."
+    },
+    {
+      "id": "s40",
+      "topic": "client call",
+      "de": "Bitte den Kunden, das Budget bis Freitag freizugeben.",
+      "verb": "approve",
+      "model": "Can you approve the budget by Friday?",
+      "detail": "We need it to book the ad space. Without it, we can't start on time."
+    },
+    {
+      "id": "s41",
+      "topic": "client call",
+      "de": "Sag, dass du den Termin mit deinem Team bestätigst.",
+      "verb": "confirm",
+      "model": "I'll confirm the date with my team.",
+      "detail": "I think Tuesday works for us. I'll write to you this afternoon."
+    },
+    {
+      "id": "s42",
+      "topic": "team call",
+      "de": "Sag, dass du den Kunden anrufst.",
+      "verb": "call",
+      "model": "I'll call the client after lunch.",
+      "detail": "I want to explain the delay. I'll send you a short note afterwards."
+    },
+    {
+      "id": "s43",
+      "topic": "report",
+      "de": "Nenne deine Erwartung für den nächsten Monat.",
+      "verb": "expect",
+      "model": "We expect a higher ROAS next month.",
+      "detail": "The new keywords look strong. We see more sales every day."
+    },
+    {
+      "id": "s44",
+      "topic": "report",
+      "de": "Vergleiche diesen Monat mit dem letzten.",
+      "verb": "compare",
+      "model": "Let's compare this month with last month.",
+      "detail": "Sales are up by 8 percent. Costs stayed the same."
+    },
+    {
+      "id": "s45",
+      "topic": "report",
+      "de": "Erkläre, wie ihr das Tracking macht.",
+      "verb": "track",
+      "model": "We track clicks and sales in the dashboard.",
+      "detail": "The data comes in every morning. You can filter it by product."
+    },
+    {
+      "id": "s46",
+      "topic": "team call",
+      "de": "Sag, dass du die Gebote heute Abend anpasst.",
+      "verb": "adjust",
+      "model": "I'll adjust the bids tonight.",
+      "detail": "Some keywords are too expensive. I'll lower them by 15 percent."
+    },
+    {
+      "id": "s47",
+      "topic": "team call",
+      "de": "Bitte darum, einen Punkt auf die Agenda zu setzen.",
+      "verb": "add",
+      "model": "Can you add this point to the agenda?",
+      "detail": "It is about the new ad format. It takes five minutes."
+    },
+    {
+      "id": "s48",
+      "topic": "report",
+      "de": "Berichte, dass Anzeigen für nicht lieferbare Artikel pausiert wurden.",
+      "verb": "pause",
+      "model": "We've paused the ads for out-of-stock items.",
+      "detail": "This saves about 500 euros a week. We start them again when stock is back."
+    },
+    {
+      "id": "s49",
+      "topic": "meeting",
+      "de": "Gib eine Empfehlung für die Hochsaison.",
+      "verb": "recommend",
+      "model": "We recommend a higher budget for the peak season.",
+      "detail": "Competition is strong in November. A bigger budget keeps us visible."
+    },
+    {
+      "id": "s50",
+      "topic": "client call",
+      "de": "Melde, dass ihr das Ziel für das Quartal erreicht habt.",
+      "verb": "achieve",
+      "model": "We've achieved a ROAS of 6 this quarter.",
+      "detail": "That is above the target of 5. Let's keep this setup next quarter."
+    }
+  ]
+}
