@@ -124,6 +124,8 @@
   audio { width: 100%; }
   .filebtn { position: relative; overflow: hidden; display: block; text-align: center; }
   .filebtn.off { opacity: .55; }
+  .todo { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+  .bigtimer { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; text-align: left; }
   video { width: 100%; border-radius: 12px; background: #000; max-height: 340px; }
   .filebtn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 
@@ -362,7 +364,7 @@ function plain(t) { return String(t || '').replace(/‖/g, '').replace(/\[([^\]]
 
 /* ---------- Ansichten ---------- */
 let view = 'home', curPillar = null, ex = null;
-function busy() { return view === 'ex' && ex && (ex.recording || ex.starting || ex.analyzing); }
+function busy() { return view === 'ex' && ex && (ex.recording || ex.starting || ex.analyzing || ex.t0); }
 
 function nextPillar() { if (state.focus) return P(state.focus.p); return PILLARS.find(p => doneIn(p.id) < exOf(p.id).length) || PILLARS[0]; }
 
@@ -407,8 +409,9 @@ function viewPillar() {
 /* ---------- Übung ---------- */
 let runSeq = 0;
 function newRun(o) {
+  try { clearInterval(tIv); } catch (e) {}
   if (o && o.audioUrl) { try { URL.revokeObjectURL(o.audioUrl); } catch (e) {} }
-  return { run: ++runSeq, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '' };
+  return { run: ++runSeq, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '', t0: 0, secs: 0 };
 }
 function resetRun() { Object.assign(ex, newRun(ex)); }
 function startExercise(id) {
@@ -427,6 +430,45 @@ function rollDie(e) {
   ex.question = q; ex.followUp = null; ex.prev = null;
 }
 
+const GUIDE = {
+  t1: { steps: ['Lies die ersten beiden Sätze zügig und mit Schwung.', 'Vor dem markierten Wort machst du die Pause.', 'Den letzten Satz sagst du deutlich langsamer, Wort für Wort.'] },
+  t2: { steps: ['Starte mit einem Satz: Woran arbeitest du?', 'Nenne die größte Herausforderung, mit einer Zahl oder einem Beispiel.', 'Beim wichtigsten Punkt wirst du langsamer.', 'Schließe mit einem Satz: Was kommt als Nächstes?'],
+    frame: { de: 'Ich arbeite gerade an … ‖ Die größte Herausforderung ist … ‖ Als Nächstes …', en: 'I am working on … ‖ The biggest challenge is … ‖ Next, I will …' } },
+  p1: { steps: ['Zähl bei jedem Pausenzeichen innerlich bis zwei.', 'Atme in der Pause ruhig aus, statt „ähm“ zu sagen.', 'Das markierte Wort sagst du danach etwas langsamer und betont.'] },
+  p2: { steps: ['Sprich in kurzen Sätzen von höchstens zehn Wörtern.', 'Nach jedem Satz schließt du den Mund und zählst bis zwei.', 'Kommt ein „ähm“ auf, bleibt der Mund zu, bis die Pause vorbei ist.'],
+    frame: { de: 'Gut gelaufen ist … ‖ Der Grund dafür war … ‖ Daraus nehme ich mit …', en: 'What went well was … ‖ The reason was … ‖ What I take from it is …' } },
+  l1: { steps: ['Stufe 1 leise, als säßest du neben jemandem.', 'Stufe 2 in normaler Meetingstimme.', 'Stufe 3 kräftig aus dem Bauch. Die Stimme trägt bis in die letzte Reihe.'] },
+  l2: { steps: ['Sprich den ersten Satz normal.', 'Beim kleinen Satz wirst du leiser und rückst mit dem Körper näher an die Kamera.', 'Der letzte Satz kommt wieder normal und klar.'] },
+  m1: { steps: ['Lies jeden Satz einzeln.', 'Beim letzten Wort geht die Stimme nach unten, wie ein Punkt.', 'Zwischen den Sätzen machst du eine kurze Pause.'] },
+  m2: { steps: ['Sprich zuerst die Frage, das Ende geht nach oben.', 'Dann dieselben Wörter als Aussage, das Ende geht nach unten.', 'Achte auf den Unterschied: Die Aussage klingt sicherer.'] },
+  k1: { steps: ['Satz 1 mit einem echten Lächeln.', 'Satz 2 mit ernstem Gesicht.', 'Satz 3 überrascht, mit hochgezogenen Augenbrauen.', 'Hör dir danach nur den Ton an und achte darauf, wie sich die Stimme verändert.'] },
+  k2: { steps: ['Spiel jedes Wort mit dem Gesicht mit.', 'Lass die Stimme das Gefühl tragen: riesig groß, winzig klein, endlich erleichtert.', 'Zwischen den Wörtern machst du eine Pause.'] },
+  a1: { steps: ['Lies die Frage und schau, welche Zahl gewürfelt wurde.', 'Nimm dir 15 Sekunden: Welche Schritte, Seiten oder welcher Kernpunkt?', 'Sag die Struktur gleich am Anfang an, zum Beispiel „In drei Schritten“.', 'Zähl laut mit und schließe mit einem Kernsatz.'] },
+  a2: { steps: ['Sag am Anfang: „In drei Schritten.“', 'Nenne Schritt 1, 2 und 3, je mit einem kurzen Satz.', 'Nach jedem Schritt machst du eine Pause.', 'Schließe mit einem Satz zum Ergebnis.'],
+    frame: { de: 'In drei Schritten. ‖ Erstens … ‖ Zweitens … ‖ Drittens … ‖ So bin ich gut vorbereitet.', en: 'In three steps. ‖ First … ‖ Second … ‖ Third … ‖ That is how I stay prepared.' } },
+  a3: { steps: ['Sag zuerst deine Kernaussage in einem Satz.', 'Gib einen Grund dafür.', 'Gib ein Beispiel oder eine Zahl.', 'Wiederhole die Kernaussage zum Schluss.'] },
+  w1: { steps: ['Nenne die Person beim Namen.', 'Sag, was genau sie getan hat.', 'Sag, was es bewirkt hat.', 'Lächle beim Sprechen, man hört es.'] },
+  w2: { steps: ['Frage 1: Was genau ist passiert?', 'Frage 2: Was brauchst du jetzt?', 'Frage 3: Was wäre der erste kleine Schritt?', 'Erst danach gibst du einen Rat, wenn sie darum bittet.'],
+    frame: { de: 'Was genau ist passiert? ‖ Was brauchst du jetzt von mir? ‖ Was wäre der erste kleine Schritt?', en: 'What exactly happened? ‖ What do you need from me now? ‖ What would be the first small step?' } },
+  w3: { steps: ['Beginne mit etwas Anerkennendem.', 'Sag, was du gesehen hast, ohne Vorwurf.', 'Sag, was es bewirkt.', 'Sag, was du dir wünschst. Das Satzende geht nach unten.'],
+    frame: { de: 'Ich schätze, dass … ‖ Mir ist aufgefallen, dass … ‖ Dadurch … ‖ Ich wünsche mir, dass …', en: 'I appreciate that … ‖ I noticed that … ‖ As a result … ‖ I would like …' } },
+  c1: { steps: ['Antworte zuerst im Sitzen, die Hände im Schoß.', 'Antworte dann im Stehen, mit Gesten.', 'Vergleiche Melodie und Energie der beiden Antworten.'],
+    frame: { de: 'In drei Monaten möchte ich … ‖ Dafür werde ich … ‖ Erfolg heißt für mich …', en: 'In three months I want to … ‖ To get there I will … ‖ Success means to me …' } }
+};
+const DICE_FRAME = {
+  3: { de: 'In drei Schritten. ‖ Erstens … ‖ Zweitens … ‖ Drittens … ‖ Zusammengefasst …', en: 'In three steps. ‖ First … ‖ Second … ‖ Third … ‖ In short …' },
+  2: { de: 'Es gibt zwei Seiten. ‖ Einerseits … ‖ Andererseits … ‖ Mein Fazit …', en: 'There are two sides. ‖ On the one hand … ‖ On the other hand … ‖ My conclusion …' },
+  1: { de: 'Mein Kernpunkt ist … ‖ Der Grund dafür … ‖ Ein Beispiel … ‖ Deshalb …', en: 'My main point is … ‖ The reason is … ‖ An example … ‖ That is why …' }
+};
+
+function guideBlock(e) {
+  const g = GUIDE[e.id]; if (!g) return '';
+  const frame = e.kind === 'dice' ? DICE_FRAME[ex.die][state.lang] : (g.frame ? g.frame[state.lang] : '');
+  return `<div class="card"><span class="label">So gehst du vor</span>
+    <ol class="todo">${g.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>
+    ${frame ? `<span class="label">Satzanfänge zum Anlehnen</span><p class="task">${markup(frame)}</p>` : ''}</div>`;
+}
+
 function viewExercise() {
   const e = EX(ex.id), p = P(e.p);
   let task = '';
@@ -442,15 +484,18 @@ function viewExercise() {
     task = `<div class="card"><div class="checks">${e.checks.map((c, i) => `<label><input type="checkbox" id="chk-${e.id}-${i}" data-check="${i}"${ex.checked.includes(i) ? ' checked' : ''}><span>${esc(c)}</span></label>`).join('')}</div>
       <button type="button" class="primary" data-finish-check>Fertig</button></div>`;
   }
+  const speak = e.kind !== 'check';
   return `
   <div class="top"><button type="button" class="link" data-pillar="${p.id}">Zurück zu ${esc(p.name)}</button>${e.kind === 'check' ? '' : langSwitch()}</div>
   <div><span class="label">${esc(p.name)}</span><h2>${esc(e.name)}</h2></div>
   <p>${esc(e.how)}</p>
   <div class="row"><span class="chip${/Ergänzung/.test(e.src || p.src) ? ' mine' : ''}">Technik: ${esc(e.src || p.src)}</span><span class="chip">Übung in eigenen Worten</span></div>
   ${task}
-  ${e.kind === 'check' ? '' : recorderBlock(e)}
-  ${ex.result ? resultBlock(e) : ''}
-  ${e.kind === 'check' ? '' : coachBlock()}
+  ${speak ? guideBlock(e) : ''}
+  ${speak ? speakBlock() : ''}
+  ${speak ? coachBlock() : ''}
+  ${speak ? measureBlock() : ''}
+  ${speak && ex.result ? resultBlock(e) : ''}
   ${historyBlock(e)}`;
 }
 
@@ -460,31 +505,80 @@ const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia 
 // In der claude.ai Ansicht sperrt die Seite das Mikrofon. Dort nimmt die Kamera App des Handys auf.
 let inViewer = !!(window.claude && window.claude.use);
 let micBlocked = false;
+
+function speakBlock() {
+  const running = !!ex.t0;
+  const ts = textStats(ex.transcript, ex.secs || 0);
+  let tempo = '';
+  if (!running && ex.secs) {
+    tempo = ts.wpm !== null
+      ? `<div class="metric focus"><span class="v">${ts.wpm} Wörter pro Minute</span><span class="k">Tempo laut Stoppuhr und Text. Angenehm sind etwa 110 bis 160.</span>${verdict('wpm', ts.wpm)}</div>`
+      : `<p class="small soft">Für das Tempo brauche ich mehr als fünf Wörter im Textfeld.</p>`;
+  }
+  return `<div class="card">
+    <span class="label">Sprechen</span>
+    <div class="recbar"><button type="button" class="${running ? 'primary' : 'gold'}" data-timer>${running ? 'Stopp' : (ex.secs ? 'Neue Runde' : 'Start')}</button><span class="timer bigtimer" id="tmr2">${running ? fmtTime((Date.now() - ex.t0) / 1000) : fmtTime(ex.secs || 0)}</span></div>
+    <p class="small">1. Tippe auf Start. 2. Tippe ins Textfeld und dann auf das Mikrofon deiner Wispr Flow Tastatur. 3. Sprich und lies dabei die Aufgabe oben. 4. Tippe auf Stopp.</p>
+    <label class="small soft" for="txt">Dein gesprochener Text erscheint hier.${useSR && canRec && !inViewer && !micBlocked ? ' Bei der Live Aufnahme schreibt der Browser mit.' : ''} Du kannst ihn auch tippen.</label>
+    <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
+    ${tempo}
+    <p class="small soft">Wispr Flow lässt „ähm“ weg. Deine Füllwörter hörst du deshalb am besten selbst heraus.</p>
+  </div>`;
+}
+
+function measureBlock() {
+  const open = ex.measureOpen || ex.result || ex.analyzing || ex.err || ex.recording || ex.starting || ex.audioUrl;
+  return `<div class="card"><button type="button" class="link" data-togglemeasure aria-expanded="${open ? 'true' : 'false'}">${open ? 'Stimmmessung ausblenden' : 'Stimme messen (optional)'}</button>
+    ${open ? recorderBlock() : '<p class="small soft">Zeigt dir Pausen, Melodie und Lautstärke aus einer Aufnahme.</p>'}</div>`;
+}
+
 function recorderBlock() {
   const lock = !!(ex.analyzing || ex.starting || ex.recording);
   const dis = lock ? ' disabled' : '';
   const off = lock ? ' off' : '';
   const live = canRec && !inViewer && !micBlocked;
-  return `<div class="card">
-    <span class="label">Sprechen</span>
+  return `<div class="stack">
     ${live ? `<div class="recbar">
       <button type="button" class="recbtn${ex.recording ? ' live' : ''}" data-rec${ex.analyzing || ex.starting ? ' disabled' : ''} aria-label="${ex.recording ? 'Aufnahme stoppen' : 'Aufnahme starten'}">${ex.recording ? '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2" fill="currentColor"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>'}</button>
       <div class="meter" aria-hidden="true"><i id="lvl"></i></div><span class="timer" id="tmr">${ex.recording ? '0:00' : ''}</span></div>
-      <p class="small soft">${ex.recording ? 'Ich höre zu. Tippe auf das Quadrat, wenn du fertig bist.' : 'Tippe auf den roten Knopf und sprich.'}</p>` : ''}
+      <p class="small soft">${ex.recording ? 'Ich höre zu. Tippe auf das Quadrat, wenn du fertig bist.' : 'Tippe auf den roten Knopf und sprich. Du kannst dabei die Aufgabe lesen.'}</p>` : ''}
     ${ex.micMsg ? `<p class="small soft">${esc(ex.micMsg)}</p>` : ''}
-    <div class="stack">
-      <label class="btn ${live ? '' : 'gold '}filebtn${off}" for="vid">Mit dem Handy aufnehmen<input type="file" id="vid" accept="video/*" capture="user" data-media${dis}></label>
-      ${isIOS ? '' : `<label class="btn filebtn${off}" for="aud">Nur Ton aufnehmen<input type="file" id="aud" accept="audio/*" capture data-media${dis}></label>`}
-      <label class="btn filebtn${off}" for="upl">Vorhandene Aufnahme wählen<input type="file" id="upl" accept="audio/*,video/*" data-media${dis}></label>
-    </div>
-    <p class="small soft">${inViewer ? 'In diesem Link darf die Seite das Mikrofon nicht selbst benutzen. Deshalb öffnet „Mit dem Handy aufnehmen“ die Kamera App. Nimm dort auf und tippe auf „Video verwenden“. Danach misst Stimmwerk deine Stimme aus dem Ton.' : 'Du kannst auch mit der Kamera App deines Handys aufnehmen.'} Die Aufnahme bleibt auf deinem Gerät. Halte sie unter zwei Minuten.</p>
+    <label class="btn ${live ? '' : 'gold '}filebtn${off}" for="vid">Mit dem Handy aufnehmen<input type="file" id="vid" accept="video/*" capture="user" data-media${dis}></label>
+    ${isIOS ? '' : `<label class="btn filebtn${off}" for="aud">Nur Ton aufnehmen<input type="file" id="aud" accept="audio/*" capture data-media${dis}></label>`}
+    <label class="btn filebtn${off}" for="upl">Vorhandene Aufnahme wählen<input type="file" id="upl" accept="audio/*,video/*" data-media${dis}></label>
+    <p class="small soft">${inViewer ? 'Hier darf die Seite das Mikrofon nicht selbst benutzen. „Mit dem Handy aufnehmen“ öffnet deshalb die Kamera App. Dort siehst du die Aufgabe nicht, merk dir also vorher die Stichworte. Danach misst Stimmwerk den Ton.' : 'Du kannst auch mit der Kamera App deines Handys aufnehmen.'} Die Aufnahme bleibt auf deinem Gerät. Halte sie unter zwei Minuten.</p>
     ${ex.analyzing ? '<p class="small"><span class="spinner"></span>Ich messe…</p>' : ''}
     ${ex.err ? `<p class="small soft">${esc(ex.err)}</p>` : ''}
     ${ex.audioUrl ? (ex.isVideo ? `<video controls playsinline src="${ex.audioUrl}"></video><p class="small soft">Schau dir deine Aufnahme dreimal an: ohne Ton, nur den Ton, und als Text. Das empfiehlt Vinh Giang.</p>` : `<audio controls src="${ex.audioUrl}"></audio>`) : ''}
-    <label class="small soft" for="txt">Was du gesagt hast, für Tempo und Füllwörter. ${useSR ? 'Wird beim Aufnehmen mitgeschrieben.' : 'Diktier es mit Wispr Flow oder dem Mikrofon auf der Tastatur.'}</label>
-    <p class="small soft">Tipp: Erst aufnehmen, danach denselben Text mit Wispr Flow ins Feld diktieren. Wispr Flow lässt „ähm“ weg, deine Füllwörter hörst du deshalb am besten beim Anhören selbst. Der Coach funktioniert auch nur mit dem Text.</p>
-    <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
   </div>`;
+}
+
+let tIv = null;
+function timerToggle() {
+  if (ex.t0) {
+    ex.secs = Math.max(1, Math.round((Date.now() - ex.t0) / 1000)); ex.t0 = 0;
+    clearInterval(tIv); tIv = null;
+    const box = $('#txt'); if (box) ex.transcript = box.value;
+    recordTimerRun(ex);
+    render(); return;
+  }
+  if (ex.recording || ex.starting || ex.analyzing) return;
+  const keep = ex.measureOpen;
+  Object.assign(ex, newRun(ex));
+  ex.measureOpen = keep; ex.t0 = Date.now(); ex.secs = 0;
+  clearInterval(tIv);
+  tIv = setInterval(() => { if (!ex || !ex.t0) { clearInterval(tIv); return; } const el = $('#tmr2'); if (el) el.textContent = fmtTime((Date.now() - ex.t0) / 1000); }, 250);
+  render();
+}
+function recordTimerRun(my) {
+  const ts = textStats(my.transcript, my.secs);
+  if (my.result || ts.wpm === null || my.secs < 4) return;
+  const e = EX(my.id);
+  const h = state.hist[e.id] || (state.hist[e.id] = []);
+  h.push({ d: today(), dur: my.secs, wpm: ts.wpm, pz: null, mel: null, vol: null, fill: ts.fill, f: my.followUp ? 1 : 0 });
+  state.hist[e.id] = h.slice(-20);
+  state.done[e.id] = (state.done[e.id] || 0) + 1;
+  markDay(); save();
 }
 
 /* ---------- Aufnahme ---------- */
@@ -755,7 +849,7 @@ function historyBlock(e) {
     const d = (x, y, u) => x === null || y === null || x === undefined || y === undefined ? '' : `<span>${cell(x, u)} → ${cell(y, u)}</span>`;
     cmp = `<p class="small"><b>Erste und letzte Aufnahme</b></p><div class="hist"><div><span>Tempo</span>${d(a.wpm, b.wpm, ' W/min') || '<span>·</span>'}</div><div><span>Pausen</span>${d(a.pz, b.pz, '')}</div><div><span>Melodie</span>${d(a.mel, b.mel, ' HT') || '<span>·</span>'}</div><div><span>Lautstärke</span>${d(a.vol, b.vol, ' dB')}</div></div>`;
   }
-  const rows = h.slice().reverse().slice(0, 5).map(x => `<div><span>${esc(x.d.slice(8, 10) + '.' + x.d.slice(5, 7) + '.')}</span><span>${cell(x.wpm, ' W/min')}</span><span>${x.pz} Pausen</span><span>${cell(x.mel, ' HT')}</span></div>`).join('');
+  const rows = h.slice().reverse().slice(0, 5).map(x => `<div><span>${esc(x.d.slice(8, 10) + '.' + x.d.slice(5, 7) + '.')}</span><span>${cell(x.wpm, ' W/min')}</span><span>${cell(x.pz, ' Pausen')}</span><span>${cell(x.mel, ' HT')}</span></div>`).join('');
   return `<div class="card"><span class="label">Vorher und nachher</span>${cmp}<p class="small"><b>Letzte Aufnahmen</b></p><div class="hist">${rows}</div><p class="small soft">Vinh Giang empfiehlt, eine Fähigkeit eine Woche lang zu üben und die erste mit der letzten Aufnahme zu vergleichen.</p></div>`;
 }
 
@@ -789,9 +883,9 @@ function coachPrompt(my, chat) {
   const e = EX(my.id), p = P(e.p);
   const hasAudio = my.result && !my.result.empty;
   const r = hasAudio ? my.result : null;
-  const ts = textStats(my.transcript, r ? r.dur : 0);
+  const ts = textStats(my.transcript, r ? r.dur : (my.secs || 0));
   const want = expectedPauses(e);
-  const metrics = r ? `Dauer ${Math.round(r.dur)} s, Tempo ${ts.wpm ?? 'unbekannt'} Wörter pro Minute, ${r.pauses} Pausen ab 0,5 s (davon ${r.longPauses} lang${want ? ', im Text sind ' + want + ' Pausen verlangt' : ''}), Melodie Spannweite ${r.pitchRange === null ? 'unbekannt' : r.pitchRange.toFixed(1) + ' Halbtöne'}, Lautstärke Spannweite ${r.volRange.toFixed(0)} dB, Abschnitte vor Pausen: ${r.ends.fall} enden fallend, ${r.ends.rise} steigend, ${r.ends.flat} gleich, Füllwörter im Text ${ts.fill} (Diktat entfernt Füllwörter oft).` : `Keine Audiomessung, nur Text. Füllwörter im Text ${ts.fill}.`;
+  const metrics = r ? `Dauer ${Math.round(r.dur)} s, Tempo ${ts.wpm ?? 'unbekannt'} Wörter pro Minute, ${r.pauses} Pausen ab 0,5 s (davon ${r.longPauses} lang${want ? ', im Text sind ' + want + ' Pausen verlangt' : ''}), Melodie Spannweite ${r.pitchRange === null ? 'unbekannt' : r.pitchRange.toFixed(1) + ' Halbtöne'}, Lautstärke Spannweite ${r.volRange.toFixed(0)} dB, Abschnitte vor Pausen: ${r.ends.fall} enden fallend, ${r.ends.rise} steigend, ${r.ends.flat} gleich, Füllwörter im Text ${ts.fill} (Diktat entfernt Füllwörter oft).` : `Keine Audiomessung.${ts.wpm ? ` Sprechdauer laut Stoppuhr ${my.secs} s, Tempo ${ts.wpm} Wörter pro Minute.` : ''} Füllwörter im Text ${ts.fill} (Wispr Flow entfernt Füllwörter oft).`;
   let task = '';
   if (e.kind === 'read') task = `Vorgelesener Text: ${plain(textFor(e))}`;
   else {
@@ -808,7 +902,7 @@ ${task}
 Messwerte aus der Aufnahme: ${metrics}
 Gesprochener Text (kann aus Spracherkennung oder Wispr Flow stammen, ignoriere fehlende Satzzeichen und kleine Erkennungsfehler): ${my.transcript || '(kein Text)'}
 
-${chat ? `Antworte als kurze, freundliche Nachricht auf Deutsch mit genau diesen vier Abschnitten und diesen Überschriften: Das war stark, Dein Hebel, So könnte es klingen, Rückfrage. Dann warte auf meine Antwort auf deine Rückfrage.` : `Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
+${chat ? `Antworte als kurze, freundliche Nachricht auf Deutsch mit diesen Abschnitten und Überschriften: Das war stark, Dein Hebel${e.kind === 'read' ? '' : `, So könnte es klingen (auf ${answerLang}), Rückfrage (auf ${answerLang})`}.${wantFollow ? ' Dann warte auf meine Antwort auf deine Rückfrage.' : ''}` : `Antworte nur mit einem JSON Objekt mit diesen Schlüsseln:
 "lob": ein bis zwei kurze Sätze auf Deutsch, was konkret gut war,
 "hebel": ein bis zwei kurze Sätze auf Deutsch mit der einen wichtigsten Verbesserung, passend zur Säule, gerne mit Bezug auf einen Messwert,
 "besser": ${e.kind === 'read' ? 'ein leerer String' : `eine verbesserte Version der Antwort auf ${answerLang}, höchstens vier kurze Sätze, gleiche Ideen, klar nach der Struktur geordnet`},
@@ -931,7 +1025,7 @@ function render(scrollTop) {
   document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === tabView ? 'page' : 'false'));
   if (scrollTop) window.scrollTo(0, 0);
 }
-function leaveExercise() { if (ex && (ex.recording || ex.starting)) stopRec(); }
+function leaveExercise() { if (ex && (ex.recording || ex.starting)) stopRec(); if (ex && ex.t0) { ex.secs = 0; ex.t0 = 0; clearInterval(tIv); } }
 function typing() { const a = document.activeElement; return a && (a.tagName === 'TEXTAREA' || a.tagName === 'INPUT'); }
 
 /* ---------- Ereignisse ---------- */
@@ -953,6 +1047,8 @@ document.addEventListener('click', e => {
     }
     render(); return;
   }
+  if (t.hasAttribute('data-timer')) { timerToggle(); return; }
+  if (t.hasAttribute('data-togglemeasure')) { ex.measureOpen = !(ex.measureOpen || ex.result || ex.analyzing || ex.err || ex.recording || ex.starting || ex.audioUrl); const bx = document.getElementById('txt'); if (bx) ex.transcript = bx.value; render(); return; }
   if (t.hasAttribute('data-rec')) { toggleRec(); return; }
   if (t.hasAttribute('data-roll')) { rollDie(EX(ex.id)); resetRun(); render(); return; }
   if (t.hasAttribute('data-coach')) { askCoach(); return; }

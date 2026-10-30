@@ -31,12 +31,8 @@ Inhalte stehen in `verb-first/data.json`, die App in `verb-first/app.html`. `nod
 Ein Sprechtrainer für Meetings und Webinare im Ordner [`sprechen/`](./sprechen/index.html), nach den Techniken von Vinh Giang, in eigenen Worten.
 
 - **Pfad mit 8 Säulen:** Tempo, Pause, Lautstärke, Melodie, Klangfarbe, Aufbau mit 3·2·1, Wertschätzung, Körper und Kamera. Zu jeder Säule zwei bis drei kurze Übungen.
-- **Aufnahme und Messung:** Tempo, Pausen, Lautstärke, Melodie als Notenlinie und Satzenden. Die Aufnahme bleibt auf dem Gerät. Im claude.ai Link sperrt die Seite das Mikrofon. Dort öffnet „Mit dem Handy aufnehmen“ die Kamera App, und die App misst den Ton des Videos. Öffnest du `index.html` direkt im Browser, nimmt sie auch live auf.
+- **Üben:** Aufgabe, eine kurze Anleitung mit Satzanfängen, dann Stoppuhr und Textfeld. Du diktierst mit Wispr Flow, die App zeigt dein Tempo, und der Coach gibt Feedback. Die Stimmmessung ist optional.
 - **Coach mit Claude:** Über den claude.ai Link gibt Claude Feedback und stellt eine Rückfrage wie im Meeting.
 - **Vor dem Meeting:** ein Schnellcheck in sechs Schritten.
 
 Die App steht in `sprechen/app.html`. `node sprechen/build.js` baut daraus `sprechen/index.html`.
-
-## Stimmwerk als Webseite mit Mikrofon
-
-Im claude.ai Link ist das Mikrofon gesperrt. Als normale Webseite nimmt Stimmwerk live auf, sodass du den Text lesen kannst, während du sprichst. Dafür in den GitHub Einstellungen unter Pages die Quelle „Deploy from a branch“ mit dem Branch `claude/englisch-b2-business-game-ht22gw` und dem Ordner `/ (root)` wählen. Danach liegt die App unter `https://rohmeier-byte.github.io/Englisch-/sprechen/`. Dort antwortet der Coach nicht selbst. Ein Knopf kopiert die Anfrage, die du in einen Chat mit Claude einfügst.

@@ -6,7 +6,8 @@
 
 - Im claude.ai Link sperrt die Seite das Mikrofon, und es gibt dafür keine Freigabe. Aufnahmen laufen dort über Dateieingaben, die die Kamera App öffnen (`accept="video/*" capture`). Den Ton liest die App danach mit `decodeAudioData` aus.
 
-- Wer live ins Mikrofon sprechen und dabei den Text lesen will, nutzt die Webseite (GitHub Pages). Dort fehlt der direkte Coach, deshalb gibt es den Kopierknopf für Claude.
+- Nichts über GitHub Einstellungen verlangen. Alles muss im claude.ai Link funktionieren.
+- Auf einem Bildschirm in dieser Reihenfolge: Aufgabe, Anleitung mit Struktur und Satzanfängen, Sprechen, Coach. Aufnahme und Messung sind nur optional, weil man beim Video den Text nicht lesen kann. Gesprochen wird mit Wispr Flow in ein Textfeld.
 
 ## Design
 - Designs sind hell. Kein dunkles Theme, auch nicht automatisch über die Systemeinstellung.
