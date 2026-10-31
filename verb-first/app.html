@@ -1,0 +1,839 @@
+<title>Verb First</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Verb First: ein kleiner Sprechtrainer für Business-Englisch. Verb früh im Satz, Details danach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one narrow phone column; a bird coach talks in bubbles, one big coral action per screen, white cards on peach. */
+  :root {
+    --bg: #fff3ea;
+    --card: #ffffff;
+    --ink: #4a3b36;
+    --soft: #85716a;
+    --line: #f3d6c6;
+    --coral: #ff8a7a;
+    --coral-deep: #e86d5d;
+    --coral-ink: #3d1712;
+    --de-mark: #c4503f;
+    --mint: #bfeadb;
+    --mint-ink: #1f6b54;
+    --yellow: #ffd66b;
+    --warn-bg: #ffe9bd;
+    --warn-ink: #7a4b00;
+    --bad-bg: #ffdcd5;
+    --bad-ink: #9a3524;
+    --shadow: rgba(120, 70, 50, .12);
+
+    --font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+    --font-body: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #2a201d; --card: #3a2d29; --ink: #fbeee6; --soft: #c9b2a9; --line: #54423c;
+      --coral: #ff8f80; --coral-deep: #c9675a; --coral-ink: #3d1712; --de-mark: #ffa597;
+      --mint: #26594b; --mint-ink: #c8f2e3; --yellow: #f2c75a;
+      --warn-bg: #4f3c14; --warn-ink: #ffd98a; --bad-bg: #5c2b25; --bad-ink: #ffc2b7;
+      --shadow: rgba(0, 0, 0, .35);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #2a201d; --card: #3a2d29; --ink: #fbeee6; --soft: #c9b2a9; --line: #54423c;
+    --coral: #ff8f80; --coral-deep: #c9675a; --coral-ink: #3d1712; --de-mark: #ffa597;
+    --mint: #26594b; --mint-ink: #c8f2e3; --yellow: #f2c75a;
+    --warn-bg: #4f3c14; --warn-ink: #ffd98a; --bad-bg: #5c2b25; --bad-ink: #ffc2b7;
+    --shadow: rgba(0, 0, 0, .35);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { min-height: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 16px 96px;
+    -webkit-text-size-adjust: 100%;
+  }
+  #app { max-width: 520px; margin: 0 auto; display: grid; gap: 14px; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.2; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.08rem; }
+  p { margin: 0; }
+  .soft { color: var(--soft); }
+  .small { font-size: .88rem; }
+  .label { font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); }
+  .stack { display: grid; gap: 10px; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .spread { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+
+  /* top bar */
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 34px; }
+  .steps { display: flex; gap: 6px; }
+  .steps span { width: 28px; height: 8px; border-radius: 99px; background: var(--line); }
+  .steps span.on { background: var(--coral); }
+  .pill { background: var(--card); border-radius: 99px; padding: 4px 11px; font-family: var(--font-display); font-weight: 500; font-size: .88rem; display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; }
+  .pill i { width: 10px; height: 10px; border-radius: 50%; background: var(--yellow); display: inline-block; }
+  .linkbtn { min-height: 44px; min-width: 44px; background: none; border: 0; padding: 4px 6px; color: var(--soft); font: 600 .9rem var(--font-body); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* bird and bubbles */
+  .coach { display: flex; gap: 10px; align-items: flex-end; }
+  .coach svg { flex: none; width: 56px; height: 56px; }
+  .bubble { background: var(--card); border-radius: 20px 20px 20px 6px; padding: 12px 15px; flex: 1; min-width: 0; box-shadow: 0 2px 0 var(--line); }
+  .bubble .label { display: block; margin-bottom: 2px; }
+  .bubble p + p { margin-top: 6px; }
+  .de { font-size: .88rem; color: var(--soft); font-style: italic; }
+  .de::before { content: "DE "; font-style: normal; font-weight: 800; font-size: .7rem; letter-spacing: .06em; color: var(--de-mark); }
+
+  .card { background: var(--card); border-radius: 18px; padding: 14px 16px; display: grid; gap: 8px; min-width: 0; }
+
+  /* buttons */
+  .btn { font: 600 1.05rem var(--font-display); border: 0; border-radius: 16px; padding: 13px 18px; cursor: pointer; background: var(--coral); color: var(--coral-ink); box-shadow: 0 4px 0 var(--coral-deep); width: 100%; }
+  .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--coral-deep); }
+  .btn.quiet { background: var(--card); color: var(--ink); box-shadow: 0 3px 0 var(--line); }
+  .btn[disabled] { opacity: .5; cursor: default; }
+  .iconbtn { border: 0; background: var(--bg); color: var(--ink); border-radius: 99px; min-height: 44px; padding: 8px 16px; font: 600 .92rem var(--font-display); cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+  .iconbtn svg { width: 16px; height: 16px; }
+  button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 3px solid var(--coral-deep); outline-offset: 2px; }
+
+  .mic { justify-self: center; width: 96px; height: 96px; border-radius: 50%; border: 0; background: var(--coral); color: var(--coral-ink); box-shadow: 0 6px 0 var(--coral-deep); display: grid; place-items: center; cursor: pointer; }
+  .mic svg { width: 32px; height: 32px; }
+  .mic.live { background: var(--mint); color: var(--mint-ink); box-shadow: 0 6px 0 var(--mint-ink); }
+  @media (prefers-reduced-motion: no-preference) {
+    .mic.live { animation: pulse 1.2s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.06); } }
+    .pop { animation: pop .35s ease-out; }
+    @keyframes pop { from { transform: scale(.96); opacity: .4; } }
+  }
+  .miclabel { text-align: center; font-size: .88rem; color: var(--soft); margin-top: -4px; }
+
+  textarea { width: 100%; min-height: 92px; border: 2px solid var(--line); border-radius: 16px; padding: 12px 14px; font: 500 1.05rem/1.45 var(--font-body); color: var(--ink); background: var(--card); resize: vertical; }
+  .hint { background: var(--warn-bg); color: var(--warn-ink); border-radius: 14px; padding: 10px 14px; font-size: .92rem; }
+
+  /* checks */
+  .check { display: flex; gap: 10px; align-items: flex-start; background: var(--card); border-radius: 14px; padding: 9px 12px; }
+  .check b { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: .82rem; flex: none; margin-top: 1px; }
+  .check.ok b { background: var(--mint); color: var(--mint-ink); }
+  .check.warn b { background: var(--warn-bg); color: var(--warn-ink); }
+  .check.bad b { background: var(--bad-bg); color: var(--bad-ink); }
+  .check div { display: grid; gap: 1px; min-width: 0; }
+  .heard { font-size: 1.08rem; line-height: 1.5; }
+  .hl { background: var(--mint); color: var(--mint-ink); border-radius: 6px; padding: 0 3px; font-weight: 700; }
+  .hl.late { background: var(--bad-bg); color: var(--bad-ink); }
+
+  /* verb cards */
+  .verb { display: grid; gap: 6px; }
+  .verb .head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .verb .name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
+  .verb .forms { font-size: .88rem; color: var(--soft); }
+  .tag { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 2px 9px; background: var(--mint); color: var(--mint-ink); }
+  .tag.review { background: var(--yellow); color: var(--coral-ink); }
+
+  /* build */
+  .slots { min-height: 58px; border: 2px dashed var(--line); border-radius: 16px; padding: 8px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+  .pool { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chunk { border: 0; border-radius: 12px; min-height: 44px; padding: 10px 14px; font: 600 1rem var(--font-body); background: var(--card); color: var(--ink); box-shadow: 0 3px 0 var(--line); cursor: pointer; text-align: left; }
+  .slots .chunk { background: var(--bg); }
+  summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+  .result { border-radius: 14px; padding: 10px 14px; font-weight: 600; }
+  .result.ok { background: var(--mint); color: var(--mint-ink); }
+  .result.bad { background: var(--bad-bg); color: var(--bad-ink); }
+
+  /* home */
+  .hero { display: grid; gap: 12px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .stat { background: var(--card); border-radius: 16px; padding: 10px 12px; display: grid; gap: 0; }
+  .stat strong { font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .8rem; color: var(--soft); }
+  .plan { display: grid; gap: 6px; counter-reset: s; }
+  .plan li { list-style: none; display: flex; gap: 10px; align-items: baseline; }
+  .plan li::before { counter-increment: s; content: counter(s); font: 600 .85rem var(--font-display); width: 22px; height: 22px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; flex: none; }
+  .plan { margin: 0; padding: 0; }
+
+  /* verbs list */
+  .search { width: 100%; border: 2px solid var(--line); border-radius: 14px; padding: 10px 14px; font: 500 1rem var(--font-body); background: var(--card); color: var(--ink); }
+  .vlist { display: grid; gap: 6px; }
+  .vitem { display: flex; gap: 10px; align-items: center; background: var(--card); border-radius: 14px; min-height: 48px; padding: 8px 12px; border: 0; width: 100%; text-align: left; color: var(--ink); font: inherit; cursor: pointer; }
+  .vitem .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--line); flex: none; }
+  .vitem .dot.learning { background: var(--yellow); }
+  .vitem .dot.known { background: var(--mint-ink); }
+  .vitem .v { font-family: var(--font-display); font-weight: 600; }
+  .vitem .g { margin-left: auto; font-size: .82rem; color: var(--soft); text-align: right; }
+  .vdetail { padding: 4px 12px 10px 34px; font-size: .92rem; display: grid; gap: 4px; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: .82rem; color: var(--soft); }
+  .legend span { display: inline-flex; gap: 6px; align-items: center; }
+
+  /* nav */
+  nav.tabs { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line); display: flex; justify-content: center; gap: 4px; padding: 8px max(16px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); z-index: 5; }
+  nav.tabs button { flex: 1; max-width: 170px; border: 0; background: none; color: var(--soft); font: 600 .95rem var(--font-display); min-height: 48px; padding: 10px 8px; border-radius: 12px; cursor: pointer; }
+  nav.tabs button[aria-current="page"] { background: var(--bg); color: var(--ink); }
+
+  .pattern { display: grid; gap: 4px; }
+  .pattern .ex { font-weight: 700; }
+  .vs { display: grid; gap: 6px; }
+  .vs div { border-radius: 12px; padding: 8px 12px; }
+  .vs .no { background: var(--bad-bg); color: var(--bad-ink); }
+  .vs .yes { background: var(--mint); color: var(--mint-ink); }
+  .spinner { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--coral-deep); vertical-align: -2px; }
+  @media (prefers-reduced-motion: no-preference) { .spinner { animation: spin .8s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } } }
+</style>
+
+<div id="app" aria-live="polite"></div>
+<nav class="tabs" id="tabs" aria-label="Main">
+  <button type="button" data-tab="home">Today</button>
+  <button type="button" data-tab="verbs">100 verbs</button>
+  <button type="button" data-tab="rules">Rules</button>
+</nav>
+
+<script>
+const DATA = /*__DATA__*/null;
+const VERBS = DATA.verbs;
+const VERB = Object.fromEntries(VERBS.map(v => [v.id, v]));
+const SITS = DATA.situations;
+const INTERVALS = [0, 1, 3, 7, 14, 30];
+const STORE_KEY = 'verbfirst.v1';
+
+const PATTERNS = [
+  { name: 'I / We + verb', ex: 'I need the numbers by Friday.', de: 'Wer? Dann sofort: was tut er? Der Rest kommt danach.' },
+  { name: "Let's + verb", ex: "Let's check the budget first.", de: 'Für Vorschläge im Meeting. Klingt freundlich und aktiv.' },
+  { name: 'Can you + verb', ex: 'Can you send me the deck?', de: 'Höfliche Bitte. Das Verb steht an Stelle 3.' },
+  { name: "We've + past participle", ex: "We've increased the ROAS.", de: 'Ergebnis mit Bezug zu jetzt (Present Perfect), ideal für Reports.' },
+  { name: "I'll + verb", ex: "I'll follow up tomorrow.", de: 'Nächster Schritt oder Zusage. Kurz und verbindlich.' }
+];
+
+/* ---------- state ---------- */
+function blankState() { return { v: 1, updated: 0, streak: { count: 0, last: '' }, verbs: {}, sessions: [], recentSits: [] }; }
+let state = loadLocal();
+let view = 'home';
+let session = null;
+let openVerb = null;
+let verbQuery = '';
+
+function loadLocal() {
+  try { const s = JSON.parse(localStorage.getItem(STORE_KEY)); if (s && s.v === 1) return s; } catch (e) {}
+  return blankState();
+}
+function today(offset = 0) {
+  const d = new Date(); d.setDate(d.getDate() + offset);
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function addDays(n) { return today(n); }
+
+let cloud = null;
+let cloudTimer = null;
+let cloudWriting = Promise.resolve();
+function save() {
+  state.updated = Date.now();
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  if (cloud) {
+    clearTimeout(cloudTimer);
+    cloudTimer = setTimeout(() => {
+      const body = JSON.parse(JSON.stringify(state));
+      cloudWriting = cloudWriting.then(() => cloud.set(body)).catch(() => {});
+    }, 700);
+  }
+}
+async function connectCloud() {
+  try {
+    if (!window.claude || !window.claude.use) return;
+    const [db, user] = await Promise.all([window.claude.use('db'), window.claude.use('user')]);
+    if (!db || !user) return;
+    const id = await user.id();
+    if (!id) return;
+    const ref = db.collection('data/users/' + id).doc('progress');
+    const snap = await ref.get();
+    cloud = ref;
+    const remote = snap.exists ? snap.data() : null;
+    if (remote && remote.v === 1 && (remote.updated || 0) > (state.updated || 0)) {
+      state = JSON.parse(JSON.stringify(remote));
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+      if (!session) render();
+    } else if (state.updated) {
+      save();
+    }
+  } catch (e) { cloud = null; }
+}
+
+/* ---------- helpers ---------- */
+const $ = (sel, root = document) => root.querySelector(sel);
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function chunks(v) { return v.ex.split('|').map(s => s.trim()).filter(Boolean); }
+function exText(v) { return chunks(v).join(' '); }
+function verbStatus(id) {
+  const s = state.verbs[id];
+  if (!s) return 'new';
+  return s.box >= 3 ? 'known' : 'learning';
+}
+function knownCount() { return VERBS.filter(v => verbStatus(v.id) === 'known').length; }
+function dueCount() { const t = today(); return Object.values(state.verbs).filter(s => s.due <= t).length; }
+function streakNow() {
+  const s = state.streak;
+  return (s.last === today() || s.last === today(-1)) ? s.count : 0;
+}
+
+const BIRD = `<svg viewBox="0 0 54 54" aria-hidden="true">
+  <ellipse cx="27" cy="31" rx="21" ry="19" fill="#ffd66b"/>
+  <ellipse cx="17" cy="36" rx="9" ry="7" fill="#ffc23d"/>
+  <circle cx="22" cy="25" r="3" fill="#4a3b36"/><circle cx="34" cy="25" r="3" fill="#4a3b36"/>
+  <circle cx="23" cy="24" r="1" fill="#ffffff"/><circle cx="35" cy="24" r="1" fill="#ffffff"/>
+  <path d="M26 29 L32 29 L29 33 Z" fill="#ff8a7a"/>
+  <circle cx="17" cy="30" r="2.5" fill="#ffb3a6"/><circle cx="39" cy="30" r="2.5" fill="#ffb3a6"/>
+  <path d="M24 12 Q27 6 30 12" fill="none" stroke="#ffc23d" stroke-width="3" stroke-linecap="round"/>
+</svg>`;
+const MIC = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>`;
+const SPEAKER = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>`;
+
+function coach(html, label) {
+  return `<div class="coach">${BIRD}<div class="bubble">${label ? `<span class="label">${esc(label)}</span>` : ''}${html}</div></div>`;
+}
+
+/* ---------- listening and speaking ---------- */
+function say(text) {
+  try {
+    const synth = window.speechSynthesis;
+    if (!synth) return;
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.92;
+    const voice = synth.getVoices().find(v => /^en[-_](US|GB)/i.test(v.lang));
+    if (voice) u.voice = voice;
+    synth.speak(u);
+  } catch (e) {}
+}
+
+let rec = null;
+function micBlock(id, value = '') {
+  return `<button class="mic" type="button" data-mic="${id}" aria-label="Speak">${MIC}</button>
+    <p class="miclabel" id="${id}-miclabel">Tap and speak</p>
+    <div class="hint" id="${id}-hint" hidden>The speak button does not work in this browser. Tap the text field, then the <b>microphone key</b> on your iPhone keyboard and speak. <span class="de">Tippe ins Textfeld und nutze das Mikrofon auf der Tastatur.</span></div>
+    <label class="label" for="${id}">Your answer</label>
+    <textarea id="${id}" autocapitalize="sentences" spellcheck="true" placeholder="Speak, or type here">${esc(value)}</textarea>`;
+}
+function toggleMic(id) {
+  const box = $('#' + id), btn = $(`[data-mic="${id}"]`), label = $('#' + id + '-miclabel'), hint = $('#' + id + '-hint');
+  if (rec) { try { rec.stop(); } catch (e) {} return; }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { hint.hidden = false; box.focus(); return; }
+  try {
+    const r = new SR();
+    r.lang = 'en-US'; r.interimResults = true; r.continuous = false; r.maxAlternatives = 1;
+    const base = box.value.trim() ? box.value.trim() + ' ' : '';
+    r.onresult = e => {
+      let t = '';
+      for (let i = 0; i < e.results.length; i++) t += e.results[i][0].transcript;
+      box.value = base + t.trim();
+    };
+    r.onerror = e => {
+      if (['not-allowed', 'service-not-allowed', 'audio-capture', 'network'].includes(e.error)) hint.hidden = false;
+      else if (e.error === 'no-speech') label.textContent = 'I heard nothing. Tap and try again.';
+    };
+    r.onend = () => { rec = null; btn.classList.remove('live'); if (label.textContent === 'Listening… tap to stop') label.textContent = 'Tap and speak'; };
+    rec = r;
+    btn.classList.add('live'); label.textContent = 'Listening… tap to stop';
+    r.start();
+  } catch (e) { rec = null; btn.classList.remove('live'); hint.hidden = false; }
+}
+
+/* ---------- sentence check ---------- */
+const FORM_TO_VERB = {};
+const PHRASAL = [];
+for (const v of VERBS) for (const f of v.forms) {
+  const low = f.toLowerCase();
+  if (low.includes(' ')) { PHRASAL.push([low, v.id]); FORM_TO_VERB[low.split(' ')[0]] = FORM_TO_VERB[low.split(' ')[0]] || v.id; }
+  else FORM_TO_VERB[low] = v.id;
+}
+const EXTRA_VERBS = new Set(('go goes went gone going come comes came coming see saw seen know knew known think thought say said tell told give gave given take took taken ' +
+  'make made get got gotten want wanted like liked work worked look looked feel felt believe believed hope hoped expect expected suggest suggested ' +
+  'grow grew grown drop dropped rise rose risen fall fell fallen improve improved reach reached hit spend spent sell sold buy bought pay paid ' +
+  'start started finish finished show showed shown mean meant agree agreed understand understood recommend recommended move moved test tested ' +
+  'launch launched run ran help helped keep kept put try tried use used see call called ask asked send sent ' +
+  'perform performs performed stay stays stayed include includes included bring brings brought owe owes owed continue continues continued ' +
+  'save saves saved happen happens happened cost costs win wins won lose loses lost lead leads led bring become became seem seems seemed ' +
+  'perform work works looks feels goes comes knows thinks says tells gives takes makes gets wants likes hopes expects suggests grows drops rises falls ' +
+  'improves reaches spends sells buys pays starts finishes shows means agrees understands recommends moves tests launches runs helps keeps tries uses calls asks sends ' +
+  'love loved prefer prefers preferred remember remembered forget forgot wait waited talk talked speak spoke meet met join joined leave left arrive arrived').split(' '));
+const BE = new Set(['am', 'is', 'are', 'was', 'were', 'be', 'been']);
+const AUX = new Set(['will', 'would', 'can', 'could', 'should', 'must', 'may', 'might', 'shall', 'do', 'does', 'did', 'have', 'has', 'had', "don't", "doesn't", "didn't", "won't", "can't", "couldn't", "wouldn't", "shouldn't", "haven't", "hasn't"]);
+const DETERMINERS = new Set(['the', 'a', 'an', 'our', 'your', 'my', 'this', 'that', 'these', 'those', 'their', 'his', 'her', 'its', 'every', 'each', 'some', 'any', 'no', 'more', 'less']);
+const NO_END = new Set(['to', 'i', 'we', 'you', 'they', 'can', 'will', "'ll", "let's", 'please', 'and', 'or', 'must', 'should', 'could', 'would', 'might', 'may', "don't", "didn't", "doesn't", "won't", 'not']);
+const PREPS = new Set(['with', 'for', 'after', 'before', 'in', 'on', 'at', 'of', 'from', 'about', 'by', 'during', 'until', 'into', 'over', 'under', 'per', 'via', 'without']);
+const OPENERS = /^(regarding|concerning|with regard to|with respect to|as (already )?(discussed|mentioned|said)|in (the )?context of|because|due to|since|according to|in terms of|concerning)\b/i;
+
+function splitSentences(text) {
+  return text.replace(/[’‘]/g, "'").split(/(?<=[.!?])\s+|\n+/).map(s => s.trim()).filter(s => /[a-z]/i.test(s));
+}
+function words(sentence) {
+  return sentence.split(/\s+/).map(w => w.replace(/^[^\w']+|[^\w']+$/g, '')).filter(Boolean);
+}
+const SUBJECTS = new Set(['i', 'we', 'you', 'they', 'it', 'he', 'she', 'this', 'that', 'sales', 'costs', 'clicks', 'ads', 'results', 'numbers', 'people', 'customers', 'everyone']);
+const NOT_VERBS = new Set(['me', 'him', 'her', 'them', 'us', 'tomorrow', 'today', 'yesterday', 'next', 'last', 'again', 'here', 'there', 'also', 'still', 'now', 'just', 'really', 'only', 'always', 'never', 'then', 'first', 'maybe', 'not', 'all', 'both', 'already', 'usually', 'often', 'very', 'too', 'well']);
+function isVerbWord(w, prev) {
+  if (DETERMINERS.has(prev) || PREPS.has(prev) || prev === 'to') return false;
+  if (FORM_TO_VERB[w] || EXTRA_VERBS.has(w) || BE.has(w)) return true;
+  if (SUBJECTS.has(prev) && !NOT_VERBS.has(w) && /^[a-z]+$/.test(w) && !DETERMINERS.has(w) && !PREPS.has(w) && !SUBJECTS.has(w)) return true;
+  return false;
+}
+function findVerb(ws) {
+  // 0-based index where the verb group starts: the main verb, or a helper right before it (can work, we've done)
+  let auxAt = -1;
+  for (let i = 0; i < ws.length; i++) {
+    const w = ws[i].toLowerCase();
+    let prev = i ? ws[i - 1].toLowerCase() : '';
+    if (NOT_VERBS.has(prev) && i > 1) prev = ws[i - 2].toLowerCase();
+    if (w === "let's" || w === 'lets') return i;
+    const m = w.match(/^(\w+)'(ll|ve|re|m|d|s)$/);
+    if (m) {
+      if (['re', 'm'].includes(m[2]) || (m[2] === 's' && ['it', 'that', 'he', 'she', 'there', 'what', 'here'].includes(m[1]))) return auxAt >= 0 ? auxAt : i;
+      if (m[2] !== 's') return i;
+    }
+    if (AUX.has(w) && !DETERMINERS.has(prev)) return i;
+    if (isVerbWord(w, prev)) return (auxAt >= 0 && i - auxAt <= 3) ? auxAt : i;
+  }
+  return auxAt;
+}
+function verbAtEnd(ws) {
+  // German habit: a helper comes early ("must", "can you", "would like") and the real verb closes the sentence.
+  if (ws.length < 4) return false;
+  const lw = ws.map(w => w.toLowerCase());
+  const n = lw.length, last = lw[n - 1], prev = lw[n - 2], prev2 = n > 2 ? lw[n - 3] : '';
+  const id = FORM_TO_VERB[last];
+  const isBase = (id && VERB[id].verb.toLowerCase().split(' ')[0] === last) || (EXTRA_VERBS.has(last) && !/(s|ed)$/.test(last));
+  if (!isBase) return false;
+  if (DETERMINERS.has(prev) || PREPS.has(prev) || (NO_END.has(prev) && ws[n - 2] !== 'May')) {
+    if (!(['you', 'him', 'her', 'them', 'us', 'me'].includes(prev) && ['with', 'for', 'to'].includes(prev2))) return false;
+  }
+  let h = -1;
+  for (let i = 0; i < Math.min(n - 1, 4); i++) {
+    const w = lw[i];
+    if (AUX.has(w) || /'(ll|d|ve)$/.test(w) || w === "let's" || w === 'lets') { h = i; break; }
+  }
+  if (h < 0) return false;
+  let j = h + 1;
+  while (j < n - 1 && (SUBJECTS.has(lw[j]) || NOT_VERBS.has(lw[j]) && !['me', 'him', 'her', 'them', 'us'].includes(lw[j]))) j++;
+  if (j >= n - 1) return false;
+  if (['like', 'love', 'prefer'].includes(lw[j]) && (lw[h] === 'would' || /'d$/.test(lw[h]))) return lw[j + 1] !== 'to';
+  if (lw[j] === 'to') j++;
+  const w = lw[j];
+  // after a helper English needs the verb; an article, object pronoun, preposition or number there means German order
+  return DETERMINERS.has(w) || PREPS.has(w) || ['me', 'him', 'her', 'them', 'us'].includes(w) || /^\d/.test(w);
+}
+function usesVerb(text, verbId) {
+  const low = ' ' + text.toLowerCase().replace(/[’‘]/g, "'").replace(/[^\w' ]+/g, ' ').replace(/\s+/g, ' ') + ' ';
+  return VERB[verbId].forms.some(f => low.includes(' ' + f.toLowerCase() + ' '));
+}
+function highlight(sentence, idx, late) {
+  const parts = sentence.split(/(\s+)/);
+  let n = -1;
+  return parts.map(p => {
+    if (/^\s+$/.test(p) || !p) return esc(p);
+    if (!p.replace(/[^\w']/g, '')) return esc(p);
+    n++;
+    return n === idx ? `<span class="hl${late ? ' late' : ''}">${esc(p)}</span>` : esc(p);
+  }).join('');
+}
+function analyzeFirst(text, targetVerb) {
+  const sents = splitSentences(text);
+  const first = sents[0] || '';
+  const ws = words(first);
+  const atEnd = verbAtEnd(ws);
+  const vi = atEnd ? ws.length - 1 : findVerb(ws);
+  const checks = [];
+  if (atEnd) checks.push({ s: 'bad', en: 'The verb is at the end, like in German.', de: 'Deutsche Satzstellung: Verb am Ende. Im Englischen kommt es direkt nach dem Subjekt.' });
+  else if (vi < 0) checks.push({ s: 'bad', en: 'I could not find your verb. Say who does what.', de: 'Jeder Satz braucht ein Verb: Wer macht was?' });
+  else if (vi <= 2) checks.push({ s: 'ok', en: `Verb in word ${vi + 1}. Great!`, de: 'Das Verb steht ganz vorne. Genau so.' });
+  else if (vi === 3) checks.push({ s: 'warn', en: `Verb in word ${vi + 1}. Almost.`, de: 'Fast. Versuch, schneller zum Verb zu kommen.' });
+  else checks.push({ s: 'bad', en: `Verb in word ${vi + 1}. Too late.`, de: 'Zu spät. Sag zuerst, wer was tut. Zeit und Grund kommen danach.' });
+
+  if (OPENERS.test(first)) checks.push({ s: 'warn', en: 'Start with the action. Put "because" or "regarding" later.', de: 'Fang mit der Aktion an. Grund oder Thema kommen später.' });
+  if (ws.length === 0) {}
+  else if (ws.length <= 12) checks.push({ s: 'ok', en: `Short first sentence, ${ws.length} words.`, de: 'Kurz und klar. Details kommen im nächsten Satz.' });
+  else if (ws.length <= 18) checks.push({ s: 'warn', en: `First sentence has ${ws.length} words. A bit long.`, de: 'Lieber teilen: kurzer Satz zuerst, dann die Details.' });
+  else checks.push({ s: 'bad', en: `First sentence has ${ws.length} words. Split it.`, de: 'Zu lang. Mach zwei oder drei kurze Sätze daraus.' });
+
+  if (targetVerb) {
+    if (usesVerb(text, targetVerb)) checks.push({ s: 'ok', en: `You used "${VERB[targetVerb].verb}".`, de: 'Zielverb benutzt.' });
+    else checks.push({ s: 'warn', en: `Try to use "${VERB[targetVerb].verb}".`, de: `Zielverb: ${VERB[targetVerb].verb} (${VERB[targetVerb].de}).` });
+  }
+  const good = vi >= 0 && vi <= 2 && !checks.some(c => c.s === 'bad');
+  return { first, ws, vi, checks, good, html: highlight(first, vi, atEnd || vi > 3) };
+}
+function analyzeDetails(text) {
+  const sents = splitSentences(text);
+  const rows = sents.map(s => { const ws = words(s); const atEnd = verbAtEnd(ws); const vi = atEnd ? ws.length - 1 : findVerb(ws); return { s, vi, atEnd, html: highlight(s, vi, atEnd || vi > 4), n: ws.length }; });
+  const checks = [];
+  if (!sents.length) checks.push({ s: 'bad', en: 'Add one or two sentences.', de: 'Ergänze ein bis zwei Sätze.' });
+  else if (sents.length <= 3) checks.push({ s: 'ok', en: `${sents.length} detail sentence${sents.length > 1 ? 's' : ''}.`, de: 'Gut: Details in eigenen, kurzen Sätzen.' });
+  else checks.push({ s: 'warn', en: `${sents.length} sentences. Keep it to two or three.`, de: 'Weniger ist mehr. Zwei bis drei Sätze reichen.' });
+  const late = rows.filter(r => r.vi > 4 || r.atEnd);
+  if (sents.length) {
+    if (!late.length) checks.push({ s: 'ok', en: 'Every sentence has its verb early.', de: 'Jeder Satz startet mit Subjekt und Verb.' });
+    else checks.push({ s: 'warn', en: `${late.length} sentence${late.length > 1 ? 's have' : ' has'} the verb late.`, de: 'Auch in den Detail-Sätzen: Verb nach vorne.' });
+  }
+  if (/\d|percent|because|so we|next|tomorrow|today|tonight|noon|monday|tuesday|wednesday|thursday|friday|week|month|quarter|budget|i'll|we'll|let's|please|then|plan|soon|asap|deadline|every|each|more|less|without|before|after|until|on time|daily|but |so |since|\b(one|two|three|four|five|six|seven|eight|nine|ten|twenty|fifty|hundred)\b/i.test(text)) checks.push({ s: 'ok', en: 'You added a real detail: a number, a reason or a next step.', de: 'Konkretes Detail gefunden.' });
+  else if (sents.length) checks.push({ s: 'warn', en: 'Add a number, a reason (because…) or a next step.', de: 'Was macht es konkret? Zahl, Grund oder nächster Schritt.' });
+  return { rows, checks, good: sents.length > 0 && !late.length };
+}
+function checksHtml(checks) {
+  const icon = { ok: '✓', warn: '!', bad: '×' };
+  return checks.map(c => `<div class="check ${c.s}"><b aria-hidden="true">${icon[c.s]}</b><div><span>${esc(c.en)}</span><span class="de">${esc(c.de)}</span></div></div>`).join('');
+}
+
+/* ---------- session ---------- */
+function pickVerbs() {
+  const t = today();
+  const due = VERBS.filter(v => state.verbs[v.id] && state.verbs[v.id].due <= t).sort((a, b) => state.verbs[a.id].due.localeCompare(state.verbs[b.id].due));
+  const fresh = VERBS.filter(v => !state.verbs[v.id]);
+  const pick = due.slice(0, 3);
+  for (const v of fresh) { if (pick.length >= 3) break; pick.push(v); }
+  for (const v of due.slice(pick.length)) { if (pick.length >= 3) break; if (!pick.includes(v)) pick.push(v); }
+  if (pick.length < 3) {
+    const rest = shuffle(VERBS.filter(v => !pick.includes(v)));
+    while (pick.length < 3) pick.push(rest.pop());
+  }
+  return pick.map(v => v.id);
+}
+function pickSituation(ids) {
+  const recent = new Set(state.recentSits || []);
+  let c = SITS.filter(s => ids.includes(s.verb) && !recent.has(s.id));
+  if (!c.length) c = SITS.filter(s => ids.includes(s.verb));
+  if (!c.length) c = SITS.filter(s => !recent.has(s.id));
+  if (!c.length) c = SITS;
+  return c[Math.floor(Math.random() * c.length)];
+}
+function startSession() {
+  const ids = pickVerbs();
+  session = {
+    ids, step: 1, situation: pickSituation(ids),
+    build: { i: 0, placed: [], pool: [], checked: null },
+    results: {}, buildOk: {}, sayOk: null,
+    first: null, firstText: '', details: null, detailsText: '', coach: null
+  };
+  setupBuild();
+  view = 'session';
+  render(true);
+}
+function setupBuild() {
+  const v = VERB[session.ids[session.build.i]];
+  const cs = chunks(v);
+  let pool = shuffle(cs.map((t, i) => ({ t, i })));
+  if (pool.every((c, i) => c.i === i) && pool.length > 1) pool = pool.reverse();
+  session.build.pool = pool; session.build.placed = []; session.build.checked = null;
+}
+function finishSession() {
+  const t = today();
+  for (const id of session.ids) session.results[id] = session.buildOk[id] !== false && (id !== session.situation.verb || session.sayOk !== false);
+  for (const id of session.ids) {
+    const s = state.verbs[id] || { box: 0, due: t, right: 0, wrong: 0 };
+    if (session.results[id]) { s.box = Math.min(s.box + 1, INTERVALS.length - 1); s.right++; }
+    else { s.box = 1; s.wrong++; }
+    s.due = addDays(INTERVALS[s.box]);
+    state.verbs[id] = s;
+  }
+  const st = state.streak;
+  if (st.last !== t) { st.count = st.last === today(-1) ? st.count + 1 : 1; st.last = t; }
+  state.recentSits = [session.situation.id, ...(state.recentSits || [])].slice(0, 20);
+  state.sessions = [...(state.sessions || []), { date: t, verbs: session.ids, ok: session.ids.filter(id => session.results[id]).length }].slice(-60);
+  save();
+  session.done = true;
+  render(true);
+}
+
+/* ---------- views ---------- */
+function stepsBar(n) { return `<div class="steps" aria-label="Step ${n} of 4">${[1, 2, 3, 4].map(i => `<span class="${i <= n ? 'on' : ''}"></span>`).join('')}</div>`; }
+function topBar(n) {
+  return `<div class="top">${n ? stepsBar(n) : '<span></span>'}<div class="row" style="gap:6px"><span class="pill"><i></i>${streakNow()} day${streakNow() === 1 ? '' : 's'}</span>${n ? '<button class="linkbtn" type="button" data-act="quit">Stop</button>' : ''}</div></div>`;
+}
+
+function viewHome() {
+  const s = streakNow();
+  const done = state.streak.last === today();
+  const greet = done
+    ? `<p>Well done! You practised today. Come back tomorrow for new verbs.</p><p class="de">Heute schon geübt. Du kannst trotzdem noch eine Runde machen.</p>`
+    : `<p>Hi! Ready for 10 minutes of English? Today you learn 3 verbs and use them out loud.</p><p class="de">Heute: 3 Verben, dann sprechen. Verb nach vorne, Details danach.</p>`;
+  return `${topBar(0)}
+  <div class="hero">
+    <h1>Verb First</h1>
+    ${coach(greet)}
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>${knownCount()}</strong><span>of 100 verbs known</span></div>
+    <div class="stat"><strong>${dueCount()}</strong><span>to review today</span></div>
+    <div class="stat"><strong>${s}</strong><span>day streak</span></div>
+  </div>
+  <div class="card">
+    <span class="label">Today, about 10 minutes</span>
+    <ol class="plan">
+      <li><span><b>Learn</b> 3 verbs and hear them.</span></li>
+      <li><span><b>Build</b> sentences with the verb first.</span></li>
+      <li><span><b>Say it</b> out loud: one short sentence.</span></li>
+      <li><span><b>Add details</b> and get feedback from the bird coach.</span></li>
+    </ol>
+  </div>
+  <button class="btn" type="button" data-act="start">${done ? 'One more round' : "Start today's session"}</button>`;
+}
+
+function viewLearn() {
+  const cards = session.ids.map(id => {
+    const v = VERB[id];
+    const isReview = !!state.verbs[id];
+    const ws = words(exText(v));
+    const vi = (() => { for (let i = 0; i < ws.length; i++) { if (v.forms.some(f => f.toLowerCase().split(' ')[0] === ws[i].toLowerCase())) return i; } return findVerb(ws); })();
+    return `<div class="card verb pop">
+      <div class="head"><span class="name">${esc(v.verb)}</span><span class="tag ${isReview ? 'review' : ''}">${isReview ? 'review' : 'new'}</span></div>
+      <span class="forms">${esc(v.forms.join(' · '))}</span>
+      <p class="de">${esc(v.de)}</p>
+      <p class="heard">${highlight(exText(v), vi)}</p>
+      <p class="de">${esc(v.exDe)}</p>
+      <div class="row"><button class="iconbtn" type="button" data-say="${esc(v.verb)}">${SPEAKER}Verb</button><button class="iconbtn" type="button" data-say="${esc(exText(v))}">${SPEAKER}Sentence</button></div>
+    </div>`;
+  }).join('');
+  return `${topBar(1)}
+  ${coach(`<p>Here are your 3 verbs. Tap to hear them and say each sentence out loud once.</p><p class="de">Anhören, laut nachsprechen. Achte darauf, wie früh das Verb kommt.</p>`, 'Step 1 · Learn')}
+  ${cards}
+  <button class="btn" type="button" data-act="next">I've got them</button>`;
+}
+
+function viewBuild() {
+  const b = session.build;
+  const v = VERB[session.ids[b.i]];
+  const correct = chunks(v);
+  const placed = b.placed.map((c, k) => `<button class="chunk" type="button" data-unplace="${k}">${esc(c.t)}</button>`).join('');
+  const pool = b.pool.map((c, k) => `<button class="chunk" type="button" data-place="${k}">${esc(c.t)}</button>`).join('');
+  let result = '';
+  if (b.checked === true) result = `<div class="result ok pop">Yes! Verb first, details after.</div>`;
+  if (b.checked === false) result = `<div class="result bad pop">Not quite. The right order is:<br>${esc(correct.join(' '))}</div><p class="de">Erst Subjekt und Verb, dann das Objekt, dann Zeit oder Ort.</p>`;
+  const last = b.i === session.ids.length - 1;
+  return `${topBar(2)}
+  ${coach(`<p>Build the sentence. Start with the block that has the verb.</p><p class="de">${esc(v.exDe)}</p>`, `Step 2 · Build · ${b.i + 1} of ${session.ids.length}`)}
+  <div class="slots" aria-label="Your sentence">${placed || '<span class="soft small" style="padding:8px">Tap the blocks in the right order</span>'}</div>
+  <div class="pool" aria-label="Blocks">${pool}</div>
+  ${result}
+  ${b.checked === null
+    ? `<button class="btn" type="button" data-act="checkbuild" ${b.pool.length ? 'disabled' : ''}>Check</button>`
+    : `<div class="row"><button class="iconbtn" type="button" data-say="${esc(correct.join(' '))}">${SPEAKER}Hear it</button></div><button class="btn" type="button" data-act="nextbuild">${last ? 'Next: say it' : 'Next sentence'}</button>`}`;
+}
+
+function viewSay() {
+  const s = session.situation;
+  const f = session.first;
+  let fb = '';
+  if (f) {
+    fb = `<div class="card pop"><span class="label">I heard</span><p class="heard">${f.html}</p></div>
+      <div class="stack">${checksHtml(f.checks)}</div>
+      <details class="card"><summary><b>Show a model answer</b></summary><p class="heard" style="margin-top:6px">${esc(s.model)}</p><div class="row"><button class="iconbtn" type="button" data-say="${esc(s.model)}">${SPEAKER}Hear it</button></div></details>
+      <div class="row"><button class="btn quiet" type="button" data-act="retry" style="flex:1">Try again</button><button class="btn" type="button" data-act="next" style="flex:1">Add details</button></div>`;
+  }
+  return `${topBar(3)}
+  ${coach(`<p>${esc(s.de)}</p><p class="de">Ein kurzer Satz. Verb in den ersten drei Wörtern. Zielverb: <b>${esc(VERB[s.verb].verb)}</b></p>`, `Step 3 · Say it · ${s.topic}`)}
+  ${f ? fb : `${micBlock('answer1', session.firstText)}<button class="btn" type="button" data-act="checkfirst">Check my sentence</button>`}`;
+}
+
+function viewDetails() {
+  const s = session.situation;
+  const d = session.details;
+  let fb = '';
+  if (d) {
+    fb = `<div class="card pop"><span class="label">Your answer</span><p class="heard">${session.first.html}</p>${d.rows.map(r => `<p class="heard">${r.html}</p>`).join('')}</div>
+      <div class="stack">${checksHtml(d.checks)}</div>
+      <div class="card" id="coachbox">
+        <span class="label">Bird coach</span>
+        <div id="coachout"><p class="soft small">Ask the bird coach for a better version of your whole answer. This uses Claude.</p></div>
+        <button class="btn quiet" type="button" data-act="askcoach" id="askbtn">Ask the bird coach</button>
+      </div>
+      <details class="card"><summary><b>Show model details</b></summary><p class="heard" style="margin-top:6px">${esc(s.model)} ${esc(s.detail)}</p><div class="row"><button class="iconbtn" type="button" data-say="${esc(s.model + ' ' + s.detail)}">${SPEAKER}Hear it</button></div></details>
+      <div class="row"><button class="btn quiet" type="button" data-act="retry" style="flex:1">Try again</button><button class="btn" type="button" data-act="finish" style="flex:1">Finish</button></div>`;
+  }
+  return `${topBar(4)}
+  ${coach(`<p>Nice start: <b>${esc(session.first.first)}</b></p><p>Now add one or two short sentences: a number, a reason, or the next step.</p><p class="de">Jetzt die Details: Zahl, Grund oder nächster Schritt. Jeder Satz wieder mit dem Verb vorne.</p>`, 'Step 4 · Add details')}
+  ${d ? fb : `${micBlock('answer2', session.detailsText)}<button class="btn" type="button" data-act="checkdetails">Check my details</button>`}`;
+}
+
+function viewDone() {
+  const ok = session.ids.filter(id => session.results[id]).length;
+  const list = session.ids.map(id => {
+    const s = state.verbs[id];
+    const when = s.due === today(1) ? 'tomorrow' : `in ${INTERVALS[s.box]} days`;
+    return `<div class="check ${session.results[id] ? 'ok' : 'warn'}"><b aria-hidden="true">${session.results[id] ? '✓' : '!'}</b><div><span><b>${esc(VERB[id].verb)}</b> comes back ${when}.</span></div></div>`;
+  }).join('');
+  return `${topBar(0)}
+  ${coach(`<p>${ok === 3 ? 'Wonderful! All three verbs worked.' : `Good work! ${ok} of 3 verbs went well. The others come back soon.`}</p><p>Your streak: <b>${streakNow()} day${streakNow() === 1 ? '' : 's'}</b>.</p><p class="de">Fertig für heute. Die Verben kommen zur richtigen Zeit wieder.</p>`, 'Done')}
+  <div class="stack">${list}</div>
+  <button class="btn" type="button" data-act="home">Back to today</button>`;
+}
+
+function verbItems() {
+  const q = verbQuery.trim().toLowerCase();
+  const list = VERBS.filter(v => !q || v.verb.toLowerCase().includes(q) || v.de.toLowerCase().includes(q) || v.group.includes(q));
+  return list.map(v => {
+    const st = verbStatus(v.id);
+    const open = openVerb === v.id;
+    return `<div><button class="vitem" type="button" data-verb="${v.id}" aria-expanded="${open}"><span class="dot ${st}" aria-label="${st}"></span><span class="v">${esc(v.verb)}</span><span class="g">${esc(v.de)}</span></button>
+      ${open ? `<div class="vdetail"><span class="soft small">${esc(v.forms.join(' · '))} · ${esc(v.group)}</span><p>${esc(exText(v))}</p><p class="de">${esc(v.exDe)}</p><div class="row"><button class="iconbtn" type="button" data-say="${esc(exText(v))}">${SPEAKER}Hear it</button></div></div>` : ''}</div>`;
+  }).join('') || '<p class="soft">No verb found.</p>';
+}
+function viewVerbs() {
+  return `${topBar(0)}
+  <div class="spread"><h1>100 verbs</h1><span class="pill">${knownCount()} known</span></div>
+  <p class="soft">These verbs cover most of what you say in meetings and client calls. That is your 20 percent.</p>
+  <div class="legend"><span><i class="dot" style="width:10px;height:10px;border-radius:50%;background:var(--line);display:inline-block"></i>new</span><span><i style="width:10px;height:10px;border-radius:50%;background:var(--yellow);display:inline-block"></i>learning</span><span><i style="width:10px;height:10px;border-radius:50%;background:var(--mint-ink);display:inline-block"></i>known</span></div>
+  <label class="label" for="vsearch">Search</label>
+  <input class="search" id="vsearch" type="search" placeholder="e.g. send, schicken, clients" value="${esc(verbQuery)}">
+  <div class="vlist" id="vlist">${verbItems()}</div>`;
+}
+
+function viewRules() {
+  return `${topBar(0)}
+  <h1>The rules</h1>
+  ${coach(`<p>English speakers say the action first. Then they add details in new short sentences.</p><p class="de">Im Deutschen kommt das Verb oft ans Ende. Im Englischen sagst du zuerst, wer was tut.</p>`)}
+  <div class="card vs">
+    <span class="label">German order vs. English order</span>
+    <div class="no">I would like the new numbers for the spring campaign tomorrow with you discuss.</div>
+    <div class="yes">I'd like to discuss the new numbers with you tomorrow.</div>
+    <div class="yes">Let's discuss the spring numbers tomorrow. I have the new data.</div>
+  </div>
+  <div class="card stack">
+    <span class="label">The 3 step answer</span>
+    <p><b>1. Action:</b> We've increased the CTR.</p>
+    <p><b>2. Detail:</b> It went up by 12 percent last week.</p>
+    <p><b>3. Next step:</b> Let's keep this setup in May.</p>
+    <p class="de">Aktion, Detail, nächster Schritt. Drei kurze Sätze sind leichter als ein langer.</p>
+  </div>
+  <h2>5 core patterns</h2>
+  ${PATTERNS.map((p, i) => `<div class="card pattern"><span class="label">Pattern ${i + 1} · ${esc(p.name)}</span><p class="ex">${esc(p.ex)}</p><p class="de">${esc(p.de)}</p><div class="row"><button class="iconbtn" type="button" data-say="${esc(p.ex)}">${SPEAKER}Hear it</button></div></div>`).join('')}`;
+}
+
+function render(scrollTop) {
+  let html;
+  if (view === 'session' && session) {
+    if (session.done) html = viewDone();
+    else html = [null, viewLearn, viewBuild, viewSay, viewDetails][session.step]();
+  } else if (view === 'verbs') html = viewVerbs();
+  else if (view === 'rules') html = viewRules();
+  else { view = 'home'; html = viewHome(); }
+  $('#app').innerHTML = html;
+  $('#tabs').hidden = view === 'session' && !session.done;
+  document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === view ? 'page' : 'false'));
+  if (scrollTop) window.scrollTo(0, 0);
+}
+
+/* ---------- coach (Claude) ---------- */
+async function askCoach() {
+  const out = $('#coachout'), btn = $('#askbtn');
+  let sample = null;
+  try { sample = window.claude && window.claude.use ? await window.claude.use('sample') : null; } catch (e) {}
+  if (!sample) {
+    out.innerHTML = `<p class="soft small">The bird coach only works when you open Verb First through your claude.ai link. The rule checks above still work here.</p>`;
+    btn.hidden = true; return;
+  }
+  btn.disabled = true;
+  out.innerHTML = `<p class="soft"><span class="spinner"></span> The bird is listening…</p>`;
+  const s = session.situation;
+  const prompt = `You are a warm, encouraging English speaking coach for a German native speaker (level A2/B1, aiming for B1 and business English) who works in advertising and retail media.
+The training rule: put the verb very early (within the first three words), then add details in following short sentences.
+
+Situation (German instruction): ${s.de}
+Target verb: ${VERB[s.verb].verb}
+Model answer: ${s.model} ${s.detail}
+
+Learner's answer (it may come from speech recognition, so ignore missing punctuation and small recognition errors):
+First sentence: ${session.firstText}
+Details: ${session.detailsText}
+
+Reply with only a JSON object with these keys:
+"good": one short sentence in simple English about what worked well,
+"fix": one short sentence in simple English with the single most important improvement,
+"better": a natural improved version of the learner's whole answer, at most 3 short sentences, keep the learner's ideas, verb early in every sentence,
+"tipDe": one short tip in German, at most 20 words.
+Do not use em dashes.`;
+  try {
+    const r = await sample.json(prompt, { modelTier: 'default' });
+    out.innerHTML = `<div class="stack">
+      <div class="check ok"><b aria-hidden="true">✓</b><div><span id="c-good"></span></div></div>
+      <div class="check warn"><b aria-hidden="true">!</b><div><span id="c-fix"></span></div></div>
+      <div><span class="label">Say it like this</span><p class="heard" id="c-better"></p></div>
+      <p class="de" id="c-de"></p>
+      <div class="row"><button class="iconbtn" type="button" id="c-say">${SPEAKER}Hear it</button></div></div>`;
+    $('#c-good').textContent = String(r.good || '');
+    $('#c-fix').textContent = String(r.fix || '');
+    $('#c-better').textContent = String(r.better || '');
+    $('#c-de').textContent = String(r.tipDe || '');
+    $('#c-say').dataset.say = String(r.better || '');
+    btn.hidden = true;
+  } catch (e) {
+    btn.disabled = false;
+    if (e && e.code === 'not_granted') { out.innerHTML = `<p class="soft small">The bird coach needs your permission to use Claude. You can allow it in the page permissions.</p>`; btn.hidden = true; }
+    else if (e && e.code === 'rate_limited') out.innerHTML = `<p class="soft small">Too many requests right now. Wait a minute, then tap again.</p>`;
+    else out.innerHTML = `<p class="soft small">The bird coach did not answer. Tap again to retry.</p>`;
+  }
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button');
+  if (!t) return;
+  if (t.dataset.say !== undefined) { say(t.dataset.say); return; }
+  if (t.dataset.tab) { view = t.dataset.tab; openVerb = null; render(true); return; }
+  if (t.dataset.mic) { toggleMic(t.dataset.mic); return; }
+  if (t.dataset.verb) { openVerb = openVerb === t.dataset.verb ? null : t.dataset.verb; $('#vlist').innerHTML = verbItems(); return; }
+  if (t.dataset.place !== undefined) {
+    const b = session.build; if (b.checked !== null) return;
+    b.placed.push(b.pool.splice(+t.dataset.place, 1)[0]); render(); return;
+  }
+  if (t.dataset.unplace !== undefined) {
+    const b = session.build; if (b.checked !== null) return;
+    b.pool.push(b.placed.splice(+t.dataset.unplace, 1)[0]); render(); return;
+  }
+  const act = t.dataset.act;
+  if (!act) return;
+  if (rec) { try { rec.abort(); } catch (err) {} rec = null; }
+  if (act === 'start') startSession();
+  else if (act === 'home' || act === 'quit') { session = null; view = 'home'; render(true); }
+  else if (act === 'next') { session.step++; render(true); }
+  else if (act === 'checkbuild') {
+    const b = session.build;
+    b.checked = b.placed.every((c, i) => c.i === i);
+    session.buildOk[session.ids[b.i]] = b.checked;
+    render();
+  }
+  else if (act === 'nextbuild') {
+    const b = session.build;
+    if (b.i < session.ids.length - 1) { b.i++; setupBuild(); render(true); }
+    else { session.step = 3; render(true); }
+  }
+  else if (act === 'checkfirst') {
+    const text = $('#answer1').value.trim();
+    if (!text) { $('#answer1').focus(); return; }
+    session.firstText = text;
+    session.first = analyzeFirst(text, session.situation.verb);
+    session.sayOk = session.first.good;
+    render();
+  }
+  else if (act === 'retry') {
+    if (session.step === 3) session.first = null; else session.details = null;
+    render();
+  }
+  else if (act === 'checkdetails') {
+    const text = $('#answer2').value.trim();
+    if (!text) { $('#answer2').focus(); return; }
+    session.detailsText = text;
+    session.details = analyzeDetails(text);
+    render();
+  }
+  else if (act === 'askcoach') askCoach();
+  else if (act === 'finish') finishSession();
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'vsearch') {
+    verbQuery = e.target.value;
+    $('#vlist').innerHTML = verbItems();
+  }
+});
+try { window.speechSynthesis && window.speechSynthesis.getVoices(); } catch (e) {}
+render();
+setTimeout(connectCloud, 0);
+</script>
