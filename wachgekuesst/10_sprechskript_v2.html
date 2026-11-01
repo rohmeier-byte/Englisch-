@@ -90,7 +90,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .kurz ul{margin:0;padding-left:1.1em}
 .kurz li{margin:2px 0}
 h3{font-family:var(--font-d);font-weight:400;font-size:1.45rem;line-height:1.2;margin:30px 0 8px;color:var(--fg);text-wrap:balance}
-.sprechen p{margin:0 0 .85em;max-width:65ch}
+.sprechen p,p.sp{margin:0 0 .85em;max-width:65ch}
+.uebung .sagen{font-style:normal}
 .pause{font-size:.85rem;color:var(--muted);font-style:italic;margin:.2em 0 1em;padding-left:1.6em;position:relative}
 .pause::before{content:"⏸";position:absolute;left:0;font-style:normal;color:var(--accent2)}
 .regie{background:var(--regie);color:var(--regie-fg);border-radius:var(--radius);padding:12px 16px;margin:16px 0;font-size:.88rem;line-height:1.55}
@@ -119,7 +120,7 @@ h3{font-family:var(--font-d);font-weight:400;font-size:1.45rem;line-height:1.2;m
 b,strong{font-weight:800}
 
 /* Ansicht nur Übungen */
-body.nur-uebungen .sprechen,body.nur-uebungen h3,body.nur-uebungen .pause,body.nur-uebungen .kernsatz,body.nur-uebungen .uebergang,body.nur-uebungen .regie:not(.uebung .regie){display:none}
+body.nur-uebungen p.sp,body.nur-uebungen .stufe-aha,body.nur-uebungen .sprechen,body.nur-uebungen h3,body.nur-uebungen .pause,body.nur-uebungen .kernsatz,body.nur-uebungen .uebergang,body.nur-uebungen .regie:not(.uebung .regie){display:none}
 body.nur-uebungen .stufe{padding-top:24px}
 .leer{display:none;color:var(--muted);font-style:italic;font-size:.9rem}
 body.nur-uebungen .stufe:not(:has(.uebung)) .leer{display:block}
@@ -171,23 +172,23 @@ body.nur-uebungen .stufe:not(:has(.uebung)) .leer{display:block}
 
   <section class="ablauf" aria-labelledby="ablauf-h">
     <h2 id="ablauf-h">Was die Frauen erleben</h2>
-    <p class="intro">Pro Station das Werkzeug und der Moment, in dem es bei ihnen klick macht.</p>
+    <p class="intro">Pro Thema die Übungen und der Moment, in dem es bei ihnen klick macht.</p>
     <ol class="aha">
-      <li><a href="#start"><span class="wo">Ankommen · Der Wecker</span><span class="werkzeug">Mein lebendiges Bild</span><span class="erkenntnis">Das Lebendige in mir ist noch da. Ich kann es jederzeit wieder rufen.</span></a></li>
-      <li><a href="#s1"><span class="wo">Stufe 1 · Das Meeting</span><span class="werkzeug">Stimmt das überhaupt? · Länger aus als ein</span><span class="erkenntnis">Mein schnelles Ja kam vom Autopiloten. Mein alter Satz ist keine Wahrheit, und mit dem Atem beruhige ich mein Nervensystem selbst.</span></a></li>
-      <li><a href="#s2"><span class="wo">Stufe 2 · Die Mittagspause</span><span class="werkzeug">Kaffeeduft · Ich bin ein Wunder</span><span class="erkenntnis">Ein einziger Gedanke, und mein Körper reagiert. Ich bin dieses Wunder, auch an schweren Tagen.</span></a></li>
-      <li><a href="#s3"><span class="wo">Stufe 3 · Rote Ampel</span><span class="werkzeug">Kurz nachspüren</span><span class="erkenntnis">Frequenz heißt mein innerer Zustand. Und den kann ich bei mir selbst bemerken.</span></a></li>
-      <li><a href="#s4"><span class="wo">Stufe 4 · Kasse und Küche</span><span class="werkzeug">Meinen Zustand wählen, vorher und nachher</span><span class="erkenntnis">Eine Minute Haltung und Atem, und ich merke, wie sich meine Stimmung bewegt. Ich kann sie selbst setzen.</span></a></li>
-      <li><a href="#s5"><span class="wo">Stufe 5 · Das Telefonat</span><span class="werkzeug">Zwei Spielregeln des Lebens</span><span class="erkenntnis">Mit welcher Erwartung ich in ein Gespräch gehe, prägt, was zurückkommt. Auch mein kleinster Schritt hat eine Wirkung.</span></a></li>
-      <li><a href="#s6"><span class="wo">Stufe 6 · Auf dem Sofa</span><span class="werkzeug">Die Zitrone · Mein Zukunftsbild · Mein Schritt für 48 Stunden</span><span class="erkenntnis">Mein Körper glaubt meinen Bildern. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt. Meinen habe ich schon aufgeschrieben.</span></a></li>
-      <li><a href="#s7"><span class="wo">Stufe 7 · Derselbe Wecker</span><span class="werkzeug">Der Kuss · noch einmal die Skala</span><span class="erkenntnis">Ich kann mich selbst in diesen Zustand bringen. Den Kuss habe ich mir selbst gegeben.</span></a></li>
-      <li><a href="#ausklang"><span class="wo">Ausklang · Beim Tee</span><span class="werkzeug">Mein Morgenritual</span><span class="erkenntnis">Ich weiß, wie ich mir dieses Gefühl jeden Morgen in zwei Minuten zurückhole.</span></a></li>
+      <li><a href="#start"><span class="wo">Ankommen · Das Lebendige in dir</span><span class="werkzeug">Mein lebendiges Bild</span><span class="erkenntnis">Das Lebendige in mir ist noch da, und ich kann es jederzeit wieder rufen.</span></a></li>
+      <li><a href="#s1"><span class="wo">Stufe 1 · Nervensystem und Glaubenssätze</span><span class="werkzeug">Stimmt das überhaupt? · Länger aus als ein</span><span class="erkenntnis">Mein schnelles Ja kam vom Autopiloten. Mein alter Satz ist keine Wahrheit, und mit dem Atem beruhige ich mein Nervensystem selbst.</span></a></li>
+      <li><a href="#s2"><span class="wo">Stufe 2 · Der geniale Körper</span><span class="werkzeug">Kaffeeduft am Sonntagmorgen · Ich bin ein Wunder</span><span class="erkenntnis">Ein einziger Gedanke, und mein Körper reagiert. Ich bin dieses Wunder, auch an schweren Tagen.</span></a></li>
+      <li><a href="#s3"><span class="wo">Stufe 3 · Energie, Frequenz und Intuition</span><span class="werkzeug">Gespräch und Nachspüren</span><span class="erkenntnis">Frequenz heißt mein innerer Zustand. Und den kann ich bei mir selbst bemerken.</span></a></li>
+      <li><a href="#s4"><span class="wo">Stufe 4 · Resonanz: Wie dein Zustand auf andere wirkt</span><span class="werkzeug">Meinen Zustand wählen</span><span class="erkenntnis">Eine Minute Haltung und Atem, und ich merke, wie sich meine Stimmung bewegt. Ich kann sie selbst setzen.</span></a></li>
+      <li><a href="#s5"><span class="wo">Stufe 5 · Geistige Gesetze: Die Spielregeln des Lebens</span><span class="werkzeug">Gespräch und Nachspüren</span><span class="erkenntnis">Mit welcher Erwartung ich in ein Gespräch gehe, prägt, was zurückkommt. Auch mein kleinster Schritt hat eine Wirkung.</span></a></li>
+      <li><a href="#s6"><span class="wo">Stufe 6 · Manifestation und Vision</span><span class="werkzeug">Die Zitrone · Mein Zukunftsbild mit allen Sinnen · Mein Schritt für 48 Stunden</span><span class="erkenntnis">Mein Körper glaubt meinen Bildern. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt.</span></a></li>
+      <li><a href="#s7"><span class="wo">Stufe 7 · Selbstermächtigung: Sich selbst wachküssen</span><span class="werkzeug">Der Kuss</span><span class="erkenntnis">Ich kann mich selbst in diesen Zustand bringen. Den Kuss habe ich mir selbst gegeben.</span></a></li>
+      <li><a href="#ausklang"><span class="wo">Ausklang · Morgenritual und wie es weitergeht</span><span class="werkzeug">Mein Morgenritual</span><span class="erkenntnis">Ich weiß, wie ich mir dieses Gefühl jeden Morgen in zwei Minuten zurückhole.</span></a></li>
     </ol>
   </section>
 
   <aside class="regie">
     <p class="regie-titel">Vorab für dich</p>
-    <p>Diese Version kürzt deinen Sprechtext auf das Wesentliche. Pro Station gibt es eine kurze Szene von Susi, zwei oder drei Sätze Erklärung und dann sofort die Übung. Die Frauen erleben die Aussage selbst in der Übung. Die gewonnene Zeit gehört den Übungen und den Stimmen der Frauen.</p>
+    <p>Diese Version kürzt deinen Sprechtext auf das Wesentliche. Jede Stufe trägt ihr Thema als Überschrift. Susis Szene steht darunter als roter Faden. Der Text ist ausformuliert, damit du ihn so vorlesen kannst. Gestrichen sind nur Wiederholungen und Füllsätze, alle Inhalte sind drin.</p>
     <p>Der Ablauf bleibt wie in der Kompaktfassung: 105 Minuten Programm, 15 Minuten Puffer. Jede Frau hat nur ihr leeres Notizbuch mit Logo. Die Satzanfänge unter „Ins Notizbuch“ sagst du langsam an, gern zweimal. Den Flyer gibt es erst zum Abschied.</p>
     <p>Eine Faustregel für den Abend: Wenn du merkst, dass du länger als eine Minute am Stück redest, stell eine Frage oder geh in die Übung.</p>
   </aside>
@@ -195,164 +196,104 @@ body.nur-uebungen .stufe:not(:has(.uebung)) .leer{display:block}
 <section class="stufe" id="start">
   <header class="stufe-kopf">
     <p class="stufe-nr">Ankommen</p>
-    <h2>Der Wecker</h2>
-    <p class="stufe-unter">Begrüßung, Susi und das lebendige Bild</p>
+    <h2>Das Lebendige in dir</h2>
+    <p class="stufe-unter">Susis Dienstag beginnt: 06:12 Uhr, der Wecker</p>
     <p class="zeit">00:00 bis 00:12 · 12 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Das Lebendige in mir ist noch da.</p>
-
+  <p class="stufe-aha"><b>Erkenntnis:</b> Das Lebendige in mir ist noch da, und ich kann es jederzeit wieder rufen.</p>
   <h3>Willkommen</h3>
-  <div class="sprechen">
-    <p>Schön, dass du da bist. Ich bin Nicole.</p>
-    <p>Heute musst du nichts leisten. Du darfst dich an etwas erinnern, das in dir lebendig ist.</p>
-    <p>Heute spürst du, was hinter Nervensystem, Frequenz, Vision und Manifestation steckt und wie viel davon du selbst steuerst.</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Den Satz mit den großen Wörtern sagst du wörtlich und langsam. Danach kurz die Spielregeln: Alles ist freiwillig, Augen offen lassen ist erlaubt, was hier erzählt wird, bleibt hier.</p>
-    <p><span class="platzhalter">Wenn du magst, ein Satz aus deinem Leben: der Moment, in dem du gemerkt hast, dass du nur noch funktionierst.</span></p>
+  <p class="sp">Schön, dass du da bist. Ich bin Nicole, und ich freu mich wirklich, dass ihr heute alle hier sitzt.</p>
+  <p class="sp">Heute musst du nichts leisten. Keine neue Liste, keine Hausaufgabe. Davon haben wir im Alltag genug. Du darfst dich heute an etwas erinnern, das in dir lebendig ist.</p>
+  <p class="sp">Überall hören wir gerade Wörter wie Nervensystem, Frequenz, Vision und Manifestation. Heute spürst du, was hinter diesen Wörtern steckt und wie viel davon du selbst steuerst. Wir machen das ganz praktisch, mit kleinen Experimenten, bei denen du es selbst merkst.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Den Satz mit den großen Wörtern langsam und wörtlich sagen. Danach die Spielregeln: Alles ist freiwillig, Augen offen lassen ist immer erlaubt, und was hier erzählt wird, bleibt hier.</p><p><span class="platzhalter">Wenn du magst, zwei Sätze aus deinem eigenen Leben, etwa der Moment, in dem du gemerkt hast, dass du nur noch funktionierst.</span></p></aside>
+  <h3>Susi, eine von uns</h3>
+  <p class="sp">Ich nehme dich heute mit durch einen ganz normalen Dienstag von Susi. Susi ist Mitte vierzig, arbeitet im Büro, hat eine Tochter in der Pubertät und eine Mutter, die gern dann anruft, wenn man gerade im Mantel steht. Susi gibt es nicht, und es gibt sie tausendfach.</p>
+  <p class="sp">06:12 Uhr. Der Wecker klingelt. Susi greift zum Handy, bevor sie die Augen richtig offen hat. Vierzehn Nachrichten. Einen Atemzug für sich selbst hatte sie noch nicht.</p>
+  <p class="sp">Später im Bad läuft ein Lied im Radio, und plötzlich ist sie siebzehn. Sie sitzt im Auto ihrer besten Freundin, die Fenster sind unten, der Wind zerrt an den Haaren, und beide singen so laut und so falsch, dass es ihnen völlig egal ist. Susi spürt das Kribbeln im Bauch. Zwei Sekunden lang. Dann ruft ihre Tochter: „Mama, wo sind meine Sportsachen?“ Und das Gefühl ist weg.</p>
+  <p class="pause">Pause. Lass das Bild im Raum stehen.</p>
+  <p class="sp">Kennst du das? So ein Moment, in dem etwas Lebendiges in dir aufblitzt und gleich wieder untergeht. Genau darum geht es heute. Wir gehen Schritt für Schritt durch Susis Tag und schauen, warum wir so oft im Funktionieren hängen bleiben. Und am Ende spürst du: Ich kann mein Leben selbst gestalten. Fangen wir mit deinem eigenen lebendigen Moment an.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 1 · 5 Minuten</p><h4>Mein lebendiges Bild</h4>
+  <p class="sagen">Setz dich bequem hin. Wenn du magst, leg eine Hand auf deine Brust. Atme einmal tief ein und lang wieder aus. Noch einmal.</p>
+  <p class="sagen">Und jetzt such dir ein Bild, in dem du dich richtig lebendig gefühlt hast. Das kann mit siebzehn gewesen sein, mit vierzig oder letzten Sommer. Wo bist du? Was hörst du, vielleicht Lachen, vielleicht Wind? Wonach riecht es? Und was spürst du in deinem Körper?</p>
+  <p class="sagen">Bleib einen Moment dort.</p>
+  <p class="pause">Pause, etwa zwanzig Sekunden.</p>
+  <p class="sagen">Und jetzt schreib es auf. Ich sag dir den Satzanfang. Zum Schluss noch eine Zahl: Wie lebendig fühlst du dich im Alltag gerade, auf einer Skala von 1 bis 10? Diese Zahl brauchen wir am Ende noch einmal.</p>
+  <p class="heft">Ins Notizbuch: „Mein lebendiges Bild: Ich bin ... und es riecht nach ... Ich fühle ... in meinem Körper. So lebendig fühle ich mich im Alltag gerade: ...“</p>
+  <p class="ausstieg">Wer keine Erinnerung findet, darf sich ein Bild ausdenken oder einfach zuschauen. Augen offen lassen ist in Ordnung.</p>
   </aside>
-
-  <h3>06:12 Uhr. Der Wecker.</h3>
-  <div class="sprechen">
-    <p>Ich erzähl dir heute von Susi. Mitte vierzig, Job, eine Tochter in der Pubertät, eine Mutter, die gern anruft. Susi gibt es nicht, und es gibt sie tausendfach.</p>
-    <p>06:12 Uhr. Der Wecker. Vierzehn Nachrichten, bevor sie die Augen richtig offen hat. Im Bad läuft ein Lied im Radio, und für zwei Sekunden ist sie siebzehn: Autofenster unten, Wind in den Haaren, lautes, falsches Singen. Dann ruft die Tochter nach den Sportsachen. Weg ist das Gefühl.</p>
-  </div>
-  <p class="pause">Pause. Lass das Bild stehen.</p>
-  <div class="sprechen">
-    <p>So einen Moment holen wir uns jetzt für dich.</p>
-  </div>
-  <aside class="uebung" id="u1">
-    <p class="uebung-label">Übung 1 · 5 Minuten</p>
-    <h4>Mein lebendiges Bild</h4>
-    <ol class="schritte">
-      <li>Alle sitzen bequem, eine Hand auf der Brust, drei ruhige Atemzüge.</li>
-      <li>Du führst mit vier Sinnesfragen durch ein Bild, in dem sie sich lebendig gefühlt haben.</li>
-      <li>Alle schreiben den Satzanfang zu Ende und tragen eine Zahl von 1 bis 10 ein. Die Zahl kommt am Ende wieder.</li>
-    </ol>
-    <p class="sagen">„Such dir ein Bild, in dem du dich lebendig gefühlt hast. Mit siebzehn, mit vierzig oder letzten Sommer. Wo bist du? Was hörst du? Wonach riecht es? Was spürst du im Körper? Bleib kurz dort. Dann schreib es auf. Und zum Schluss eine Zahl: Wie lebendig fühlst du dich im Alltag gerade, von 1 bis 10?“</p>
-    <p class="heft">Ins Notizbuch: „Mein lebendiges Bild: Ich bin ... und es riecht nach ... Ich fühle ... So lebendig fühle ich mich im Alltag gerade: ...“</p>
-    <p class="ausstieg">Wer keine Erinnerung findet, erfindet ein Bild oder schaut einfach zu.</p>
-  </aside>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Ausdrücklich jedes Alter erlauben. Frühe Jahre sind nicht für jede Frau ein guter Ort.</p>
-  </aside>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Ausdrücklich jedes Alter erlauben. Frühe Jahre sind nicht für jede Frau ein guter Ort.</p></aside>
+  <p class="sp">Dein Bild nimmst du mit durch den Nachmittag. Ganz am Ende holen wir es zurück.</p>
   <p class="kernsatz">Das Lebendige in dir wartet auf dich.</p>
-  <div class="uebergang">
-    <p class="uebergang-titel">Überleitung</p>
-    <p>09:30 Uhr. Susi sitzt im Meeting.</p>
-  </div>
 </section>
 
 <section class="stufe" id="s1">
   <header class="stufe-kopf">
     <p class="stufe-nr">Stufe 1</p>
-    <h2>Das Meeting</h2>
-    <p class="stufe-unter">Autopilot, Nervensystem und alte Sätze</p>
+    <h2>Nervensystem und Glaubenssätze</h2>
+    <p class="stufe-unter">Susi im Meeting, 09:30 Uhr</p>
     <p class="zeit">00:12 bis 00:25 · 13 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Mein alter Satz ist keine Wahrheit, und mein Atem beruhigt mein Nervensystem.</p>
-
-  <h3>09:30 Uhr. Das Meeting.</h3>
-  <div class="sprechen">
-    <p>Die Chefin sagt einen Satz: „Das müssen wir bis Freitag klären.“ Susis Bauch zieht sich zusammen, und sie hört sich sagen: „Klar, mach ich.“ Ihr Kalender ist längst voll.</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Mein schnelles Ja kam vom Autopiloten. Mein alter Satz ist keine Wahrheit, und mit dem Atem beruhige ich mein Nervensystem selbst.</p>
+  <h3>Der Autopilot</h3>
+  <p class="sp">09:30 Uhr. Susi sitzt im Meeting. Der Kaffee im Pappbecher ist schon lauwarm. Die Chefin schaut kurz auf und sagt einen einzigen Satz: „Das müssen wir bis Freitag klären.“ Susis Bauch zieht sich zusammen, der Atem wird flach, und noch bevor sie nachgedacht hat, hört sie sich sagen: „Klar, mach ich.“ Dabei ist ihr Kalender bis Freitag voll. Draußen vor der Tür fragt sie sich: Warum habe ich das schon wieder gesagt?</p>
   <p class="pause">Pause. Kurz schmunzeln lassen.</p>
-
-  <h3>Das Bachbett</h3>
-  <div class="sprechen">
-    <p>Das war ihr Autopilot, gesteuert vom Nervensystem. Wasser fließt immer wieder durch dasselbe Bachbett, bis es ganz von allein dort langläuft. Genauso hat Susis Körper gelernt, bei Druck Alarm zu schlagen. Er ist schneller als ihr Kopf. Das ist ganz normale Biologie.</p>
-    <p>Aus solchen Bachbetten werden Sätze, die wir für wahr halten. Schauen wir uns deinen an.</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Alltagsbild zum Verstehen, keine Diagnose. Bei sehr starken Reaktionen kurz würdigen und freundlich auf therapeutische Begleitung verweisen.</p>
+  <h3>Wie das Nervensystem lernt</h3>
+  <p class="sp">Stell dir einen kleinen Bach vor. Das Wasser fließt den Hang hinunter, und je öfter es an derselben Stelle entlangfließt, desto tiefer gräbt es sich ein. Irgendwann fließt es immer dort. Ganz automatisch.</p>
+  <p class="sp">Genauso entstehen unsere inneren Programme. „Mach es allen recht.“ „Bloß keinen Fehler machen.“ „Reiß dich zusammen.“ Und diese Programme sitzen auch im Körper. Dein Nervensystem will dich schützen. Wenn es oft genug Alarm geschlagen hat, kann es kaum noch unterscheiden zwischen echter Gefahr und einer etwas knappen Mail vom Chef. Dann ist dein Körper schneller als dein Kopf. Das ist ganz normale Biologie, und es ist auch kein Fehler von dir.</p>
+  <h3>Glaubenssätze</h3>
+  <p class="sp">Aus diesen Programmen werden Sätze, die den ganzen Tag im Hintergrund laufen, wie die leise Musik im Supermarkt. Wir halten sie für die Wahrheit, weil wir sie schon so lange hören. Solche Sätze nennt man Glaubenssätze. Ich stell dir jetzt eine Frage, die schon vielen Frauen geholfen hat.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Alltagsbild zum Verstehen, du stellst keine Diagnosen. Wenn jemand von sehr starken Reaktionen erzählt, würdige das kurz und verweise freundlich auf therapeutische Begleitung.</p><p><span class="platzhalter">Wenn es stimmt, ein Satz, wobei dir diese Frage selbst geholfen hat.</span></p></aside>
+  <aside class="uebung"><p class="uebung-label">Übung 2 · 5 Minuten</p><h4>Stimmt das überhaupt?</h4>
+  <p class="sagen">Hör gut hin. Ich lese dir ein paar Sätze vor.</p>
+  <p class="sagen">Ich muss immer stark sein. Ich darf niemanden enttäuschen. Ich bin erst gut, wenn alles erledigt ist. Ich bin zu viel. Ich bin nicht genug.</p>
+  <p class="sagen">Schreib den Satz auf, der dir am bekanntesten vorkommt. Es darf auch ein ganz eigener sein. Und dann stell diesem Satz drei Fragen. Stimmt das überhaupt? Von wem habe ich ihn gelernt? Und welcher Satz würde heute besser zu mir passen?</p>
+  <p class="heft">Ins Notizbuch: „Mein Satz lautet: ... Stimmt das überhaupt? ... Ein Satz, der mir heute besser dient: ...“</p>
+  <p class="ausstieg">Wenn es zu viel wird, nimm einen leichteren Satz oder leg den Stift ab und atme einfach.</p>
   </aside>
-  <aside class="uebung" id="u2">
-    <p class="uebung-label">Übung 2 · 5 Minuten</p>
-    <h4>Stimmt das überhaupt?</h4>
-    <ol class="schritte">
-      <li>Die Sätze langsam vorlesen.</li>
-      <li>Die Frauen schreiben einen Satz auf, den sie gut kennen, gern auch einen eigenen.</li>
-      <li>Sie fragen ihn: Stimmt das überhaupt? Und finden einen Satz, der heute besser passt.</li>
-    </ol>
-    <p class="sagen">„Ich muss immer stark sein. Ich darf niemanden enttäuschen. Ich bin erst gut, wenn alles erledigt ist. Ich bin zu viel. Ich bin nicht genug. Schreib den Satz auf, den du am besten kennst. Und frag ihn: Stimmt das überhaupt? Von wem habe ich ihn gelernt? Welcher Satz passt heute besser zu mir?“</p>
-    <p class="heft">Ins Notizbuch: „Mein Satz lautet: ... Stimmt das überhaupt? ... Ein Satz, der mir heute besser dient: ...“</p>
-    <p class="ausstieg">Wird es zu viel, wählt sie einen leichteren Satz oder legt den Stift ab.</p>
-  </aside>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Ziel ist die kleine Lücke zwischen Satz und Wahrheit, keine Therapie. Wer weint, bekommt ein Taschentuch und in der Pause einen Moment mit dir.</p>
-    <p><span class="platzhalter">Wenn es stimmt: ein Satz, wobei dir diese Frage selbst geholfen hat.</span></p>
-  </aside>
-  <div class="sprechen">
-    <p>Das Bachbett kann sich neu graben, in jedem Alter. Und wenn sich dein Körper dabei meldet, hilft dir das hier.</p>
-  </div>
-  <aside class="uebung" id="u3">
-    <p class="uebung-label">Übung 3 · 2 Minuten</p>
-    <h4>Länger aus als ein</h4>
-    <ol class="schritte">
-      <li>Du zählst laut mit: ein auf vier, aus auf sechs.</li>
-      <li>Vier Runden, dann kurz nachspüren: Kiefer, Schultern, Bauch.</li>
-    </ol>
-    <p class="sagen">„Ein, zwei, drei, vier. Und langsam aus, eins, zwei, drei, vier, fünf, sechs. Das lange Ausatmen sagt deinem Körper: Hier ist es sicher.“</p>
-    <p class="ausstieg">Wem schwindelig wird, atmet im eigenen Tempo.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Ziel ist die kleine Lücke zwischen Satz und Wahrheit, hier findet keine Therapie statt. Wer weint, bekommt ein Taschentuch und in der Pause einen Moment unter vier Augen.</p></aside>
+  <p class="sp">Und jetzt das Schöne: Dein Gehirn kann sich umbauen, ein Leben lang. Der Bach kann sich ein neues Bett graben. Du bist nie zu alt dafür.</p>
+  <p class="sp">Wenn man an alte Sätze rührt, meldet sich manchmal das Nervensystem. Dafür bekommst du jetzt ein Werkzeug, das du heute noch öfter brauchst.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 3 · 2 Minuten</p><h4>Länger aus als ein</h4>
+  <p class="sagen">Atme durch die Nase ein, eins, zwei, drei, vier. Und lass die Luft ganz langsam raus, eins, zwei, drei, vier, fünf, sechs. Das Ausatmen darf länger sein als das Einatmen. So bekommt dein Körper das Signal: Hier ist es sicher.</p>
+  <p class="pause">Vier Runden laut mitzählen.</p>
+  <p class="sagen">Spür kurz nach. Wie fühlen sich dein Kiefer, deine Schultern, dein Bauch jetzt an?</p>
+  <p class="ausstieg">Wem schwindelig wird, atmet einfach im eigenen Tempo.</p>
   </aside>
   <p class="kernsatz">Ein Satz, den du tausendmal gehört hast, ist noch lange keine Wahrheit.</p>
-  <div class="uebergang">
-    <p class="uebergang-titel">Überleitung</p>
-    <p>Wer hält Susi an so einem Tag eigentlich am Laufen? Ihr Körper.</p>
-  </div>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Wer schlägt da eigentlich die ganze Zeit Alarm und hält uns selbst an einem chaotischen Dienstag am Laufen? Unser Körper. Und dem schenken wir viel zu wenig Aufmerksamkeit.</p></div>
 </section>
 
 <section class="stufe" id="s2">
   <header class="stufe-kopf">
     <p class="stufe-nr">Stufe 2</p>
-    <h2>Die Mittagspause</h2>
-    <p class="stufe-unter">Dein Körper als Wunder</p>
+    <h2>Der geniale Körper</h2>
+    <p class="stufe-unter">Susis Mittagspause, 12:40 Uhr</p>
     <p class="zeit">00:25 bis 00:38 · 13 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Ein Gedanke reicht, und mein Körper reagiert. Ich bin ein Wunder.</p>
-
-  <h3>12:40 Uhr. Die Mittagspause.</h3>
-  <div class="sprechen">
-    <p>Susi schneidet sich am Kopierer in den Finger. Auf der Toilette ärgert sie sich im Spiegel über ihren Bauch. Und währenddessen schließt ihr Körper schon die Wunde. Ohne dass sie ihn darum gebeten hat.</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ein einziger Gedanke, und mein Körper reagiert. Ich bin dieses Wunder, auch an schweren Tagen.</p>
+  <h3>Was dein Körper jede Sekunde leistet</h3>
+  <p class="sp">12:40 Uhr. Susi reißt am Kopierer einen Stapel Papier aus dem Fach und schneidet sich dabei in den Finger. Auf der Toilette lässt sie Wasser darüberlaufen. Im Spiegel bleibt ihr Blick am Bauch hängen. Zu rund, findet sie, schon wieder.</p>
+  <p class="sp">Dabei schließt ihr Körper in genau diesem Moment die kleine Wunde. Er hat sofort angefangen, ohne dass Susi ihm einen Auftrag gegeben hat.</p>
   <p class="pause">Pause.</p>
-  <div class="sprechen">
-    <p>Forscher schätzen, dass dein Körper aus rund 37 Billionen Zellen besteht. Jede davon arbeitet gerade für dich. Und ein einziger Gedanke reicht, damit dein Körper reagiert. Probier es aus.</p>
-  </div>
-  <aside class="uebung" id="u4">
-    <p class="uebung-label">Übung 4 · 2 Minuten</p>
-    <h4>Kaffeeduft am Sonntagmorgen</h4>
-    <ol class="schritte">
-      <li>Augen zu oder auf einen Punkt schauen.</li>
-      <li>Langsam durch die Szene führen, danach fragen: Wer hat etwas gemerkt?</li>
-    </ol>
-    <p class="sagen">„Sonntagmorgen. Du stehst barfuß in der Küche, alle schlafen noch. Die Maschine gurgelt, und dann kommt er, dieser Duft von frischem Kaffee. Die warme Tasse in beiden Händen. Merkst du, was in deinem Körper passiert? Dabei ist da gar keine Tasse.“</p>
-    <p class="heft">Ins Notizbuch: „Als ich an den Kaffeeduft gedacht habe, hat mein Körper ...“</p>
-    <p class="ausstieg">Wer Kaffee nicht mag, nimmt Tee, frisches Brot oder Regen.</p>
+  <p class="sp">So geht es uns allen. Wir schauen in den Spiegel und sehen zuerst, was nicht passt. Und was unser Körper in diesem Augenblick leistet, bemerken wir gar nicht.</p>
+  <p class="sp">Du atmest. Dein Herz schlägt. Du hörst meine Stimme, und dein Gehirn macht aus Schallwellen Wörter und aus Wörtern Bedeutung, in Millisekunden. Forscher schätzen, dass dein Körper aus etwa 37 Billionen Zellen besteht, und jede einzelne arbeitet gerade. Ganz ohne Chef und ohne Liste.</p>
+  <p class="sp">Und dein Körper hört auf deine Gedanken. Du kannst dich in eine Stimmung versetzen, nur indem du dir etwas vorstellst. Probier es aus.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 4 · 2 Minuten</p><h4>Kaffeeduft am Sonntagmorgen</h4>
+  <p class="sagen">Schließ die Augen, wenn du magst, oder schau auf einen Punkt.</p>
+  <p class="sagen">Stell dir vor, es ist Sonntagmorgen. Du stehst barfuß in der Küche, und noch ist niemand wach. Die Maschine gurgelt. Und dann steigt er auf, dieser Duft von frischem Kaffee. Du hältst die Tasse in beiden Händen und spürst die Wärme an den Fingern.</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Merkst du, was in deinem Körper passiert? Da ist keine Tasse. Und trotzdem reagiert dein Körper. Wer hat etwas gemerkt?</p>
+  <p class="heft">Ins Notizbuch: „Als ich an den Kaffeeduft gedacht habe, hat mein Körper ...“</p>
+  <p class="ausstieg">Wer Kaffee nicht mag, nimmt frisches Brot, Tee oder Sommerregen.</p>
   </aside>
-  <div class="sprechen">
-    <p>Wenn schon der Gedanke an Kaffee so viel auslöst, hat dein Körper deine Freundlichkeit verdient.</p>
-  </div>
-  <aside class="uebung" id="u5">
-    <p class="uebung-label">Übung 5 · 4 Minuten</p>
-    <h4>Ich bin ein Wunder</h4>
-    <ol class="schritte">
-      <li>Eine Hand aufs Herz, mit zwei Fingern der anderen Hand den Puls suchen.</li>
-      <li>Drei Dinge aufschreiben, die der Körper heute schon geleistet hat.</li>
-      <li>Leise sagen: „Ich bin ein Wunder.“</li>
-    </ol>
-    <p class="sagen">„Leg eine Hand aufs Herz. Es hat seit deiner Geburt keinen Tag Pause gemacht. Such deinen Puls. Da ist er. Was hat dein Körper heute schon für dich getan? Schreib drei Dinge auf. Und dann sag leise: Ich bin ein Wunder.“</p>
-    <p class="heft">Ins Notizbuch: „Heute hat mein Körper schon ... Und ... Und ... Ich bin ein Wunder, weil ...“</p>
-    <p class="ausstieg">Wem der Satz noch fremd ist, schreibt: „Ich könnte eines sein.“</p>
+  <p class="sp">Du läufst jeden Tag mit einem Rucksack voller Superkräfte durch die Welt und vergisst meistens, ihn auszupacken. Und ganz ehrlich: Du würdest nie so mit deiner besten Freundin reden, wie du manchmal mit dir selbst redest. Dein Körper hat dieselbe Freundlichkeit verdient.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 5 · 4 Minuten</p><h4>Ich bin ein Wunder</h4>
+  <p class="sagen">Leg eine Hand auf dein Herz. Seit dem Moment, in dem du auf die Welt gekommen bist, hat es keinen einzigen Tag Pause gemacht. Such mit zwei Fingern der anderen Hand deinen Puls. Da ist er. Dein eigener Takt.</p>
+  <p class="sagen">Welche drei Dinge hat dein Körper heute schon für dich getan? Schreib sie auf. Und dann sag leise zu dir: Ich bin ein Wunder.</p>
+  <p class="heft">Ins Notizbuch: „Heute hat mein Körper schon ... Und ... Und ... Ich bin ein Wunder, weil ...“</p>
+  <p class="ausstieg">Wer den Puls nicht findet, lässt die Hand einfach auf dem Herzen. Wem der Satz noch fremd ist, schreibt: „Ich könnte eines sein.“</p>
   </aside>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Wer mit dem Körper hadert, etwa nach Krankheit oder Verlust, darf nur eine Sache notieren. Niemand ist schuld an Beschwerden oder Krankheit.</p>
-  </aside>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Die Zahl der Zellen ist eine Schätzung, deshalb „Forscher schätzen“. Wer mit dem Körper hadert, etwa nach Krankheit oder Verlust, darf auch nur eine Sache notieren. Niemand ist schuld an Beschwerden oder Krankheit.</p></aside>
   <p class="kernsatz">Du bist dieses Wunder, auch an Tagen, an denen du dich nicht so fühlst.</p>
 </section>
 
@@ -360,297 +301,206 @@ body.nur-uebungen .stufe:not(:has(.uebung)) .leer{display:block}
   <header class="stufe-kopf">
     <p class="stufe-nr">Pause</p>
     <h2>Durchatmen</h2>
-    <p class="stufe-unter">Tee und ein bisschen Bewegung</p>
     <p class="zeit">00:38 bis 00:48 · 10 Minuten</p>
   </header>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Fenster auf, Tee nachschenken, leise Musik. Wer in einer Übung berührt war, bekommt einen Moment mit dir. Zwei Minuten vor Schluss sanft ansagen.</p>
-  </aside>
-  <div class="sprechen">
-    <p>Zehn Minuten für dich. Tee, strecken, ein paar Schritte.</p>
-  </div>
+  <p class="sp">Trink in Ruhe deinen Tee, streck dich, lauf ein paar Schritte. In zehn Minuten sitzt Susi im Auto, und es wird ein bisschen still.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Fenster öffnen, Tee nachschenken, leise Musik. Wer in einer Übung berührt war, bekommt einen Moment mit dir. Zwei Minuten vor dem Ende sanft ansagen.</p></aside>
 </section>
 
 <section class="stufe" id="s3">
   <header class="stufe-kopf">
     <p class="stufe-nr">Stufe 3</p>
-    <h2>Rote Ampel</h2>
-    <p class="stufe-unter">Stille und was wir mit Frequenz meinen</p>
+    <h2>Energie, Frequenz und Intuition</h2>
+    <p class="stufe-unter">Susi an der roten Ampel, 16:10 Uhr</p>
     <p class="zeit">00:48 bis 00:56 · 8 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Frequenz heißt mein innerer Zustand, und den kann ich bemerken.</p>
-
-  <h3>16:10 Uhr. Rote Ampel.</h3>
-  <div class="sprechen">
-    <p>Susi fährt nach Hause, die Ampel springt auf Rot. Kein Handy, keine Mail. Sie atmet aus, und auf einmal ist da ein klarer Gedanke: Ich will wieder singen.</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Frequenz heißt mein innerer Zustand. Und den kann ich bei mir selbst bemerken.</p>
+  <h3>Die Stimme in der Stille</h3>
+  <p class="sp">16:10 Uhr. Susi sitzt im Auto auf dem Heimweg. Es nieselt, der Scheibenwischer quietscht, die Ampel springt auf Rot. Und für einen Moment ist es still. Kein Handy, keine Mail. Susi atmet aus. Und aus dieser Stille taucht ganz klar ein Gedanke auf: Ich will nächstes Jahr wieder singen. In einem Chor, mit Menschen, die lachen. Hinter ihr hupt jemand. Grün. Susi fährt los und lächelt.</p>
   <p class="pause">Pause. Lass die Stille im Raum.</p>
-
-  <h3>Was wir mit Frequenz meinen</h3>
-  <div class="sprechen">
-    <p>Du hörst überall Wörter wie Frequenz und Schwingung. Ich meine damit etwas ganz Einfaches: deinen inneren Zustand. Wie du atmest. Wie viel Spannung in dir steckt. Dein Gegenüber spürt das, bevor du ein Wort sagst.</p>
-    <p>Spür kurz nach: Wie ist dein Zustand gerade? Wo im Körper merkst du ihn?</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Frequenz ist hier ein Alltagsbild für Stimmung und Präsenz. Eine Glücksfrequenz, auf die man sich einstellt, gibt es nicht. Nach der Frage zehn Sekunden still warten, dann weiter.</p>
-  </aside>
+  <p class="sp">Manche nennen das Seele, andere Bauchgefühl oder Intuition. Nenn es, wie du willst. Diese Stimme flüstert eher. Und sie meldet sich meistens dann, wenn es ruhig wird.</p>
+  <h3>Was wir mit Energie und Frequenz meinen</h3>
+  <p class="sp">Ich zeig dir ein Bild aus der Physik, einfach als Bild. Wenn wir in deinen Körper hineinzoomen könnten, bis zu den Atomen, würden wir etwas Verrücktes sehen. Wäre ein Atom so groß wie ein Fußballstadion, dann wäre der Kern in der Mitte ungefähr so groß wie eine Erbse. Der Rest ist Bewegung. Du bist also viel lebendiger in Bewegung, als du dich anfühlst.</p>
+  <p class="sp">Wenn ich heute von Frequenz oder Schwingung spreche, meine ich vor allem deinen inneren Zustand. Wie atme ich? Wie viel Spannung steckt gerade in mir? Und wie wirke ich damit auf mein Gegenüber?</p>
+  <p class="sp">Ein Beispiel. Du gehst in ein Gespräch und erwartest schon, dass es anstrengend wird. Dann hörst du jedes kritische Wort doppelt laut. An einem anderen Tag bist du bei dir, hörst zu, machst eine kleine Pause, und dasselbe Gespräch läuft auf einmal anders. Das ist mit Frequenz gemeint.</p>
+  <p class="sp">Spür mal kurz nach: Wie ist dein Zustand gerade, nach Tee und Pause? Und wo in deinem Körper merkst du das?</p>
+  <p class="pause">Zehn Sekunden Stille.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Das Atombild ist eine Metapher und beweist nichts Spirituelles. Frequenz ist hier ein Alltagsbild für Stimmung und Präsenz, eine Glücksfrequenz zum Einstellen gibt es nicht. Seele und Intuition sind deine persönliche Sicht, andere Zugänge sind ausdrücklich willkommen. Wenn es zeitlich eng wird, lass das Fußballstadion weg.</p></aside>
   <p class="kernsatz">Du bemerkst dich selbst. Damit fängt es an.</p>
-  <div class="uebergang">
-    <p class="uebergang-titel">Überleitung</p>
-    <p>Dieser Zustand bleibt nicht unsichtbar. Susi merkt das gleich zweimal.</p>
-  </div>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Dieser Zustand bleibt ja nicht unsichtbar. Er zeigt sich in der Stimme, im Gesicht und oft schon darin, wie wir einen Raum betreten. Susi erlebt das gleich zweimal hintereinander.</p></div>
 </section>
 
 <section class="stufe" id="s4">
   <header class="stufe-kopf">
     <p class="stufe-nr">Stufe 4</p>
-    <h2>Kasse und Küche</h2>
-    <p class="stufe-unter">Wie dein Zustand nach außen wirkt</p>
+    <h2>Resonanz: Wie dein Zustand auf andere wirkt</h2>
+    <p class="stufe-unter">Susi an der Kasse und in der Küche, 17:45 Uhr</p>
     <p class="zeit">00:56 bis 01:06 · 10 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Mit Haltung und Atem kann ich meine Stimmung selbst setzen.</p>
-
-  <h3>17:45 Uhr. Die Kasse und die Küche.</h3>
-  <div class="sprechen">
-    <p>An der Supermarktkasse lächelt Susi die müde Kassiererin an. Die lächelt zurück. Zu Hause knallt die Tochter ihre Zimmertür zu, und Susis Schultern wandern Richtung Ohren.</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Eine Minute Haltung und Atem, und ich merke, wie sich meine Stimmung bewegt. Ich kann sie selbst setzen.</p>
+  <h3>Stimmungen stecken an</h3>
+  <p class="sp">17:45 Uhr. Susi steht an der Supermarktkasse. Im Wagen liegen Nudeln, Klopapier und eine Gurke. Die Kassiererin sieht aus, als hätte sie seit dem Morgen tausendmal dasselbe Piepsen gehört. Susi lächelt sie an, einfach so. Die Frau blinzelt, dann geht ein Mundwinkel nach oben. „Schönen Abend noch“, sagt sie, und es klingt, als meine sie es.</p>
+  <p class="sp">Zehn Minuten später fliegt zu Hause die Wohnungstür auf. Die Tochter schleppt ihren Rucksack durch den Flur, murmelt etwas, das mit „nervig“ endet, und knallt ihre Zimmertür zu. Susis Schultern wandern Richtung Ohren. Die Küche fühlt sich an wie vor einem Gewitter.</p>
   <p class="pause">Pause.</p>
-  <div class="sprechen">
-    <p>Wir lesen einander ununterbrochen, an Stimme, Haltung und Gesicht. Meistens übernehmen wir die Stimmung im Raum. Du kannst sie auch selbst setzen, und zwar mit deinem Körper. Probieren wir es aus.</p>
-  </div>
-  <aside class="uebung" id="u6">
-    <p class="uebung-label">Übung 6 · 4 Minuten</p>
-    <h4>Meinen Zustand wählen</h4>
-    <ol class="schritte">
-      <li>Zahl von 1 bis 10 bei „Vorher“ eintragen.</li>
-      <li>Eine Minute: aufrichten, Schultern sinken lassen, lächeln, zweimal lang ausatmen. Stoppuhr stellen.</li>
-      <li>Zahl bei „Nachher“ eintragen. Kurz fragen, wer etwas gemerkt hat und wer nicht. Beides ist eine gültige Antwort.</li>
-    </ol>
-    <p class="sagen">„Wie geht es dir gerade, von 1 bis 10? Schreib die Zahl auf. Jetzt richte dich auf. Schultern runter. Und lächle, auch wenn es sich albern anfühlt. Zweimal ganz lang ausatmen. Wo stehst du jetzt?“</p>
-    <p class="heft">Ins Notizbuch: „Vorher ... Nachher ... Das habe ich bemerkt: ...“</p>
-    <p class="ausstieg">Wer nicht mag, lässt das Lächeln weg und nimmt nur Haltung und Atem.</p>
+  <p class="sp">Das nennt man Resonanz. Wir lesen einander ununterbrochen, an der Haltung, an der Stimme, an den kleinsten Bewegungen im Gesicht. Die Forschung nennt das Gefühlsansteckung, und unsere Nervensysteme stimmen sich sogar aufeinander ein. Das bildest du dir also nicht ein, wenn du merkst, dass jemand schlechte Laune in den Raum bringt.</p>
+  <p class="sp">Meistens übernehmen wir einfach die Stimmung, die gerade da ist. Ist jemand gereizt, werden wir es auch. Du kannst aber selbst entscheiden, in welchem Zustand du in eine Situation gehst, bevor die Situation das für dich übernimmt. Und dein Körper hilft dir dabei. Wir probieren das jetzt aus.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 6 · 4 Minuten</p><h4>Meinen Zustand wählen</h4>
+  <p class="sagen">Frag dich zuerst: Wie geht es mir gerade, auf einer Skala von 1 bis 10? Schreib die Zahl bei „Vorher“ auf.</p>
+  <p class="sagen">Und jetzt eine Minute nur für dich. Richte dich auf. Lass die Schultern sinken. Und lächle, auch wenn es sich albern anfühlt. Atme dabei zweimal ganz lang aus.</p>
+  <p class="pause">Eine Minute, Stoppuhr.</p>
+  <p class="sagen">Und dann schau noch mal: Wo stehst du jetzt? Schreib die Zahl bei „Nachher“ auf. Wer hat einen Unterschied bemerkt? Und wer keinen? Beides ist eine gute Antwort.</p>
+  <p class="heft">Ins Notizbuch: „Vorher ... Nachher ... Das habe ich bemerkt: ...“</p>
+  <p class="ausstieg">Wer nicht lächeln mag, nimmt nur Haltung und Atem.</p>
   </aside>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Kleine Unterschiede sind normal und beweisen nichts. Spüren kann man sie trotzdem. Lächeln muss keine schweren Gefühle wegmachen, es ist ein Werkzeug für den Moment.</p>
-  </aside>
-  <div class="sprechen">
-    <p>Das merkt niemand. Du kannst es vor dem nächsten schwierigen Termin machen oder vor deiner eigenen Wohnungstür.</p>
-  </div>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Kleine Unterschiede sind normal. Sie beweisen nichts, spüren kann man sie trotzdem. Lächeln muss keine schweren Gefühle wegmachen, es ist ein Werkzeug für den Moment.</p></aside>
+  <p class="sp">Das Schöne ist, keiner merkt, dass du das gerade machst. Du kannst es vor dem nächsten schwierigen Termin tun. Oder vor deiner eigenen Wohnungstür, bevor du in die Küche gehst.</p>
   <p class="kernsatz">Such dir deinen Zustand selbst aus, bevor der Tag das für dich übernimmt.</p>
 </section>
 
 <section class="stufe" id="s5">
   <header class="stufe-kopf">
     <p class="stufe-nr">Stufe 5</p>
-    <h2>Das Telefonat</h2>
-    <p class="stufe-unter">Zwei Spielregeln des Lebens</p>
+    <h2>Geistige Gesetze: Die Spielregeln des Lebens</h2>
+    <p class="stufe-unter">Susis Telefonat mit der Mutter, 19:30 Uhr</p>
     <p class="zeit">01:06 bis 01:13 · 7 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Meine Erwartung prägt, was zurückkommt. Auch mein kleinster Schritt wirkt.</p>
-
-  <h3>19:30 Uhr. Das Telefonat mit der Mutter.</h3>
-  <div class="sprechen">
-    <p>Die Mutter ruft an. „Du klingst müde. Du isst bestimmt wieder nichts Ordentliches.“ Susi kennt jeden Satz. Heute atmet sie einmal lang aus und sagt: „Mama, erzähl mir von deinem Tag.“ Zehn Minuten geht es um die Tomaten der Nachbarin. Kein Streit.</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Mit welcher Erwartung ich in ein Gespräch gehe, prägt, was zurückkommt. Auch mein kleinster Schritt hat eine Wirkung.</p>
+  <h3>Ein Telefonat, das anders läuft</h3>
+  <p class="sp">19:30 Uhr. Susis Handy brummt auf dem Küchentisch. „Mama“. Sie nimmt ab. „Du klingst müde“, sagt ihre Mutter. „Du isst bestimmt wieder nichts Ordentliches.“ Susis Kiefer fängt an zu mahlen. Sie kennt jeden Satz, bevor er kommt, wie ein Lied, das sie seit Jahren mitsingen kann.</p>
+  <p class="sp">Heute atmet sie einmal lang aus und sagt: „Mama, erzähl mir lieber von deinem Tag.“ Am anderen Ende wird es still. Dann erzählt die Mutter von der Nachbarin und ihren Tomaten. Zehn Minuten lang. Kein Streit.</p>
   <p class="pause">Pause.</p>
-
-  <h3>Zwei Spielregeln</h3>
-  <div class="sprechen">
-    <p>Es gibt alte Spielregeln des Lebens, überliefert als Denkmodelle. Zwei davon nimmst du heute mit.</p>
-    <p>Die erste: Gleiches zieht Gleiches an. Mit der Erwartung, mit der ich jemandem begegne, begegnet er mir oft zurück.</p>
-    <p>Die zweite: Ursache und Wirkung. Susis schnelles Ja im Meeting war die Ursache. Die Wirkung: Um acht Uhr abends sitzt sie mit kalter Pizza am Laptop, während die anderen ohne sie fernsehen. Genauso wirkt jeder kleine neue Schritt, wie ihr Satz am Telefon.</p>
-    <p>Frag dich: Mit welcher Erwartung gehe ich in mein nächstes schwieriges Gespräch?</p>
-  </div>
+  <h3>Monopoly ohne Spielregeln</h3>
+  <p class="sp">Stell dir vor, du spielst Monopoly, aber niemand hat dir je die Regeln erklärt. Du landest im Gefängnis und weißt nicht, warum. So fühlt sich das Leben manchmal an.</p>
+  <p class="sp">Es gibt eine sehr alte Weisheitslehre mit sogenannten geistigen Gesetzen. Ich nenne sie die Spielregeln des Lebens. Bewiesen sind sie nicht, du kannst sie dir wie eine Brille vorstellen. Wenn du sie aufsetzt, erkennst du Muster, die du vorher für Pech gehalten hast. Zwei davon bekommst du heute.</p>
+  <h3>Gleiches zieht Gleiches an</h3>
+  <p class="sp">Susi steht morgens am Kaffeeautomaten. Am Ende des Flurs sieht sie ihre Kollegin und denkt: Oje, schon wieder Laune im Keller. Sie sagt knapp „Morgen“. Die Kollegin sagt knapp „Morgen“ zurück. Und Susi denkt: Siehste, wusste ich’s.</p>
+  <p class="sp">Wie ich innerlich ausgerichtet bin, so begegne ich der Welt. Und oft begegnet sie mir genauso. Das nehmen wir gleich mit in die Manifestation.</p>
+  <h3>Ursache und Wirkung</h3>
+  <p class="sp">Erinnerst du dich an Susis schnelles Ja im Meeting heute Morgen? Das war die Ursache. Die Wirkung sitzt um acht Uhr abends am Laptop, mit kalter Pizza daneben, während die Familie im Wohnzimmer ohne sie eine Serie schaut.</p>
+  <p class="sp">Und jetzt die gute Nachricht: Wenn jede Entscheidung etwas bewirkt, dann bewirkt auch jeder kleine Schritt etwas. Ein Nein zur richtigen Zeit. Ein Satz am Telefon, der mal anders klingt.</p>
+  <p class="sp">Nimm dir eine Frage mit: Mit welcher Erwartung gehe ich in das nächste Gespräch, das mich beschäftigt?</p>
   <p class="heft">Ins Notizbuch: „In mein nächstes schwieriges Gespräch gehe ich mit der Erwartung: ...“</p>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Einmal klar sagen: Diese Gesetze sind Denkmodelle aus alter Weisheitstradition und naturwissenschaftlich nicht bewiesen. Der Maßstab ist, ob die Brille im Alltag hilft. Keines davon erklärt Krankheit, Verlust oder Armut. Wenn es eng wird, nur die erste Regel.</p>
-  </aside>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Einmal ruhig sagen: Diese Gesetze sind überlieferte Denkmodelle, naturwissenschaftlich bewiesen sind sie nicht. Der Maßstab ist, ob die Brille im Alltag hilft. Keines davon erklärt Krankheit, Verlust oder Armut. Wenn es eng wird, nur das erste Gesetz.</p></aside>
+  <p class="sp">Die anderen Spielregeln hebe ich mir für das nächste Mal auf. Die lohnen sich.</p>
   <p class="kernsatz">Jede Entscheidung hat eine Folge, auch die kleine.</p>
-  <div class="uebergang">
-    <p class="uebergang-titel">Überleitung</p>
-    <p>Und was machen wir jetzt mit all dem? Susi sitzt inzwischen auf dem Sofa.</p>
-  </div>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Wir haben den Autopiloten erkannt, das Wunder in uns gespürt und unseren Zustand selbst gewählt. Jetzt fehlt noch etwas Entscheidendes: Was machen wir mit all dem? Susi sitzt inzwischen auf dem Sofa.</p></div>
 </section>
 
 <section class="stufe" id="s6">
   <header class="stufe-kopf">
     <p class="stufe-nr">Stufe 6</p>
-    <h2>Auf dem Sofa</h2>
-    <p class="stufe-unter">Manifestation, Zukunftsbild und der erste Schritt</p>
+    <h2>Manifestation und Vision</h2>
+    <p class="stufe-unter">Susi auf dem Sofa, 21:45 Uhr</p>
     <p class="zeit">01:13 bis 01:33 · 20 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Mein Körper glaubt meinen Bildern. Manifestation ist eine Richtung mit einem ersten Schritt.</p>
-
-  <h3>21:45 Uhr. Auf dem Sofa.</h3>
-  <div class="sprechen">
-    <p>Susi scrollt durch perfekte Leben. Dann legt sie das Handy weg und fragt sich zum ersten Mal an diesem Tag: Wie sieht mein Leben aus, wenn es sich richtig anfühlt?</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Mein Körper glaubt meinen Bildern. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt.</p>
+  <h3>Wie sieht mein Leben aus, wenn es sich richtig anfühlt?</h3>
+  <p class="sp">21:45 Uhr. Susi sitzt auf dem Sofa, die Füße unter der Decke, das Handy in der Hand. Sie scrollt. Eine Frau mit Buchvertrag. Eine Frau, die um fünf Uhr aufsteht und dabei besser aussieht als Susi nach dem Duschen. Dann legt sie das Handy mit dem Display nach unten auf den Tisch, schließt die Augen und fragt sich zum ersten Mal an diesem Tag: Wie sieht eigentlich mein Leben aus, wenn es sich richtig anfühlt?</p>
   <p class="pause">Pause.</p>
-
   <h3>Manifestation, ganz bodenständig</h3>
-  <div class="sprechen">
-    <p>Manifestation heißt für mich: eine klare Richtung, ein Gefühl dazu und ein erster Schritt. Mit einer Richtung sieht dein Gehirn plötzlich Chancen. Wie bei dem Auto, das du dir kaufen willst und auf einmal überall siehst.</p>
-    <p>Wie stark Bilder auf deinen Körper wirken, zeige ich dir jetzt.</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Früh in eigenen Worten sagen: Niemand ist schuld an Krankheit, Verlust oder Armut. Es gibt keine Erfolgsgarantie und keine Heilversprechen.</p>
+  <p class="sp">Ich weiß, das Wort Manifestation ist ziemlich ausgelutscht. Viele denken sofort an „Wünsch es dir einfach ans Universum, und dann passiert’s“. So einfach ist es nicht. Kompliziert ist es aber auch nicht.</p>
+  <p class="sp">Den ersten Schritt kennst du schon. Du hast heute einen alten Satz erwischt und gefragt, ob er überhaupt stimmt. Das ist das Aufräumen. Jetzt geht es um die Richtung.</p>
+  <p class="sp">Dein Gehirn filtert die ganze Zeit. Du überlegst, dir ein bestimmtes Auto zu kaufen, und plötzlich siehst du es überall. Die Autos waren vorher auch schon da. Dein Filter hat nur umgeschaltet. Mit einer klaren Richtung nimmst du Chancen wahr, die vorher an dir vorbeigelaufen sind.</p>
+  <p class="sp">Und dann kommt das Werkzeug, das ich am meisten liebe: die Vorstellungskraft. Ich zeig dir erst mal, wie stark sie ist.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Früh und in eigenen Worten sagen: Niemand ist schuld an Krankheit, Verlust oder Armut. Es geht um Ausrichtung und Handlungskraft, es gibt keine Erfolgsgarantie und keine Heilversprechen.</p></aside>
+  <aside class="uebung"><p class="uebung-label">Übung 7 · 2 Minuten</p><h4>Die Zitrone</h4>
+  <p class="sagen">Schließ die Augen oder schau auf einen Punkt.</p>
+  <p class="sagen">Stell dir eine Zitrone vor. Eine richtig gelbe, saftige Zitrone. Spür ihr Gewicht in deiner Hand. Du schneidest sie in der Mitte durch. Der Saft läuft dir über die Finger, es riecht frisch und scharf. Du hebst die eine Hälfte an den Mund. Und jetzt beißt du hinein.</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Na? Läuft dir das Wasser im Mund zusammen? Und dabei ist da gar keine Zitrone.</p>
+  <p class="ausstieg">Wer die Augen offen lassen oder einfach zuschauen möchte, darf das.</p>
   </aside>
-  <aside class="uebung" id="u7">
-    <p class="uebung-label">Übung 7 · 2 Minuten</p>
-    <h4>Die Zitrone</h4>
-    <ol class="schritte">
-      <li>Augen zu oder auf einen Punkt.</li>
-      <li>Langsam und mit Pausen vorlesen, danach fragen: Wer hat Speichel im Mund gespürt?</li>
-    </ol>
-    <p class="sagen">„Stell dir eine Zitrone vor. Gelb, saftig, schwer in deiner Hand. Du schneidest sie durch. Der Saft läuft dir über die Finger. Du hebst eine Hälfte an den Mund. Und beißt hinein.“</p>
-    <p class="pause">Pause.</p>
-    <p class="sagen">„Na? Dabei ist da gar keine Zitrone.“</p>
-    <p class="ausstieg">Wer aussteigen möchte, schaut einfach zu.</p>
+  <p class="sp">Beim lebendigen Vorstellen nutzt dein Gehirn zu großen Teilen dieselben Bereiche wie beim echten Erleben. Deshalb reagiert dein Körper. Wenn du dir dein Leben so vorstellst, mit dem Gefühl in der Brust und mit deiner Haltung, dann bereitest du dein ganzes System darauf vor. Genau das ist eine Vision: ein Bild von deinem Leben, das du im Körper spürst. Und jetzt nehme ich dich mit in dein eigenes Bild.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 8 · 7 Minuten</p><h4>Mein Zukunftsbild mit allen Sinnen</h4>
+  <p class="sagen">Lass dich ganz in deinen Stuhl sinken. Spür deine Füße auf dem Boden. Atme ein und lang wieder aus.</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Stell dir vor, es ist ein Jahr später. Du bist die Frau geworden, die du sein möchtest. Ganz bei dir, mit allen Ecken. Du stehst an einem Ort, der dir gehört. Schau dich um. Welche Farben siehst du? Wie fällt das Licht? Was hörst du? Vielleicht eine Stimme, die du liebst, vielleicht ein leises Lachen.</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Spür, wie du stehst. Wie deine Schultern sind. Wie dein Atem fließt. In deiner Brust sitzt ein warmes Gefühl. Wo genau? Dieses Gefühl heißt: Ich bin angekommen.</p>
+  <p class="pause">Pause, länger.</p>
+  <p class="sagen">Schau, was du an diesem Tag tust. Ein Nein, das du ausgesprochen hast. Ein Ja, das du dir endlich erlaubst. Du hörst dich beim Zähneputzen leise ein Lied summen. Und selbst die Stimme in dir, die morgens als Erstes spricht, klingt freundlich.</p>
+  <p class="pause">Pause, länger.</p>
+  <p class="sagen">Nimm dieses Gefühl mit. Es gehört dir. Atme tief ein, bewege Finger und Zehen und komm mit offenen Augen zurück in diesen Raum.</p>
+  <p class="pause">Eine Minute Stille, dann schreiben.</p>
+  <p class="heft">Ins Notizbuch: „Mein Zukunftsbild: Ich sehe ... Ich höre ... Ich fühle ... Ich sage zu mir ...“</p>
+  <p class="ausstieg">Wer Unruhe spürt, lässt die Augen offen, spürt die Füße am Boden und darf jederzeit aussteigen.</p>
   </aside>
-  <div class="sprechen">
-    <p>Beim lebendigen Vorstellen nutzt dein Gehirn zu großen Teilen dieselben Bereiche wie beim echten Erleben. Darum nehmen wir jetzt dein eigenes Bild.</p>
-  </div>
-  <aside class="uebung" id="u8">
-    <p class="uebung-label">Übung 8 · 7 Minuten</p>
-    <h4>Mein Zukunftsbild mit allen Sinnen</h4>
-    <ol class="schritte">
-      <li>Licht dimmen, ruhige Musik ohne Text. Augen zu oder auf einen Punkt am Boden.</li>
-      <li>Ruhig vorlesen, bei jeder Pause fünf bis acht Sekunden warten.</li>
-      <li>Eine Minute Stille, dann das Bild in Stichworten ins Notizbuch.</li>
-    </ol>
-    <p class="sagen">„Lass dich in deinen Stuhl sinken. Spür deine Füße. Atme ein und lang aus.“</p>
-    <p class="pause">Pause.</p>
-    <p class="sagen">„Es ist ein Jahr später. Du bist die Frau, die du sein möchtest. Du stehst an einem Ort, der dir gehört. Welche Farben siehst du? Was hörst du?“</p>
-    <p class="pause">Pause.</p>
-    <p class="sagen">„Spür, wie du stehst. Wie dein Atem fließt. In deiner Brust sitzt ein warmes Gefühl. Es heißt: Ich bin angekommen.“</p>
-    <p class="pause">Pause, länger.</p>
-    <p class="sagen">„Schau, was du an diesem Tag tust. Ein Nein, das du ausgesprochen hast. Ein Ja, das du dir erlaubst.“</p>
-    <p class="pause">Pause, länger.</p>
-    <p class="sagen">„Nimm dieses Gefühl mit. Es gehört dir. Bewege Finger und Zehen und komm mit offenen Augen zurück.“</p>
-    <p class="heft">Ins Notizbuch: „Mein Zukunftsbild: Ich sehe ... Ich höre ... Ich fühle ... Ich sage zu mir ...“</p>
-    <p class="ausstieg">Wer Unruhe spürt, lässt die Augen offen, spürt die Füße am Boden und darf jederzeit aussteigen.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Licht dimmen, ruhige Musik ohne Text, bei jeder Pause fünf bis acht Sekunden warten. Danach nicht sofort erklären, erst Stille, dann schreiben. Tränen sind in Ordnung. Bei starken Reaktionen auf therapeutische Hilfe hinweisen. Vorhersagen machst du keine.</p></aside>
+  <h3>Schon heute die Frau sein</h3>
+  <p class="sp">Die meisten von uns warten. Wir warten, bis das Ziel da ist, und denken: Dann bin ich endlich entspannt. Dreh es um. Wie würde die Frau aus deinem Bild morgen früh aufstehen? Wie würde sie ans Telefon gehen, wenn ihre Mutter anruft? So zu handeln, als wäre es schon da, das ist für mich Manifestation.</p>
+  <p class="sp">Du wirst auch mal rausfallen. Ganz sicher, weil der Alltag laut ist. Der Moment, in dem du merkst „Oh, ich bin rausgefallen“, und zurückkommst, ist deine Kraft. Jedes Zurückkommen gräbt das neue Bachbett ein Stück tiefer.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 9 · 3 Minuten</p><h4>Mein Schritt für 48 Stunden</h4>
+  <p class="sagen">Mach dein Bild jetzt ganz klein. Was würde diese Frau in den nächsten zwei Tagen tun? So klein, dass du es morgen schon schaffst. Ein Anruf, ein Termin mit dir selbst, ein Nein. Schreib es ganz vorne in dein Notizbuch, dann siehst du es morgen früh als Erstes.</p>
+  <p class="sagen">Wer mag, liest ihren Satz der Nachbarin vor. Die Nachbarin sagt dann nur: Ich höre dich.</p>
+  <p class="heft">Ins Notizbuch, vorne innen: „Das tue ich in den nächsten 48 Stunden: ...“</p>
+  <p class="ausstieg">Wer nicht vorlesen mag, behält den Satz für sich. Wem noch nichts einfällt, füllt die Stelle zu Hause.</p>
   </aside>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Danach nicht erklären. Erst Stille, dann schreiben. Tränen sind in Ordnung. Bei starken Reaktionen auf therapeutische Hilfe hinweisen. Vorhersagen machst du keine.</p>
-  </aside>
-  <div class="sprechen">
-    <p>Dieses Bild ist deine Vision. Eine Vision, die du im Körper spürst.</p>
-    <p>Warte nicht, bis das Ziel da ist. Fang morgen an, wie diese Frau zu handeln. Du wirst rausfallen, ganz sicher. Jedes Zurückkommen gräbt das neue Bachbett ein Stück tiefer.</p>
-  </div>
-  <aside class="uebung" id="u9">
-    <p class="uebung-label">Übung 9 · 3 Minuten</p>
-    <h4>Mein Schritt für 48 Stunden</h4>
-    <ol class="schritte">
-      <li>Jede Frau schreibt einen Satz ganz vorne innen ins Notizbuch.</li>
-      <li>Der Schritt ist klein, konkret und liegt in ihrer Hand.</li>
-      <li>Wer mag, liest ihn der Nachbarin vor. Die sagt nur: Ich höre dich.</li>
-    </ol>
-    <p class="sagen">„Was würde diese Frau in den nächsten zwei Tagen tun? So klein, dass du es morgen schaffst. Ein Anruf, ein Termin mit dir selbst, ein Nein. Schreib es ganz vorne in dein Notizbuch.“</p>
-    <p class="heft">Ins Notizbuch, vorne innen: „Das tue ich in den nächsten 48 Stunden: ...“</p>
-    <p class="ausstieg">Wem noch nichts einfällt, füllt die Stelle zu Hause.</p>
-  </aside>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Zu große Schritte verkleinern: „Ich kündige“ wird zu „Ich rufe Petra an und frage, wie sie das damals gemacht hat“.</p>
-  </aside>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Hilf, wenn ein Schritt zu groß wird. „Ich kündige“ wird zu „Ich rufe Petra an und frage, wie sie das damals gemacht hat“.</p></aside>
   <p class="kernsatz">Du entscheidest dich einmal und bestätigst es dir tausendmal.</p>
-  <div class="uebergang">
-    <p class="uebergang-titel">Überleitung</p>
-    <p>Ein letztes Mal Susi. Ihr Wecker klingelt wieder.</p>
-  </div>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Und jetzt schauen wir ein letztes Mal zu Susi. Die Nacht ist vorbei, und ihr Wecker klingelt wieder.</p></div>
 </section>
 
 <section class="stufe" id="s7">
   <header class="stufe-kopf">
-    <p class="stufe-nr">Stufe 7 und Abschluss</p>
-    <h2>Derselbe Wecker</h2>
-    <p class="stufe-unter">Sich selbst wachküssen</p>
+    <p class="stufe-nr">Stufe 7</p>
+    <h2>Selbstermächtigung: Sich selbst wachküssen</h2>
+    <p class="stufe-unter">Susis Mittwochmorgen, 06:12 Uhr</p>
     <p class="zeit">01:33 bis 01:45 · 12 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Ich kann mich selbst in diesen Zustand bringen. Jeden Morgen.</p>
-
-  <h3>Mittwoch, 06:12 Uhr. Derselbe Wecker.</h3>
-  <div class="sprechen">
-    <p>Derselbe Ton, dieselben vierzehn Nachrichten. Susi lässt das Handy liegen. Sie atmet zweimal lang aus und summt beim Zähneputzen das Lied von damals. Und sie geht heute anders in ihren Tag.</p>
-  </div>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ich kann mich selbst in diesen Zustand bringen. Den Kuss habe ich mir selbst gegeben.</p>
+  <h3>Derselbe Tag, eine andere Susi</h3>
+  <p class="sp">Mittwochmorgen, 06:12 Uhr. Der Wecker klingelt, derselbe Ton wie gestern. Auf dem Handy warten wieder vierzehn Nachrichten.</p>
+  <p class="sp">Susi lässt das Handy liegen. Ihre Füße finden den kalten Boden. Sie atmet zweimal lang aus. Dann fragt sie sich: Wofür bin ich heute dankbar? Was möchte ich heute erschaffen? Und wer möchte ich heute für mich sein?</p>
+  <p class="sp">Beim Zähneputzen summt sie das Lied von damals. Die Mails sind noch da, die Wäsche auch. Und Susi geht heute anders in ihren Tag. Sie hat sich selbst geweckt.</p>
   <p class="pause">Pause. Ruhig durch den Raum schauen.</p>
-  <div class="sprechen">
-    <p>Dein lebendiges Bild vom Anfang war die ganze Zeit da. Jetzt holst du es dir selbst zurück. Das Happy End deines Tages schreibst du selbst. Steh bitte auf.</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Die emotionale Landung. Tempo raus, Pausen stehen lassen, leise Musik. In der Übung kommt alles zusammen: Atem, Haltung, lebendiges Bild, Zukunftsbild.</p>
+  <h3>Das eigentliche Happy End</h3>
+  <p class="sp">Weißt du noch, wo wir heute angefangen haben? Bei deinem lebendigen Bild. Das war die ganze Zeit da. Es lag nur unter Terminen, unter zu vielen „Ich sollte“ und unter einem lauten Alltag. Und es hat gewartet, bis du es wieder rufst.</p>
+  <p class="sp">Ich glaube, du bist in dem Moment wachgeküsst, in dem du einmal erlebt hast: Ich habe meinen Zustand gewählt, und das Leben hat geantwortet. Vielleicht nur in einem Gespräch, das anders gelaufen ist als sonst. Wenn du das einmal gespürt hast, dann weißt du: Das war ich. Das ist Selbstermächtigung.</p>
+  <p class="sp">Und genau das machen wir jetzt zusammen. Steh bitte auf.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Das ist die emotionale Landung. Tempo raus, Pausen stehen lassen, leise Musik. In der Übung kommt alles zusammen, was die Frauen heute in sich gefunden haben: Atem, Haltung, lebendiges Bild und Zukunftsbild.</p></aside>
+  <aside class="uebung"><p class="uebung-label">Übung 10 · 5 Minuten</p><h4>Der Kuss</h4>
+  <p class="sagen">Stell dich hüftbreit hin. Augen zu, oder schau weich auf den Boden. Atme ein. Und lang aus. Noch einmal. Richte dich auf und lass die Schultern sinken. Du wählst deinen Zustand.</p>
+  <p class="pause">Pause, drei Atemzüge.</p>
+  <p class="sagen">Und jetzt hol dir dein lebendiges Bild von heute Nachmittag zurück. Das Lied, den Wind, das Lachen. Spür, wo es im Körper sitzt. Und dann leg das warme Gefühl aus deinem Zukunftsbild dazu. Ich bin angekommen. Lass beides größer werden, so groß, wie es sich gut anfühlt.</p>
+  <p class="pause">Pause, länger.</p>
+  <p class="sagen">Leg beide Hände auf dein Herz. Es schlägt schon die ganze Zeit, ohne dass du etwas dafür getan hast. Sag zu dir: Ich bin wach. Ich bin ein Wunder. Ich bin das Happy End.</p>
+  <p class="sagen">Und jetzt leg eine Hand an deine Wange, ganz weich, so wie bei einem Menschen, den du sehr magst. Gib dir einen Kuss auf deine Hand. Und leg diesen Kuss auf dein Herz. Da darf er bleiben.</p>
+  <p class="pause">Stille, mindestens zehn Sekunden.</p>
+  <p class="sagen">Dieses Gefühl kannst du dir jeden Morgen selbst holen, in zwei Minuten. Du weißt jetzt, wie es geht. Du bist wachgeküsst. Mach die Augen auf und lächle der Frau neben dir zu.</p>
+  <p class="ausstieg">Wer nicht mag, bleibt sitzen oder lässt die Hände im Schoß liegen.</p>
   </aside>
-  <aside class="uebung" id="u10">
-    <p class="uebung-label">Übung 10 · 5 Minuten</p>
-    <h4>Der Kuss</h4>
-    <ol class="schritte">
-      <li>Alle stehen, Füße hüftbreit, Augen zu oder weich auf den Boden.</li>
-      <li>Zweimal länger aus als ein. Aufrichten, Schultern sinken lassen.</li>
-      <li>Das lebendige Bild zurückholen und das warme Gefühl aus dem Zukunftsbild dazunehmen.</li>
-      <li>Beide Hände aufs Herz: „Ich bin wach. Ich bin ein Wunder. Ich bin das Happy End.“</li>
-      <li>Die Hand küssen und den Kuss aufs Herz legen. Augen öffnen, der Nachbarin zulächeln.</li>
-    </ol>
-    <p class="sagen">„Atme ein. Und lang aus. Noch einmal. Richte dich auf, lass die Schultern sinken.“</p>
-    <p class="pause">Pause, drei Atemzüge.</p>
-    <p class="sagen">„Hol dir dein lebendiges Bild zurück. Das Lied, den Wind, das Lachen. Und leg das warme Gefühl aus deinem Zukunftsbild dazu. Ich bin angekommen.“</p>
-    <p class="pause">Pause, länger.</p>
-    <p class="sagen">„Beide Hände aufs Herz. Sag zu dir: Ich bin wach. Ich bin ein Wunder. Ich bin das Happy End. Gib dir einen Kuss auf deine Hand und leg ihn auf dein Herz. Da darf er bleiben.“</p>
-    <p class="pause">Stille, mindestens zehn Sekunden.</p>
-    <p class="sagen">„Dieses Gefühl holst du dir ab jetzt selbst. Du bist wachgeküsst.“</p>
-    <p class="ausstieg">Wer nicht mag, bleibt sitzen oder lässt die Hände im Schoß.</p>
-  </aside>
-  <div class="sprechen">
-    <p>Setz dich und schau auf deine Zahl vom Anfang. Wo stehst du jetzt, von 1 bis 10? Schreib sie daneben.</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Nicht abfragen, nicht vergleichen. Wer mag, nennt sie. Keine Veränderung ist genauso in Ordnung.</p>
-  </aside>
-  <p class="kernsatz">Den Kuss hast du dir selbst gegeben.</p>
+  <p class="sp">Setz dich noch mal kurz hin und schlag dein Notizbuch auf. Ganz am Anfang hast du eingetragen, wie lebendig du dich im Alltag fühlst. Wo stehst du jetzt, von 1 bis 10? Schreib die Zahl einfach daneben.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Die Zahl nicht abfragen und nicht vergleichen lassen. Wer mag, darf sie nennen. Wenn jemand keine Veränderung spürt, ist das genauso in Ordnung.</p></aside>
+  <p class="kernsatz">Den Kuss hast du dir selbst gegeben. Du hast dich selbst geweckt.</p>
 </section>
 
 <section class="stufe" id="ausklang">
   <header class="stufe-kopf">
-    <p class="stufe-nr">Puffer und Ausklang</p>
-    <h2>Beim Tee</h2>
-    <p class="stufe-unter">Mitnehmen und neugierig bleiben</p>
+    <p class="stufe-nr">Ausklang</p>
+    <h2>Morgenritual und wie es weitergeht</h2>
+    <p class="stufe-unter">Beim Tee</p>
     <p class="zeit">01:45 bis 02:00 · 15 Minuten</p>
   </header>
-  <p class="stufe-aha"><b>Erkenntnis:</b> Ich weiß, wie ich mir dieses Gefühl jeden Morgen zurückhole.</p>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Das ist dein Puffer. Wird es eng, nur das Morgenritual und der Satz zum Weitermachen. Bleibt Zeit, eine Runde: „Was nimmst du heute mit?“ Ein Satz pro Frau, wer mag.</p>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ich weiß, wie ich mir dieses Gefühl jeden Morgen in zwei Minuten zurückhole.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Diese Viertelstunde ist dein Puffer. Wenn es eng wird, nur das Morgenritual und der Satz zum Weitermachen. Bleibt Zeit, eine Runde mit der Frage „Was nimmst du heute mit?“, ein Satz pro Frau, wer mag.</p></aside>
+  <h3>Dein Morgenritual</h3>
+  <p class="sp">Schlag dein Notizbuch bitte ganz hinten auf. Dort schreiben wir jetzt zusammen dein Morgenritual hinein. Zwei Minuten, jeden Morgen, bevor der Tag dich holt.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 11 · 3 Minuten</p><h4>Mein Morgenritual</h4>
+  <p class="sagen">Schreib als Überschrift: Mein Morgenritual.</p>
+  <p class="sagen">Erstens: Füße auf den Boden, drei Atemzüge, länger aus als ein.</p>
+  <p class="sagen">Zweitens: Wofür bin ich heute dankbar?</p>
+  <p class="sagen">Drittens: Was möchte ich heute erschaffen?</p>
+  <p class="sagen">Viertens: Wer möchte ich heute für mich selbst sein?</p>
+  <p class="sagen">Und fünftens: Hand aufs Herz und der Satz: Ich wähle meinen Zustand.</p>
+  <p class="sagen">Wenn du magst, ergänz noch einen eigenen Satz für deinen Morgen.</p>
+  <p class="heft">Ins Notizbuch, letzte Seite: „Mein Morgenritual: 1 ... 2 ... 3 ... 4 ... 5 ...“</p>
+  <p class="ausstieg">Wem eine Frage am Morgen zu viel ist, schreibt nur die erste auf.</p>
   </aside>
-  <div class="sprechen">
-    <p>Schlag bitte die letzte Seite in deinem Notizbuch auf. Dort kommt dein Morgenritual hin. Zwei Minuten, bevor der Tag dich holt.</p>
-  </div>
-  <aside class="uebung" id="u11">
-    <p class="uebung-label">Übung 11 · 3 Minuten</p>
-    <h4>Mein Morgenritual</h4>
-    <ol class="schritte">
-      <li>Jede Zeile langsam ansagen, die Frauen schreiben mit.</li>
-      <li>Wer mag, ergänzt einen eigenen Satz.</li>
-    </ol>
-    <p class="sagen">„Überschrift: Mein Morgenritual. Eins: Füße auf den Boden, drei Atemzüge, länger aus als ein. Zwei: Wofür bin ich heute dankbar? Drei: Was möchte ich heute erschaffen? Vier: Wer möchte ich heute für mich sein? Fünf: Hand aufs Herz und der Satz: Ich wähle meinen Zustand.“</p>
-    <p class="heft">Ins Notizbuch, letzte Seite: „Mein Morgenritual: 1 ... 2 ... 3 ... 4 ... 5 ...“</p>
-    <p class="ausstieg">Wem das am Morgen zu viel ist, schreibt nur die erste Zeile.</p>
-  </aside>
-  <div class="sprechen">
-    <p>Verpasst du mal einen Tag, kommst du einfach zurück. Genau das haben wir heute geübt.</p>
-    <p>Ein paar Dinge habe ich für das nächste Mal aufgehoben: den Brief deiner weisen Stimme, den Anker, die Stimmgabel zu zweit und weitere Spielregeln. Wenn du Lust hast, sprich mich beim Tee an.</p>
-  </div>
-  <aside class="regie">
-    <p class="regie-titel">Regie</p>
-    <p>Kein Verkaufsdruck. Ein Satz, dann bekommt jede Frau ihren Flyer mit nächstem Termin und Clubhinweis.</p>
-    <p><span class="platzhalter">Dein nächstes Angebot: Datum, Videocall oder Warteliste für den Club.</span></p>
-  </aside>
+  <p class="sp">Und wenn du mal einen Tag verpasst, kommst du einfach zurück. Genau das haben wir heute geübt.</p>
+  <h3>Was noch auf dich wartet</h3>
+  <p class="sp">Heute hast du von allem ein bisschen gekostet. Ein paar Dinge habe ich bewusst für später aufgehoben. Den Brief, den eine weise Stimme in dir an die Frau schreibt, die du heute bist. Den Anker, mit dem du dein schönstes Gefühl auf Knopfdruck abrufst. Die Stimmgabel zu zweit, bei der meistens viel gelacht wird. Und die übrigen Spielregeln des Lebens.</p>
+  <p class="sp">Wenn du Lust hast, da weiterzumachen, sprich mich gleich beim Tee an.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Kein Verkaufsdruck. Ein Satz, dann bekommt jede Frau ihren Flyer mit Morgenritual, sieben Missionen, nächstem Termin und Clubhinweis.</p><p><span class="platzhalter">Dein nächstes Angebot, z. B. Datum, Termin im Videocall oder Warteliste für den Club.</span></p></aside>
   <p class="kernsatz">Das Happy End ist eine Entscheidung. Du triffst sie jeden Morgen neu.</p>
 </section>
 
