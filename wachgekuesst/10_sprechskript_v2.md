@@ -3,446 +3,393 @@
 Was dich heute erwartet: Heute spürst du, was hinter Nervensystem, Frequenz, Vision und Manifestation steckt und wie viel davon du selbst steuerst.
 
 ## Ankommen · Das Lebendige in dir
-@ Susis Dienstag beginnt: 06:12 Uhr, der Wecker · 00:00 bis 00:12 · 12 Minuten
-! Das Lebendige in mir ist noch da, und ich kann es jederzeit wieder rufen.
+@ Susi kommt dazu · 00:00 bis 00:12 · 12 Minuten
+! Das Lebendige in mir ist noch da. Es wartet nur darauf, dass ich es rufe.
 
 ### Willkommen
 
-Schön, dass du da bist. Ich bin Nicole, und ich freu mich wirklich, dass ihr heute alle hier sitzt.
+Schön, dass du da bist. Ich bin Nicole.
 
-Heute musst du nichts leisten. Keine neue Liste, keine Hausaufgabe. Davon haben wir im Alltag genug. Du darfst dich heute an etwas erinnern, das in dir lebendig ist.
+Heute musst du nichts leisten. Du darfst dich erinnern.
 
-Überall hören wir gerade Wörter wie Nervensystem, Frequenz, Vision und Manifestation. Heute spürst du, was hinter diesen Wörtern steckt und wie viel davon du selbst steuerst. Wir machen das ganz praktisch, mit kleinen Experimenten, bei denen du es selbst merkst.
+Überall hören wir gerade Wörter wie Nervensystem, Frequenz, Vision und Manifestation. Heute spürst du, was hinter diesen Wörtern steckt und wie viel davon du selbst steuerst. Wir machen das mit kleinen Experimenten, bei denen du es am eigenen Körper merkst.
 
-> Regie: Den Satz mit den großen Wörtern langsam und wörtlich sagen. Danach die Spielregeln: Alles ist freiwillig, Augen offen lassen ist immer erlaubt, und was hier erzählt wird, bleibt hier.
-> Platzhalter: Wenn du magst, zwei Sätze aus deinem eigenen Leben, etwa der Moment, in dem du gemerkt hast, dass du nur noch funktionierst.
+> Regie: Den Satz mit den großen Wörtern langsam sagen. Dann die Spielregeln: Alles ist freiwillig, Augen offen lassen ist erlaubt, was hier erzählt wird, bleibt hier.
 
-### Susi, eine von uns
+### Susi
 
-Ich nehme dich heute mit durch einen ganz normalen Dienstag von Susi. Susi ist Mitte vierzig, arbeitet im Büro, hat eine Tochter in der Pubertät und eine Mutter, die gern dann anruft, wenn man gerade im Mantel steht. Susi gibt es nicht, und es gibt sie tausendfach.
+Begleiten wird uns heute Susi. Mitte vierzig, ein Job im Büro, eine Tochter in der Pubertät und eine Mutter, die immer dann anruft, wenn man gerade im Mantel steht. Susi gibt es nicht, und es gibt sie tausendfach.
 
-06:12 Uhr. Der Wecker klingelt. Susi greift zum Handy, bevor sie die Augen richtig offen hat. Vierzehn Nachrichten. Einen Atemzug für sich selbst hatte sie noch nicht.
+Heute Morgen um 06:12 Uhr klingelt ihr Wecker. Vierzehn Nachrichten, bevor sie die Augen richtig offen hat. Im Bad läuft ein Lied im Radio, und plötzlich ist sie siebzehn. Autofenster unten, Wind in den Haaren, mit der besten Freundin laut und falsch mitsingen. Zwei Sekunden Kribbeln im Bauch. Dann ruft die Tochter nach den Sportsachen, und das Gefühl ist weg.
 
-Später im Bad läuft ein Lied im Radio, und plötzlich ist sie siebzehn. Sie sitzt im Auto ihrer besten Freundin, die Fenster sind unten, der Wind zerrt an den Haaren, und beide singen so laut und so falsch, dass es ihnen völlig egal ist. Susi spürt das Kribbeln im Bauch. Zwei Sekunden lang. Dann ruft ihre Tochter: „Mama, wo sind meine Sportsachen?“ Und das Gefühl ist weg.
+(Pause.)
 
-(Pause. Lass das Bild im Raum stehen.)
-
-Kennst du das? So ein Moment, in dem etwas Lebendiges in dir aufblitzt und gleich wieder untergeht. Genau darum geht es heute. Wir gehen Schritt für Schritt durch Susis Tag und schauen, warum wir so oft im Funktionieren hängen bleiben. Und am Ende spürst du: Ich kann mein Leben selbst gestalten. Fangen wir mit deinem eigenen lebendigen Moment an.
+Kennst du das? Für einen Moment blitzt etwas Lebendiges in dir auf und geht gleich wieder unter. Wo ist dieses Gefühl hin, und wie holen wir es zurück? Wir fangen mit deinem eigenen lebendigen Moment an.
 
 #### Übung 1 · Mein lebendiges Bild · 5 Minuten
 
-Setz dich bequem hin. Wenn du magst, leg eine Hand auf deine Brust. Atme einmal tief ein und lang wieder aus. Noch einmal.
+Setz dich bequem hin. Wenn du magst, leg eine Hand auf deine Brust und atme einmal tief ein und lang wieder aus.
 
-Und jetzt such dir ein Bild, in dem du dich richtig lebendig gefühlt hast. Das kann mit siebzehn gewesen sein, mit vierzig oder letzten Sommer. Wo bist du? Was hörst du, vielleicht Lachen, vielleicht Wind? Wonach riecht es? Und was spürst du in deinem Körper?
-
-Bleib einen Moment dort.
+Such dir ein Bild, in dem du dich richtig lebendig gefühlt hast. Mit siebzehn, mit vierzig oder letzten Sommer. Wo bist du? Was hörst du? Wonach riecht es? Und was spürst du in deinem Körper? Bleib einen Moment dort.
 
 (Pause, etwa zwanzig Sekunden.)
 
-Und jetzt schreib es auf. Ich sag dir den Satzanfang. Zum Schluss noch eine Zahl: Wie lebendig fühlst du dich im Alltag gerade, auf einer Skala von 1 bis 10? Diese Zahl brauchen wir am Ende noch einmal.
+Schreib es jetzt auf. Und zum Schluss eine Zahl: Wie lebendig fühlst du dich im Alltag gerade, von 1 bis 10? Die Zahl brauchen wir am Ende noch einmal.
 
-✍ Ins Notizbuch: „Mein lebendiges Bild: Ich bin ... und es riecht nach ... Ich fühle ... in meinem Körper. So lebendig fühle ich mich im Alltag gerade: ...“
-↩ Wer keine Erinnerung findet, darf sich ein Bild ausdenken oder einfach zuschauen. Augen offen lassen ist in Ordnung.
+✍ Ins Notizbuch: „Mein lebendiges Bild: Ich bin ... Es riecht nach ... Ich fühle ... So lebendig fühle ich mich im Alltag gerade: ...“
+↩ Wer keine Erinnerung findet, darf sich ein Bild ausdenken oder einfach zuschauen.
 #### Ende
 
-> Regie: Ausdrücklich jedes Alter erlauben. Frühe Jahre sind nicht für jede Frau ein guter Ort.
+!! Das Lebendige in dir ist noch da. Es wartet nur darauf, dass du es rufst.
 
-Dein Bild nimmst du mit durch den Nachmittag. Ganz am Ende holen wir es zurück.
-
-!! Das Lebendige in dir wartet auf dich.
+Überleitung: Wenn es noch da ist, warum spüren wir es dann so selten? Die Antwort steckt in unserem Nervensystem.
 
 ## Stufe 1 · Nervensystem und Glaubenssätze
-@ Susi im Meeting, 09:30 Uhr · 00:12 bis 00:25 · 13 Minuten
+@ Susi im Meeting · 00:12 bis 00:25 · 13 Minuten
 ! Mein schnelles Ja kam vom Autopiloten. Mein alter Satz ist keine Wahrheit, und mit dem Atem beruhige ich mein Nervensystem selbst.
 
-### Der Autopilot
+### Dein Nervensystem will dich schützen
 
-09:30 Uhr. Susi sitzt im Meeting. Der Kaffee im Pappbecher ist schon lauwarm. Die Chefin schaut kurz auf und sagt einen einzigen Satz: „Das müssen wir bis Freitag klären.“ Susis Bauch zieht sich zusammen, der Atem wird flach, und noch bevor sie nachgedacht hat, hört sie sich sagen: „Klar, mach ich.“ Dabei ist ihr Kalender bis Freitag voll. Draußen vor der Tür fragt sie sich: Warum habe ich das schon wieder gesagt?
+Dein Nervensystem hat eine Aufgabe: Es will dich schützen. Und es lernt aus allem, was du erlebst.
 
-(Pause. Kurz schmunzeln lassen.)
+Stell dir einen kleinen Bach vor, der einen Hang hinunterfließt. Je öfter das Wasser an derselben Stelle entlangläuft, desto tiefer gräbt es sich ein. Irgendwann fließt es immer dort, ganz automatisch. Genauso entstehen unsere inneren Programme. „Mach es allen recht.“ „Bloß keinen Fehler machen.“ „Reiß dich zusammen.“
 
-### Wie das Nervensystem lernt
+Wenn so ein Programm oft genug gelaufen ist, kann dein Nervensystem kaum noch unterscheiden zwischen echter Gefahr und einer knappen Mail vom Chef. Dann ist dein Körper schneller als dein Kopf.
 
-Stell dir einen kleinen Bach vor. Das Wasser fließt den Hang hinunter, und je öfter es an derselben Stelle entlangfließt, desto tiefer gräbt es sich ein. Irgendwann fließt es immer dort. Ganz automatisch.
+Susi sitzt um halb zehn im Meeting. Die Chefin sagt einen Satz: „Das müssen wir bis Freitag klären.“ Susis Bauch zieht sich zusammen, der Atem wird flach, und schon hört sie sich sagen: „Klar, mach ich.“ Ihr Kalender ist längst voll. Das war der Bach. Ihr Autopilot hat geantwortet, bevor sie selbst gefragt wurde.
 
-Genauso entstehen unsere inneren Programme. „Mach es allen recht.“ „Bloß keinen Fehler machen.“ „Reiß dich zusammen.“ Und diese Programme sitzen auch im Körper. Dein Nervensystem will dich schützen. Wenn es oft genug Alarm geschlagen hat, kann es kaum noch unterscheiden zwischen echter Gefahr und einer etwas knappen Mail vom Chef. Dann ist dein Körper schneller als dein Kopf. Das ist ganz normale Biologie, und es ist auch kein Fehler von dir.
+Das ist ganz normale Biologie. Du hast nichts falsch gemacht.
 
 ### Glaubenssätze
 
-Aus diesen Programmen werden Sätze, die den ganzen Tag im Hintergrund laufen, wie die leise Musik im Supermarkt. Wir halten sie für die Wahrheit, weil wir sie schon so lange hören. Solche Sätze nennt man Glaubenssätze. Ich stell dir jetzt eine Frage, die schon vielen Frauen geholfen hat.
+Aus diesen Programmen werden Sätze, die den ganzen Tag leise im Hintergrund laufen, wie die Musik im Supermarkt. Wir halten sie für wahr, weil wir sie so oft gehört haben. Das sind Glaubenssätze. Schauen wir uns deinen an.
 
-> Regie: Alltagsbild zum Verstehen, du stellst keine Diagnosen. Wenn jemand von sehr starken Reaktionen erzählt, würdige das kurz und verweise freundlich auf therapeutische Begleitung.
-> Platzhalter: Wenn es stimmt, ein Satz, wobei dir diese Frage selbst geholfen hat.
+> Regie: Alltagsbild zum Verstehen, keine Diagnose. Bei sehr starken Reaktionen kurz würdigen und auf therapeutische Begleitung hinweisen.
 
 #### Übung 2 · Stimmt das überhaupt? · 5 Minuten
 
-Hör gut hin. Ich lese dir ein paar Sätze vor.
+Ich lese dir ein paar Sätze vor. Hör einfach hin.
 
 Ich muss immer stark sein. Ich darf niemanden enttäuschen. Ich bin erst gut, wenn alles erledigt ist. Ich bin zu viel. Ich bin nicht genug.
 
-Schreib den Satz auf, der dir am bekanntesten vorkommt. Es darf auch ein ganz eigener sein. Und dann stell diesem Satz drei Fragen. Stimmt das überhaupt? Von wem habe ich ihn gelernt? Und welcher Satz würde heute besser zu mir passen?
+Schreib den Satz auf, den du am besten kennst. Es darf auch ein eigener sein. Und dann frag ihn: Stimmt das überhaupt? Von wem habe ich das gelernt? Und welcher Satz passt heute besser zu mir?
 
-✍ Ins Notizbuch: „Mein Satz lautet: ... Stimmt das überhaupt? ... Ein Satz, der mir heute besser dient: ...“
-↩ Wenn es zu viel wird, nimm einen leichteren Satz oder leg den Stift ab und atme einfach.
+✍ Ins Notizbuch: „Mein Satz: ... Stimmt das überhaupt? ... Gelernt habe ich ihn von ... Mein neuer Satz: ...“
+↩ Wenn es zu viel wird, nimm einen leichteren Satz oder leg den Stift ab.
 #### Ende
 
-> Regie: Ziel ist die kleine Lücke zwischen Satz und Wahrheit, hier findet keine Therapie statt. Wer weint, bekommt ein Taschentuch und in der Pause einen Moment unter vier Augen.
+Und jetzt die gute Nachricht. Dein Gehirn kann sich ein Leben lang umbauen. Der Bach kann sich ein neues Bett graben, in jedem Alter.
 
-Und jetzt das Schöne: Dein Gehirn kann sich umbauen, ein Leben lang. Der Bach kann sich ein neues Bett graben. Du bist nie zu alt dafür.
-
-Wenn man an alte Sätze rührt, meldet sich manchmal das Nervensystem. Dafür bekommst du jetzt ein Werkzeug, das du heute noch öfter brauchst.
+Wenn man an alte Sätze rührt, meldet sich manchmal der Körper. Dafür bekommst du ein Werkzeug, das du heute noch öfter brauchst.
 
 #### Übung 3 · Länger aus als ein · 2 Minuten
 
-Atme durch die Nase ein, eins, zwei, drei, vier. Und lass die Luft ganz langsam raus, eins, zwei, drei, vier, fünf, sechs. Das Ausatmen darf länger sein als das Einatmen. So bekommt dein Körper das Signal: Hier ist es sicher.
+Atme durch die Nase ein, eins, zwei, drei, vier. Und ganz langsam aus, eins, zwei, drei, vier, fünf, sechs. Das lange Ausatmen sagt deinem Nervensystem: Hier ist es sicher.
 
 (Vier Runden laut mitzählen.)
 
-Spür kurz nach. Wie fühlen sich dein Kiefer, deine Schultern, dein Bauch jetzt an?
+Spür kurz nach: Wie fühlen sich Kiefer, Schultern und Bauch jetzt an?
 
-↩ Wem schwindelig wird, atmet einfach im eigenen Tempo.
+↩ Wem schwindelig wird, atmet im eigenen Tempo.
 #### Ende
 
 !! Ein Satz, den du tausendmal gehört hast, ist noch lange keine Wahrheit.
 
-Überleitung: Wer schlägt da eigentlich die ganze Zeit Alarm und hält uns selbst an einem chaotischen Dienstag am Laufen? Unser Körper. Und dem schenken wir viel zu wenig Aufmerksamkeit.
+Überleitung: Du hast gerade gemerkt: Du atmest anders, und dein Körper reagiert sofort. Dein Körper hört dir zu. Schauen wir uns an, was dieser Körper eigentlich alles kann.
 
 ## Stufe 2 · Der geniale Körper
-@ Susis Mittagspause, 12:40 Uhr · 00:25 bis 00:38 · 13 Minuten
+@ Susi in der Mittagspause · 00:25 bis 00:38 · 13 Minuten
 ! Ein einziger Gedanke, und mein Körper reagiert. Ich bin dieses Wunder, auch an schweren Tagen.
 
 ### Was dein Körper jede Sekunde leistet
 
-12:40 Uhr. Susi reißt am Kopierer einen Stapel Papier aus dem Fach und schneidet sich dabei in den Finger. Auf der Toilette lässt sie Wasser darüberlaufen. Im Spiegel bleibt ihr Blick am Bauch hängen. Zu rund, findet sie, schon wieder.
+Susi schneidet sich mittags am Kopierer in den Finger. Auf der Toilette hält sie ihn unters Wasser, und im Spiegel bleibt ihr Blick am Bauch hängen. Zu rund, findet sie. Währenddessen schließt ihr Körper längst die Wunde. Ohne dass sie ihn darum gebeten hat.
 
-Dabei schließt ihr Körper in genau diesem Moment die kleine Wunde. Er hat sofort angefangen, ohne dass Susi ihm einen Auftrag gegeben hat.
+So geht es uns allen. Wir sehen zuerst, was nicht passt, und übersehen, was unser Körper in jeder Sekunde leistet.
 
-(Pause.)
+Du atmest. Dein Herz schlägt. Du hörst meine Stimme, und dein Gehirn macht daraus in Millisekunden Wörter und Bedeutung. Forscher schätzen, dass du aus etwa 37 Billionen Zellen bestehst, und jede davon arbeitet gerade für dich.
 
-So geht es uns allen. Wir schauen in den Spiegel und sehen zuerst, was nicht passt. Und was unser Körper in diesem Augenblick leistet, bemerken wir gar nicht.
-
-Du atmest. Dein Herz schlägt. Du hörst meine Stimme, und dein Gehirn macht aus Schallwellen Wörter und aus Wörtern Bedeutung, in Millisekunden. Forscher schätzen, dass dein Körper aus etwa 37 Billionen Zellen besteht, und jede einzelne arbeitet gerade. Ganz ohne Chef und ohne Liste.
-
-Und dein Körper hört auf deine Gedanken. Du kannst dich in eine Stimmung versetzen, nur indem du dir etwas vorstellst. Probier es aus.
+Und dein Körper hört auf deine Gedanken. Probier es aus.
 
 #### Übung 4 · Kaffeeduft am Sonntagmorgen · 2 Minuten
 
-Schließ die Augen, wenn du magst, oder schau auf einen Punkt.
+Schließ die Augen, wenn du magst.
 
-Stell dir vor, es ist Sonntagmorgen. Du stehst barfuß in der Küche, und noch ist niemand wach. Die Maschine gurgelt. Und dann steigt er auf, dieser Duft von frischem Kaffee. Du hältst die Tasse in beiden Händen und spürst die Wärme an den Fingern.
+Es ist Sonntagmorgen. Du stehst barfuß in der Küche, alle schlafen noch. Die Maschine gurgelt, und dann steigt er auf, dieser Duft von frischem Kaffee. Du hältst die warme Tasse in beiden Händen.
 
 (Pause.)
 
-Merkst du, was in deinem Körper passiert? Da ist keine Tasse. Und trotzdem reagiert dein Körper. Wer hat etwas gemerkt?
+Merkst du, was in deinem Körper passiert? Da ist gar keine Tasse. Ein Gedanke hat gereicht.
 
 ✍ Ins Notizbuch: „Als ich an den Kaffeeduft gedacht habe, hat mein Körper ...“
-↩ Wer Kaffee nicht mag, nimmt frisches Brot, Tee oder Sommerregen.
+↩ Wer Kaffee nicht mag, nimmt frisches Brot oder Sommerregen. Wer aussteigen möchte, schaut einfach zu.
 #### Ende
 
-Du läufst jeden Tag mit einem Rucksack voller Superkräfte durch die Welt und vergisst meistens, ihn auszupacken. Und ganz ehrlich: Du würdest nie so mit deiner besten Freundin reden, wie du manchmal mit dir selbst redest. Dein Körper hat dieselbe Freundlichkeit verdient.
+Mit so einem Körper läufst du jeden Tag herum. Und ganz ehrlich: Du würdest nie so mit deiner besten Freundin reden, wie du manchmal mit dir selbst redest.
 
 #### Übung 5 · Ich bin ein Wunder · 4 Minuten
 
-Leg eine Hand auf dein Herz. Seit dem Moment, in dem du auf die Welt gekommen bist, hat es keinen einzigen Tag Pause gemacht. Such mit zwei Fingern der anderen Hand deinen Puls. Da ist er. Dein eigener Takt.
+Leg eine Hand aufs Herz. Seit deiner Geburt hat es keinen einzigen Tag Pause gemacht. Such mit zwei Fingern deinen Puls. Da ist er, dein eigener Takt.
 
-Welche drei Dinge hat dein Körper heute schon für dich getan? Schreib sie auf. Und dann sag leise zu dir: Ich bin ein Wunder.
+Schreib drei Dinge auf, die dein Körper heute schon für dich getan hat. Und dann sag leise zu dir: Ich bin ein Wunder.
 
-✍ Ins Notizbuch: „Heute hat mein Körper schon ... Und ... Und ... Ich bin ein Wunder, weil ...“
-↩ Wer den Puls nicht findet, lässt die Hand einfach auf dem Herzen. Wem der Satz noch fremd ist, schreibt: „Ich könnte eines sein.“
+✍ Ins Notizbuch: „Heute hat mein Körper schon ... und ... und ... Ich bin ein Wunder, weil ...“
+↩ Wem der Satz noch fremd ist, schreibt: „Ich könnte eines sein.“
 #### Ende
 
-> Regie: Die Zahl der Zellen ist eine Schätzung, deshalb „Forscher schätzen“. Wer mit dem Körper hadert, etwa nach Krankheit oder Verlust, darf auch nur eine Sache notieren. Niemand ist schuld an Beschwerden oder Krankheit.
+> Regie: Wer mit dem Körper hadert, etwa nach Krankheit oder Verlust, darf auch nur eine Sache notieren. Niemand ist schuld an Krankheit.
 
 !! Du bist dieses Wunder, auch an Tagen, an denen du dich nicht so fühlst.
+
+Überleitung: Ein Gedanke an Kaffee, und dein Körper ist in einem anderen Zustand. Genau diesen Zustand meinen viele, wenn sie von Energie und Frequenz sprechen. Darum geht es nach der Pause.
 
 ## Pause · Durchatmen
 @ 00:38 bis 00:48 · 10 Minuten
 
-Trink in Ruhe deinen Tee, streck dich, lauf ein paar Schritte. In zehn Minuten sitzt Susi im Auto, und es wird ein bisschen still.
+Zehn Minuten für dich. Tee, strecken, ein paar Schritte.
 
-> Regie: Fenster öffnen, Tee nachschenken, leise Musik. Wer in einer Übung berührt war, bekommt einen Moment mit dir. Zwei Minuten vor dem Ende sanft ansagen.
+> Regie: Fenster auf, Tee nachschenken, leise Musik. Wer in einer Übung berührt war, bekommt einen Moment mit dir.
 
-## Stufe 3 · Energie, Frequenz und Intuition
-@ Susi an der roten Ampel, 16:10 Uhr · 00:48 bis 00:56 · 8 Minuten
-! Frequenz heißt mein innerer Zustand. Und den kann ich bei mir selbst bemerken.
+## Stufe 3 · Energie und Frequenz
+@ Susi an der roten Ampel · 00:48 bis 00:56 · 8 Minuten
+! Frequenz heißt mein innerer Zustand. Wenn er ruhig wird, höre ich meine innere Stimme.
 
-### Die Stimme in der Stille
+### Alles ist in Bewegung
 
-16:10 Uhr. Susi sitzt im Auto auf dem Heimweg. Es nieselt, der Scheibenwischer quietscht, die Ampel springt auf Rot. Und für einen Moment ist es still. Kein Handy, keine Mail. Susi atmet aus. Und aus dieser Stille taucht ganz klar ein Gedanke auf: Ich will nächstes Jahr wieder singen. In einem Chor, mit Menschen, die lachen. Hinter ihr hupt jemand. Grün. Susi fährt los und lächelt.
+Ich zeig dir ein Bild aus der Physik, einfach als Bild. Wäre ein Atom so groß wie ein Fußballstadion, dann wäre sein Kern in der Mitte ungefähr so groß wie eine Erbse. Der Rest ist Bewegung. Ich mag dieses Bild als Erinnerung daran, dass auch in dir ständig etwas in Bewegung ist. Und wie es in dir schwingt, spürst du als Zustand.
 
-(Pause. Lass die Stille im Raum.)
+Wenn von Energie, Schwingung oder Frequenz die Rede ist, meine ich damit deinen inneren Zustand. Wie du atmest. Wie viel Spannung in dir steckt. Wie wach und wie offen du gerade bist.
 
-Manche nennen das Seele, andere Bauchgefühl oder Intuition. Nenn es, wie du willst. Diese Stimme flüstert eher. Und sie meldet sich meistens dann, wenn es ruhig wird.
+### Was die Stille dir sagt
 
-### Was wir mit Energie und Frequenz meinen
+Susi fährt am Nachmittag nach Hause, die Ampel springt auf Rot. Kein Handy, keine Mail. Sie atmet aus, und plötzlich ist da ganz klar ein Gedanke: Ich will wieder singen.
 
-Ich zeig dir ein Bild aus der Physik, einfach als Bild. Wenn wir in deinen Körper hineinzoomen könnten, bis zu den Atomen, würden wir etwas Verrücktes sehen. Wäre ein Atom so groß wie ein Fußballstadion, dann wäre der Kern in der Mitte ungefähr so groß wie eine Erbse. Der Rest ist Bewegung. Du bist also viel lebendiger in Bewegung, als du dich anfühlst.
+Wenn dein Zustand ruhiger wird, hörst du dich selbst. Manche nennen das Intuition, andere Bauchgefühl. Diese Stimme flüstert. Sie meldet sich, wenn es still wird.
 
-Wenn ich heute von Frequenz oder Schwingung spreche, meine ich vor allem deinen inneren Zustand. Wie atme ich? Wie viel Spannung steckt gerade in mir? Und wie wirke ich damit auf mein Gegenüber?
-
-Ein Beispiel. Du gehst in ein Gespräch und erwartest schon, dass es anstrengend wird. Dann hörst du jedes kritische Wort doppelt laut. An einem anderen Tag bist du bei dir, hörst zu, machst eine kleine Pause, und dasselbe Gespräch läuft auf einmal anders. Das ist mit Frequenz gemeint.
-
-Spür mal kurz nach: Wie ist dein Zustand gerade, nach Tee und Pause? Und wo in deinem Körper merkst du das?
+Spür mal kurz nach: Wie ist dein Zustand gerade? Und wo im Körper merkst du ihn?
 
 (Zehn Sekunden Stille.)
 
-> Regie: Das Atombild ist eine Metapher und beweist nichts Spirituelles. Frequenz ist hier ein Alltagsbild für Stimmung und Präsenz, eine Glücksfrequenz zum Einstellen gibt es nicht. Seele und Intuition sind deine persönliche Sicht, andere Zugänge sind ausdrücklich willkommen. Wenn es zeitlich eng wird, lass das Fußballstadion weg.
+> Regie: Das Atombild ist eine Metapher und beweist nichts Spirituelles. Eine Glücksfrequenz zum Einstellen gibt es nicht.
 
-!! Du bemerkst dich selbst. Damit fängt es an.
+!! Du bemerkst deinen Zustand. Damit fängt alles an.
 
-Überleitung: Dieser Zustand bleibt ja nicht unsichtbar. Er zeigt sich in der Stimme, im Gesicht und oft schon darin, wie wir einen Raum betreten. Susi erlebt das gleich zweimal hintereinander.
+Überleitung: Dein Zustand bleibt nicht bei dir. Er zeigt sich in deiner Stimme, in deinem Gesicht, in der Art, wie du einen Raum betrittst. Die anderen spüren ihn mit.
 
-## Stufe 4 · Resonanz: Wie dein Zustand auf andere wirkt
-@ Susi an der Kasse und in der Küche, 17:45 Uhr · 00:56 bis 01:06 · 10 Minuten
-! Eine Minute Haltung und Atem, und ich merke, wie sich meine Stimmung bewegt. Ich kann sie selbst setzen.
+## Stufe 4 · Resonanz
+@ Susi an der Kasse und in der Küche · 00:56 bis 01:06 · 10 Minuten
+! Ich wähle meinen Zustand, und die anderen spüren ihn mit.
 
 ### Stimmungen stecken an
 
-17:45 Uhr. Susi steht an der Supermarktkasse. Im Wagen liegen Nudeln, Klopapier und eine Gurke. Die Kassiererin sieht aus, als hätte sie seit dem Morgen tausendmal dasselbe Piepsen gehört. Susi lächelt sie an, einfach so. Die Frau blinzelt, dann geht ein Mundwinkel nach oben. „Schönen Abend noch“, sagt sie, und es klingt, als meine sie es.
+Wir lesen einander ununterbrochen, an der Haltung, an der Stimme, an den kleinsten Bewegungen im Gesicht. Die Forschung nennt das Gefühlsansteckung, und unsere Nervensysteme stimmen sich sogar aufeinander ein. Das ist Resonanz.
 
-Zehn Minuten später fliegt zu Hause die Wohnungstür auf. Die Tochter schleppt ihren Rucksack durch den Flur, murmelt etwas, das mit „nervig“ endet, und knallt ihre Zimmertür zu. Susis Schultern wandern Richtung Ohren. Die Küche fühlt sich an wie vor einem Gewitter.
+Susi steht am frühen Abend an der Supermarktkasse und lächelt die müde Kassiererin an. Die blinzelt, und dann lächelt sie zurück. Zu Hause knallt die Tochter ihre Zimmertür zu, und Susis Schultern wandern Richtung Ohren. Zweimal Resonanz, in zehn Minuten.
 
-(Pause.)
-
-Das nennt man Resonanz. Wir lesen einander ununterbrochen, an der Haltung, an der Stimme, an den kleinsten Bewegungen im Gesicht. Die Forschung nennt das Gefühlsansteckung, und unsere Nervensysteme stimmen sich sogar aufeinander ein. Das bildest du dir also nicht ein, wenn du merkst, dass jemand schlechte Laune in den Raum bringt.
-
-Meistens übernehmen wir einfach die Stimmung, die gerade da ist. Ist jemand gereizt, werden wir es auch. Du kannst aber selbst entscheiden, in welchem Zustand du in eine Situation gehst, bevor die Situation das für dich übernimmt. Und dein Körper hilft dir dabei. Wir probieren das jetzt aus.
+Meistens übernehmen wir die Stimmung, die gerade im Raum ist. Du kannst sie auch selbst setzen, und zwar mit deinem Körper.
 
 #### Übung 6 · Meinen Zustand wählen · 4 Minuten
 
-Frag dich zuerst: Wie geht es mir gerade, auf einer Skala von 1 bis 10? Schreib die Zahl bei „Vorher“ auf.
+Wie geht es dir gerade, von 1 bis 10? Schreib die Zahl bei „Vorher“ auf.
 
-Und jetzt eine Minute nur für dich. Richte dich auf. Lass die Schultern sinken. Und lächle, auch wenn es sich albern anfühlt. Atme dabei zweimal ganz lang aus.
+Jetzt eine Minute nur für dich. Richte dich auf. Lass die Schultern sinken. Lächle, auch wenn es sich albern anfühlt. Und atme zweimal ganz lang aus.
 
 (Eine Minute, Stoppuhr.)
 
-Und dann schau noch mal: Wo stehst du jetzt? Schreib die Zahl bei „Nachher“ auf. Wer hat einen Unterschied bemerkt? Und wer keinen? Beides ist eine gute Antwort.
+Wo stehst du jetzt? Schreib die Zahl bei „Nachher“ auf. Wer hat etwas gemerkt, wer nicht? Beides ist eine gute Antwort.
 
 ✍ Ins Notizbuch: „Vorher ... Nachher ... Das habe ich bemerkt: ...“
 ↩ Wer nicht lächeln mag, nimmt nur Haltung und Atem.
 #### Ende
 
-> Regie: Kleine Unterschiede sind normal. Sie beweisen nichts, spüren kann man sie trotzdem. Lächeln muss keine schweren Gefühle wegmachen, es ist ein Werkzeug für den Moment.
+Das merkt keiner. Du kannst es vor jedem schwierigen Gespräch machen, auch vor deiner eigenen Wohnungstür.
 
-Das Schöne ist, keiner merkt, dass du das gerade machst. Du kannst es vor dem nächsten schwierigen Termin tun. Oder vor deiner eigenen Wohnungstür, bevor du in die Küche gehst.
+> Regie: Kleine Unterschiede beweisen nichts, spüren kann man sie trotzdem. Lächeln muss keine schweren Gefühle wegmachen.
 
 !! Such dir deinen Zustand selbst aus, bevor der Tag das für dich übernimmt.
 
-## Stufe 5 · Geistige Gesetze: Die Spielregeln des Lebens
-@ Susis Telefonat mit der Mutter, 19:30 Uhr · 01:06 bis 01:13 · 7 Minuten
+Überleitung: Solche Erfahrungen haben Menschen schon vor sehr langer Zeit gemacht und in Spielregeln gefasst. Die alten Weisheitslehren nennen sie geistige Gesetze.
+
+## Stufe 5 · Geistige Gesetze
+@ Susi am Telefon mit ihrer Mutter · 01:06 bis 01:13 · 7 Minuten
 ! Mit welcher Erwartung ich in ein Gespräch gehe, prägt, was zurückkommt. Auch mein kleinster Schritt hat eine Wirkung.
 
-### Ein Telefonat, das anders läuft
+### Die Spielregeln des Lebens
 
-19:30 Uhr. Susis Handy brummt auf dem Küchentisch. „Mama“. Sie nimmt ab. „Du klingst müde“, sagt ihre Mutter. „Du isst bestimmt wieder nichts Ordentliches.“ Susis Kiefer fängt an zu mahlen. Sie kennt jeden Satz, bevor er kommt, wie ein Lied, das sie seit Jahren mitsingen kann.
+Stell dir vor, du spielst Monopoly, und keiner hat dir die Regeln erklärt. Du landest im Gefängnis und weißt nicht, warum. So fühlt sich das Leben manchmal an.
 
-Heute atmet sie einmal lang aus und sagt: „Mama, erzähl mir lieber von deinem Tag.“ Am anderen Ende wird es still. Dann erzählt die Mutter von der Nachbarin und ihren Tomaten. Zehn Minuten lang. Kein Streit.
-
-(Pause.)
-
-### Monopoly ohne Spielregeln
-
-Stell dir vor, du spielst Monopoly, aber niemand hat dir je die Regeln erklärt. Du landest im Gefängnis und weißt nicht, warum. So fühlt sich das Leben manchmal an.
-
-Es gibt eine sehr alte Weisheitslehre mit sogenannten geistigen Gesetzen. Ich nenne sie die Spielregeln des Lebens. Bewiesen sind sie nicht, du kannst sie dir wie eine Brille vorstellen. Wenn du sie aufsetzt, erkennst du Muster, die du vorher für Pech gehalten hast. Zwei davon bekommst du heute.
+Die geistigen Gesetze sind uralte Denkmodelle. Bewiesen sind sie nicht. Ich sehe sie als Spielregeln des Lebens, wie eine Brille: Wenn du sie aufsetzt, erkennst du Muster, die du vorher für Pech gehalten hast. Zwei davon nimmst du heute mit.
 
 ### Gleiches zieht Gleiches an
 
-Susi steht morgens am Kaffeeautomaten. Am Ende des Flurs sieht sie ihre Kollegin und denkt: Oje, schon wieder Laune im Keller. Sie sagt knapp „Morgen“. Die Kollegin sagt knapp „Morgen“ zurück. Und Susi denkt: Siehste, wusste ich’s.
+Dieses Gesetz sagt: Was du ausstrahlst, kommt in ähnlicher Form zu dir zurück. Freundlichkeit weckt eher Freundlichkeit, Gereiztheit eher Gereiztheit. Für den Alltag heißt das: Ich kann zuerst das geben, was ich mir selbst wünsche.
 
-Wie ich innerlich ausgerichtet bin, so begegne ich der Welt. Und oft begegnet sie mir genauso. Das nehmen wir gleich mit in die Manifestation.
+Am Abend ruft Susis Mutter an. „Du klingst müde. Du isst bestimmt wieder nichts Ordentliches.“ Susi kennt jeden Satz, und sonst wird daraus ein Streit. Heute atmet sie einmal lang aus und sagt: „Mama, erzähl mir von deinem Tag.“ Und die Mutter erzählt zehn Minuten lang von den Tomaten der Nachbarin. Kein Streit. Susi ist mit einer anderen Erwartung in das Gespräch gegangen, und es kam etwas anderes zurück.
 
 ### Ursache und Wirkung
 
-Erinnerst du dich an Susis schnelles Ja im Meeting heute Morgen? Das war die Ursache. Die Wirkung sitzt um acht Uhr abends am Laptop, mit kalter Pizza daneben, während die Familie im Wohnzimmer ohne sie eine Serie schaut.
+Jede Entscheidung hat eine Folge. Susis schnelles Ja im Meeting heute Morgen war eine Ursache. Die Wirkung: Um acht Uhr abends sitzt sie noch am Laptop, während die Familie ohne sie fernsieht.
 
-Und jetzt die gute Nachricht: Wenn jede Entscheidung etwas bewirkt, dann bewirkt auch jeder kleine Schritt etwas. Ein Nein zur richtigen Zeit. Ein Satz am Telefon, der mal anders klingt.
+Das gilt auch umgekehrt. Ein Nein zur richtigen Zeit oder ein Satz am Telefon, der mal anders klingt, bewirkt ebenfalls etwas.
 
-Nimm dir eine Frage mit: Mit welcher Erwartung gehe ich in das nächste Gespräch, das mich beschäftigt?
+Frag dich: Mit welcher Erwartung gehe ich in mein nächstes schwieriges Gespräch?
 
 ✍ Ins Notizbuch: „In mein nächstes schwieriges Gespräch gehe ich mit der Erwartung: ...“
+↩ Wem gerade kein Gespräch einfällt, lässt die Zeile frei.
 
-> Regie: Einmal ruhig sagen: Diese Gesetze sind überlieferte Denkmodelle, naturwissenschaftlich bewiesen sind sie nicht. Der Maßstab ist, ob die Brille im Alltag hilft. Keines davon erklärt Krankheit, Verlust oder Armut. Wenn es eng wird, nur das erste Gesetz.
-
-Die anderen Spielregeln hebe ich mir für das nächste Mal auf. Die lohnen sich.
+> Regie: Keines dieser Gesetze erklärt Krankheit, Verlust oder Armut. Der Maßstab ist, ob die Brille im Alltag hilft.
 
 !! Jede Entscheidung hat eine Folge, auch die kleine.
 
-Überleitung: Wir haben den Autopiloten erkannt, das Wunder in uns gespürt und unseren Zustand selbst gewählt. Jetzt fehlt noch etwas Entscheidendes: Was machen wir mit all dem? Susi sitzt inzwischen auf dem Sofa.
+Überleitung: Wenn meine Ausrichtung beeinflusst, was zurückkommt, dann kann ich mich auch bewusst ausrichten. Genau das ist Manifestation.
 
-## Stufe 6 · Manifestation und Vision
-@ Susi auf dem Sofa, 21:45 Uhr · 01:13 bis 01:33 · 20 Minuten
-! Mein Körper glaubt meinen Bildern. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt.
-
-### Wie sieht mein Leben aus, wenn es sich richtig anfühlt?
-
-21:45 Uhr. Susi sitzt auf dem Sofa, die Füße unter der Decke, das Handy in der Hand. Sie scrollt. Eine Frau mit Buchvertrag. Eine Frau, die um fünf Uhr aufsteht und dabei besser aussieht als Susi nach dem Duschen. Dann legt sie das Handy mit dem Display nach unten auf den Tisch, schließt die Augen und fragt sich zum ersten Mal an diesem Tag: Wie sieht eigentlich mein Leben aus, wenn es sich richtig anfühlt?
-
-(Pause.)
+## Stufe 6 · Vision und Manifestation
+@ Susi abends auf dem Sofa · 01:13 bis 01:33 · 20 Minuten
+! Ich sehe, wonach ich suche. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt.
 
 ### Manifestation, ganz bodenständig
 
-Ich weiß, das Wort Manifestation ist ziemlich ausgelutscht. Viele denken sofort an „Wünsch es dir einfach ans Universum, und dann passiert’s“. So einfach ist es nicht. Kompliziert ist es aber auch nicht.
+Ich weiß, das Wort Manifestation ist ziemlich ausgelutscht. Viele denken an „Wünsch es dir ans Universum, und dann passiert’s“. Für mich heißt Manifestation: eine klare Richtung, ein Gefühl dazu und ein erster Schritt.
 
-Den ersten Schritt kennst du schon. Du hast heute einen alten Satz erwischt und gefragt, ob er überhaupt stimmt. Das ist das Aufräumen. Jetzt geht es um die Richtung.
+Mit einer Richtung schaltet dein Gehirn seinen Filter um. Du überlegst, dir ein bestimmtes Auto zu kaufen, und plötzlich siehst du es überall. Die Autos waren vorher auch schon da. So nimmst du auch Chancen wahr, die vorher an dir vorbeigelaufen sind.
 
-Dein Gehirn filtert die ganze Zeit. Du überlegst, dir ein bestimmtes Auto zu kaufen, und plötzlich siehst du es überall. Die Autos waren vorher auch schon da. Dein Filter hat nur umgeschaltet. Mit einer klaren Richtung nimmst du Chancen wahr, die vorher an dir vorbeigelaufen sind.
+Susi sitzt am Abend auf dem Sofa und scrollt durch perfekte Leben. Dann legt sie das Handy weg und fragt sich zum ersten Mal an diesem Tag: Wie sieht mein Leben aus, wenn es sich richtig anfühlt? Das ist der Anfang. Wie dein Gehirn auf so eine Richtung reagiert, probieren wir gleich aus.
 
-Und dann kommt das Werkzeug, das ich am meisten liebe: die Vorstellungskraft. Ich zeig dir erst mal, wie stark sie ist.
+> Regie: Früh sagen: Niemand ist schuld an Krankheit, Verlust oder Armut. Es gibt keine Erfolgsgarantie und keine Heilversprechen.
 
-> Regie: Früh und in eigenen Worten sagen: Niemand ist schuld an Krankheit, Verlust oder Armut. Es geht um Ausrichtung und Handlungskraft, es gibt keine Erfolgsgarantie und keine Heilversprechen.
+#### Übung 7 · Was war blau? · 2 Minuten
 
-#### Übung 7 · Die Zitrone · 2 Minuten
+Schau dich eine halbe Minute im Raum um und merk dir alles, was rot ist. Wirklich alles.
 
-Schließ die Augen oder schau auf einen Punkt.
+(Dreißig Sekunden.)
 
-Stell dir eine Zitrone vor. Eine richtig gelbe, saftige Zitrone. Spür ihr Gewicht in deiner Hand. Du schneidest sie in der Mitte durch. Der Saft läuft dir über die Finger, es riecht frisch und scharf. Du hebst die eine Hälfte an den Mund. Und jetzt beißt du hinein.
+Und jetzt mach die Augen zu. Sag mir: Was war blau?
 
-(Pause.)
+(Lachen lassen.)
 
-Na? Läuft dir das Wasser im Mund zusammen? Und dabei ist da gar keine Zitrone.
+Du hast eben nach Rot gesucht, also hat dein Gehirn Rot gefunden. Das Blau war die ganze Zeit da. Genau so arbeitet eine Richtung: Du siehst, wonach du suchst.
 
-↩ Wer die Augen offen lassen oder einfach zuschauen möchte, darf das.
+↩ Wer nicht mitmachen mag, schaut einfach zu.
 #### Ende
 
-Beim lebendigen Vorstellen nutzt dein Gehirn zu großen Teilen dieselben Bereiche wie beim echten Erleben. Deshalb reagiert dein Körper. Wenn du dir dein Leben so vorstellst, mit dem Gefühl in der Brust und mit deiner Haltung, dann bereitest du dein ganzes System darauf vor. Genau das ist eine Vision: ein Bild von deinem Leben, das du im Körper spürst. Und jetzt nehme ich dich mit in dein eigenes Bild.
+Und noch etwas weißt du schon vom Kaffeeduft: Dein Körper glaubt deinen Bildern. Eine Vision ist genau so ein Bild. Dein Leben, so wie es sich richtig anfühlt, und zwar so lebendig, dass du es im Körper spürst. Jetzt malen wir deins.
 
-#### Übung 8 · Mein Zukunftsbild mit allen Sinnen · 7 Minuten
+#### Übung 8 · Mein Zukunftsbild · 7 Minuten
 
-Lass dich ganz in deinen Stuhl sinken. Spür deine Füße auf dem Boden. Atme ein und lang wieder aus.
-
-(Pause.)
-
-Stell dir vor, es ist ein Jahr später. Du bist die Frau geworden, die du sein möchtest. Ganz bei dir, mit allen Ecken. Du stehst an einem Ort, der dir gehört. Schau dich um. Welche Farben siehst du? Wie fällt das Licht? Was hörst du? Vielleicht eine Stimme, die du liebst, vielleicht ein leises Lachen.
+Lass dich in deinen Stuhl sinken. Spür deine Füße auf dem Boden. Atme ein und lang aus.
 
 (Pause.)
 
-Spür, wie du stehst. Wie deine Schultern sind. Wie dein Atem fließt. In deiner Brust sitzt ein warmes Gefühl. Wo genau? Dieses Gefühl heißt: Ich bin angekommen.
+Es ist ein Jahr später. Du bist die Frau, die du sein möchtest. Du stehst an einem Ort, der dir gehört. Welche Farben siehst du? Wie fällt das Licht? Was hörst du?
+
+(Pause.)
+
+Spür, wie du stehst. Wie deine Schultern sind, wie dein Atem fließt. In deiner Brust sitzt ein warmes Gefühl. Es heißt: Ich bin angekommen.
 
 (Pause, länger.)
 
-Schau, was du an diesem Tag tust. Ein Nein, das du ausgesprochen hast. Ein Ja, das du dir endlich erlaubst. Du hörst dich beim Zähneputzen leise ein Lied summen. Und selbst die Stimme in dir, die morgens als Erstes spricht, klingt freundlich.
+Schau, was du an diesem Tag tust. Ein Nein, das du ausgesprochen hast. Ein Ja, das du dir endlich erlaubst.
 
 (Pause, länger.)
 
-Nimm dieses Gefühl mit. Es gehört dir. Atme tief ein, bewege Finger und Zehen und komm mit offenen Augen zurück in diesen Raum.
-
-(Eine Minute Stille, dann schreiben.)
+Nimm dieses Gefühl mit, es gehört dir. Beweg Finger und Zehen und komm mit offenen Augen zurück.
 
 ✍ Ins Notizbuch: „Mein Zukunftsbild: Ich sehe ... Ich höre ... Ich fühle ... Ich sage zu mir ...“
 ↩ Wer Unruhe spürt, lässt die Augen offen, spürt die Füße am Boden und darf jederzeit aussteigen.
 #### Ende
 
-> Regie: Licht dimmen, ruhige Musik ohne Text, bei jeder Pause fünf bis acht Sekunden warten. Danach nicht sofort erklären, erst Stille, dann schreiben. Tränen sind in Ordnung. Bei starken Reaktionen auf therapeutische Hilfe hinweisen. Vorhersagen machst du keine.
+> Regie: Licht dimmen, Musik ohne Text, bei jeder Pause fünf bis acht Sekunden warten. Danach erst Stille, dann schreiben. Bei starken Reaktionen auf therapeutische Hilfe hinweisen.
 
 ### Schon heute die Frau sein
 
-Die meisten von uns warten. Wir warten, bis das Ziel da ist, und denken: Dann bin ich endlich entspannt. Dreh es um. Wie würde die Frau aus deinem Bild morgen früh aufstehen? Wie würde sie ans Telefon gehen, wenn ihre Mutter anruft? So zu handeln, als wäre es schon da, das ist für mich Manifestation.
+Die meisten von uns warten, bis das Ziel da ist, und denken: Dann bin ich endlich entspannt. Dreh es um. Wie würde die Frau aus deinem Bild morgen früh aufstehen? Wie würde sie ans Telefon gehen? Fang an, so zu handeln. Das ist Manifestation.
 
-Du wirst auch mal rausfallen. Ganz sicher, weil der Alltag laut ist. Der Moment, in dem du merkst „Oh, ich bin rausgefallen“, und zurückkommst, ist deine Kraft. Jedes Zurückkommen gräbt das neue Bachbett ein Stück tiefer.
+Du wirst auch mal rausfallen, weil der Alltag laut ist. Jedes Mal, wenn du es merkst und zurückkommst, gräbt sich der Bach ein neues Bett.
 
 #### Übung 9 · Mein Schritt für 48 Stunden · 3 Minuten
 
-Mach dein Bild jetzt ganz klein. Was würde diese Frau in den nächsten zwei Tagen tun? So klein, dass du es morgen schon schaffst. Ein Anruf, ein Termin mit dir selbst, ein Nein. Schreib es ganz vorne in dein Notizbuch, dann siehst du es morgen früh als Erstes.
+Mach dein Bild jetzt ganz klein. Was würde diese Frau in den nächsten zwei Tagen tun? So klein, dass du es morgen schaffst. Ein Anruf, ein Termin mit dir selbst, ein Nein. Schreib es ganz vorne in dein Notizbuch.
 
-Wer mag, liest ihren Satz der Nachbarin vor. Die Nachbarin sagt dann nur: Ich höre dich.
+Wer mag, liest den Satz der Nachbarin vor. Die sagt nur: Ich höre dich.
 
 ✍ Ins Notizbuch, vorne innen: „Das tue ich in den nächsten 48 Stunden: ...“
-↩ Wer nicht vorlesen mag, behält den Satz für sich. Wem noch nichts einfällt, füllt die Stelle zu Hause.
+↩ Wem noch nichts einfällt, füllt die Stelle zu Hause.
 #### Ende
-
-> Regie: Hilf, wenn ein Schritt zu groß wird. „Ich kündige“ wird zu „Ich rufe Petra an und frage, wie sie das damals gemacht hat“.
 
 !! Du entscheidest dich einmal und bestätigst es dir tausendmal.
 
-Überleitung: Und jetzt schauen wir ein letztes Mal zu Susi. Die Nacht ist vorbei, und ihr Wecker klingelt wieder.
+Überleitung: Jetzt hast du alles beisammen: deinen Atem, deinen Körper, deinen Zustand und dein Bild. Schauen wir, was passiert, wenn du das selbst in die Hand nimmst.
 
-## Stufe 7 · Selbstermächtigung: Sich selbst wachküssen
-@ Susis Mittwochmorgen, 06:12 Uhr · 01:33 bis 01:45 · 12 Minuten
+## Stufe 7 · Selbstermächtigung
+@ Susis nächster Morgen · 01:33 bis 01:45 · 12 Minuten
 ! Ich kann mich selbst in diesen Zustand bringen. Den Kuss habe ich mir selbst gegeben.
 
-### Derselbe Tag, eine andere Susi
+### Sich selbst wachküssen
 
-Mittwochmorgen, 06:12 Uhr. Der Wecker klingelt, derselbe Ton wie gestern. Auf dem Handy warten wieder vierzehn Nachrichten.
+Am nächsten Morgen klingelt Susis Wecker wieder um 06:12 Uhr. Dieselben vierzehn Nachrichten. Susi lässt das Handy liegen, stellt die Füße auf den kalten Boden und atmet zweimal lang aus. Sie fragt sich, wofür sie dankbar ist und wer sie heute sein möchte. Beim Zähneputzen summt sie das Lied von damals. Die Mails und die Wäsche sind noch da. Und Susi geht heute anders in ihren Tag. Sie hat sich selbst geweckt.
 
-Susi lässt das Handy liegen. Ihre Füße finden den kalten Boden. Sie atmet zweimal lang aus. Dann fragt sie sich: Wofür bin ich heute dankbar? Was möchte ich heute erschaffen? Und wer möchte ich heute für mich sein?
+(Pause.)
 
-Beim Zähneputzen summt sie das Lied von damals. Die Mails sind noch da, die Wäsche auch. Und Susi geht heute anders in ihren Tag. Sie hat sich selbst geweckt.
+Weißt du noch, wo wir angefangen haben? Bei deinem lebendigen Bild. Es war die ganze Zeit da, unter Terminen und unter zu vielen „Ich sollte“.
 
-(Pause. Ruhig durch den Raum schauen.)
+Selbstermächtigung heißt für mich: Du erlebst, dass du dich selbst in deinen Zustand bringen kannst. Wenn du das gespürt hast, dann weißt du: Das war ich. Dann bist du wachgeküsst.
 
-### Das eigentliche Happy End
-
-Weißt du noch, wo wir heute angefangen haben? Bei deinem lebendigen Bild. Das war die ganze Zeit da. Es lag nur unter Terminen, unter zu vielen „Ich sollte“ und unter einem lauten Alltag. Und es hat gewartet, bis du es wieder rufst.
-
-Ich glaube, du bist in dem Moment wachgeküsst, in dem du einmal erlebt hast: Ich habe meinen Zustand gewählt, und das Leben hat geantwortet. Vielleicht nur in einem Gespräch, das anders gelaufen ist als sonst. Wenn du das einmal gespürt hast, dann weißt du: Das war ich. Das ist Selbstermächtigung.
-
-Und genau das machen wir jetzt zusammen. Steh bitte auf.
-
-> Regie: Das ist die emotionale Landung. Tempo raus, Pausen stehen lassen, leise Musik. In der Übung kommt alles zusammen, was die Frauen heute in sich gefunden haben: Atem, Haltung, lebendiges Bild und Zukunftsbild.
+Und genau das machen wir jetzt. Steh bitte auf.
 
 #### Übung 10 · Der Kuss · 5 Minuten
 
-Stell dich hüftbreit hin. Augen zu, oder schau weich auf den Boden. Atme ein. Und lang aus. Noch einmal. Richte dich auf und lass die Schultern sinken. Du wählst deinen Zustand.
+Stell dich hüftbreit hin. Augen zu oder weich auf den Boden. Atme ein, und lang aus. Noch einmal. Richte dich auf, lass die Schultern sinken.
 
 (Pause, drei Atemzüge.)
 
-Und jetzt hol dir dein lebendiges Bild von heute Nachmittag zurück. Das Lied, den Wind, das Lachen. Spür, wo es im Körper sitzt. Und dann leg das warme Gefühl aus deinem Zukunftsbild dazu. Ich bin angekommen. Lass beides größer werden, so groß, wie es sich gut anfühlt.
+Hol dir dein lebendiges Bild vom Anfang zurück. Das Lied, den Wind, das Lachen. Und leg das warme Gefühl aus deinem Zukunftsbild dazu. Ich bin angekommen.
 
 (Pause, länger.)
 
-Leg beide Hände auf dein Herz. Es schlägt schon die ganze Zeit, ohne dass du etwas dafür getan hast. Sag zu dir: Ich bin wach. Ich bin ein Wunder. Ich bin das Happy End.
+Leg beide Hände auf dein Herz und sag zu dir: Ich bin wach. Ich bin ein Wunder. Ich bin das Happy End.
 
-Und jetzt leg eine Hand an deine Wange, ganz weich, so wie bei einem Menschen, den du sehr magst. Gib dir einen Kuss auf deine Hand. Und leg diesen Kuss auf dein Herz. Da darf er bleiben.
+Jetzt leg eine Hand an deine Wange, ganz weich, wie bei einem Menschen, den du sehr magst. Gib dir einen Kuss auf deine Hand und leg ihn auf dein Herz. Da darf er bleiben.
 
 (Stille, mindestens zehn Sekunden.)
 
-Dieses Gefühl kannst du dir jeden Morgen selbst holen, in zwei Minuten. Du weißt jetzt, wie es geht. Du bist wachgeküsst. Mach die Augen auf und lächle der Frau neben dir zu.
+Dieses Gefühl kannst du jeden Morgen wieder einladen. Du bist wachgeküsst. Mach die Augen auf und lächle der Frau neben dir zu.
 
-↩ Wer nicht mag, bleibt sitzen oder lässt die Hände im Schoß liegen.
+↩ Wer nicht mag, bleibt sitzen oder lässt die Hände im Schoß.
 #### Ende
 
-Setz dich noch mal kurz hin und schlag dein Notizbuch auf. Ganz am Anfang hast du eingetragen, wie lebendig du dich im Alltag fühlst. Wo stehst du jetzt, von 1 bis 10? Schreib die Zahl einfach daneben.
+Setz dich und schau auf deine Zahl vom Anfang. Wo stehst du jetzt, von 1 bis 10? Schreib sie daneben.
 
-> Regie: Die Zahl nicht abfragen und nicht vergleichen lassen. Wer mag, darf sie nennen. Wenn jemand keine Veränderung spürt, ist das genauso in Ordnung.
+> Regie: Die Zahl nicht abfragen und nicht vergleichen. Keine Veränderung ist genauso in Ordnung.
 
-!! Den Kuss hast du dir selbst gegeben. Du hast dich selbst geweckt.
+!! Den Kuss hast du dir selbst gegeben.
 
-## Ausklang · Morgenritual und wie es weitergeht
+Überleitung: Damit dieses Gefühl nicht wieder unter dem Alltag verschwindet, bekommst du jetzt etwas für jeden Morgen.
+
+## Ausklang · Dein Morgenritual
 @ Beim Tee · 01:45 bis 02:00 · 15 Minuten
 ! Ich weiß, wie ich mir dieses Gefühl jeden Morgen in zwei Minuten zurückhole.
 
-> Regie: Diese Viertelstunde ist dein Puffer. Wenn es eng wird, nur das Morgenritual und der Satz zum Weitermachen. Bleibt Zeit, eine Runde mit der Frage „Was nimmst du heute mit?“, ein Satz pro Frau, wer mag.
-
-### Dein Morgenritual
-
-Schlag dein Notizbuch bitte ganz hinten auf. Dort schreiben wir jetzt zusammen dein Morgenritual hinein. Zwei Minuten, jeden Morgen, bevor der Tag dich holt.
+> Regie: Das ist dein Puffer. Wird es eng, nur das Morgenritual und der Satz zum Weitermachen. Bleibt Zeit, eine Runde: „Was nimmst du heute mit?“
 
 #### Übung 11 · Mein Morgenritual · 3 Minuten
 
-Schreib als Überschrift: Mein Morgenritual.
+Schlag dein Notizbuch ganz hinten auf und schreib als Überschrift: Mein Morgenritual. Zwei Minuten jeden Morgen, bevor der Tag dich holt.
 
 Erstens: Füße auf den Boden, drei Atemzüge, länger aus als ein.
 Zweitens: Wofür bin ich heute dankbar?
 Drittens: Was möchte ich heute erschaffen?
-Viertens: Wer möchte ich heute für mich selbst sein?
-Und fünftens: Hand aufs Herz und der Satz: Ich wähle meinen Zustand.
-
-Wenn du magst, ergänz noch einen eigenen Satz für deinen Morgen.
+Viertens: Wer möchte ich heute für mich sein?
+Fünftens: Hand aufs Herz und der Satz: Ich wähle meinen Zustand.
 
 ✍ Ins Notizbuch, letzte Seite: „Mein Morgenritual: 1 ... 2 ... 3 ... 4 ... 5 ...“
-↩ Wem eine Frage am Morgen zu viel ist, schreibt nur die erste auf.
+↩ Wem das am Morgen zu viel ist, schreibt nur die erste Zeile.
 #### Ende
 
 Und wenn du mal einen Tag verpasst, kommst du einfach zurück. Genau das haben wir heute geübt.
 
-### Was noch auf dich wartet
+Ein paar Übungen und die übrigen Spielregeln des Lebens habe ich für das nächste Mal aufgehoben. Wenn du Lust hast weiterzumachen, sprich mich gleich beim Tee an.
 
-Heute hast du von allem ein bisschen gekostet. Ein paar Dinge habe ich bewusst für später aufgehoben. Den Brief, den eine weise Stimme in dir an die Frau schreibt, die du heute bist. Den Anker, mit dem du dein schönstes Gefühl auf Knopfdruck abrufst. Die Stimmgabel zu zweit, bei der meistens viel gelacht wird. Und die übrigen Spielregeln des Lebens.
-
-Wenn du Lust hast, da weiterzumachen, sprich mich gleich beim Tee an.
-
-> Regie: Kein Verkaufsdruck. Ein Satz, dann bekommt jede Frau ihren Flyer mit Morgenritual, sieben Missionen, nächstem Termin und Clubhinweis.
-> Platzhalter: Dein nächstes Angebot, z. B. Datum, Termin im Videocall oder Warteliste für den Club.
+> Regie: Kein Verkaufsdruck. Danach bekommt jede Frau ihren Flyer.
+> Platzhalter: Dein nächstes Angebot, z. B. Datum, Videocall oder Warteliste für den Club.
 
 !! Das Happy End ist eine Entscheidung. Du triffst sie jeden Morgen neu.
