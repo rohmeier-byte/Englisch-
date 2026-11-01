@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wachgeküsst Version 3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Mulish:ital,wght@0,400;0,600;0,800;1,400&family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;600;800&family=Italiana&family=Karla:ital,wght@0,400;0,600;0,800;1,400&family=Caveat:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+<style>
+/* Layout: eine ruhige Lesespalte, oben eine feste Leiste mit Design, Ansicht und Sprungmarken zu den Stufen */
+:root{
+  /* Design 1 Rosé: Beerenrot auf Rosé, Salbeigrün */
+  --bg:#fbf3f2; --fg:#3a1f28; --muted:#7d5b66; --accent:#b23a5b; --accent2:#4f6b52;
+  --card:#ffffff; --line:#ecd3d8; --uebung:#fff; --uebung-rand:#b23a5b; --regie:#eef2ec; --regie-fg:#3c5240;
+  --kern:#b23a5b; --bar:#fbf3f2e8; --chip:#f3dfe2;
+  --font-d:"Gloock",Georgia,serif; --font-b:"Mulish",system-ui,sans-serif;
+  --radius:14px; --kopf-deko:"❦";
+  color-scheme:light;
+}
+:root[data-design="tau"]{
+  /* Design 2 Morgentau: Salbei und Morgengold, hell und luftig */
+  --bg:#f4f7f1; --fg:#22302a; --muted:#5f7068; --accent:#4f7d5e; --accent2:#b98a2c;
+  --card:#ffffff; --line:#d8e2d6; --uebung:#fffdf6; --uebung-rand:#b98a2c; --regie:#e9efe6; --regie-fg:#2f4a39;
+  --kern:#4f7d5e; --bar:#f4f7f1e8; --chip:#e1eadc;
+  --font-d:"DM Serif Display",Georgia,serif; --font-b:"Figtree",system-ui,sans-serif;
+  --radius:22px; --kopf-deko:"✿";
+  color-scheme:light;
+}
+:root[data-design="heft"]{
+  /* Design 4 Notizheft: Papier, Tinte, Textmarker, Handschrift für Überschriften */
+  --bg:#fdfcf7; --fg:#1f2a44; --muted:#5d6680; --accent:#e4572e; --accent2:#2b59c3;
+  --card:#ffffff; --line:#dfe3ee; --uebung:#fffbe0; --uebung-rand:#1f2a44; --regie:#eef3ff; --regie-fg:#24407e;
+  --kern:#1f2a44; --bar:#fdfcf7ee; --chip:#fff1a8;
+  --font-d:"Caveat","Comic Sans MS",cursive; --font-b:"Source Sans 3",system-ui,sans-serif;
+  --radius:3px; --kopf-deko:"✎";
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:190px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-b);font-size:18px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px;
+  transition:background .3s,color .3s}
+:root[data-design="heft"] body{background-image:repeating-linear-gradient(to bottom,transparent 0 31px,#e8ecf5 31px 32px);background-attachment:local}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:46rem;margin:0 auto}
+
+/* Leiste */
+.leiste{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bar);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px)) 8px}
+.leiste-in{max-width:46rem;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.zeile{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.zeile-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:4px;min-width:4.5rem}
+.knopf{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:4px 12px;cursor:pointer}
+.knopf[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:700}
+.knopf:focus-visible,.sprung a:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.sprung{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.sprung a{flex:0 0 auto;font-size:.78rem;text-decoration:none;color:var(--fg);background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.sprung a.aktiv{border-color:var(--accent);color:var(--accent);font-weight:700}
+
+/* Kopf */
+.titel{padding:48px 0 12px;text-align:left}
+.titel .ober{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:700}
+.titel h1{font-family:var(--font-d);font-weight:400;font-size:clamp(2.8rem,9vw,4.6rem);line-height:1;margin:.15em 0 .2em;color:var(--accent);text-wrap:balance}
+:root[data-design="heft"] .titel h1{font-weight:700}
+.titel p{margin:0;color:var(--muted);max-width:36rem}
+
+/* Ablauf */
+.ablauf{margin:28px 0 8px;border-top:1px solid var(--line)}
+.ablauf h2{font-family:var(--font-d);font-weight:400;font-size:1.6rem;margin:22px 0 10px}
+.ablauf ol{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.ablauf li a{display:grid;grid-template-columns:8.5rem 1fr auto;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line);text-decoration:none;color:var(--fg)}
+.ablauf .t{font-variant-numeric:tabular-nums;font-size:.85rem;color:var(--muted)}
+.ablauf .n{font-weight:600;min-width:0}
+.ablauf .u{font-size:.75rem;color:var(--accent);white-space:nowrap}
+@media (max-width:520px){.ablauf li a{grid-template-columns:1fr auto}.ablauf .t{grid-column:1/-1;margin-bottom:-6px}}
+
+/* Stufe */
+.stufe{padding-top:40px}
+.stufe-kopf{border-top:2px solid var(--accent);padding-top:18px;margin-bottom:16px}
+.stufe-nr{margin:0;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);font-weight:800}
+.stufe-nr::before{content:var(--kopf-deko);margin-right:.5em;color:var(--accent)}
+.stufe-kopf h2{font-family:var(--font-d);font-weight:400;font-size:clamp(2rem,6vw,2.8rem);line-height:1.1;margin:.15em 0 .1em;text-wrap:balance}
+:root[data-design="heft"] .stufe-kopf h2,:root[data-design="heft"] h3,:root[data-design="heft"] h4{font-weight:700}
+.stufe-unter{margin:0;color:var(--muted);font-style:italic}
+.zeit{margin:.4em 0 0;font-size:.85rem;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700}
+.kurz{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin:0 0 20px;font-size:.92rem}
+.kurz-titel{margin:0 0 4px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.kurz ul{margin:0;padding-left:1.1em}
+.kurz li{margin:2px 0}
+h3{font-family:var(--font-d);font-weight:400;font-size:1.45rem;line-height:1.2;margin:30px 0 8px;color:var(--fg);text-wrap:balance}
+.sprechen p,p.sp{margin:0 0 .85em;max-width:65ch}
+.uebung .sagen{font-style:normal}
+.pause{font-size:.85rem;color:var(--muted);font-style:italic;margin:.2em 0 1em;padding-left:1.6em;position:relative}
+.pause::before{content:"⏸";position:absolute;left:0;font-style:normal;color:var(--accent2)}
+.regie{background:var(--regie);color:var(--regie-fg);border-radius:var(--radius);padding:12px 16px;margin:16px 0;font-size:.88rem;line-height:1.55}
+.regie-titel{margin:0 0 2px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800}
+.regie p{margin:0 0 .4em}
+.uebung{background:var(--uebung);border:2px solid var(--uebung-rand);border-radius:var(--radius);padding:18px 20px;margin:24px 0;box-shadow:0 6px 24px -14px var(--uebung-rand)}
+:root[data-design="heft"] .uebung{box-shadow:4px 4px 0 var(--fg);transform:rotate(-.3deg)}
+.uebung-label{margin:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+.uebung h4{font-family:var(--font-d);font-weight:400;font-size:1.55rem;line-height:1.15;margin:.15em 0 .5em}
+.schritte{margin:0 0 12px;padding-left:1.3em}
+.schritte li{margin:4px 0;padding-left:.2em}
+.schritte li::marker{color:var(--accent);font-weight:800}
+.sagen{margin:10px 0;padding:10px 14px;border-left:3px solid var(--accent2);font-style:italic;background:color-mix(in srgb,var(--accent2) 7%,transparent)}
+.heft{margin:10px 0 0;font-weight:600}
+.heft::before{content:"✍ ";color:var(--accent)}
+:root[data-design="heft"] .heft{background:linear-gradient(transparent 55%,#fff1a8 55%);display:inline}
+.ausstieg{margin:8px 0 0;font-size:.82rem;color:var(--muted)}
+.ausstieg::before{content:"↩ ";color:var(--accent2)}
+.kernsatz{font-family:var(--font-d);font-size:1.5rem;line-height:1.3;color:var(--kern);margin:26px 0;padding:6px 0 6px 18px;border-left:3px solid var(--kern);text-wrap:balance}
+:root[data-design="heft"] .kernsatz{font-size:1.9rem;font-weight:700}
+.uebergang{margin:28px 0 0;padding:14px 18px;border:1px dashed var(--accent2);border-radius:var(--radius)}
+.uebergang-titel{margin:0 0 4px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:800}
+.uebergang p{margin:0 0 .6em}
+.uebergang p:last-child{margin:0}
+.platzhalter{background:color-mix(in srgb,var(--accent) 14%,transparent);border-bottom:1px dashed var(--accent);padding:0 4px;border-radius:3px;font-style:italic}
+b,strong{font-weight:800}
+
+/* Ansicht nur Übungen */
+body.nur-uebungen p.sp,body.nur-uebungen .stufe-aha,body.nur-uebungen .sprechen,body.nur-uebungen h3,body.nur-uebungen .pause,body.nur-uebungen .kernsatz,body.nur-uebungen .uebergang,body.nur-uebungen .regie:not(.uebung .regie){display:none}
+body.nur-uebungen .stufe{padding-top:24px}
+.leer{display:none;color:var(--muted);font-style:italic;font-size:.9rem}
+body.nur-uebungen .stufe:not(:has(.uebung)) .leer{display:block}
+
+/* Version 2: Versprechen oben und Ablauf mit Erkenntnissen */
+.versprechen{margin:22px 0 6px;padding:20px 22px;background:var(--card);border:2px solid var(--accent);border-radius:var(--radius)}
+.versprechen-titel{margin:0 0 6px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);font-weight:800}
+.versprechen p.satz{margin:0;font-family:var(--font-d);font-size:clamp(1.35rem,4.2vw,1.75rem);line-height:1.3;color:var(--kern);text-wrap:balance}
+.ablauf .intro{margin:0 0 10px;color:var(--muted);font-size:.92rem}
+.ablauf ol.aha{counter-reset:aha}
+.ablauf ol.aha li a{display:block;padding:12px 0 12px 2.4rem;position:relative;border-bottom:1px dashed var(--line);text-decoration:none;color:var(--fg)}
+.ablauf ol.aha li a::before{counter-increment:aha;content:counter(aha);position:absolute;left:0;top:12px;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--chip);color:var(--accent);font-weight:800;font-size:.85rem;display:grid;place-items:center}
+.aha .wo{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.aha .werkzeug{display:block;font-size:.85rem;color:var(--accent2);font-weight:700;margin:2px 0}
+.aha .erkenntnis{display:block;font-family:var(--font-d);font-size:1.15rem;line-height:1.3}
+.stufe-aha{margin:0 0 18px;padding:10px 16px;border-left:3px solid var(--accent);background:var(--chip);border-radius:0 var(--radius) var(--radius) 0;font-size:.95rem}
+.stufe-aha b{color:var(--accent)}
+/* Version 3: Runden mit der Gruppe */
+.runde{margin:.4em 0 1.1em;padding:10px 14px;border-left:3px solid var(--accent);background:var(--chip);border-radius:0 var(--radius) var(--radius) 0;font-size:.95rem;max-width:65ch}
+.runde::before{content:"Runde";display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--accent);margin-bottom:2px}
+body.nur-uebungen .runde{display:none}
+@media print{.leiste{display:none}body{font-size:12pt;background:#fff}.uebung{break-inside:avoid}}
+</style>
+
+<div class="leiste" role="navigation" aria-label="Steuerung">
+  <div class="leiste-in">
+    <div class="zeile" role="group" aria-label="Design wählen">
+      <span class="zeile-label">Design</span>
+      <button class="knopf" data-d="rose" aria-pressed="true">1 Rosé</button>
+      <button class="knopf" data-d="tau" aria-pressed="false">2 Morgentau</button>
+    </div>
+    <div class="zeile" role="group" aria-label="Ansicht wählen">
+      <span class="zeile-label">Ansicht</span>
+      <button class="knopf" data-v="alles" aria-pressed="true">Ganzes Skript</button>
+      <button class="knopf" data-v="uebungen" aria-pressed="false">Nur Übungen</button>
+    </div>
+    <nav class="sprung" id="sprung" aria-label="Zu Stufe springen"></nav>
+  </div>
+</div>
+
+<main class="wrap">
+  <header class="titel">
+    <p class="ober">Dein Sprechskript · Version 3 · 120 Minuten</p>
+    <h1>Wachgeküsst</h1>
+    <p>Ein Thema führt ins nächste. Du bist mit der Gruppe im Gespräch, und der Alltag liefert die Beispiele.</p>
+  </header>
+
+  <section class="versprechen" aria-labelledby="versprechen-h">
+    <p class="versprechen-titel" id="versprechen-h">Was dich heute erwartet</p>
+    <p class="satz">Heute spürst du, was hinter Nervensystem, Frequenz, Vision und Manifestation steckt und wie viel davon du selbst steuerst.</p>
+  </section>
+
+  <section class="ablauf" aria-labelledby="ablauf-h">
+    <h2 id="ablauf-h">Was die Frauen erleben</h2>
+    <p class="intro">Pro Thema die Übungen und der Moment, in dem es bei ihnen klick macht.</p>
+    <ol class="aha">
+      <li><a href="#start"><span class="wo">Ankommen · Das Lebendige in dir</span><span class="werkzeug">Mein lebendiges Bild</span><span class="erkenntnis">Das Lebendige in mir ist noch da. Es wartet nur darauf, dass ich es rufe.</span></a></li>
+      <li><a href="#s1"><span class="wo">Stufe 1 · Nervensystem und Glaubenssätze</span><span class="werkzeug">Stimmt das überhaupt? · Länger aus als ein</span><span class="erkenntnis">Mein schnelles Ja kam vom Autopiloten. Mein alter Satz ist keine Wahrheit, und mit dem Atem beruhige ich mein Nervensystem selbst.</span></a></li>
+      <li><a href="#s2"><span class="wo">Stufe 2 · Der geniale Körper</span><span class="werkzeug">Kaffeeduft am Sonntagmorgen · Ich bin ein Wunder</span><span class="erkenntnis">Ein einziger Gedanke, und mein Körper reagiert. Ich bin dieses Wunder, auch an schweren Tagen.</span></a></li>
+      <li><a href="#s3"><span class="wo">Stufe 3 · Energie und Frequenz</span><span class="werkzeug">Eng und weit</span><span class="erkenntnis">Frequenz heißt mein innerer Zustand. Er färbt, was ich höre und tue, und wenn er ruhig wird, höre ich meine innere Stimme.</span></a></li>
+      <li><a href="#s4"><span class="wo">Stufe 4 · Resonanz</span><span class="werkzeug">Meinen Zustand wählen</span><span class="erkenntnis">Ich wähle meinen Zustand, und die anderen spüren ihn mit.</span></a></li>
+      <li><a href="#s5"><span class="wo">Stufe 5 · Geistige Gesetze</span><span class="werkzeug">Eine Frage zum Mitnehmen</span><span class="erkenntnis">Mit welcher Erwartung ich in ein Gespräch gehe, prägt, was zurückkommt. Auch mein kleinster Schritt hat eine Wirkung.</span></a></li>
+      <li><a href="#s6"><span class="wo">Stufe 6 · Vision und Manifestation</span><span class="werkzeug">Was war blau? · Mein Zukunftsbild · Mein Schritt für 48 Stunden</span><span class="erkenntnis">Ich sehe, wonach ich suche. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt.</span></a></li>
+      <li><a href="#s7"><span class="wo">Stufe 7 · Selbstermächtigung</span><span class="werkzeug">Der Kuss</span><span class="erkenntnis">Ich kann mich selbst in diesen Zustand bringen. Den Kuss habe ich mir selbst gegeben.</span></a></li>
+      <li><a href="#ausklang"><span class="wo">Ausklang · Dein Morgenritual</span><span class="werkzeug">Mein Morgenritual</span><span class="erkenntnis">Ich weiß, wie ich mir dieses Gefühl jeden Morgen in zwei Minuten zurückhole.</span></a></li>
+    </ol>
+  </section>
+
+  <aside class="regie">
+    <p class="regie-titel">Vorab für dich</p>
+    <p>Diese Version arbeitet mit kurzen Alltagsbeispielen, die jede Frau kennt, und holt die Gruppe immer wieder dazu. Die Kästen mit der Überschrift „Runde“ sind Fragen an den Raum: Hände heben, Zurufe sammeln, der Nachbarin kurz etwas sagen. Der Text ist ausformuliert, damit du ihn so vorlesen kannst. Stufe 6 und 7 kürzt du nie.</p>
+    <p>Der Ablauf bleibt wie bisher: 105 Minuten Programm, 15 Minuten Puffer. Energie und Frequenz hat jetzt zehn Minuten und eine eigene Übung, Resonanz dafür acht. Jede Frau hat nur ihr leeres Notizbuch mit Logo. Die Satzanfänge unter „Ins Notizbuch“ sagst du langsam an, gern zweimal. Den Flyer gibt es erst zum Abschied.</p>
+    <p>Eine Faustregel für den Nachmittag: Wenn du merkst, dass du länger als eine Minute am Stück redest, stell eine Frage oder geh in die Übung.</p>
+  </aside>
+
+<section class="stufe" id="start">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Ankommen</p>
+    <h2>Das Lebendige in dir</h2>
+    <p class="stufe-unter">Ein Lied von früher</p>
+    <p class="zeit">00:00 bis 00:12 · 12 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Das Lebendige in mir ist noch da. Es wartet nur darauf, dass ich es rufe.</p>
+  <h3>Willkommen</h3>
+  <p class="sp">Schön, dass du da bist. Ich bin Nicole.</p>
+  <p class="sp">Heute musst du nichts leisten. Du darfst dich erinnern.</p>
+  <p class="sp">Überall hören wir gerade Wörter wie Nervensystem, Frequenz, Vision und Manifestation. Heute spürst du, was hinter diesen Wörtern steckt und wie viel davon du selbst steuerst. Wir machen das mit kleinen Experimenten, bei denen du es am eigenen Körper merkst.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Den Satz mit den großen Wörtern langsam sagen. Dann die Spielregeln: Alles ist freiwillig, Augen offen lassen ist erlaubt, was hier erzählt wird, bleibt hier.</p></aside>
+  <p class="runde">Hände hoch, wer heute zum ersten Mal bei so etwas dabei ist? Und wer hat sich auf dem Weg hierher gefragt, was sie hier eigentlich macht? Lachen zulassen, in die Runde nicken.</p>
+  <h3>Der Moment, der gleich wieder weg ist</h3>
+  <p class="sp">Ich fange mit etwas an, das wir alle kennen. Du stehst morgens im Bad, im Radio läuft ein Lied von früher, und für einen Augenblick bist du wieder siebzehn. Autofenster unten, Wind in den Haaren, mit der besten Freundin laut und falsch mitsingen. Ein Kribbeln im Bauch. Und dann ruft jemand nach den Sportsachen, nach dem Autoschlüssel oder nach dem Frühstück, und das Gefühl ist weg.</p>
+  <p class="pause">Pause.</p>
+  <p class="runde">Wer kennt so einen Moment? Hände hoch. Und jetzt ruft mal zwei, drei Orte oder Lieder rein, bei denen ihr euch so gefühlt habt.</p>
+  <p class="sp">Für einen Augenblick blitzt etwas Lebendiges in uns auf und geht gleich wieder unter. Wo ist dieses Gefühl hin, und wie holen wir es zurück? Wir fangen mit deinem eigenen lebendigen Moment an.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 1 · 5 Minuten</p><h4>Mein lebendiges Bild</h4>
+  <p class="sagen">Setz dich bequem hin. Wenn du magst, leg eine Hand auf deine Brust und atme einmal tief ein und lang wieder aus.</p>
+  <p class="sagen">Such dir ein Bild, in dem du dich richtig lebendig gefühlt hast. Mit siebzehn, mit vierzig oder letzten Sommer. Wo bist du? Was hörst du? Wonach riecht es? Und was spürst du in deinem Körper? Bleib einen Moment dort.</p>
+  <p class="pause">Pause, etwa zwanzig Sekunden.</p>
+  <p class="sagen">Schreib es jetzt auf. Und zum Schluss eine Zahl: Wie lebendig fühlst du dich im Alltag gerade, von 1 bis 10? Die Zahl brauchen wir am Ende noch einmal.</p>
+  <p class="heft">Ins Notizbuch: „Mein lebendiges Bild: Ich bin ... Es riecht nach ... Ich fühle ... So lebendig fühle ich mich im Alltag gerade: ...“</p>
+  <p class="ausstieg">Wer keine Erinnerung findet, darf sich ein Bild ausdenken oder einfach zuschauen.</p>
+  </aside>
+  <p class="kernsatz">Das Lebendige in dir ist noch da. Es wartet nur darauf, dass du es rufst.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Wenn es noch da ist, warum spüren wir es dann so selten? Die Antwort steckt in unserem Nervensystem.</p></div>
+</section>
+
+<section class="stufe" id="s1">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 1</p>
+    <h2>Nervensystem und Glaubenssätze</h2>
+    <p class="stufe-unter">Das schnelle Ja</p>
+    <p class="zeit">00:12 bis 00:25 · 13 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Mein schnelles Ja kam vom Autopiloten. Mein alter Satz ist keine Wahrheit, und mit dem Atem beruhige ich mein Nervensystem selbst.</p>
+  <h3>Dein Nervensystem will dich schützen</h3>
+  <p class="sp">Dein Nervensystem hat eine Aufgabe: Es will dich schützen. Und es lernt aus allem, was du erlebst.</p>
+  <p class="sp">Stell dir einen kleinen Bach vor, der einen Hang hinunterfließt. Je öfter das Wasser an derselben Stelle entlangläuft, desto tiefer gräbt es sich ein. Irgendwann fließt es immer dort, ganz automatisch. Genauso entstehen unsere inneren Programme. „Mach es allen recht.“ „Bloß keinen Fehler machen.“ „Reiß dich zusammen.“</p>
+  <p class="sp">Wenn so ein Programm oft genug gelaufen ist, kann dein Nervensystem kaum noch unterscheiden zwischen echter Gefahr und einer knappen Nachricht von der Chefin. Dann ist dein Körper schneller als dein Kopf.</p>
+  <p class="sp">Du kennst das aus dem Alltag. Jemand fragt dich im Büro, ob du das noch eben übernehmen kannst, und dein Ja ist draußen, bevor du in den Kalender geschaut hast. Eine Freundin schreibt: „Hast du kurz Zeit?“, und du sagst zu, obwohl du eigentlich nur aufs Sofa wolltest. Das war der Bach. Dein Autopilot hat geantwortet, bevor du gefragt wurdest.</p>
+  <p class="runde">Hände hoch, wer heute schon einmal Ja gesagt hat und Nein gemeint hat. Genau, willkommen bei den schnellen Jas.</p>
+  <p class="sp">Das ist ganz normale Biologie. Du hast nichts falsch gemacht.</p>
+  <h3>Glaubenssätze</h3>
+  <p class="sp">Aus diesen Programmen werden Sätze, die den ganzen Tag leise im Hintergrund laufen, wie die Musik im Supermarkt. Wir halten sie für wahr, weil wir sie so oft gehört haben. Das sind Glaubenssätze. Schauen wir uns deinen an.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Alltagsbild zum Verstehen, keine Diagnose. Bei sehr starken Reaktionen kurz würdigen und auf therapeutische Begleitung hinweisen.</p></aside>
+  <aside class="uebung"><p class="uebung-label">Übung 2 · 5 Minuten</p><h4>Stimmt das überhaupt?</h4>
+  <p class="sagen">Ich lese dir ein paar Sätze vor. Hör einfach hin und heb die Hand, wenn ein Satz für dich dabei ist.</p>
+  <p class="sagen">Ich muss immer stark sein. Ich darf niemanden enttäuschen. Ich bin erst gut, wenn alles erledigt ist. Ich bin zu viel. Ich bin nicht genug.</p>
+  <p class="pause">Nach jedem Satz kurz warten und in die Runde schauen. Es heben immer viele die Hand.</p>
+  <p class="sagen">Schau dich um: Du bist nicht allein damit. Schreib jetzt den Satz auf, den du am besten kennst. Es darf auch ein eigener sein. Und dann frag ihn: Stimmt das überhaupt? Von wem habe ich das gelernt? Und welcher Satz passt heute besser zu mir?</p>
+  <p class="heft">Ins Notizbuch: „Mein Satz: ... Stimmt das überhaupt? ... Gelernt habe ich ihn von ... Mein neuer Satz: ...“</p>
+  <p class="ausstieg">Wenn es zu viel wird, nimm einen leichteren Satz oder leg den Stift ab.</p>
+  </aside>
+  <p class="sp">Und jetzt die gute Nachricht. Dein Gehirn kann sich ein Leben lang umbauen. Der Bach kann sich ein neues Bett graben, in jedem Alter.</p>
+  <p class="sp">Wenn man an alte Sätze rührt, meldet sich manchmal der Körper. Dafür bekommst du ein Werkzeug, das du heute noch öfter brauchst.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 3 · 2 Minuten</p><h4>Länger aus als ein</h4>
+  <p class="sagen">Atme durch die Nase ein, eins, zwei, drei, vier. Und ganz langsam aus, eins, zwei, drei, vier, fünf, sechs. Das lange Ausatmen sagt deinem Nervensystem: Hier ist es sicher.</p>
+  <p class="pause">Vier Runden laut mitzählen.</p>
+  <p class="sagen">Spür kurz nach: Wie fühlen sich Kiefer, Schultern und Bauch jetzt an?</p>
+  <p class="ausstieg">Wem schwindelig wird, atmet im eigenen Tempo.</p>
+  </aside>
+  <p class="kernsatz">Ein Satz, den du tausendmal gehört hast, ist noch lange keine Wahrheit.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Du hast gerade gemerkt: Du atmest anders, und dein Körper reagiert sofort. Dein Körper hört dir zu. Schauen wir uns an, was dieser Körper eigentlich alles kann.</p></div>
+</section>
+
+<section class="stufe" id="s2">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 2</p>
+    <h2>Der geniale Körper</h2>
+    <p class="stufe-unter">Der Blick in den Spiegel</p>
+    <p class="zeit">00:25 bis 00:38 · 13 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ein einziger Gedanke, und mein Körper reagiert. Ich bin dieses Wunder, auch an schweren Tagen.</p>
+  <h3>Was dein Körper jede Sekunde leistet</h3>
+  <p class="sp">Du schneidest dir beim Gemüseputzen in den Finger, fluchst kurz, und im Badezimmerspiegel bleibt dein Blick am Bauch hängen. Zu rund, findest du. Währenddessen schließt dein Körper längst die Wunde. Ohne dass du ihn darum gebeten hast.</p>
+  <p class="runde">Was sagt ihr morgens als Erstes zu euch, wenn ihr in den Spiegel schaut? Zwei, drei Zurufe einsammeln und nicht kommentieren. Meist wird gelacht.</p>
+  <p class="sp">So geht es uns allen. Wir sehen zuerst, was nicht passt, und übersehen, was unser Körper in jeder Sekunde leistet.</p>
+  <p class="sp">Du atmest. Dein Herz schlägt. Du hörst meine Stimme, und dein Gehirn macht daraus in Millisekunden Wörter und Bedeutung. Forscher schätzen, dass du aus etwa 37 Billionen Zellen bestehst, und jede davon arbeitet gerade für dich.</p>
+  <p class="sp">Und dein Körper hört auf deine Gedanken. Probier es aus.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 4 · 2 Minuten</p><h4>Kaffeeduft am Sonntagmorgen</h4>
+  <p class="sagen">Schließ die Augen, wenn du magst.</p>
+  <p class="sagen">Es ist Sonntagmorgen. Du stehst barfuß in der Küche, alle schlafen noch. Die Maschine gurgelt, und dann steigt er auf, dieser Duft von frischem Kaffee. Du hältst die warme Tasse in beiden Händen.</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Merkst du, was in deinem Körper passiert? Da ist gar keine Tasse. Ein Gedanke hat gereicht.</p>
+  <p class="heft">Ins Notizbuch: „Als ich an den Kaffeeduft gedacht habe, hat mein Körper ...“</p>
+  <p class="ausstieg">Wer Kaffee nicht mag, nimmt frisches Brot oder Sommerregen. Wer aussteigen möchte, schaut einfach zu.</p>
+  </aside>
+  <p class="runde">Hand hoch, wer den Kaffee fast gerochen hat. Und wer hat gelächelt?</p>
+  <p class="sp">Mit so einem Körper läufst du jeden Tag herum. Und ganz ehrlich: Du würdest nie so mit deiner besten Freundin reden, wie du manchmal mit dir selbst redest.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 5 · 4 Minuten</p><h4>Ich bin ein Wunder</h4>
+  <p class="sagen">Leg eine Hand aufs Herz. Seit deiner Geburt hat es keinen einzigen Tag Pause gemacht. Such mit zwei Fingern deinen Puls. Da ist er, dein eigener Takt.</p>
+  <p class="sagen">Schreib drei Dinge auf, die dein Körper heute schon für dich getan hat. Und dann sag leise zu dir: Ich bin ein Wunder.</p>
+  <p class="heft">Ins Notizbuch: „Heute hat mein Körper schon ... und ... und ... Ich bin ein Wunder, weil ...“</p>
+  <p class="ausstieg">Wem der Satz noch fremd ist, schreibt: „Ich könnte eines sein.“</p>
+  </aside>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Wer mit dem Körper hadert, etwa nach Krankheit oder Verlust, darf auch nur eine Sache notieren. Niemand ist schuld an Krankheit.</p></aside>
+  <p class="kernsatz">Du bist dieses Wunder, auch an Tagen, an denen du dich nicht so fühlst.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Ein Gedanke an Kaffee, und dein Körper ist in einem anderen Zustand. Genau diesen Zustand meinen viele, wenn sie von Energie und Frequenz sprechen. Darum geht es nach der Pause.</p></div>
+</section>
+
+<section class="stufe" id="pause">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Pause</p>
+    <h2>Durchatmen</h2>
+    
+    <p class="zeit">00:38 bis 00:48 · 10 Minuten</p>
+  </header>
+  
+  <p class="sp">Zehn Minuten für dich. Tee, strecken, ein paar Schritte.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Fenster auf, Tee nachschenken, leise Musik. Wer in einer Übung berührt war, bekommt einen Moment mit dir.</p></aside>
+</section>
+
+<section class="stufe" id="s3">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 3</p>
+    <h2>Energie und Frequenz</h2>
+    <p class="stufe-unter">Dein Zustand färbt alles</p>
+    <p class="zeit">00:48 bis 00:58 · 10 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Frequenz heißt mein innerer Zustand. Er färbt, was ich höre und tue, und wenn er ruhig wird, höre ich meine innere Stimme.</p>
+  <h3>Dein Zustand macht den Unterschied</h3>
+  <p class="sp">Wenn von Energie, Schwingung oder Frequenz die Rede ist, meine ich damit deinen inneren Zustand in diesem Moment. Wie du atmest. Wie viel Spannung in dir steckt. Wie wach und wie offen du gerade bist.</p>
+  <p class="sp">Dieser Zustand ist kein Nebenschauplatz. Er entscheidet, was bei dir ankommt. Stell dir vor, die Chefin schreibt dir: „Hast du kurz Zeit?“ Bist du müde und gestresst, hörst du Ärger heraus und dein Herz rutscht in die Hose. Bist du ausgeruht, hörst du eine Frage. Die Nachricht ist dieselbe, dein Zustand macht etwas anderes daraus.</p>
+  <p class="sp">Oder der Einkauf. Mit Hunger und Zeitdruck fliegt alles in den Wagen, und die Schlange an der Kasse fühlt sich an wie ein Angriff. Nach einem ruhigen Spaziergang stehst du in derselben Schlange und kommst mit der Verkäuferin ins Plaudern. Dieselbe Welt, ein anderer Zustand, ein anderer Tag.</p>
+  <p class="runde">Ruft mal rein: Woran merkt ihr bei euch, dass ihr unter Strom steht? Und woran, dass ihr ruhig seid? Zurufe sammeln, zum Beispiel Kiefer, Schultern, Atem, Stimme. Die Antworten zeigen: Jede erkennt ihren Zustand am Körper.</p>
+  <p class="sp">Dazu ein Bild aus der Physik, ausdrücklich nur als Bild. Wäre ein Atom so groß wie ein Fußballstadion, dann wäre sein Kern in der Mitte ungefähr so groß wie eine Erbse. Drumherum ist viel Raum, und darin ist alles in Bewegung. Auch in dir ist ständig etwas in Bewegung, und wie es in dir schwingt, spürst du als Zustand. Das probieren wir jetzt aus.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 6 · 3 Minuten</p><h4>Eng und weit</h4>
+  <p class="sagen">Setz dich aufrecht hin. Wir probieren zwei Zustände aus, jeweils zehn Sekunden. Zuerst eng. Zieh die Schultern hoch, press die Zähne zusammen, atme flach und schnell und denk an alles, was heute noch auf dich wartet.</p>
+  <p class="pause">Zehn Sekunden.</p>
+  <p class="sagen">Spür, wie sich das anfühlt. Und jetzt weit. Lass die Schultern fallen, den Kiefer locker, atme lang aus und denk an einen Ort, an dem du dich wohlfühlst.</p>
+  <p class="pause">Zehn Sekunden.</p>
+  <p class="sagen">Wo hast du den Unterschied gemerkt? Im Atem, im Gesicht, in deinen Gedanken? Dreh dich zu deiner Nachbarin und sag ihr in einem Satz, was sich verändert hat.</p>
+  <p class="heft">Ins Notizbuch: „Eng fühlt sich an wie ... Weit fühlt sich an wie ... Das habe ich bemerkt: ...“</p>
+  <p class="ausstieg">Wer den engen Teil nicht mag, bleibt gleich bei weit.</p>
+  </aside>
+  <h3>Was die Stille dir sagt</h3>
+  <p class="sp">Wenn dein Zustand ruhiger wird, hörst du dich selbst. Vielen fallen die besten Gedanken unter der Dusche, beim Spazierengehen oder an der roten Ampel. Dort ist es still genug. Manche nennen diese Stimme Intuition, andere Bauchgefühl. Sie flüstert, und sie meldet sich, wenn es leise wird.</p>
+  <p class="runde">Wo kommen euch die besten Gedanken? Zwei, drei Zurufe, dann weiter.</p>
+  <p class="sp">Spür mal kurz nach: Wie ist dein Zustand gerade? Und wo im Körper merkst du ihn?</p>
+  <p class="pause">Zehn Sekunden Stille.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Das Atombild ist eine Metapher und beweist nichts Spirituelles. Eine Glücksfrequenz zum Einstellen gibt es nicht.</p></aside>
+  <p class="kernsatz">Dein Zustand färbt alles, was du hörst und tust. Ihn zu bemerken ist der erste Schritt.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Dein Zustand bleibt nicht bei dir. Er zeigt sich in deiner Stimme, in deinem Gesicht, in der Art, wie du einen Raum betrittst. Die anderen spüren ihn mit.</p></div>
+</section>
+
+<section class="stufe" id="s4">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 4</p>
+    <h2>Resonanz</h2>
+    <p class="stufe-unter">Stimmungen im Alltag</p>
+    <p class="zeit">00:58 bis 01:06 · 8 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ich wähle meinen Zustand, und die anderen spüren ihn mit.</p>
+  <h3>Stimmungen stecken an</h3>
+  <p class="sp">Wir lesen einander ununterbrochen, an der Haltung, an der Stimme, an den kleinsten Bewegungen im Gesicht. Die Forschung nennt das Gefühlsansteckung, und unsere Nervensysteme stimmen sich sogar aufeinander ein. Das ist Resonanz.</p>
+  <p class="sp">Du kommst in einen Raum, in dem gerade gestritten wurde, und spürst es, bevor jemand ein Wort sagt. Du lächelst die müde Kassiererin an, sie blinzelt und lächelt zurück. Ein Kind knallt die Zimmertür zu, und deine Schultern wandern Richtung Ohren.</p>
+  <p class="runde">Hand hoch, wer schon einmal eine Stimmung übernommen hat, die gar nicht ihre war. Und wer hat schon einmal einen ganzen Raum mit einem Lächeln verändert?</p>
+  <p class="sp">Meistens übernehmen wir die Stimmung, die gerade im Raum ist. Du kannst sie auch selbst setzen, und zwar mit deinem Körper.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 7 · 4 Minuten</p><h4>Meinen Zustand wählen</h4>
+  <p class="sagen">Wie geht es dir gerade, von 1 bis 10? Schreib die Zahl bei „Vorher“ auf.</p>
+  <p class="sagen">Jetzt eine Minute nur für dich. Richte dich auf. Lass die Schultern sinken. Lächle, auch wenn es sich albern anfühlt. Und atme zweimal ganz lang aus.</p>
+  <p class="pause">Eine Minute, Stoppuhr.</p>
+  <p class="sagen">Wo stehst du jetzt? Schreib die Zahl bei „Nachher“ auf. Und dann schau deine Nachbarin an: Hat sie etwas gemerkt, hast du etwas gemerkt? Beides ist eine gute Antwort.</p>
+  <p class="heft">Ins Notizbuch: „Vorher ... Nachher ... Das habe ich bemerkt: ...“</p>
+  <p class="ausstieg">Wer nicht lächeln mag, nimmt nur Haltung und Atem.</p>
+  </aside>
+  <p class="sp">Du kannst es vor jedem schwierigen Gespräch machen, auch vor deiner eigenen Wohnungstür.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Kleine Unterschiede beweisen nichts, spüren kann man sie trotzdem. Lächeln muss keine schweren Gefühle wegmachen.</p></aside>
+  <p class="kernsatz">Such dir deinen Zustand selbst aus, bevor der Tag das für dich übernimmt.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Solche Erfahrungen haben Menschen schon vor sehr langer Zeit gemacht und in Spielregeln gefasst. Die alten Weisheitslehren nennen sie geistige Gesetze.</p></div>
+</section>
+
+<section class="stufe" id="s5">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 5</p>
+    <h2>Geistige Gesetze</h2>
+    <p class="stufe-unter">Wie ich ins Gespräch gehe</p>
+    <p class="zeit">01:06 bis 01:13 · 7 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Mit welcher Erwartung ich in ein Gespräch gehe, prägt, was zurückkommt. Auch mein kleinster Schritt hat eine Wirkung.</p>
+  <h3>Die Spielregeln des Lebens</h3>
+  <p class="sp">Stell dir vor, du spielst Monopoly, und keiner hat dir die Regeln erklärt. Du landest im Gefängnis und weißt nicht, warum. So fühlt sich das Leben manchmal an.</p>
+  <p class="sp">Die geistigen Gesetze sind uralte Denkmodelle. Bewiesen sind sie nicht. Ich sehe sie als Spielregeln des Lebens, wie eine Brille: Wenn du sie aufsetzt, erkennst du Muster, die du vorher für Pech gehalten hast. Zwei davon nimmst du heute mit.</p>
+  <h3>Gleiches zieht Gleiches an</h3>
+  <p class="sp">Dieses Gesetz sagt: Was du ausstrahlst, kommt in ähnlicher Form zu dir zurück. Freundlichkeit weckt eher Freundlichkeit, Gereiztheit eher Gereiztheit. Für den Alltag heißt das: Ich kann zuerst das geben, was ich mir selbst wünsche.</p>
+  <p class="sp">Du weißt schon vorher, dass das Telefonat mit deiner Mutter wieder schwierig wird. Du holst Luft, die Schultern sind oben, deine Stimme klingt kurz angebunden, und prompt kommt der alte Satz: „Du klingst müde. Du isst bestimmt wieder nichts Ordentliches.“ Und jetzt andersherum. Du atmest einmal lang aus und sagst: „Mama, erzähl mir von deinem Tag.“ Plötzlich redet sie zehn Minuten lang über die Tomaten der Nachbarin.</p>
+  <p class="runde">Hand hoch, wer so einen Menschen im Leben hat, bei dem jedes Gespräch gleich abläuft. Und jetzt: Wer hat schon einmal erlebt, dass es anders lief, weil sie anders hineingegangen ist? Eine kurze Geschichte aus der Runde hören, wenn jemand mag.</p>
+  <h3>Ursache und Wirkung</h3>
+  <p class="sp">Jede Entscheidung hat eine Folge. Das schnelle Ja von heute Morgen war eine Ursache. Die Wirkung: Abends um zehn sitzt du noch am Laptop oder backst Muffins für den Elternabend, während die anderen längst fernsehen.</p>
+  <p class="sp">Das gilt auch umgekehrt. Ein Nein zur richtigen Zeit oder ein Satz am Telefon, der mal anders klingt, bewirkt ebenfalls etwas.</p>
+  <p class="sp">Frag dich: Mit welcher Erwartung gehe ich in mein nächstes schwieriges Gespräch?</p>
+  <p class="heft">Ins Notizbuch: „In mein nächstes schwieriges Gespräch gehe ich mit der Erwartung: ...“</p>
+  <p class="ausstieg">Wem gerade kein Gespräch einfällt, lässt die Zeile frei.</p>
+  <p class="kernsatz">Jede Entscheidung hat eine Folge, auch die kleine.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Wenn meine Ausrichtung beeinflusst, was zurückkommt, dann kann ich mich auch bewusst ausrichten. Genau das ist Manifestation.</p></div>
+</section>
+
+<section class="stufe" id="s6">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 6</p>
+    <h2>Vision und Manifestation</h2>
+    <p class="stufe-unter">Ein Bild mit Richtung</p>
+    <p class="zeit">01:13 bis 01:33 · 20 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ich sehe, wonach ich suche. Meine Vision ist ein Bild, das ich spüre, und Manifestation ist eine Richtung mit einem ersten Schritt.</p>
+  <h3>Manifestation, ganz bodenständig</h3>
+  <p class="sp">Ich weiß, das Wort Manifestation ist ziemlich ausgelutscht. Viele denken an „Wünsch es dir ans Universum, und dann passiert’s“. Für mich heißt Manifestation: eine klare Richtung, ein Gefühl dazu und ein erster Schritt.</p>
+  <p class="sp">Mit einer Richtung schaltet dein Gehirn seinen Filter um. Du überlegst, dir ein bestimmtes Auto zu kaufen, und plötzlich siehst du es überall. Die Autos waren vorher auch schon da. So nimmst du auch Chancen wahr, die vorher an dir vorbeigelaufen sind.</p>
+  <p class="sp">Oder du sitzt abends auf dem Sofa und scrollst durch perfekte Leben, durch fremde Wohnungen, fremde Urlaube, fremde Körper. Dann legst du das Handy weg und stellst dir zum ersten Mal an diesem Tag eine andere Frage: Wie sieht mein Leben aus, wenn es sich richtig anfühlt? Das ist der Anfang.</p>
+  <p class="runde">Wer scrollt abends auch manchmal länger, als es ihr guttut? Hände hoch und lachen. Dann überleiten: Wie dein Gehirn auf eine Richtung reagiert, probieren wir gleich aus.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 8 · 2 Minuten</p><h4>Was war blau?</h4>
+  <p class="sagen">Schau dich eine halbe Minute im Raum um und merk dir alles, was rot ist. Wirklich alles.</p>
+  <p class="pause">Dreißig Sekunden.</p>
+  <p class="sagen">Und jetzt mach die Augen zu. Sag mir: Was war blau?</p>
+  <p class="pause">Lachen lassen und Zurufe sammeln.</p>
+  <p class="sagen">Du hast eben nach Rot gesucht, also hat dein Gehirn Rot gefunden. Das Blau war die ganze Zeit da. Genau so arbeitet eine Richtung: Du siehst, wonach du suchst.</p>
+  <p class="ausstieg">Wer nicht mitmachen mag, schaut einfach zu.</p>
+  </aside>
+  <p class="sp">Und noch etwas weißt du schon vom Kaffeeduft: Dein Körper glaubt deinen Bildern. Eine Vision ist genau so ein Bild. Dein Leben, so wie es sich richtig anfühlt, und zwar so lebendig, dass du es im Körper spürst. Jetzt malen wir deins.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 9 · 7 Minuten</p><h4>Mein Zukunftsbild</h4>
+  <p class="sagen">Lass dich in deinen Stuhl sinken. Spür deine Füße auf dem Boden. Atme ein und lang aus.</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Es ist ein Jahr später. Du bist die Frau, die du sein möchtest. Du stehst an einem Ort, der dir gehört. Welche Farben siehst du? Wie fällt das Licht? Was hörst du?</p>
+  <p class="pause">Pause.</p>
+  <p class="sagen">Spür, wie du stehst. Wie deine Schultern sind, wie dein Atem fließt. In deiner Brust sitzt ein warmes Gefühl. Es heißt: Ich bin angekommen.</p>
+  <p class="pause">Pause, länger.</p>
+  <p class="sagen">Schau, was du an diesem Tag tust. Ein Nein, das du ausgesprochen hast. Ein Ja, das du dir endlich erlaubst.</p>
+  <p class="pause">Pause, länger.</p>
+  <p class="sagen">Nimm dieses Gefühl mit, es gehört dir. Beweg Finger und Zehen und komm mit offenen Augen zurück.</p>
+  <p class="heft">Ins Notizbuch: „Mein Zukunftsbild: Ich sehe ... Ich höre ... Ich fühle ... Ich sage zu mir ...“</p>
+  <p class="ausstieg">Wer Unruhe spürt, lässt die Augen offen, spürt die Füße am Boden und darf jederzeit aussteigen.</p>
+  </aside>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Licht dimmen, Musik ohne Text, bei jeder Pause fünf bis acht Sekunden warten. Danach erst Stille, dann schreiben. Bei starken Reaktionen auf therapeutische Hilfe hinweisen.</p></aside>
+  <h3>Schon heute die Frau sein</h3>
+  <p class="sp">Die meisten von uns warten, bis das Ziel da ist, und denken: Dann bin ich endlich entspannt. Dreh es um. Wie würde die Frau aus deinem Bild morgen früh aufstehen? Wie würde sie ans Telefon gehen? Fang an, so zu handeln. Das ist Manifestation.</p>
+  <p class="sp">Du wirst auch mal rausfallen, weil der Alltag laut ist. Jedes Mal, wenn du es merkst und zurückkommst, gräbt sich der Bach ein neues Bett.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 10 · 3 Minuten</p><h4>Mein Schritt für 48 Stunden</h4>
+  <p class="sagen">Mach dein Bild jetzt ganz klein. Was würde diese Frau in den nächsten zwei Tagen tun? So klein, dass du es morgen schaffst. Ein Anruf, ein Termin mit dir selbst, ein Nein. Schreib es ganz vorne in dein Notizbuch.</p>
+  <p class="sagen">Wer mag, liest den Satz der Nachbarin vor. Die sagt nur: Ich höre dich.</p>
+  <p class="heft">Ins Notizbuch, vorne innen: „Das tue ich in den nächsten 48 Stunden: ...“</p>
+  <p class="ausstieg">Wem noch nichts einfällt, füllt die Stelle zu Hause.</p>
+  </aside>
+  <p class="kernsatz">Du entscheidest dich einmal und bestätigst es dir tausendmal.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Jetzt hast du alles beisammen: deinen Atem, deinen Körper, deinen Zustand und dein Bild. Schauen wir, was passiert, wenn du das selbst in die Hand nimmst.</p></div>
+</section>
+
+<section class="stufe" id="s7">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Stufe 7</p>
+    <h2>Selbstermächtigung</h2>
+    <p class="stufe-unter">Der nächste Morgen</p>
+    <p class="zeit">01:33 bis 01:45 · 12 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ich kann mich selbst in diesen Zustand bringen. Den Kuss habe ich mir selbst gegeben.</p>
+  <h3>Sich selbst wachküssen</h3>
+  <p class="sp">Stell dir vor, morgen früh klingelt dein Wecker, und auf dem Handy warten schon die ersten Nachrichten. Du lässt es liegen, stellst die Füße auf den kalten Boden und atmest zweimal lang aus. Du fragst dich, wofür du dankbar bist und wer du heute sein möchtest. Beim Zähneputzen summst du das Lied von damals. Die Mails und die Wäsche sind noch da. Und du gehst anders in deinen Tag, denn du hast dich selbst geweckt.</p>
+  <p class="pause">Pause.</p>
+  <p class="sp">Weißt du noch, wo wir angefangen haben? Bei deinem lebendigen Bild. Es war die ganze Zeit da, unter Terminen und unter zu vielen „Ich sollte“.</p>
+  <p class="sp">Selbstermächtigung heißt für mich: Du erlebst, dass du dich selbst in deinen Zustand bringen kannst. Wenn du das gespürt hast, dann weißt du: Das war ich. Dann bist du wachgeküsst.</p>
+  <p class="sp">Und genau das machen wir jetzt. Steh bitte auf.</p>
+  <aside class="uebung"><p class="uebung-label">Übung 11 · 5 Minuten</p><h4>Der Kuss</h4>
+  <p class="sagen">Stell dich hüftbreit hin. Augen zu oder weich auf den Boden. Atme ein, und lang aus. Noch einmal. Richte dich auf, lass die Schultern sinken.</p>
+  <p class="pause">Pause, drei Atemzüge.</p>
+  <p class="sagen">Hol dir dein lebendiges Bild vom Anfang zurück. Das Lied, den Wind, das Lachen. Und leg das warme Gefühl aus deinem Zukunftsbild dazu. Ich bin angekommen.</p>
+  <p class="pause">Pause, länger.</p>
+  <p class="sagen">Leg beide Hände auf dein Herz und sag zu dir: Ich bin wach. Ich bin ein Wunder. Ich bin das Happy End.</p>
+  <p class="sagen">Jetzt leg eine Hand an deine Wange, ganz weich, wie bei einem Menschen, den du sehr magst. Gib dir einen Kuss auf deine Hand und leg ihn auf dein Herz. Da darf er bleiben.</p>
+  <p class="pause">Stille, mindestens zehn Sekunden.</p>
+  <p class="sagen">Dieses Gefühl kannst du jeden Morgen wieder einladen. Du bist wachgeküsst. Mach die Augen auf und lächle der Frau neben dir zu.</p>
+  <p class="ausstieg">Wer nicht mag, bleibt sitzen oder lässt die Hände im Schoß.</p>
+  </aside>
+  <p class="sp">Setz dich und schau auf deine Zahl vom Anfang. Wo stehst du jetzt, von 1 bis 10? Schreib sie daneben.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Die Zahl nicht abfragen und nicht vergleichen. Keine Veränderung ist genauso in Ordnung.</p></aside>
+  <p class="kernsatz">Den Kuss hast du dir selbst gegeben.</p>
+  <div class="uebergang"><p class="uebergang-titel">Überleitung</p><p>Damit dieses Gefühl nicht wieder unter dem Alltag verschwindet, bekommst du jetzt etwas für jeden Morgen.</p></div>
+</section>
+
+<section class="stufe" id="ausklang">
+  <header class="stufe-kopf">
+    <p class="stufe-nr">Ausklang</p>
+    <h2>Dein Morgenritual</h2>
+    <p class="stufe-unter">Beim Tee</p>
+    <p class="zeit">01:45 bis 02:00 · 15 Minuten</p>
+  </header>
+  <p class="stufe-aha"><b>Erkenntnis:</b> Ich weiß, wie ich mir dieses Gefühl jeden Morgen in zwei Minuten zurückhole.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Das ist dein Puffer. Wird es eng, nur das Morgenritual und der Satz zum Weitermachen. Bleibt Zeit, eine Runde: „Was nimmst du heute mit?“</p></aside>
+  <aside class="uebung"><p class="uebung-label">Übung 12 · 3 Minuten</p><h4>Mein Morgenritual</h4>
+  <p class="sagen">Schlag dein Notizbuch ganz hinten auf und schreib als Überschrift: Mein Morgenritual. Zwei Minuten jeden Morgen, bevor der Tag dich holt.</p>
+  <p class="sagen">Erstens: Füße auf den Boden, drei Atemzüge, und die Ausatmung länger als die Einatmung.</p>
+  <p class="sagen">Zweitens: Wofür bin ich heute dankbar?</p>
+  <p class="sagen">Drittens: Was möchte ich heute erschaffen?</p>
+  <p class="sagen">Viertens: Wer möchte ich heute für mich sein?</p>
+  <p class="sagen">Fünftens: Hand aufs Herz und der Satz: Ich wähle meinen Zustand.</p>
+  <p class="heft">Ins Notizbuch, letzte Seite: „Mein Morgenritual: 1 ... 2 ... 3 ... 4 ... 5 ...“</p>
+  <p class="ausstieg">Wem das am Morgen zu viel ist, schreibt nur die erste Zeile.</p>
+  </aside>
+  <p class="sp">Und wenn du mal einen Tag verpasst, kommst du einfach zurück. Genau das haben wir heute geübt.</p>
+  <p class="sp">Ein paar Übungen und die übrigen Spielregeln des Lebens habe ich für das nächste Mal aufgehoben. Wenn du Lust hast weiterzumachen, sprich mich gleich beim Tee an.</p>
+  <aside class="regie"><p class="regie-titel">Regie</p><p>Kein Verkaufsdruck. Danach bekommt jede Frau ihren Flyer.</p><p><span class="platzhalter">Dein nächstes Angebot, z. B. Datum, Videocall oder Warteliste für den Club.</span></p></aside>
+  <p class="kernsatz">Das Happy End ist eine Entscheidung. Du triffst sie jeden Morgen neu.</p>
+</section>
+
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setze(attr,wert){
+    document.querySelectorAll('.knopf['+attr+']').forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute(attr)===wert));});
+  }
+  function design(d){
+    if(['rose','tau'].indexOf(d)<0)d='rose';
+    if(d==='rose')root.removeAttribute('data-design');else root.setAttribute('data-design',d);
+    setze('data-d',d);
+    try{localStorage.setItem('wk2-design',d);}catch(e){}
+  }
+  function ansicht(v){
+    document.body.classList.toggle('nur-uebungen',v==='uebungen');
+    setze('data-v',v);
+    try{localStorage.setItem('wk2-ansicht',v);}catch(e){}
+  }
+  document.querySelectorAll('.knopf[data-d]').forEach(function(b){b.addEventListener('click',function(){design(b.dataset.d);});});
+  document.querySelectorAll('.knopf[data-v]').forEach(function(b){b.addEventListener('click',function(){ansicht(b.dataset.v);});});
+  try{var d=localStorage.getItem('wk2-design');if(d)design(d);var v=localStorage.getItem('wk2-ansicht');if(v)ansicht(v);}catch(e){}
+
+  var sprung=document.getElementById('sprung');
+  var stufen=document.querySelectorAll('section.stufe');
+  stufen.forEach(function(s){
+    var nr=(s.querySelector('.stufe-nr')||{}).textContent||'';
+    var a=document.createElement('a');a.href='#'+s.id;a.textContent=nr.replace('Stufe ','S').replace(' und Abschluss','').replace('Puffer und ','');sprung.appendChild(a);
+    var leer=document.createElement('p');leer.className='leer';leer.textContent='In diesem Teil gibt es keine Übung.';
+    s.querySelector('.stufe-kopf').after(leer);
+  });
+  if('IntersectionObserver' in window){
+    var links=sprung.querySelectorAll('a');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('aktiv',l.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-40% 0px -55% 0px'});
+    stufen.forEach(function(s){io.observe(s);});
+  }
+  if(location.hash){var z=document.getElementById(location.hash.slice(1));if(z)z.scrollIntoView();}
+})();
+</script>
