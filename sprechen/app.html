@@ -1,6 +1,6 @@
 <title>Stimmwerk</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Acht Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
+<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Fünfzehn Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -210,7 +210,7 @@ const PILLARS = [
     idea: 'Im Networking öffnest du mit einer Frage, hörst zu und knüpfst an das Gehörte an. In einer Teamdiskussion leitest du, indem du das Ziel nennst, Wortmeldungen aufrufst, zusammenfasst und eine Entscheidung herbeiführst.',
     src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
   { id: 'verhandeln', group: 'Gespräch', name: 'Verhandeln und klären', sub: 'Ruhig bleiben, Lösungen finden',
-    idea: 'Gute Verhandlungssätze sind weich im Ton und klar in der Sache. Du nennst Verständnis für die andere Seite, legst dein Angebot auf den Tisch und bindest es an eine Bedingung. Im Konfliktgespräch beschreibst du deine Sicht mit Ich Sätzen und fragst nach der Sicht des anderen.',
+    idea: 'Gute Verhandlungssätze sind weich im Ton und klar in der Sache. Du nennst Verständnis für die andere Seite, legst dein Angebot auf den Tisch und bindest es an eine Bedingung. Im Konfliktgespräch beschreibst du deine Sicht mit Sätzen, die mit „Ich“ beginnen, und fragst nach der Sicht des anderen.',
     src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'pitch' },
   { id: 'story', group: 'Gespräch', name: 'Story und Spontanität', sub: 'Erzählen, ohne den Faden zu verlieren',
     idea: 'Eine gute Geschichte hat eine Ausgangslage, ein Problem, einen Wendepunkt und eine Lösung. Wer spontan überzeugen soll, nutzt den 3·2·1 Rahmen. Im Interview antwortest du mit einer Kernaussage und einem Beispiel aus deiner Praxis.',
@@ -315,7 +315,7 @@ const EXERCISES = [
     de: '{dn:Ich verstehe, dass das Budget knapp ist.} ‖ Wenn wir den Vertrag um [zwölf Monate] verlängern, ‖ können wir den Preis um fünf Prozent senken. ‖ {dn:Das wäre für beide Seiten fair.}',
     en: '{dn:I understand that the budget is tight.} ‖ If we extend the contract by [twelve months], ‖ we can reduce the price by five percent. ‖ {dn:That would be fair for both sides.}' },
   { id: 'v2', p: 'verhandeln', kind: 'free', name: 'Konflikt klären',
-    how: 'Beschreibe dein Anliegen mit Ich Sätzen und frag nach der Sicht des anderen, bevor du einen Vorschlag machst. Bleib ruhig, das Satzende geht nach unten.',
+    how: 'Beschreibe dein Anliegen mit Sätzen, die mit „Ich“ beginnen, und frag nach der Sicht des anderen, bevor du einen Vorschlag machst. Bleib ruhig, das Satzende geht nach unten.',
     q: { de: 'Eine Kollegin hat deine Idee im Meeting als ihre eigene vorgestellt. Wie sprichst du sie darauf an?', en: 'A colleague presented your idea as her own in the meeting. How do you talk to her about it?' } },
   { id: 'y1', p: 'story', kind: 'free', name: 'Mini Story',
     how: 'Erzähl eine Geschichte in vier Schritten: Ausgangslage, Problem, Wendepunkt, Lösung. Beim Wendepunkt machst du eine Pause und wirst langsamer.',
@@ -537,7 +537,7 @@ const GUIDE = {
   d2: { steps: ['Nenne das Ziel und die Zeit.', 'Rufe die Wortmeldungen nacheinander auf.', 'Fasse nach jeder Runde in einem Satz zusammen.', 'Schließe mit einer Entscheidung und einem nächsten Schritt.'],
     frame: { de: 'Unser Ziel in zehn Minuten: … ‖ Wer möchte beginnen? ‖ Ich fasse zusammen … ‖ Wir entscheiden …', en: 'Our goal for the next ten minutes: … ‖ Who would like to start? ‖ Let me summarise … ‖ We decide …' } },
   v1: { steps: ['Lies den ersten Satz ruhig, das Ende geht nach unten.', 'Mach vor dem Angebot die Pause.', 'Sag die markierten Wörter etwas langsamer.', 'Den letzten Satz sagst du freundlich und fest.'] },
-  v2: { steps: ['Beschreibe, was passiert ist, ohne Vorwurf.', 'Sag, was es bei dir auslöst, mit einem Ich Satz.', 'Frag nach der Sicht der anderen Person.', 'Mach erst dann einen Vorschlag.'],
+  v2: { steps: ['Beschreibe, was passiert ist, ohne Vorwurf.', 'Sag, was es bei dir auslöst, in einem Satz, der mit „Ich“ beginnt.', 'Frag nach der Sicht der anderen Person.', 'Mach erst dann einen Vorschlag.'],
     frame: { de: 'Mir ist wichtig … ‖ Ich habe erlebt, dass … ‖ Wie siehst du das? ‖ Ich schlage vor …', en: 'What matters to me is … ‖ I experienced that … ‖ How do you see it? ‖ I suggest …' } },
   y1: { steps: ['Ausgangslage: Wie war es am Anfang?', 'Problem: Was ging schief?', 'Wendepunkt: Mach hier eine Pause und werde langsamer.', 'Lösung: Was kam am Ende heraus und was nimmst du mit?'],
     frame: { de: 'Am Anfang war … ‖ Dann passierte … ‖ Der Wendepunkt war … ‖ Am Ende …', en: 'In the beginning … ‖ Then … ‖ The turning point was … ‖ In the end …' } },
