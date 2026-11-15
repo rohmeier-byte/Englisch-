@@ -599,7 +599,7 @@ const GUIDE = {
   n2: { steps: ['Lies die Frage und hol einmal Luft.', 'Sag sofort einen ersten Satz, auch wenn er nicht perfekt ist.', 'Sprich in kurzen Sätzen weiter und mach Pausen, wenn du nachdenkst.', 'Schließe mit einem Satz, der deinen Punkt wiederholt.'],
     frame: { de: 'Mein größter Erfolg war … ‖ Das lag daran, dass … ‖ Daraus folgt …', en: 'My biggest success was … ‖ That was because … ‖ It means that …' } },
   n3: { steps: ['Sag deine Antwort im ersten Satz.', 'Nenne im zweiten Satz einen Grund.', 'Mach im dritten Satz einen Vorschlag oder bedanke dich.', 'Dann bist du still und erklärst nichts weiter.'],
-    frame: { de: 'Das übernehme ich nicht. ‖ Der Grund: … ‖ Ich schlage vor …', en: 'I will not take that on. ‖ The reason: … ‖ I suggest …' } },
+    frame: { de: 'Das übernehme ich nicht. ‖ Der Grund: … ‖ Ich schlage vor …', en: 'I will not take that on. ‖ The reason … ‖ I suggest …' } },
   n4: { steps: ['Nenne den Gegenstand und sag, wofür er da ist.', 'Wähl das genaue Wort, auch wenn du kurz suchen musst.', 'Fehlt ein Wort, mach eine Pause.', 'Sag die Beschreibung noch einmal und tausche ein Wort gegen ein besseres.'],
     frame: { de: 'Das ist … ‖ Es sieht aus wie … ‖ Man benutzt es, um …', en: 'This is … ‖ It looks like … ‖ You use it to …' } },
   r1: { steps: ['Sag deinen Standpunkt in einem Satz und mach eine Pause.', 'Nenne den wichtigsten Grund.', 'Gib ein Beispiel oder eine Zahl.', 'Sag, was daraus folgt.'],
@@ -979,7 +979,7 @@ function resultBlock(e) {
       ${m('pauses', r.pauses, '', `Pausen, davon ${r.longPauses} lang`, pauseChip)}
       ${m('pitch', r.pitchRange === null ? null : r.pitchRange.toFixed(1), ' HT', 'Melodie, Spannweite in Halbtönen')}
       ${m('vol', r.volRange.toFixed(0), ' dB', 'Lautstärke, Spannweite')}
-      ${m('fill', ts.words ? ts.fill : null, '', 'Füllwörter im Text')}
+      ${m('fill', ts.words ? ts.fill : null, '', 'Füllwörter und Weichmacher im Text')}
       <div class="metric${p.id === 'melodie' ? ' focus' : ''}"><span class="v">${ends ? r.ends.fall + ' von ' + ends : 'offen'}</span><span class="k">Abschnitte vor einer Pause, die unten enden</span>${ends ? (r.ends.fall / ends >= 0.6 ? '<span class="chip ok">sicher</span>' : '<span class="chip warn">mehr nach unten</span>') : ''}</div>
     </div>
     <p class="small soft">Dauer ${fmtTime(r.dur)}. Die Richtwerte sind eine grobe Orientierung von mir. Diktat und Wispr Flow lassen „ähm“ oft weg, dann zählt das Tool zu wenig Füllwörter.</p>
