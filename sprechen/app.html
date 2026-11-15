@@ -1,21 +1,21 @@
 <title>Stimmwerk</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Achtzehn Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
+<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Neunzehn Säulen, Applaus und Rollenspiel, Aufnahme mit Messwerten und ein Coach mit Claude.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Bewusst immer hell. Layout: eine schmale Handyspalte. Startseite ist ein Pfad mit 8 Stationen, in der Übung zeigt eine Notenlinie deine Tonhöhe. */
+  /* Bewusst immer hell. Layout: eine schmale Handyspalte. Startseite ist die Bühne mit Rang und Applaus, darunter ein Pfad mit allen Stationen, in der Übung zeigt eine Notenlinie deine Tonhöhe. */
   :root {
-    --bg: #eef5f1;
+    --bg: #f1edfa;
     --panel: #ffffff;
-    --ink: #12352a;
-    --soft: #557064;
-    --line: #d3e6dc;
-    --accent: #1f8a5b;
+    --ink: #231b4a;
+    --soft: #5d5686;
+    --line: #ddd5f2;
+    --accent: #c2185b;
     --accent-ink: #ffffff;
-    --gold: #f4b63f;
-    --gold-ink: #12352a;
+    --gold: #ffd678;
+    --gold-ink: #231b4a;
     --staff: #1b2a4a;
     --staff-line: #dfe4ee;
     --mark: #ffe08a;
@@ -23,8 +23,8 @@
     --ok-bg: #d8f0e3; --ok-ink: #145c3c;
     --warn-bg: #fff0cf; --warn-ink: #7a4b00;
     --rec: #d8473b;
-    --shadow: rgba(18, 53, 42, .10);
-    --font-display: 'Bricolage Grotesque', 'Outfit', system-ui, sans-serif;
+    --shadow: rgba(35, 27, 74, .10);
+    --font-display: 'Sora', 'Outfit', system-ui, sans-serif;
     --font-body: 'Outfit', 'Segoe UI', system-ui, sans-serif;
   }
   :root { color-scheme: light; }
@@ -144,6 +144,35 @@
   .checks label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--bg); cursor: pointer; }
   .checks input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
 
+  /* Bühne */
+  .stagebox { background: linear-gradient(180deg, #fff 0%, #e6dffa 100%); border-radius: 20px; padding: 14px; display: grid; gap: 10px; position: relative; overflow: hidden; border: 1px solid var(--line); }
+  .stagebox::before { content: ""; position: absolute; left: 50%; top: -40px; width: 240px; height: 240px; margin-left: -120px; background: radial-gradient(closest-side, rgba(255, 214, 120, .6), transparent); pointer-events: none; }
+  .stagebox > * { position: relative; }
+  .lv { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; }
+  .rank { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; }
+  .app { font-family: var(--font-display); font-size: 1.7rem; font-weight: 800; color: var(--accent); font-variant-numeric: tabular-nums; text-align: right; line-height: 1; }
+  .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: .7rem; text-align: center; }
+  .steps4 span { padding: 6px 2px; border-radius: 10px; background: #efe9fb; font-weight: 600; }
+  .steps4 .on { background: var(--ink); color: #fff; }
+  .steps4 .done { background: var(--accent); color: #fff; }
+  .scene { background: var(--panel); border: 2px solid var(--ink); border-radius: 16px; padding: 12px 14px; display: grid; gap: 6px; }
+  .scene .who { display: flex; gap: 10px; align-items: center; }
+  .av { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; font-weight: 800; flex: none; }
+  .blitz { background: var(--ink); color: #fff; border-radius: 16px; padding: 12px 14px; display: grid; gap: 6px; }
+  .blitz .label { color: #cfc6f0; }
+  .scene button.go, .blitz button.go { background: var(--accent); color: #fff; border: 0; border-radius: 12px; padding: 11px; font-weight: 700; }
+  .tix { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .tix div { background: var(--panel); border-radius: 10px; padding: 8px 4px; text-align: center; font-size: .72rem; font-weight: 600; border: 1px dashed var(--ink); display: grid; gap: 2px; align-content: center; min-height: 58px; }
+  .tix div.off { opacity: .5; }
+  .tix div small { font-weight: 400; color: var(--soft); font-size: .64rem; }
+  .award { border: 2px solid var(--accent); background: #fff; }
+  .award .big { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+  .award ul { margin: 0; padding-left: 1.2em; display: grid; gap: 2px; font-size: .9rem; }
+  .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+  .confetti i { position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px; animation: fall 1.9s ease-in forwards; }
+  @keyframes fall { to { transform: translateY(105vh) rotate(540deg); opacity: .9; } }
+  @media (prefers-reduced-motion: reduce) { .confetti { display: none; } }
+
   /* Sprechmodus */
   body.speaking { padding-block: 10px 24px; }
   body.speaking nav.tabs { display: none; }
@@ -239,7 +268,10 @@ const PILLARS = [
     src: 'Themenliste aus einem Reel von Paisley Brooks. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
   { id: 'koerper', group: 'Wirkung', name: 'Körper und Kamera', sub: 'Bewegung macht die Stimme lebendig',
     idea: 'Körper und Stimme hängen zusammen. Wer starr sitzt, klingt oft flach. Für Webinare kommen Blick in die Linse und Gesten im Bild dazu.',
-    src: 'Körper: Vinh Giang. Kamera: Ergänzung im Tool', focus: 'pitch' }
+    src: 'Körper: Vinh Giang. Kamera: Ergänzung im Tool', focus: 'pitch' },
+  { id: 'buehne', group: 'Bühne', name: 'Bühne und Rollenspiel', sub: 'Szenen mit dem Coach und Blitzrunden',
+    idea: 'Hier übst du unter Spielbedingungen. In einer Szene spielt der Coach eine Figur wie einen kritischen Kunden und stellt dir drei Runden lang Rückfragen. In der Blitzrunde bekommst du eine Zufallsfrage und eine Minute Zeit. Beides bringt Applaus und hilft dir, im echten Meeting ruhig zu bleiben.',
+    src: 'Rollenspiele und Blitzrunden: Ergänzung im Tool', focus: 'fill' }
 ];
 
 /* Texte: ‖ = Pause, [w] = markiertes Wort, {lo:..} leiser, {hi:..} lauter, {dn:..} Satzende runter, {up:..} Satzende hoch */
@@ -389,7 +421,29 @@ const EXERCISES = [
     checks: ['Durchgang 1 ohne Ton: Was macht mein Körper? Hände, Haltung, Gesicht.', 'Durchgang 2 nur Ton, Bildschirm weg: Wie klingt meine Stimme? Tempo, Pausen, Melodie.', 'Durchgang 3 als Text: Wo wiederhole ich mich? Wo fehlt der rote Faden?', 'Ich habe mir eine Sache für die nächste Woche vorgenommen.'] },
   { id: 'c3', p: 'koerper', kind: 'check', name: 'Blick in die Linse', src: 'Ergänzung im Tool',
     how: 'Für Webinare. Sprich 30 Sekunden in die Kamera und prüfe die Punkte.',
-    checks: ['Kamera auf Augenhöhe, ein Stapel Bücher hilft.', 'Bei wichtigen Sätzen geht mein Blick in die Linse. Mein eigenes Bild habe ich ausgeblendet.', 'Meine Hände sind im Bild, wenn ich gestikuliere.', 'Das Licht kommt von vorn. Hinter mir ist kein helles Fenster.', 'Ich spreche mit etwas mehr Energie als im Raum, weil die Kamera Energie schluckt.'] }
+    checks: ['Kamera auf Augenhöhe, ein Stapel Bücher hilft.', 'Bei wichtigen Sätzen geht mein Blick in die Linse. Mein eigenes Bild habe ich ausgeblendet.', 'Meine Hände sind im Bild, wenn ich gestikuliere.', 'Das Licht kommt von vorn. Hinter mir ist kein helles Fenster.', 'Ich spreche mit etwas mehr Energie als im Raum, weil die Kamera Energie schluckt.'] },
+  { id: 'bl1', p: 'buehne', kind: 'dice', blitz: true, name: 'Blitzrunde',
+    how: 'Eine Zufallsfrage, der Würfel wählt die Struktur. Du hast eine Minute, die Uhr stoppt von selbst. Ab 30 Sekunden gibt es Bonusapplaus.' },
+  { id: 'sc1', p: 'buehne', kind: 'free', name: 'Kritischer Kunde',
+    scene: { role: 'Kritischer Kunde', initial: 'K', intro: { de: 'Der Kunde findet die Kampagne zu teuer und hat wenig Zeit.', en: 'The client finds the campaign too expensive and has little time.' } },
+    how: 'Der Coach spielt einen Kunden, der Zweifel an den Kosten hat. Bleib ruhig, nimm die Sorge ernst und antworte mit Ergebnis und Vorschlag. Drei Runden.',
+    q: { de: 'Ehrlich gesagt war die Kampagne ziemlich teuer für das Ergebnis. Warum sollte ich weiter investieren?', en: 'Honestly, the campaign was quite expensive for the result. Why should I keep investing?' } },
+  { id: 'sc2', p: 'buehne', kind: 'free', name: 'Ungeduldige Chefin',
+    scene: { role: 'Ungeduldige Chefin', initial: 'C', intro: { de: 'Sie hat fünf Minuten und will nur das Ergebnis hören.', en: 'She has five minutes and only wants to hear the result.' } },
+    how: 'Die Chefin hat keine Zeit. Beginne mit dem Ergebnis, nenne dann, was du brauchst. Drei Runden.',
+    q: { de: 'Ich habe fünf Minuten. Wo stehen wir, und was brauchst du von mir?', en: 'I have five minutes. Where do we stand, and what do you need from me?' } },
+  { id: 'sc3', p: 'buehne', kind: 'free', name: 'Skeptischer Einkäufer',
+    scene: { role: 'Skeptischer Einkäufer', initial: 'E', intro: { de: 'Er vergleicht drei Angebote und sucht Schwachstellen.', en: 'He compares three offers and looks for weak spots.' } },
+    how: 'Der Einkäufer vergleicht Preise. Nenne den Unterschied, belege ihn mit einem Beispiel und bleib bei deiner Position. Drei Runden.',
+    q: { de: 'Ein anderer Anbieter ist zehn Prozent günstiger. Was bekomme ich bei euch dafür?', en: 'Another provider is ten percent cheaper. What do I get from you for that?' } },
+  { id: 'sc4', p: 'buehne', kind: 'free', name: 'Neugieriger Kollege',
+    scene: { role: 'Neugieriger Kollege', initial: 'N', intro: { de: 'Er ist neu im Team und fragt gern nach.', en: 'He is new to the team and likes to ask questions.' } },
+    how: 'Ein neuer Kollege will verstehen, was dein Team macht. Erkläre einfach, mit einem Beispiel aus dem Alltag. Drei Runden.',
+    q: { de: 'Ich bin neu hier. Kannst du mir erklären, was dein Team genau macht?', en: 'I am new here. Can you explain what exactly your team does?' } },
+  { id: 'sc5', p: 'buehne', kind: 'free', name: 'Zwischenfrage im Webinar',
+    scene: { role: 'Teilnehmerin im Webinar', initial: 'W', intro: { de: 'Du präsentierst, und eine Teilnehmerin meldet sich.', en: 'You are presenting and an attendee raises her hand.' } },
+    how: 'Du wirst mitten im Vortrag unterbrochen. Danke kurz für die Frage, antworte klar und frag, ob es verständlich war. Drei Runden.',
+    q: { de: 'Entschuldigung, darf ich kurz unterbrechen? Ich habe die letzte Folie nicht verstanden.', en: 'Sorry, may I interrupt for a second? I did not follow the last slide.' } }
 ];
 
 const DICE = {
@@ -410,12 +464,16 @@ const FILLERS = {
 
 /* ---------- Zustand ---------- */
 const STORE_KEY = 'stimmwerk.v1';
-function blank() { return { v: 1, lang: 'de', done: {}, hist: {}, days: [], focus: null, updated: 0 }; }
+function blank() { return { v: 1, lang: 'de', done: {}, hist: {}, days: [], focus: null, pts: 0, badges: {}, stats: { runs: 0, blitz: 0, scenes: 0, clean: 0, tempo: 0 }, updated: 0 }; }
 function fix(s) {
   if (!Array.isArray(s.days)) s.days = [];
   if (!s.done || typeof s.done !== 'object') s.done = {};
   if (!s.hist || typeof s.hist !== 'object') s.hist = {};
   if (s.lang !== 'en') s.lang = 'de';
+  if (typeof s.pts !== 'number' || !(s.pts >= 0)) s.pts = 0;
+  if (!s.badges || typeof s.badges !== 'object') s.badges = {};
+  if (!s.stats || typeof s.stats !== 'object') s.stats = {};
+  ['runs', 'blitz', 'scenes', 'clean', 'tempo'].forEach(k => { if (typeof s.stats[k] !== 'number') s.stats[k] = 0; });
   if (s.focus && (!PILLARS.some(p => p.id === s.focus.p) || typeof s.focus.since !== 'string' || s.focus.since.length < 10)) s.focus = null;
   return s;
 }
@@ -480,6 +538,61 @@ function markup(t) {
 }
 function plain(t) { return String(t || '').replace(/‖/g, '').replace(/\[([^\]]+)\]/g, '$1').replace(/\{(?:lo|hi|dn|up):([^}]+)\}/g, '$1').replace(/\s+/g, ' ').trim(); }
 
+/* ---------- Applaus, Rang, Eintrittskarten ---------- */
+const RANKS = [{ n: 'Probe', at: 0 }, { n: 'Meeting', at: 300 }, { n: 'Webinar', at: 1200 }, { n: 'Keynote', at: 3000 }];
+const rankOf = pts => RANKS.reduce((i, r, k) => pts >= r.at ? k : i, 0);
+const BADGES = [
+  { id: 'erste', name: 'Erste Runde', hint: 'Eine Übung abschließen', ok: s => s.stats.runs >= 1 },
+  { id: 'zehn', name: 'Zehn Runden', hint: 'Zehn Übungen abschließen', ok: s => s.stats.runs >= 10 },
+  { id: 'tempo', name: 'Tempo im Fluss', hint: '110 bis 160 Wörter pro Minute', ok: s => s.stats.tempo >= 1 },
+  { id: 'clean', name: 'Ohne Weichmacher', hint: 'Eine Runde ohne Füllwörter', ok: s => s.stats.clean >= 1 },
+  { id: 'tage3', name: 'Drei Tage', hint: 'Drei Tage am Stück üben', ok: () => streak() >= 3 },
+  { id: 'tage7', name: 'Sieben Tage', hint: 'Sieben Tage am Stück üben', ok: () => streak() >= 7 },
+  { id: 'blitz', name: 'Blitz Fünfer', hint: 'Fünf Blitzrunden schaffen', ok: s => s.stats.blitz >= 5 },
+  { id: 'szene', name: 'Szenenheldin', hint: 'Eine Szene mit drei Runden schaffen', ok: s => s.stats.scenes >= 1 },
+  { id: 'saeule', name: 'Säule komplett', hint: 'Alle Übungen einer Säule abschließen', ok: () => PILLARS.some(p => doneIn(p.id) >= exOf(p.id).length) }
+];
+const SCENE_IDS = ['sc1', 'sc2', 'sc3', 'sc4', 'sc5'];
+function sceneOfDay() { return SCENE_IDS[Math.floor(Date.now() / 86400000) % SCENE_IDS.length]; }
+const BLITZ_SECS = 60;
+
+function confetti() {
+  try {
+    const box = document.createElement('div'); box.className = 'confetti'; box.setAttribute('aria-hidden', 'true');
+    const cols = ['#c2185b', '#ffd678', '#231b4a', '#7be0a8', '#8e7be0'];
+    for (let i = 0; i < 36; i++) { const c = document.createElement('i'); c.style.left = Math.random() * 100 + '%'; c.style.background = cols[i % cols.length]; c.style.animationDelay = (Math.random() * .6) + 's'; c.style.transform = 'rotate(' + Math.round(Math.random() * 180) + 'deg)'; box.appendChild(c); }
+    document.body.appendChild(box); setTimeout(() => box.remove(), 2800);
+  } catch (e) {}
+}
+// Vergibt Applaus für eine abgeschlossene Runde. Muss vor markDay() aufgerufen werden, damit der erste Auftritt des Tages erkannt wird.
+function awardRun(my, entry) {
+  if (my.awarded) return; my.awarded = true;
+  const e = EX(my.id), ts = textStats(my.transcript, entry.dur);
+  const parts = [['Runde geschafft', 20]];
+  if (entry.wpm >= 110 && entry.wpm <= 160) { parts.push(['Tempo im Fluss', 10]); state.stats.tempo++; }
+  if (ts.words >= 15 && entry.fill === 0) { parts.push(['Ohne Weichmacher', 10]); state.stats.clean++; }
+  if (!state.days.includes(today())) parts.push(['Erster Auftritt heute', 15]);
+  if (e.blitz && entry.dur >= 30) { parts.push(['Blitzbonus', 20]); state.stats.blitz++; }
+  if (e.scene && my.round >= 3) { parts.push(['Szene geschafft', 30]); state.stats.scenes++; my.sceneDone = true; }
+  state.stats.runs++;
+  const n = parts.reduce((a, x) => a + x[1], 0);
+  const before = rankOf(state.pts); state.pts += n; const after = rankOf(state.pts);
+  markDay();
+  const fresh = BADGES.filter(b => !state.badges[b.id] && b.ok(state));
+  fresh.forEach(b => { state.badges[b.id] = today(); });
+  my.award = { n, parts, rank: after > before ? RANKS[after].n : '', badges: fresh.map(b => b.name) };
+  if (my.award.rank || fresh.length || my.sceneDone) confetti();
+}
+function awardBlock() {
+  const a = ex.award; if (!a) return '';
+  const r = rankOf(state.pts), next = RANKS[r + 1];
+  return `<div class="card award" id="awardcard"><span class="label">Applaus</span><div class="big">+${a.n}</div>
+    <ul>${a.parts.map(x => `<li>${esc(x[0])}: +${x[1]}</li>`).join('')}</ul>
+    ${a.rank ? `<p><b>Neuer Rang: ${esc(a.rank)}!</b></p>` : ''}
+    ${a.badges.length ? `<p><b>Neue Eintrittskarte${a.badges.length > 1 ? 'n' : ''}: ${esc(a.badges.join(', '))}</b></p>` : ''}
+    <p class="small soft">Insgesamt ${state.pts} Applaus. ${next ? `Noch ${next.at - state.pts} bis ${esc(next.n)}.` : 'Du bist ganz oben angekommen.'}</p></div>`;
+}
+
 /* ---------- Ansichten ---------- */
 let view = 'home', curPillar = null, ex = null;
 function busy() { return view === 'ex' && ex && (ex.recording || ex.starting || ex.analyzing || ex.t0); }
@@ -497,15 +610,27 @@ function viewHome() {
     return `${g}<button type="button" class="station ${cls}" data-pillar="${p.id}"><span class="nm">${esc(p.name)}</span><span class="sub">${esc(p.sub)}</span><span class="cnt">${d} von ${n}</span></button>`;
   }).join('');
   const st = streak();
+  const rk = rankOf(state.pts), nx = RANKS[rk + 1], sc = EX(sceneOfDay());
+  const stage = `<div class="stagebox">
+    <div class="lv"><div><span class="label">Dein Rang</span><div class="rank">${esc(RANKS[rk].n)}</div></div><div><span class="label" style="display:block;text-align:right">Applaus</span><div class="app">${state.pts}</div></div></div>
+    <div class="steps4">${RANKS.map((r, i) => `<span class="${i < rk ? 'done' : i === rk ? 'on' : ''}">${esc(r.n)}</span>`).join('')}</div>
+    <p class="small soft">${st ? `${st} ${st === 1 ? 'Tag' : 'Tage'} in Folge auf der Bühne. ` : 'Wähl eine Station oder spiel eine Szene. '}${nx ? `Noch ${nx.at - state.pts} Applaus bis ${esc(nx.n)}.` : 'Höchster Rang erreicht.'}</p></div>`;
+  const play = `<div class="stack">
+    <div class="scene"><div class="who"><div class="av">${esc(sc.scene.initial)}</div><div><span class="label">Szene heute</span><h3>${esc(sc.scene.role)}</h3></div></div><p class="small">${esc(sc.scene.intro[state.lang])} Dein Auftritt, drei Runden Applaus.</p><button type="button" class="go" data-start="${sc.id}">Vorhang auf</button></div>
+    <div class="blitz"><span class="label">Blitzrunde</span><h3>Eine Minute Bühne</h3><p class="small">Zufallsfrage, Zeit läuft. Ab 30 Sekunden gibt es Bonusapplaus.</p><button type="button" class="go" data-start="bl1">Spot an</button></div></div>`;
+  const nb = BADGES.filter(b => state.badges[b.id]).length;
+  const tix = `<div class="stack"><span class="label">Deine Eintrittskarten, ${nb} von ${BADGES.length}</span><div class="tix">${BADGES.map(b => `<div class="${state.badges[b.id] ? '' : 'off'}"><span>${esc(b.name)}</span><small>${esc(b.hint)}</small></div>`).join('')}</div></div>`;
   return `
   <div class="top"><div><span class="label">Stimmwerk</span><h1>Dein Weg</h1></div>${langSwitch()}</div>
-  <p class="soft">${st ? `Du übst seit ${st} ${st === 1 ? 'Tag' : 'Tagen'} am Stück.` : 'Wähl eine Station, egal wie viel Zeit du hast. Die meisten Übungen dauern ein bis drei Minuten.'}</p>
+  ${stage}
   ${state.focus ? `<p class="small">Fokus dieser Woche seit ${esc(state.focus.since.slice(8, 10) + '.' + state.focus.since.slice(5, 7) + '.')}: <b>${esc(now.name)}</b></p>` : ''}
   <button type="button" class="gold wide" data-pillar="${now.id}">${state.focus ? 'Fokus üben' : 'Weiter mit'}: ${esc(now.name)}</button>
   <div class="quick">
     <button type="button" data-start="a1"><b>3·2·1 Würfel</b><span>Spontan antworten</span></button>
     <button type="button" data-tab="quick"><b>Vor dem Meeting</b><span>Schnellcheck</span></button>
   </div>
+  ${play}
+  ${tix}
   <div class="path">${stations}</div>`;
 }
 
@@ -529,14 +654,14 @@ let runSeq = 0;
 function newRun(o) {
   try { clearInterval(tIv); } catch (e) {}
   if (o && o.audioUrl) { try { URL.revokeObjectURL(o.audioUrl); } catch (e) {} }
-  return { run: ++runSeq, timed: false, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '', t0: 0, secs: 0 };
+  return { run: ++runSeq, award: null, awarded: false, sceneDone: false, timed: false, result: null, audioUrl: null, isVideo: false, transcript: '', coach: null, analyzing: false, err: '', t0: 0, secs: 0 };
 }
 function resetRun() { Object.assign(ex, newRun(ex)); }
 function startExercise(id) {
   if (ex && (ex.recording || ex.starting)) stopRec();
   if (ex) newRun(ex);
   const e = EX(id);
-  ex = Object.assign({ id, recording: false, starting: false, checked: [], die: null, question: null, followUp: null, prev: null, micMsg: '' }, newRun());
+  ex = Object.assign({ id, round: 1, recording: false, starting: false, checked: [], die: null, question: null, followUp: null, prev: null, micMsg: '' }, newRun());
   if (e.kind === 'dice') rollDie(e);
   if (e.kind === 'free') ex.question = e.q[state.lang];
   curPillar = e.p; view = 'ex'; render(true);
@@ -621,6 +746,17 @@ const GUIDE = {
     frame: { de: 'Moment, ich bin gleich fertig. ‖ Mein Punkt war … ‖ Danach gern deine Sicht.', en: 'One moment, I am nearly done. ‖ My point was … ‖ Then I would like to hear your view.' } },
   h4: { steps: ['Nenne, was du teilst.', 'Sag deine Position in einem Satz, ohne Weichmacher.', 'Gib einen Grund, wenn möglich mit einer Zahl.', 'Mach einen Vorschlag und bleib bei deiner Position, wenn nachgefragt wird.'],
     frame: { de: 'Ich teile das Ziel … ‖ Meine Position ist … ‖ Der Grund … ‖ Mein Vorschlag …', en: 'I share the goal … ‖ My position is … ‖ The reason … ‖ My suggestion …' } },
+  bl1: { steps: ['Lies die Frage und schau, welche Zahl gewürfelt wurde.', 'Tippe auf Start und sag sofort deinen ersten Satz.', 'Sprich in der Struktur, die der Würfel zeigt.', 'Die Uhr stoppt nach einer Minute von selbst. Du kannst auch früher auf Stopp tippen.'] },
+  sc1: { steps: ['Sag zuerst, dass du die Sorge verstehst.', 'Nenne das Ergebnis mit einer Zahl.', 'Mach einen Vorschlag für den nächsten Schritt.', 'Bleib ruhig, das Satzende geht nach unten.'],
+    frame: { de: 'Ich verstehe die Sorge. ‖ Das Ergebnis war … ‖ Mein Vorschlag …', en: 'I understand the concern. ‖ The result was … ‖ My suggestion …' } },
+  sc2: { steps: ['Beginne mit dem Ergebnis in einem Satz.', 'Sag, was gut läuft und was hakt.', 'Nenne, was du brauchst, mit einem Datum.', 'Dann bist du still.'],
+    frame: { de: 'Kurz: … ‖ Wir liegen … ‖ Ich brauche von dir …', en: 'In short: … ‖ We are … ‖ I need from you …' } },
+  sc3: { steps: ['Nenne den Unterschied in einem Satz.', 'Belege ihn mit einem Beispiel oder einer Zahl.', 'Sag, was der Einkäufer davon hat.', 'Bleib bei deiner Position, auch wenn er nachbohrt.'],
+    frame: { de: 'Der Unterschied liegt in … ‖ Ein Beispiel … ‖ Deshalb …', en: 'The difference lies in … ‖ An example … ‖ That is why …' } },
+  sc4: { steps: ['Sag in einem Satz, was dein Team macht.', 'Gib ein Beispiel aus dem Alltag.', 'Sag, wobei der Kollege helfen kann.', 'Frag, was ihn noch interessiert.'],
+    frame: { de: 'Mein Team kümmert sich um … ‖ Ein Beispiel: … ‖ Dabei kannst du mithelfen …', en: 'My team takes care of … ‖ An example: … ‖ You can help with …' } },
+  sc5: { steps: ['Danke kurz für die Frage.', 'Antworte in ein bis zwei Sätzen.', 'Gib ein Beispiel.', 'Frag, ob es jetzt klarer ist.'],
+    frame: { de: 'Gern, danke für die Frage. ‖ Kurz gesagt … ‖ Ein Beispiel … ‖ Ist es jetzt klarer?', en: 'Gladly, thank you for the question. ‖ In short … ‖ An example … ‖ Is it clearer now?' } },
   c1: { steps: ['Antworte zuerst im Sitzen, die Hände im Schoß.', 'Antworte dann im Stehen, mit Gesten.', 'Vergleiche Melodie und Energie der beiden Antworten.'],
     frame: { de: 'In drei Monaten möchte ich … ‖ Dafür werde ich … ‖ Erfolg heißt für mich …', en: 'In three months I want to … ‖ To get there I will … ‖ Success means to me …' } }
 };
@@ -629,6 +765,12 @@ const DICE_FRAME = {
   2: { de: 'Es gibt zwei Seiten. ‖ Einerseits … ‖ Andererseits … ‖ Mein Fazit …', en: 'There are two sides. ‖ On the one hand … ‖ On the other hand … ‖ My conclusion …' },
   1: { de: 'Mein Kernpunkt ist … ‖ Der Grund dafür … ‖ Ein Beispiel … ‖ Deshalb …', en: 'My main point is … ‖ The reason is … ‖ An example … ‖ That is why …' }
 };
+
+function freeLabel(e) {
+  if (e.scene) return `${e.scene.role}, Runde ${Math.min(ex.round || 1, 3)} von 3`;
+  return ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage';
+}
+function timerText() { const secs = (Date.now() - ex.t0) / 1000; return fmtTime(EX(ex.id).blitz ? Math.max(0, BLITZ_SECS - secs) : secs); }
 
 function frameFor(e) {
   const g = GUIDE[e.id]; if (!g) return '';
@@ -640,13 +782,13 @@ function stageView(e, p) {
   const g = GUIDE[e.id], fr = frameFor(e);
   let tk = '';
   if (e.kind === 'read') tk = `<span class="label">Lies laut</span><p class="task">${markup(textFor(e))}</p>`;
-  else tk = `<span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage'}</span><p class="question">${esc(ex.question)}</p>` +
+  else tk = `<span class="label">${freeLabel(e)}</span><p class="question">${esc(ex.question)}</p>` +
     (e.kind === 'dice' ? `<p class="small"><b>${ex.die}</b> ${esc(DICE[ex.die].name)}: ${esc(DICE[ex.die].hint)}</p>` : '');
   return `<div class="stage">
     <div class="tk">${tk}
       ${fr ? `<span class="label">Satzanfänge</span><p class="task frame">${markup(fr)}</p>` : ''}
       ${g ? `<details><summary>Anleitung</summary><ol class="todo">${g.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol></details>` : ''}</div>
-    <div class="bar"><button type="button" class="primary" data-timer>Stopp</button><span class="timer bigtimer" id="tmr2">${fmtTime((Date.now() - ex.t0) / 1000)}</span></div>
+    <div class="bar"><button type="button" class="primary" data-timer>Stopp</button><span class="timer bigtimer" id="tmr2">${timerText()}</span></div>
     <textarea id="txt" rows="3" placeholder="Tippe hier hinein und diktiere mit Wispr Flow">${esc(ex.transcript)}</textarea>
     <button type="button" class="link" data-cancel>Abbrechen</button>
   </div>`;
@@ -664,7 +806,7 @@ function viewExercise() {
   const e = EX(ex.id), p = P(e.p);
   let task = '';
   if (e.kind === 'read') task = `<div class="card"><span class="label">Lies laut</span><p class="task">${markup(textFor(e))}</p></div>`;
-  if (e.kind === 'free') task = `<div class="card"><span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage'}</span><p class="question">${esc(ex.question)}</p><div class="row">${claudeQuestionBtn()}</div></div>`;
+  if (e.kind === 'free') task = `<div class="card"><span class="label">${freeLabel(e)}</span>${e.scene ? `<p class="small">${esc(e.scene.intro[state.lang])}</p>` : ''}<p class="question">${esc(ex.question)}</p>${e.scene ? '' : `<div class="row">${claudeQuestionBtn()}</div>`}</div>`;
   if (e.kind === 'dice') task = `<div class="card">
       <span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Frage im Meeting'}</span><p class="question">${esc(ex.question)}</p>
       <div class="dice">${[3, 2, 1].map(n => `<div class="die${ex.die === n ? ' on' : ''}"><b>${n}</b><span>${esc(DICE[n].name)}</span></div>`).join('')}</div>
@@ -685,6 +827,7 @@ function viewExercise() {
   ${task}
   ${speak ? guideBlock(e) : ''}
   ${speak ? speakBlock() : ''}
+  ${speak ? awardBlock() : ''}
   ${speak ? coachBlock() : ''}
   ${speak ? measureBlock() : ''}
   ${speak && ex.result ? resultBlock(e) : ''}
@@ -753,7 +896,7 @@ function timerToggle() {
     const box = $('#txt'); if (box) ex.transcript = box.value;
     recordTimerRun(ex);
     render();
-    const cc = document.getElementById('coachcard'); if (cc) cc.scrollIntoView({ block: 'center' });
+    const cc = document.getElementById('awardcard') || document.getElementById('coachcard'); if (cc) cc.scrollIntoView({ block: 'start' });
     return;
   }
   if (ex.recording || ex.starting || ex.analyzing) return;
@@ -763,7 +906,7 @@ function timerToggle() {
   Object.assign(ex, newRun(ex));
   ex.measureOpen = keep; ex.transcript = keepText; ex.t0 = Date.now(); ex.secs = 0;
   clearInterval(tIv);
-  tIv = setInterval(() => { if (!ex || !ex.t0) { clearInterval(tIv); return; } const el = $('#tmr2'); if (el) el.textContent = fmtTime((Date.now() - ex.t0) / 1000); }, 250);
+  tIv = setInterval(() => { if (!ex || !ex.t0) { clearInterval(tIv); return; } const el = $('#tmr2'); if (el) el.textContent = timerText(); if (EX(ex.id).blitz && Date.now() - ex.t0 >= BLITZ_SECS * 1000) timerToggle(); }, 250);
   render(true);
 }
 function recordTimerRun(my) {
@@ -775,7 +918,7 @@ function recordTimerRun(my) {
   state.hist[e.id] = h.slice(-20);
   state.done[e.id] = (state.done[e.id] || 0) + 1;
   my.timed = true;
-  markDay(); save();
+  awardRun(my, h[h.length - 1]); save();
 }
 
 /* ---------- Aufnahme ---------- */
@@ -974,7 +1117,7 @@ function finishRun(my) {
     const h = state.hist[e.id] || (state.hist[e.id] = []);
     const entry = { d: today(), dur: Math.round(r.dur), wpm: ts.wpm, pz: r.pauses, mel: r.pitchRange === null ? null : +r.pitchRange.toFixed(1), vol: +r.volRange.toFixed(1), fill: ts.fill, f: my.followUp ? 1 : 0 };
     if (my.timed && h.length) h[h.length - 1] = entry;
-    else { h.push(entry); state.done[e.id] = (state.done[e.id] || 0) + 1; my.timed = true; }
+    else { h.push(entry); state.done[e.id] = (state.done[e.id] || 0) + 1; my.timed = true; awardRun(my, entry); }
     state.hist[e.id] = h.slice(-20);
     markDay(); save();
   }
@@ -1072,7 +1215,7 @@ function coachBlock() {
       <div class="bubble"><span class="label">Das war stark</span><p>${esc(c.data.lob)}</p></div>
       <div class="bubble"><span class="label">Dein Hebel</span><p>${esc(c.data.hebel)}</p></div>
       ${c.data.besser ? `<div class="bubble"><span class="label">So könnte es klingen</span><p>${esc(c.data.besser)}</p></div>` : ''}
-      ${c.data.rueckfrage ? `<div class="bubble"><span class="label">Rückfrage</span><p class="question">${esc(c.data.rueckfrage)}</p><button type="button" class="primary" data-followup>Darauf antworten</button></div>` : ''}
+      ${c.data.rueckfrage ? (() => { const sc = EX(ex.id).scene, last = sc && ex.round >= 3; return `<div class="bubble"><span class="label">${sc ? (last ? esc(sc.role) + ' zum Schluss' : esc(sc.role)) : 'Rückfrage'}</span><p class="question">${esc(c.data.rueckfrage)}</p>${last ? '<button type="button" class="primary" data-nextscene>Noch eine Szene</button>' : '<button type="button" class="primary" data-followup>Darauf antworten</button>'}</div>`; })() : ''}
     </div>`;
   return `<div class="card coach" id="coachcard"><span class="label">Coach</span>
     ${body || '<p class="small soft">Wenn du fertig bist, gib dem Coach deinen Text und die Messwerte. Er sagt dir, was gut war, nennt dir einen Hebel und stellt dir eine Rückfrage wie im echten Meeting.</p>'}
@@ -1094,10 +1237,11 @@ function coachPrompt(my, chat) {
   }
   const answerLang = state.lang === 'en' ? 'English' : 'Deutsch';
   const wantFollow = e.kind !== 'read';
+  const role = e.scene ? `\nRollenspiel: Du schlüpfst für die Rückfrage in die Rolle: ${e.scene.role}. Lage: ${e.scene.intro.de} Es ist Runde ${Math.min(my.round || 1, 3)} von 3. ${(my.round || 1) >= 3 ? 'Das ist die letzte Runde. Die Rückfrage ist ein kurzer Schlusssatz der Figur auf deine Antwort, keine neue Frage.' : 'Die Rückfrage ist die nächste Replik der Figur, kurz, im Ton der Figur und gern etwas fordernd, höchstens 20 Wörter.'} Das Feedback davor gibst du als Coach.\n` : '';
   const prompt = `Du bist ein warmer, direkter Sprechcoach. Du arbeitest mit den Techniken von Vinh Giang: fünf Stimmgrundlagen (Tempo, Lautstärke, Tonhöhe und Melodie, Klangfarbe, Pause), dazu der 3·2·1 Rahmen für spontane Antworten (drei Schritte, zwei Arten oder Seiten, eine Kernaussage). Für Vorstellen, Erklären, Feedback, Verhandeln und Storytelling nutzt du bewährte Kommunikationsregeln. Deine Schülerin ist Deutsche, arbeitet im Marketing und will in Meetings und Webinaren sicherer und klarer sprechen.
 
 Säule dieser Übung: ${p.name}. Idee: ${p.idea}
-Übung: ${e.name}. Anleitung: ${e.how}
+Übung: ${e.name}. Anleitung: ${e.how}${role}
 ${task}
 Messwerte aus der Aufnahme: ${metrics}
 Gesprochener Text (kann aus Spracherkennung oder Wispr Flow stammen, ignoriere fehlende Satzzeichen und kleine Erkennungsfehler): ${my.transcript || '(kein Text)'}
@@ -1203,10 +1347,11 @@ function breathe() {
 function viewMap() {
   return `
   <div><span class="label">Überblick</span><h2>Die Landkarte</h2></div>
-  <p>Achtzehn Säulen. Fünf davon sind deine Stimme, fünf der Inhalt, vier das Gespräch, zwei die Klarheit, eine die Souveränität und eine die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
+  <p>Neunzehn Säulen. Fünf davon sind deine Stimme, fünf der Inhalt, vier das Gespräch, zwei die Klarheit, eine die Souveränität, eine die Wirkung und eine die Bühne. Wenn du im Meeting hängst, denk an genau eine davon.</p>
   <div class="pillars">${PILLARS.map(p => `<button type="button" class="pillar ex" data-pillar="${p.id}"><span class="label">${esc(p.group)}</span><span class="t">${esc(p.name)}</span><span class="d">${esc(p.sub)}</span></button>`).join('')}</div>
   <div class="card"><h3>So übst du</h3>
     <p>Eine Säule pro Woche im Mittelpunkt, du wählst sie auf der Seite der Säule. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
+  <div class="card"><h3>Applaus und Rang</h3><p class="small">Jede abgeschlossene Runde bringt 20 Applaus. Dazu kommen 10 für Tempo zwischen 110 und 160 Wörtern pro Minute, 10 für eine Runde ohne Füllwörter und Weichmacher, 15 für den ersten Auftritt des Tages, 20 für eine Blitzrunde ab 30 Sekunden und 30 für eine geschaffte Szene. Ränge: Probe, Meeting ab 300, Webinar ab 1200, Keynote ab 3000. Eintrittskarten bekommst du für besondere Leistungen, zum Beispiel drei Tage in Folge oder eine ganze Säule.</p></div>
   <div class="card"><h3>Datenschutz</h3><p class="small">Aufnahmen bleiben auf deinem Gerät und werden nur hier gemessen. Wenn du den Coach fragst, gehen dein Text und die Messwerte an Claude, die Audiodatei nicht.</p></div>
   <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus Zusammenfassungen seines Gesprächs mit Jay Shetty. Die Originale habe ich nicht selbst gesehen. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm. Die Säulen zu Inhalt, Gespräch, Klarheit und Souveränität folgen den Themenlisten aus zwei Reels, einem von Small Talk with Anna und einem von Paisley Brooks. Von dort stammen nur die Themen, die Techniken und Formulierungen sind meine Ergänzung.</p></div>`;
 }
@@ -1260,9 +1405,10 @@ document.addEventListener('click', e => {
     const q = ex.coach && ex.coach.data && ex.coach.data.rueckfrage; if (!q) return;
     const box = $('#txt'); if (box) ex.transcript = box.value;
     ex.prev = { question: ex.question, answer: ex.transcript };
-    ex.question = q; ex.followUp = true; resetRun();
+    ex.question = q; ex.followUp = true; if (EX(ex.id).scene) ex.round = (ex.round || 1) + 1; resetRun();
     render(true); return;
   }
+  if (t.hasAttribute('data-nextscene')) { const i = SCENE_IDS.indexOf(ex.id); startExercise(SCENE_IDS[(i + 1) % SCENE_IDS.length]); return; }
   if (t.hasAttribute('data-finish-check')) {
     const e = EX(ex.id); state.done[e.id] = (state.done[e.id] || 0) + 1; markDay(); save();
     curPillar = e.p; view = 'pillar'; render(true); return;
