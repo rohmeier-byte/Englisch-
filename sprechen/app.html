@@ -194,6 +194,27 @@ const PILLARS = [
   { id: 'wert', group: 'Inhalt', name: 'Wertschätzung', sub: 'Zuhören, danken, freundlich klar sein',
     idea: 'Wertschätzend sprechen heißt, dass andere spüren: Du nimmst sie ernst. Du dankst konkret, du fragst nach, bevor du antwortest, und du sprichst Kritik ruhig und zur Sache an. Vinh Giang rät, vor dem Reden über dich drei Rückfragen zu stellen und deine Stimme an die Stimmung der anderen anzupassen. Die Formeln für Dank und Kritik sind meine Ergänzung.',
     src: 'Rückfragen und Anpassen der Stimme: Vinh Giang. Formeln für Dank und Kritik: Ergänzung im Tool', focus: 'pitch' },
+  { id: 'start', group: 'Inhalt', name: 'Vorstellen und Beitrag', sub: 'Kurz, klar, selbstbewusst',
+    idea: 'Ein guter Beitrag hat einen Anfang, eine Aussage und einen Schluss. Wer sich vorstellt, nennt Name, Rolle und einen Nutzen für die anderen. Sprich in kurzen Sätzen, lass das Satzende nach unten gehen und mach nach der Kernaussage eine Pause. Eine Mail zum Diktieren folgt demselben Aufbau.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'wpm' },
+  { id: 'erklaer', group: 'Inhalt', name: 'Erklären und überzeugen', sub: 'Einfach sagen, Belege nennen',
+    idea: 'Komplexes wird klar, wenn du mit dem Ergebnis beginnst, einen Vergleich aus dem Alltag nutzt und Fachwörter erklärst. Ein überzeugendes Argument hat eine Behauptung, einen Grund und einen Beleg, zum Beispiel eine Zahl.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
+  { id: 'einstieg', group: 'Inhalt', name: 'Einstieg und schwierige Fragen', sub: 'Der erste Satz und der Umgang mit Druck',
+    idea: 'Die ersten zehn Sekunden entscheiden, ob jemand zuhört. Starte mit einer Zahl, einer Frage oder einer kleinen Szene und mach danach eine Pause. Bei schwierigen Fragen hilft ein fester Ablauf: Frage in eigenen Worten wiederholen, Atem holen, eine Kernaussage geben, einen Beleg nennen.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'pauses' },
+  { id: 'zuhoeren', group: 'Gespräch', name: 'Zuhören und Feedback', sub: 'Verbinden, bevor du antwortest',
+    idea: 'Aktives Zuhören heißt: Du fasst in eigenen Worten zusammen, was du gehört hast, und fragst nach. Konstruktives Feedback nennt eine Beobachtung, die Wirkung und einen konkreten Vorschlag. Beides bringt Ruhe und Klarheit ins Gespräch.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'pitch' },
+  { id: 'dialog', group: 'Gespräch', name: 'Gespräche führen', sub: 'Networking und Teamdiskussion',
+    idea: 'Im Networking öffnest du mit einer Frage, hörst zu und knüpfst an das Gehörte an. In einer Teamdiskussion leitest du, indem du das Ziel nennst, Wortmeldungen aufrufst, zusammenfasst und eine Entscheidung herbeiführst.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
+  { id: 'verhandeln', group: 'Gespräch', name: 'Verhandeln und klären', sub: 'Ruhig bleiben, Lösungen finden',
+    idea: 'Gute Verhandlungssätze sind weich im Ton und klar in der Sache. Du nennst Verständnis für die andere Seite, legst dein Angebot auf den Tisch und bindest es an eine Bedingung. Im Konfliktgespräch beschreibst du deine Sicht mit Ich Sätzen und fragst nach der Sicht des anderen.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'pitch' },
+  { id: 'story', group: 'Gespräch', name: 'Story und Spontanität', sub: 'Erzählen, ohne den Faden zu verlieren',
+    idea: 'Eine gute Geschichte hat eine Ausgangslage, ein Problem, einen Wendepunkt und eine Lösung. Wer spontan überzeugen soll, nutzt den 3·2·1 Rahmen. Im Interview antwortest du mit einer Kernaussage und einem Beispiel aus deiner Praxis.',
+    src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
   { id: 'koerper', group: 'Wirkung', name: 'Körper und Kamera', sub: 'Bewegung macht die Stimme lebendig',
     idea: 'Körper und Stimme hängen zusammen. Wer starr sitzt, klingt oft flach. Für Webinare kommen Blick in die Linse und Gesten im Bild dazu.',
     src: 'Körper: Vinh Giang. Kamera: Ergänzung im Tool', focus: 'pitch' }
@@ -256,6 +277,54 @@ const EXERCISES = [
   { id: 'w3', p: 'wert', kind: 'free', name: 'Kritik freundlich sagen', src: 'Ergänzung im Tool',
     how: 'Sag es in drei Teilen: was du gesehen hast, was es bewirkt, was du dir wünschst. Beginne mit etwas Anerkennendem. Deine Stimme bleibt ruhig und das Satzende geht nach unten.',
     q: { de: 'Dein Kollege hat die Zahlen wieder erst kurz vor dem Meeting geschickt. Was sagst du ihm?', en: 'Your colleague again sent the numbers just before the meeting. What do you say to him?' } },
+  { id: 's1', p: 'start', kind: 'free', name: 'Selbstbewusst vorstellen',
+    how: 'Stell dich in 30 Sekunden vor: Name, Rolle, was du für andere tust. Das Satzende geht jedes Mal nach unten.',
+    q: { de: 'Du stellst dich in einem neuen Team vor. Was sagst du?', en: 'You introduce yourself to a new team. What do you say?' } },
+  { id: 's2', p: 'start', kind: 'free', name: 'Klarer Beitrag im Meeting',
+    how: 'Sag deinen Punkt in drei Sätzen: Aussage, Grund, Wunsch. Die Aussage kommt zuerst.',
+    q: { de: 'Dein Team diskutiert, ob ein Launch verschoben werden soll. Was ist deine Position?', en: 'Your team is discussing whether to postpone a launch. What is your position?' } },
+  { id: 's3', p: 'start', kind: 'free', name: 'Mail zum Diktieren',
+    how: 'Diktier eine kurze Mail in drei Teilen: Anlass, Kern, nächster Schritt. Sprich sie so, wie du sie schreiben würdest.',
+    q: { de: 'Du schreibst dem Kunden, dass die Lieferung zwei Tage später kommt. Diktier die Mail.', en: 'You write to the client that the delivery will arrive two days later. Dictate the email.' } },
+  { id: 'e1', p: 'erklaer', kind: 'free', name: 'Komplexes einfach erklären',
+    how: 'Erkläre einem Neuling in einer Minute etwas Kompliziertes. Beginne mit dem Ergebnis, dann kommt ein Vergleich aus dem Alltag.',
+    q: { de: 'Erkläre einem Neuling, wie Retail Media funktioniert, ohne Fachwörter.', en: 'Explain to a newcomer how retail media works, without jargon.' } },
+  { id: 'e2', p: 'erklaer', kind: 'free', name: 'Argument mit Beleg',
+    how: 'Baue dein Argument in vier Schritten: Behauptung, Grund, Beleg, Wunsch. Beim Beleg wirst du etwas langsamer.',
+    q: { de: 'Überzeuge deine Chefin, mehr Budget in Suchanzeigen zu stecken.', en: 'Convince your manager to put more budget into search ads.' } },
+  { id: 'f1', p: 'einstieg', kind: 'free', name: 'Starker Einstieg',
+    how: 'Starte direkt mit einer Zahl, einer Frage oder einer kleinen Szene. Nach dem ersten Satz machst du zwei Sekunden Pause.',
+    q: { de: 'Du eröffnest ein Webinar über Retail Media. Wie lautet dein erster Satz, und wie geht es weiter?', en: 'You open a webinar about retail media. What is your first sentence, and how do you continue?' } },
+  { id: 'f2', p: 'einstieg', kind: 'free', name: 'Schwierige Frage',
+    how: 'Atme ein, gib die Frage in eigenen Worten wieder und antworte mit einer Kernaussage und einem Grund. Wenn du etwas nicht weißt, sag es und nenne den nächsten Schritt.',
+    q: { de: 'Ein Kunde fragt: Warum war die letzte Kampagne so teuer und hat so wenig gebracht?', en: 'A client asks: Why was the last campaign so expensive and why did it deliver so little?' } },
+  { id: 'z1', p: 'zuhoeren', kind: 'free', name: 'Zusammenfassen und nachfragen',
+    how: 'Gib in einem Satz wieder, was du verstanden hast, und stell dann eine offene Frage. Deine Antwort mit Rat kommt erst danach.',
+    q: { de: 'Deine Kollegin sagt: Das Kundenmeeting lief gut, aber ich habe das Gefühl, dass sie uns nicht vertrauen. Was antwortest du?', en: 'Your colleague says: The client meeting went well, but I feel they do not trust us. What do you answer?' } },
+  { id: 'z2', p: 'zuhoeren', kind: 'free', name: 'Feedback mit Vorschlag',
+    how: 'Gib Feedback in drei Teilen: eine Beobachtung, die Wirkung, ein konkreter Vorschlag. Beginne mit etwas Anerkennendem.',
+    q: { de: 'Dein Kollege hat eine Präsentation mit viel zu vielen Folien gehalten. Gib ihm konstruktives Feedback.', en: 'Your colleague gave a presentation with far too many slides. Give him constructive feedback.' } },
+  { id: 'd1', p: 'dialog', kind: 'free', name: 'Gespräch beim Networking',
+    how: 'Starte mit einer Frage, knüpf an die Antwort an und erzähl dann kurz etwas über dich. Lächle beim Sprechen.',
+    q: { de: 'Du stehst auf einer Branchenkonferenz neben jemandem, den du nicht kennst. Wie startest du das Gespräch?', en: 'You are standing next to a stranger at an industry conference. How do you start the conversation?' } },
+  { id: 'd2', p: 'dialog', kind: 'free', name: 'Teamdiskussion leiten',
+    how: 'Du moderierst. Nenne das Ziel, rufe Wortmeldungen auf, fasse zusammen und schließe mit einer Entscheidung.',
+    q: { de: 'Im Team gibt es zwei Meinungen zur Kanalstrategie. Wie leitest du die Diskussion?', en: 'Your team has two opinions about the channel strategy. How do you lead the discussion?' } },
+  { id: 'v1', p: 'verhandeln', kind: 'read', name: 'Verhandlungssätze',
+    how: 'Lies die Sätze ruhig. Bei den Aussagen geht das Satzende nach unten, vor dem Angebot machst du die Pause, die markierten Wörter sagst du etwas langsamer.',
+    de: '{dn:Ich verstehe, dass das Budget knapp ist.} ‖ Wenn wir den Vertrag um [zwölf Monate] verlängern, ‖ können wir den Preis um fünf Prozent senken. ‖ {dn:Das wäre für beide Seiten fair.}',
+    en: '{dn:I understand that the budget is tight.} ‖ If we extend the contract by [twelve months], ‖ we can reduce the price by five percent. ‖ {dn:That would be fair for both sides.}' },
+  { id: 'v2', p: 'verhandeln', kind: 'free', name: 'Konflikt klären',
+    how: 'Beschreibe dein Anliegen mit Ich Sätzen und frag nach der Sicht des anderen, bevor du einen Vorschlag machst. Bleib ruhig, das Satzende geht nach unten.',
+    q: { de: 'Eine Kollegin hat deine Idee im Meeting als ihre eigene vorgestellt. Wie sprichst du sie darauf an?', en: 'A colleague presented your idea as her own in the meeting. How do you talk to her about it?' } },
+  { id: 'y1', p: 'story', kind: 'free', name: 'Mini Story',
+    how: 'Erzähl eine Geschichte in vier Schritten: Ausgangslage, Problem, Wendepunkt, Lösung. Beim Wendepunkt machst du eine Pause und wirst langsamer.',
+    q: { de: 'Erzähl von einem Moment, in dem ein Projekt fast gescheitert wäre und dann doch geklappt hat.', en: 'Tell us about a moment when a project almost failed and then worked out after all.' } },
+  { id: 'y2', p: 'story', kind: 'dice', name: 'Spontan überzeugen',
+    how: 'Du bekommst eine Frage, der Würfel wählt die Struktur. Nimm dir 15 Sekunden zum Sortieren und überzeuge dann in höchstens einer Minute.' },
+  { id: 'y3', p: 'story', kind: 'free', name: 'Antwort im Interview',
+    how: 'Beantworte eine typische Interviewfrage mit einer Kernaussage und einem konkreten Beispiel. Schließe mit einem Satz zum Nutzen für das Unternehmen.',
+    q: { de: 'Erzähl mir von einer Situation, in der du eine schwierige Entscheidung treffen musstest.', en: 'Tell me about a situation in which you had to make a difficult decision.' } },
   { id: 'c1', p: 'koerper', kind: 'free', name: 'Sitzen und Stehen',
     how: 'Nimm die Antwort zweimal auf. Einmal sitzend mit den Händen im Schoß, einmal stehend mit Gesten. Vergleich danach die Melodie.',
     q: { de: 'Was möchtest du in den nächsten drei Monaten erreichen?', en: 'What do you want to achieve in the next three months?' } },
@@ -445,6 +514,36 @@ const GUIDE = {
     frame: { de: 'Was genau ist passiert? ‖ Was brauchst du jetzt von mir? ‖ Was wäre der erste kleine Schritt?', en: 'What exactly happened? ‖ What do you need from me now? ‖ What would be the first small step?' } },
   w3: { steps: ['Beginne mit etwas Anerkennendem.', 'Sag, was du gesehen hast, ohne Vorwurf.', 'Sag, was es bewirkt.', 'Sag, was du dir wünschst. Das Satzende geht nach unten.'],
     frame: { de: 'Ich schätze, dass … ‖ Mir ist aufgefallen, dass … ‖ Dadurch … ‖ Ich wünsche mir, dass …', en: 'I appreciate that … ‖ I noticed that … ‖ As a result … ‖ I would like …' } },
+  s1: { steps: ['Nenne deinen Namen und deine Rolle in einem Satz.', 'Sag, was du für andere tust oder wobei du helfen kannst.', 'Nach dem Namen machst du eine kurze Pause.', 'Schließe mit einem Satz, worauf du dich freust. Das Satzende geht nach unten.'],
+    frame: { de: 'Ich bin … ‖ Ich kümmere mich um … ‖ Fragt mich, wenn … ‖ Ich freue mich auf …', en: 'I am … ‖ I take care of … ‖ Ask me when … ‖ I am looking forward to …' } },
+  s2: { steps: ['Sag zuerst deine Aussage in einem Satz.', 'Gib einen Grund dafür.', 'Sag, was du dir wünschst oder vorschlägst.', 'Dann bist du still und lässt die anderen reagieren.'],
+    frame: { de: 'Meine Position ist … ‖ Der Grund dafür … ‖ Deshalb schlage ich vor …', en: 'My position is … ‖ The reason is … ‖ That is why I suggest …' } },
+  s3: { steps: ['Sag den Anlass in einem Satz.', 'Nenne das Wichtigste, am besten mit Datum oder Zahl.', 'Nenne den nächsten Schritt und wer ihn macht.', 'Sprich so, wie du es schreiben würdest, in kurzen Sätzen.'],
+    frame: { de: 'Ich schreibe dir, weil … ‖ Das Wichtigste vorweg: … ‖ Als Nächstes … ‖ Herzliche Grüße …', en: 'I am writing because … ‖ The key point first: … ‖ Next, … ‖ Kind regards …' } },
+  e1: { steps: ['Sag zuerst das Ergebnis in einem Satz.', 'Nutze einen Vergleich aus dem Alltag.', 'Erkläre jedes Fachwort sofort in einfachen Worten.', 'Schließe mit einem Satz: Was heißt das für dich?'],
+    frame: { de: 'Kurz gesagt: … ‖ Stell dir vor … ‖ Das bedeutet … ‖ Für dich heißt das …', en: 'In short: … ‖ Imagine … ‖ That means … ‖ For you, this means …' } },
+  e2: { steps: ['Sag deine Behauptung in einem Satz.', 'Nenne den Grund.', 'Nenne einen Beleg, zum Beispiel eine Zahl oder ein Beispiel. Hier wirst du langsamer.', 'Sag, was du dir wünschst.'],
+    frame: { de: 'Ich schlage vor … ‖ Der Grund ist … ‖ Der Beleg dafür … ‖ Deshalb bitte ich um …', en: 'I suggest … ‖ The reason is … ‖ The evidence for this … ‖ That is why I ask for …' } },
+  f1: { steps: ['Der erste Satz ist eine Zahl, eine Frage oder eine kleine Szene.', 'Mach danach zwei Sekunden Pause.', 'Sag, worum es geht und was die Zuhörer davon haben.', 'Nenne kurz den Ablauf, zum Beispiel „in drei Schritten“.'],
+    frame: { de: 'Eine Zahl vorweg: … ‖ Das heißt … ‖ Heute zeige ich dir … ‖ In drei Schritten …', en: 'One number first: … ‖ That means … ‖ Today I will show you … ‖ In three steps …' } },
+  f2: { steps: ['Atme ein und gib die Frage in eigenen Worten wieder.', 'Gib deine Kernaussage in einem Satz.', 'Nenne einen Grund oder Beleg.', 'Wenn du etwas nicht weißt, sag es und nenne den nächsten Schritt mit Datum.'],
+    frame: { de: 'Du fragst, warum … ‖ Meine ehrliche Einschätzung: … ‖ Das weiß ich noch nicht, ich kläre es bis …', en: 'You are asking why … ‖ My honest view: … ‖ I do not know that yet, I will find out by …' } },
+  z1: { steps: ['Gib in einem Satz wieder, was du verstanden hast.', 'Stell eine offene Frage, die mit „was“ oder „wie“ beginnt.', 'Warte, ohne ins Wort zu fallen.', 'Erst danach gibst du einen Rat, wenn sie darum bittet.'],
+    frame: { de: 'Wenn ich dich richtig verstehe … ‖ Was genau hat dich dabei … ‖ Was würde dir helfen?', en: 'If I understand you correctly … ‖ What exactly made you … ‖ What would help you?' } },
+  z2: { steps: ['Beginne mit etwas Anerkennendem.', 'Beschreibe, was du beobachtet hast, ohne Vorwurf.', 'Sag, welche Wirkung es hatte.', 'Mach einen konkreten Vorschlag.'],
+    frame: { de: 'Ich fand gut, dass … ‖ Mir ist aufgefallen … ‖ Das hat dazu geführt … ‖ Mein Vorschlag: …', en: 'I liked that … ‖ I noticed … ‖ That led to … ‖ My suggestion: …' } },
+  d1: { steps: ['Starte mit einer offenen Frage zur Person oder zum Anlass.', 'Hör zu und greife ein Wort aus der Antwort auf.', 'Erzähl dann einen kurzen Satz über dich.', 'Stell die nächste Frage.'],
+    frame: { de: 'Was hat dich heute hierher geführt? ‖ Das klingt spannend, erzähl mehr … ‖ Bei mir ist es …', en: 'What brought you here today? ‖ That sounds interesting, tell me more … ‖ For me, it is …' } },
+  d2: { steps: ['Nenne das Ziel und die Zeit.', 'Rufe die Wortmeldungen nacheinander auf.', 'Fasse nach jeder Runde in einem Satz zusammen.', 'Schließe mit einer Entscheidung und einem nächsten Schritt.'],
+    frame: { de: 'Unser Ziel in zehn Minuten: … ‖ Wer möchte beginnen? ‖ Ich fasse zusammen … ‖ Wir entscheiden …', en: 'Our goal for the next ten minutes: … ‖ Who would like to start? ‖ Let me summarise … ‖ We decide …' } },
+  v1: { steps: ['Lies den ersten Satz ruhig, das Ende geht nach unten.', 'Mach vor dem Angebot die Pause.', 'Sag die markierten Wörter etwas langsamer.', 'Den letzten Satz sagst du freundlich und fest.'] },
+  v2: { steps: ['Beschreibe, was passiert ist, ohne Vorwurf.', 'Sag, was es bei dir auslöst, mit einem Ich Satz.', 'Frag nach der Sicht der anderen Person.', 'Mach erst dann einen Vorschlag.'],
+    frame: { de: 'Mir ist wichtig … ‖ Ich habe erlebt, dass … ‖ Wie siehst du das? ‖ Ich schlage vor …', en: 'What matters to me is … ‖ I experienced that … ‖ How do you see it? ‖ I suggest …' } },
+  y1: { steps: ['Ausgangslage: Wie war es am Anfang?', 'Problem: Was ging schief?', 'Wendepunkt: Mach hier eine Pause und werde langsamer.', 'Lösung: Was kam am Ende heraus und was nimmst du mit?'],
+    frame: { de: 'Am Anfang war … ‖ Dann passierte … ‖ Der Wendepunkt war … ‖ Am Ende …', en: 'In the beginning … ‖ Then … ‖ The turning point was … ‖ In the end …' } },
+  y2: { steps: ['Lies die Frage und schau, welche Zahl gewürfelt wurde.', 'Nimm dir 15 Sekunden: Welche Schritte, Seiten oder welcher Kernpunkt?', 'Sag die Struktur am Anfang an.', 'Schließe mit einem Satz, der zum Handeln einlädt.'] },
+  y3: { steps: ['Sag zuerst deine Kernaussage.', 'Beschreibe die Lage und deine Aufgabe in zwei Sätzen.', 'Sag, was du konkret getan hast.', 'Nenne das Ergebnis und den Nutzen für das Unternehmen.'],
+    frame: { de: 'Ein Beispiel dafür ist … ‖ Meine Aufgabe war … ‖ Ich habe … ‖ Das Ergebnis war …', en: 'An example is … ‖ My task was … ‖ I … ‖ The result was …' } },
   c1: { steps: ['Antworte zuerst im Sitzen, die Hände im Schoß.', 'Antworte dann im Stehen, mit Gesten.', 'Vergleiche Melodie und Energie der beiden Antworten.'],
     frame: { de: 'In drei Monaten möchte ich … ‖ Dafür werde ich … ‖ Erfolg heißt für mich …', en: 'In three months I want to … ‖ To get there I will … ‖ Success means to me …' } }
 };
@@ -893,7 +992,7 @@ function coachPrompt(my, chat) {
   }
   const answerLang = state.lang === 'en' ? 'English' : 'Deutsch';
   const wantFollow = e.kind !== 'read';
-  const prompt = `Du bist ein warmer, direkter Sprechcoach. Du arbeitest mit den Techniken von Vinh Giang: fünf Stimmgrundlagen (Tempo, Lautstärke, Tonhöhe und Melodie, Klangfarbe, Pause), dazu der 3·2·1 Rahmen für spontane Antworten (drei Schritte, zwei Arten oder Seiten, eine Kernaussage). Deine Schülerin ist Deutsche, arbeitet im Marketing und will in Meetings und Webinaren sicherer und klarer sprechen.
+  const prompt = `Du bist ein warmer, direkter Sprechcoach. Du arbeitest mit den Techniken von Vinh Giang: fünf Stimmgrundlagen (Tempo, Lautstärke, Tonhöhe und Melodie, Klangfarbe, Pause), dazu der 3·2·1 Rahmen für spontane Antworten (drei Schritte, zwei Arten oder Seiten, eine Kernaussage). Für Vorstellen, Erklären, Feedback, Verhandeln und Storytelling nutzt du bewährte Kommunikationsregeln. Deine Schülerin ist Deutsche, arbeitet im Marketing und will in Meetings und Webinaren sicherer und klarer sprechen.
 
 Säule dieser Übung: ${p.name}. Idee: ${p.idea}
 Übung: ${e.name}. Anleitung: ${e.how}
@@ -1002,12 +1101,12 @@ function breathe() {
 function viewMap() {
   return `
   <div><span class="label">Überblick</span><h2>Die Landkarte</h2></div>
-  <p>Acht Säulen. Fünf davon sind deine Stimme, zwei sind der Inhalt, eine ist die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
+  <p>Fünfzehn Säulen. Fünf davon sind deine Stimme, fünf der Inhalt, vier das Gespräch und eine die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
   <div class="pillars">${PILLARS.map(p => `<button type="button" class="pillar ex" data-pillar="${p.id}"><span class="label">${esc(p.group)}</span><span class="t">${esc(p.name)}</span><span class="d">${esc(p.sub)}</span></button>`).join('')}</div>
   <div class="card"><h3>So übst du</h3>
     <p>Eine Säule pro Woche im Mittelpunkt, du wählst sie auf der Seite der Säule. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
   <div class="card"><h3>Datenschutz</h3><p class="small">Aufnahmen bleiben auf deinem Gerät und werden nur hier gemessen. Wenn du den Coach fragst, gehen dein Text und die Messwerte an Claude, die Audiodatei nicht.</p></div>
-  <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus Zusammenfassungen seines Gesprächs mit Jay Shetty. Die Originale habe ich nicht selbst gesehen. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm.</p></div>`;
+  <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus Zusammenfassungen seines Gesprächs mit Jay Shetty. Die Originale habe ich nicht selbst gesehen. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm. Die Säulen zu Inhalt und Gespräch folgen der Themenliste aus einem Reel von Small Talk with Anna. Von dort stammen nur die Themen, die Techniken und Formulierungen sind meine Ergänzung.</p></div>`;
 }
 
 /* ---------- Rendern ---------- */
