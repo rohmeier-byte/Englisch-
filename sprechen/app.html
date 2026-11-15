@@ -163,7 +163,7 @@
   .scene button.go, .blitz button.go { background: var(--accent); color: #fff; border: 0; border-radius: 12px; padding: 11px; font-weight: 700; }
   .tix { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .tix div { background: var(--panel); border-radius: 10px; padding: 8px 4px; text-align: center; font-size: .72rem; font-weight: 600; border: 1px dashed var(--ink); display: grid; gap: 2px; align-content: center; min-height: 58px; }
-  .tix div.off { opacity: .5; }
+  .tix div.off { background: #efe9fb; border-style: dashed; border-color: var(--line); }
   .tix div small { font-weight: 400; color: var(--soft); font-size: .64rem; }
   .award { border: 2px solid var(--accent); background: #fff; }
   .award .big { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--accent); line-height: 1; }
@@ -573,15 +573,27 @@ function awardRun(my, entry) {
   if (ts.words >= 15 && entry.fill === 0) { parts.push(['Ohne Weichmacher', 10]); state.stats.clean++; }
   if (!state.days.includes(today())) parts.push(['Erster Auftritt heute', 15]);
   if (e.blitz && entry.dur >= 30) { parts.push(['Blitzbonus', 20]); state.stats.blitz++; }
-  if (e.scene && my.round >= 3) { parts.push(['Szene geschafft', 30]); state.stats.scenes++; my.sceneDone = true; }
+  if (e.scene && my.round >= 3 && !my.scenePaid) { parts.push(['Szene geschafft', 30]); state.stats.scenes++; my.sceneDone = true; my.scenePaid = true; }
   state.stats.runs++;
   const n = parts.reduce((a, x) => a + x[1], 0);
   const before = rankOf(state.pts); state.pts += n; const after = rankOf(state.pts);
   markDay();
-  const fresh = BADGES.filter(b => !state.badges[b.id] && b.ok(state));
-  fresh.forEach(b => { state.badges[b.id] = today(); });
+  const fresh = grantBadges();
   my.award = { n, parts, rank: after > before ? RANKS[after].n : '', badges: fresh.map(b => b.name) };
   if (my.award.rank || fresh.length || my.sceneDone) confetti();
+}
+function grantBadges() {
+  const fresh = BADGES.filter(b => !state.badges[b.id] && b.ok(state));
+  fresh.forEach(b => { state.badges[b.id] = today(); });
+  return fresh;
+}
+// Abhakübungen ohne Sprechen: 20 Applaus plus Tagesbonus.
+function awardCheck() {
+  let n = 20; if (!state.days.includes(today())) n += 15;
+  state.stats.runs++;
+  const before = rankOf(state.pts); state.pts += n;
+  markDay();
+  if (rankOf(state.pts) > before || grantBadges().length) confetti();
 }
 function awardBlock() {
   const a = ex.award; if (!a) return '';
@@ -1237,7 +1249,7 @@ function coachPrompt(my, chat) {
   }
   const answerLang = state.lang === 'en' ? 'English' : 'Deutsch';
   const wantFollow = e.kind !== 'read';
-  const role = e.scene ? `\nRollenspiel: Du schlüpfst für die Rückfrage in die Rolle: ${e.scene.role}. Lage: ${e.scene.intro.de} Es ist Runde ${Math.min(my.round || 1, 3)} von 3. ${(my.round || 1) >= 3 ? 'Das ist die letzte Runde. Die Rückfrage ist ein kurzer Schlusssatz der Figur auf deine Antwort, keine neue Frage.' : 'Die Rückfrage ist die nächste Replik der Figur, kurz, im Ton der Figur und gern etwas fordernd, höchstens 20 Wörter.'} Das Feedback davor gibst du als Coach.\n` : '';
+  const role = e.scene ? `\nRollenspiel: Du schlüpfst für die Rückfrage in die Rolle: ${e.scene.role}. Lage: ${e.scene.intro.de} Es ist Runde ${Math.min(my.round || 1, 3)} von 3. ${(my.round || 1) >= 3 ? 'Das ist die letzte Runde. Die Rückfrage ist ein kurzer Schlusssatz der Figur auf die Antwort ohne weitere Frage.' : 'Die Rückfrage ist die nächste Replik der Figur, kurz, im Ton der Figur und gern etwas fordernd, höchstens 20 Wörter.'} Das Feedback davor gibst du als Coach.\n` : '';
   const prompt = `Du bist ein warmer, direkter Sprechcoach. Du arbeitest mit den Techniken von Vinh Giang: fünf Stimmgrundlagen (Tempo, Lautstärke, Tonhöhe und Melodie, Klangfarbe, Pause), dazu der 3·2·1 Rahmen für spontane Antworten (drei Schritte, zwei Arten oder Seiten, eine Kernaussage). Für Vorstellen, Erklären, Feedback, Verhandeln und Storytelling nutzt du bewährte Kommunikationsregeln. Deine Schülerin ist Deutsche, arbeitet im Marketing und will in Meetings und Webinaren sicherer und klarer sprechen.
 
 Säule dieser Übung: ${p.name}. Idee: ${p.idea}
@@ -1410,7 +1422,7 @@ document.addEventListener('click', e => {
   }
   if (t.hasAttribute('data-nextscene')) { const i = SCENE_IDS.indexOf(ex.id); startExercise(SCENE_IDS[(i + 1) % SCENE_IDS.length]); return; }
   if (t.hasAttribute('data-finish-check')) {
-    const e = EX(ex.id); state.done[e.id] = (state.done[e.id] || 0) + 1; markDay(); save();
+    const e = EX(ex.id); state.done[e.id] = (state.done[e.id] || 0) + 1; awardCheck(); save();
     curPillar = e.p; view = 'pillar'; render(true); return;
   }
   if (t.hasAttribute('data-breathe')) { breathe(); return; }
