@@ -648,7 +648,7 @@ function stageView(e, p) {
       ${g ? `<details><summary>Anleitung</summary><ol class="todo">${g.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol></details>` : ''}</div>
     <div class="bar"><button type="button" class="primary" data-timer>Stopp</button><span class="timer bigtimer" id="tmr2">${fmtTime((Date.now() - ex.t0) / 1000)}</span></div>
     <textarea id="txt" rows="3" placeholder="Tippe hier hinein und diktiere mit Wispr Flow">${esc(ex.transcript)}</textarea>
-    <p class="small soft">Schalte das Mikrofon von Wispr Flow aus, wenn du fertig bist, und tippe dann auf Stopp.</p>
+    <button type="button" class="link" data-cancel>Abbrechen</button>
   </div>`;
 }
 
@@ -1249,6 +1249,7 @@ document.addEventListener('click', e => {
     render(); return;
   }
   if (t.hasAttribute('data-timer')) { timerToggle(); return; }
+  if (t.hasAttribute('data-cancel')) { clearInterval(tIv); ex.t0 = 0; ex.secs = 0; const bx = $('#txt'); if (bx) ex.transcript = bx.value; render(true); return; }
   if (t.hasAttribute('data-togglemeasure')) { ex.measureOpen = !(ex.measureOpen || ex.result || ex.analyzing || ex.err || ex.recording || ex.starting || ex.audioUrl); const bx = document.getElementById('txt'); if (bx) ex.transcript = bx.value; render(); return; }
   if (t.hasAttribute('data-rec')) { toggleRec(); return; }
   if (t.hasAttribute('data-roll')) { if (ex.t0 || ex.recording || ex.starting || ex.analyzing) return; rollDie(EX(ex.id)); resetRun(); render(); return; }
