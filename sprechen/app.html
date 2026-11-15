@@ -144,6 +144,19 @@
   .checks label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--bg); cursor: pointer; }
   .checks input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
 
+  /* Sprechmodus */
+  body.speaking { padding-block: 10px 24px; }
+  body.speaking nav.tabs { display: none; }
+  .stage { display: grid; gap: 10px; }
+  .stage .tk { position: sticky; top: 0; z-index: 4; display: grid; gap: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; max-height: 54vh; overflow: auto; }
+  .stage .tk .task { font-size: 1rem; line-height: 1.45; }
+  .stage .tk .question { font-size: 1.02rem; }
+  .stage .tk .frame { color: var(--soft); font-size: .95rem; }
+  .stage .tk summary { cursor: pointer; font-size: .85rem; color: var(--accent); }
+  .stage .bar { display: flex; gap: 12px; align-items: center; }
+  .stage .bar button { flex: 1; min-height: 56px; font-size: 1.1rem; }
+  .stage textarea { min-height: 84px; height: 84px; }
+
   /* Schnellcheck */
   .breath { width: 150px; height: 150px; border-radius: 50%; margin: 8px auto; display: grid; place-items: center; background: var(--ok-bg); color: var(--ok-ink); font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; transform: scale(.7); transition: transform 4s ease-in-out; }
   .breath.in { transform: scale(1); }
@@ -617,9 +630,31 @@ const DICE_FRAME = {
   1: { de: 'Mein Kernpunkt ist … ‖ Der Grund dafür … ‖ Ein Beispiel … ‖ Deshalb …', en: 'My main point is … ‖ The reason is … ‖ An example … ‖ That is why …' }
 };
 
+function frameFor(e) {
+  const g = GUIDE[e.id]; if (!g) return '';
+  return e.kind === 'dice' ? DICE_FRAME[ex.die][state.lang] : (g.frame ? g.frame[state.lang] : '');
+}
+
+/* Sprechmodus: Solange die Stoppuhr läuft, zeigt die Seite nur Aufgabe, Satzanfänge, Stopp und Textfeld, damit alles über der Tastatur Platz hat. */
+function stageView(e, p) {
+  const g = GUIDE[e.id], fr = frameFor(e);
+  let tk = '';
+  if (e.kind === 'read') tk = `<span class="label">Lies laut</span><p class="task">${markup(textFor(e))}</p>`;
+  else tk = `<span class="label">${ex.followUp ? 'Rückfrage vom Coach' : 'Deine Frage'}</span><p class="question">${esc(ex.question)}</p>` +
+    (e.kind === 'dice' ? `<p class="small"><b>${ex.die}</b> ${esc(DICE[ex.die].name)}: ${esc(DICE[ex.die].hint)}</p>` : '');
+  return `<div class="stage">
+    <div class="tk">${tk}
+      ${fr ? `<span class="label">Satzanfänge</span><p class="task frame">${markup(fr)}</p>` : ''}
+      ${g ? `<details><summary>Anleitung</summary><ol class="todo">${g.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol></details>` : ''}</div>
+    <div class="bar"><button type="button" class="primary" data-timer>Stopp</button><span class="timer bigtimer" id="tmr2">${fmtTime((Date.now() - ex.t0) / 1000)}</span></div>
+    <textarea id="txt" rows="3" placeholder="Tippe hier hinein und diktiere mit Wispr Flow">${esc(ex.transcript)}</textarea>
+    <p class="small soft">Schalte das Mikrofon von Wispr Flow aus, wenn du fertig bist, und tippe dann auf Stopp.</p>
+  </div>`;
+}
+
 function guideBlock(e) {
   const g = GUIDE[e.id]; if (!g) return '';
-  const frame = e.kind === 'dice' ? DICE_FRAME[ex.die][state.lang] : (g.frame ? g.frame[state.lang] : '');
+  const frame = frameFor(e);
   return `<div class="card"><span class="label">So gehst du vor</span>
     <ol class="todo">${g.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>
     ${frame ? `<span class="label">Satzanfänge zum Anlehnen</span><p class="task">${markup(frame)}</p>` : ''}</div>`;
@@ -641,6 +676,7 @@ function viewExercise() {
       <button type="button" class="primary" data-finish-check>Fertig</button></div>`;
   }
   const speak = e.kind !== 'check';
+  if (speak && ex.t0) return stageView(e, p);
   return `
   <div class="top"><button type="button" class="link" data-pillar="${p.id}">Zurück zu ${esc(p.name)}</button>${e.kind === 'check' ? '' : langSwitch()}</div>
   <div><span class="label">${esc(p.name)}</span><h2>${esc(e.name)}</h2></div>
@@ -674,7 +710,7 @@ function speakBlock() {
   return `<div class="card">
     <span class="label">Sprechen</span>
     <div class="recbar"><button type="button" class="${running ? 'primary' : 'gold'}" data-timer>${running ? 'Stopp' : (ex.secs ? 'Neue Runde' : 'Start')}</button><span class="timer bigtimer" id="tmr2">${running ? fmtTime((Date.now() - ex.t0) / 1000) : fmtTime(ex.secs || 0)}</span></div>
-    <p class="small">1. Tippe auf Start. 2. Tippe ins Textfeld und dann auf das Mikrofon deiner Wispr Flow Tastatur. 3. Sprich und lies dabei die Aufgabe oben. 4. Tippe auf Stopp.</p>
+    <p class="small">1. Tippe auf Start. Die Seite zeigt dann nur noch Aufgabe, Satzanfänge und Textfeld. 2. Tippe ins Textfeld, starte das Mikrofon von Wispr Flow und sprich. 3. Schalte das Mikrofon aus und tippe auf Stopp.</p>
     <label class="small soft" for="txt">Dein gesprochener Text erscheint hier.${useSR && canRec && !inViewer && !micBlocked ? ' Bei der Live Aufnahme schreibt der Browser mit.' : ''} Du kannst ihn auch tippen.</label>
     <textarea id="txt" placeholder="Hier steht dein gesprochener Text">${esc(ex.transcript)}</textarea>
     ${tempo}
@@ -716,7 +752,9 @@ function timerToggle() {
     clearInterval(tIv); tIv = null;
     const box = $('#txt'); if (box) ex.transcript = box.value;
     recordTimerRun(ex);
-    render(); return;
+    render();
+    const cc = document.getElementById('coachcard'); if (cc) cc.scrollIntoView({ block: 'center' });
+    return;
   }
   if (ex.recording || ex.starting || ex.analyzing) return;
   const keep = ex.measureOpen;
@@ -726,7 +764,7 @@ function timerToggle() {
   ex.measureOpen = keep; ex.transcript = keepText; ex.t0 = Date.now(); ex.secs = 0;
   clearInterval(tIv);
   tIv = setInterval(() => { if (!ex || !ex.t0) { clearInterval(tIv); return; } const el = $('#tmr2'); if (el) el.textContent = fmtTime((Date.now() - ex.t0) / 1000); }, 250);
-  render();
+  render(true);
 }
 function recordTimerRun(my) {
   const ts = textStats(my.transcript, my.secs);
@@ -1021,7 +1059,7 @@ async function getSample() {
   try { const s = window.claude && window.claude.use ? await window.claude.use('sample') : null; sampleOk = !!s; return s; } catch (e) { sampleOk = false; return null; }
 }
 function coachBlock() {
-  if (sampleOk === false) return `<div class="card coach"><span class="label">Coach</span>
+  if (sampleOk === false) return `<div class="card coach" id="coachcard"><span class="label">Coach</span>
     <p class="small soft">Hier antwortet der Coach nicht selbst. Kopiere deine Anfrage und füge sie in einen Chat mit Claude ein. Dort bekommst du das gleiche Feedback samt Rückfrage. Über deinen claude.ai Link antwortet er direkt in der App.</p>
     <button type="button" class="gold" data-copycoach>Anfrage für Claude kopieren</button>
     <p class="small" id="copyinfo" role="status"></p>
@@ -1036,7 +1074,7 @@ function coachBlock() {
       ${c.data.besser ? `<div class="bubble"><span class="label">So könnte es klingen</span><p>${esc(c.data.besser)}</p></div>` : ''}
       ${c.data.rueckfrage ? `<div class="bubble"><span class="label">Rückfrage</span><p class="question">${esc(c.data.rueckfrage)}</p><button type="button" class="primary" data-followup>Darauf antworten</button></div>` : ''}
     </div>`;
-  return `<div class="card coach"><span class="label">Coach</span>
+  return `<div class="card coach" id="coachcard"><span class="label">Coach</span>
     ${body || '<p class="small soft">Wenn du fertig bist, gib dem Coach deinen Text und die Messwerte. Er sagt dir, was gut war, nennt dir einen Hebel und stellt dir eine Rückfrage wie im echten Meeting.</p>'}
     ${c && c.loading ? '' : '<button type="button" class="gold" data-coach>' + (c && c.data ? 'Noch einmal bewerten' : 'Feedback holen') + '</button>'}</div>`;
 }
@@ -1185,6 +1223,7 @@ function render(scrollTop) {
   $('#app').innerHTML = html;
   const tabView = view === 'pillar' || view === 'ex' ? 'home' : view;
   document.querySelectorAll('#tabs button').forEach(b => b.setAttribute('aria-current', b.dataset.tab === tabView ? 'page' : 'false'));
+  document.body.classList.toggle('speaking', !!(view === 'ex' && ex && ex.t0 && EX(ex.id).kind !== 'check'));
   if (scrollTop) window.scrollTo(0, 0);
 }
 function leaveExercise() { if (ex && (ex.recording || ex.starting)) stopRec(); if (ex && ex.t0) { ex.secs = 0; ex.t0 = 0; clearInterval(tIv); } }
@@ -1238,6 +1277,15 @@ document.addEventListener('change', e => {
   if (t.dataset && t.dataset.check !== undefined && ex) { const i = +t.dataset.check; ex.checked = t.checked ? [...new Set([...ex.checked, i])] : ex.checked.filter(x => x !== i); }
 });
 document.addEventListener('input', e => { if (e.target.id === 'txt' && ex) ex.transcript = e.target.value; });
+// Im Sprechmodus bleibt die Aufgabe oben sichtbar: Schiebt die Tastatur die Seite hoch, scrollen wir zurück, solange das Feld noch zu sehen ist.
+document.addEventListener('focusin', e => {
+  const t = e.target;
+  if (!t || t.id !== 'txt' || !ex || !ex.t0) return;
+  setTimeout(() => {
+    const vv = window.visualViewport, h = vv ? vv.height : window.innerHeight;
+    if (t.isConnected && t.getBoundingClientRect().bottom <= h - 6) window.scrollTo(0, 0);
+  }, 400);
+});
 
 render();
 connectCloud();
