@@ -1,6 +1,6 @@
 <title>Stimmwerk</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Fünfzehn Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
+<meta name="description" content="Stimmwerk: Sprechtrainer für Meetings und Webinare nach den Techniken von Vinh Giang. Achtzehn Säulen, Aufnahme mit Messwerten und ein Coach mit Claude.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -215,6 +215,15 @@ const PILLARS = [
   { id: 'story', group: 'Gespräch', name: 'Story und Spontanität', sub: 'Erzählen, ohne den Faden zu verlieren',
     idea: 'Eine gute Geschichte hat eine Ausgangslage, ein Problem, einen Wendepunkt und eine Lösung. Wer spontan überzeugen soll, nutzt den 3·2·1 Rahmen. Im Interview antwortest du mit einer Kernaussage und einem Beispiel aus deiner Praxis.',
     src: 'Themenliste aus einem Reel von Small Talk with Anna. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
+  { id: 'punkt', group: 'Klarheit', name: 'Auf den Punkt kommen', sub: 'Sortieren, kürzen, ohne Proben sprechen',
+    idea: 'Aus einem wirren Gedanken wird ein klarer Satz, wenn du zuerst fragst: Was soll hängen bleiben? Sag diesen Satz zuerst und ergänze danach einen Grund. Wer im Kopf vorher probt, klingt steif. Kenne nur deinen ersten Satz und sprich dann frei weiter. Nach dem dritten Satz darfst du aufhören.',
+    src: 'Themenliste aus einem Reel von Paisley Brooks. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
+  { id: 'folgbar', group: 'Klarheit', name: 'Verständlich im Fluss', sub: 'Meinung, Geschichte und Antwort mit rotem Faden',
+    idea: 'Eine Meinung ist leicht zu verfolgen, wenn sie in vier Schritten kommt: Standpunkt, Grund, Beispiel, Folge. Eine Geschichte behält ihren Punkt, wenn du vorher weißt, was am Ende hängen bleiben soll. Eine reibungslose Antwort beginnt mit der Antwort selbst und liefert die Vorgeschichte erst danach.',
+    src: 'Themenliste aus einem Reel von Paisley Brooks. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
+  { id: 'feststehen', group: 'Souveränität', name: 'Fest und freundlich', sub: 'Ohne Weichmacher, bei Unterbrechung, im Widerspruch',
+    idea: 'Wörter wie „vielleicht“, „eigentlich“ und „ich glaube“ nehmen deinen Sätzen die Kraft. Streich sie und lass das Satzende nach unten gehen. Wirst du unterbrochen, bleibst du ruhig, hältst mit einem kurzen Satz den Faden und führst deinen Gedanken zu Ende. Widersprechen geht freundlich, wenn du zuerst das Gemeinsame nennst und dann bei deiner Position bleibst.',
+    src: 'Themenliste aus einem Reel von Paisley Brooks. Technik und Formulierungen: Ergänzung im Tool', focus: 'fill' },
   { id: 'koerper', group: 'Wirkung', name: 'Körper und Kamera', sub: 'Bewegung macht die Stimme lebendig',
     idea: 'Körper und Stimme hängen zusammen. Wer starr sitzt, klingt oft flach. Für Webinare kommen Blick in die Linse und Gesten im Bild dazu.',
     src: 'Körper: Vinh Giang. Kamera: Ergänzung im Tool', focus: 'pitch' }
@@ -325,6 +334,40 @@ const EXERCISES = [
   { id: 'y3', p: 'story', kind: 'free', name: 'Antwort im Interview',
     how: 'Beantworte eine typische Interviewfrage mit einer Kernaussage und einem konkreten Beispiel. Schließe mit einem Satz zum Nutzen für das Unternehmen.',
     q: { de: 'Erzähl mir von einer Situation, in der du eine schwierige Entscheidung treffen musstest.', en: 'Tell me about a situation in which you had to make a difficult decision.' } },
+  { id: 'n1', p: 'punkt', kind: 'free', name: 'Ein Satz aus dem Gedankenchaos',
+    how: 'Sag zuerst 20 Sekunden lang alles, was dir einfällt. Danach fasst du es in einem einzigen Satz mit höchstens 15 Wörtern zusammen.',
+    q: { de: 'Warum ist das Projekt gerade so zäh? Sag erst alles, was dir einfällt, dann den einen Satz.', en: 'Why is the project dragging right now? First say everything that comes to mind, then the one sentence.' } },
+  { id: 'n2', p: 'punkt', kind: 'free', name: 'Ohne Proben sprechen',
+    how: 'Beantworte die Frage sofort, ohne im Kopf vorzuformulieren. Kenne nur deinen ersten Satz und sprich dann weiter.',
+    q: { de: 'Was war diese Woche dein größter Erfolg?', en: 'What was your biggest success this week?' } },
+  { id: 'n3', p: 'punkt', kind: 'free', name: 'Ohne Übererklären',
+    how: 'Sag, was du meinst, in höchstens drei Sätzen. Nach dem dritten Satz hörst du auf und bleibst still.',
+    q: { de: 'Du lehnst eine zusätzliche Aufgabe ab. Sag es klar und freundlich.', en: 'You turn down an extra task. Say it clearly and kindly.' } },
+  { id: 'n4', p: 'punkt', kind: 'free', name: 'Bessere Wörter schneller finden',
+    how: 'Beschreibe in 30 Sekunden mit genauen Wörtern, was vor dir liegt. Fehlt ein Wort, machst du eine Pause und umschreibst es kurz.',
+    q: { de: 'Beschreibe in 30 Sekunden, was auf deinem Tisch liegt, mit möglichst genauen Wörtern.', en: 'Describe in 30 seconds what is on your desk, using words that are as precise as possible.' } },
+  { id: 'r1', p: 'folgbar', kind: 'free', name: 'Meinung leicht verfolgbar',
+    how: 'Sag deine Meinung in vier Schritten: Standpunkt, Grund, Beispiel, Folge. Nach dem Standpunkt machst du eine kurze Pause.',
+    q: { de: 'Was hältst du von Meetings ohne Folien?', en: 'What do you think about meetings without slides?' } },
+  { id: 'r2', p: 'folgbar', kind: 'free', name: 'Geschichte mit klarem Punkt',
+    how: 'Sag vorher in einem Satz, was hängen bleiben soll. Erzähl dann die Geschichte kurz und komm am Ende zu diesem Punkt zurück.',
+    q: { de: 'Erzähl von einem Fehler, aus dem du etwas gelernt hast.', en: 'Tell us about a mistake you learned something from.' } },
+  { id: 'r3', p: 'folgbar', kind: 'free', name: 'Antwort ohne Reibung',
+    how: 'Beginne mit der Antwort in einem Satz. Den Grund und die Vorgeschichte lieferst du erst danach, falls jemand sie braucht.',
+    q: { de: 'Deine Chefin fragt: Schaffen wir den Termin am Freitag?', en: 'Your manager asks: Will we make the deadline on Friday?' } },
+  { id: 'h1', p: 'feststehen', kind: 'read', name: 'Weichmacher streichen',
+    how: 'Diese Sätze haben keine Weichmacher. Lies sie fest, das Satzende geht jedes Mal nach unten. Schwach klänge es so: Ich glaube, wir könnten vielleicht einfach am Montag starten.',
+    de: '{dn:Wir starten am Montag.} ‖ {dn:Ich empfehle diesen Kanal.} ‖ {dn:Das Budget reicht dafür.}',
+    en: '{dn:We start on Monday.} ‖ {dn:I recommend this channel.} ‖ {dn:The budget is enough for this.}' },
+  { id: 'h2', p: 'feststehen', kind: 'free', name: 'Klare Empfehlung',
+    how: 'Gib eine Empfehlung ohne „vielleicht“, „eigentlich“ und „ich glaube“. Rutscht dir eins heraus, wiederholst du den Satz ohne dieses Wort.',
+    q: { de: 'Dein Team fragt, welchen Kanal ihr als Nächstes testen sollt. Was empfiehlst du?', en: 'Your team asks which channel you should test next. What do you recommend?' } },
+  { id: 'h3', p: 'feststehen', kind: 'free', name: 'Bei Unterbrechung weitersprechen',
+    how: 'Stell dir vor, jemand fällt dir ins Wort. Sag einen kurzen Satz, der den Faden hält, und sprich deinen Gedanken zu Ende.',
+    q: { de: 'Du erklärst gerade dein Konzept, da unterbricht dich ein Kollege. Wie machst du weiter?', en: 'You are explaining your concept when a colleague interrupts you. How do you carry on?' } },
+  { id: 'h4', p: 'feststehen', kind: 'free', name: 'Widersprechen ohne Rückzug',
+    how: 'Nenne zuerst, was du teilst, dann deine Position mit Grund. Bleib dabei, auch wenn nachgefragt wird.',
+    q: { de: 'Deine Chefin will die Kampagne am Montag starten, aber das Tracking ist noch nicht fertig. Was sagst du?', en: 'Your manager wants to launch the campaign on Monday, but the tracking is not ready yet. What do you say?' } },
   { id: 'c1', p: 'koerper', kind: 'free', name: 'Sitzen und Stehen',
     how: 'Nimm die Antwort zweimal auf. Einmal sitzend mit den Händen im Schoß, einmal stehend mit Gesten. Vergleich danach die Melodie.',
     q: { de: 'Was möchtest du in den nächsten drei Monaten erreichen?', en: 'What do you want to achieve in the next three months?' } },
@@ -348,8 +391,8 @@ const QUESTIONS = {
 };
 
 const FILLERS = {
-  de: ['äh', 'ähm', 'öhm', 'hm', 'also', 'halt', 'sozusagen', 'quasi', 'eigentlich', 'irgendwie', 'ja also', 'im prinzip', 'gewissermaßen'],
-  en: ['um', 'uh', 'erm', 'you know', 'basically', 'kind of', 'sort of', 'i mean', 'literally', 'so yeah']
+  de: ['äh', 'ähm', 'öhm', 'hm', 'also', 'halt', 'sozusagen', 'quasi', 'eigentlich', 'irgendwie', 'ja also', 'im prinzip', 'gewissermaßen', 'vielleicht', 'ich glaube', 'ich denke'],
+  en: ['um', 'uh', 'erm', 'you know', 'basically', 'kind of', 'sort of', 'i mean', 'literally', 'so yeah', 'maybe', 'i think']
 };
 
 /* ---------- Zustand ---------- */
@@ -544,6 +587,27 @@ const GUIDE = {
   y2: { steps: ['Lies die Frage und schau, welche Zahl gewürfelt wurde.', 'Nimm dir 15 Sekunden: Welche Schritte, Seiten oder welcher Kernpunkt?', 'Sag die Struktur am Anfang an.', 'Schließe mit einem Satz, der zum Handeln einlädt.'] },
   y3: { steps: ['Sag zuerst deine Kernaussage.', 'Beschreibe die Lage und deine Aufgabe in zwei Sätzen.', 'Sag, was du konkret getan hast.', 'Nenne das Ergebnis und den Nutzen für das Unternehmen.'],
     frame: { de: 'Ein Beispiel dafür ist … ‖ Meine Aufgabe war … ‖ Ich habe … ‖ Das Ergebnis war …', en: 'An example is … ‖ My task was … ‖ I … ‖ The result was …' } },
+  n1: { steps: ['Sprich 20 Sekunden lang alles aus, was dir zum Thema einfällt.', 'Atme ein und frag dich: Was soll hängen bleiben?', 'Sag diesen Gedanken in einem Satz mit höchstens 15 Wörtern.', 'Wiederhole den Satz einmal fest, das Satzende geht nach unten.'],
+    frame: { de: 'Was mir einfällt: … ‖ Kurz gesagt: …', en: 'What comes to mind: … ‖ In short: …' } },
+  n2: { steps: ['Lies die Frage und hol einmal Luft.', 'Sag sofort einen ersten Satz, auch wenn er nicht perfekt ist.', 'Sprich in kurzen Sätzen weiter und mach Pausen statt zu proben.', 'Schließe mit einem Satz, der deinen Punkt wiederholt.'],
+    frame: { de: 'Mein größter Erfolg war … ‖ Das lag daran, dass … ‖ Daraus folgt …', en: 'My biggest success was … ‖ That was because … ‖ It means that …' } },
+  n3: { steps: ['Sag deine Antwort im ersten Satz.', 'Nenne im zweiten Satz einen Grund.', 'Mach im dritten Satz einen Vorschlag oder bedanke dich.', 'Dann bist du still und erklärst nichts weiter.'],
+    frame: { de: 'Das übernehme ich nicht. ‖ Der Grund: … ‖ Ich schlage vor …', en: 'I will not take that on. ‖ The reason: … ‖ I suggest …' } },
+  n4: { steps: ['Nenne den Gegenstand und sag, wofür er da ist.', 'Wähl das genaue Wort statt „Ding“ oder „Sache“.', 'Fehlt ein Wort, mach eine Pause, statt „ähm“ zu sagen.', 'Sag die Beschreibung noch einmal und tausche ein Wort gegen ein besseres.'],
+    frame: { de: 'Das ist … ‖ Es sieht aus wie … ‖ Man benutzt es, um …', en: 'This is … ‖ It looks like … ‖ You use it to …' } },
+  r1: { steps: ['Sag deinen Standpunkt in einem Satz und mach eine Pause.', 'Nenne den wichtigsten Grund.', 'Gib ein Beispiel oder eine Zahl.', 'Sag, was daraus folgt.'],
+    frame: { de: 'Meine Meinung: … ‖ Der wichtigste Grund … ‖ Ein Beispiel … ‖ Deshalb …', en: 'My view: … ‖ The main reason … ‖ An example … ‖ That is why …' } },
+  r2: { steps: ['Sag zuerst in einem Satz, was hängen bleiben soll.', 'Erzähl kurz, was passiert ist.', 'Sag, was du daraus gelernt hast.', 'Komm am Ende zu deinem Punkt zurück.'],
+    frame: { de: 'Der Punkt vorweg: … ‖ Es war so … ‖ Gelernt habe ich … ‖ Deshalb …', en: 'The point first: … ‖ What happened was … ‖ I learned … ‖ That is why …' } },
+  r3: { steps: ['Antworte im ersten Satz mit Ja, Nein oder einer klaren Aussage.', 'Nenne danach den Grund in einem Satz.', 'Sag, was du brauchst oder was als Nächstes passiert.', 'Mehr Vorgeschichte gibst du nur, wenn jemand fragt.'],
+    frame: { de: 'Ja, … ‖ Nein, … ‖ Der Grund … ‖ Ich brauche …', en: 'Yes, … ‖ No, … ‖ The reason … ‖ I need …' } },
+  h1: { steps: ['Lies jeden Satz einzeln.', 'Das Satzende geht nach unten, wie ein Punkt.', 'Zwischen den Sätzen machst du eine Pause.'] },
+  h2: { steps: ['Sag deine Empfehlung im ersten Satz.', 'Nenne einen Grund.', 'Nenne den nächsten Schritt.', 'Rutscht ein Weichmacher heraus, wiederhole den Satz ohne ihn.'],
+    frame: { de: 'Ich empfehle … ‖ Der Grund ist … ‖ Der nächste Schritt ist …', en: 'I recommend … ‖ The reason is … ‖ The next step is …' } },
+  h3: { steps: ['Atme ein und bleib ruhig.', 'Sag einen kurzen Satz, der den Faden hält.', 'Führe deinen Gedanken in ein bis zwei Sätzen zu Ende.', 'Gib danach das Wort bewusst ab.'],
+    frame: { de: 'Moment, ich bin gleich fertig. ‖ Mein Punkt war … ‖ Danach gern deine Sicht.', en: 'One moment, I am nearly done. ‖ My point was … ‖ Then I would like to hear your view.' } },
+  h4: { steps: ['Nenne, was du teilst.', 'Sag deine Position in einem Satz, ohne Weichmacher.', 'Gib einen Grund, wenn möglich mit einer Zahl.', 'Mach einen Vorschlag und bleib bei deiner Position, wenn nachgefragt wird.'],
+    frame: { de: 'Ich teile das Ziel … ‖ Meine Position ist … ‖ Der Grund … ‖ Mein Vorschlag …', en: 'I share the goal … ‖ My position is … ‖ The reason … ‖ My suggestion …' } },
   c1: { steps: ['Antworte zuerst im Sitzen, die Hände im Schoß.', 'Antworte dann im Stehen, mit Gesten.', 'Vergleiche Melodie und Energie der beiden Antworten.'],
     frame: { de: 'In drei Monaten möchte ich … ‖ Dafür werde ich … ‖ Erfolg heißt für mich …', en: 'In three months I want to … ‖ To get there I will … ‖ Success means to me …' } }
 };
@@ -1101,12 +1165,12 @@ function breathe() {
 function viewMap() {
   return `
   <div><span class="label">Überblick</span><h2>Die Landkarte</h2></div>
-  <p>Fünfzehn Säulen. Fünf davon sind deine Stimme, fünf der Inhalt, vier das Gespräch und eine die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
+  <p>Achtzehn Säulen. Fünf davon sind deine Stimme, fünf der Inhalt, vier das Gespräch, zwei die Klarheit, eine die Souveränität und eine die Wirkung. Wenn du im Meeting hängst, denk an genau eine davon.</p>
   <div class="pillars">${PILLARS.map(p => `<button type="button" class="pillar ex" data-pillar="${p.id}"><span class="label">${esc(p.group)}</span><span class="t">${esc(p.name)}</span><span class="d">${esc(p.sub)}</span></button>`).join('')}</div>
   <div class="card"><h3>So übst du</h3>
     <p>Eine Säule pro Woche im Mittelpunkt, du wählst sie auf der Seite der Säule. Am Anfang und am Ende aufnehmen und vergleichen. Jede größere Aufnahme dreimal ansehen: ohne Ton, nur Ton, als Text. Das empfiehlt Vinh Giang.</p></div>
   <div class="card"><h3>Datenschutz</h3><p class="small">Aufnahmen bleiben auf deinem Gerät und werden nur hier gemessen. Wenn du den Coach fragst, gehen dein Text und die Messwerte an Claude, die Audiodatei nicht.</p></div>
-  <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus Zusammenfassungen seines Gesprächs mit Jay Shetty. Die Originale habe ich nicht selbst gesehen. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm. Die Säulen zu Inhalt und Gespräch folgen der Themenliste aus einem Reel von Small Talk with Anna. Von dort stammen nur die Themen, die Techniken und Formulierungen sind meine Ergänzung.</p></div>`;
+  <div class="card"><h3>Quellen</h3><p class="small soft">Die Techniken stammen aus Zusammenfassungen von Vinh Giangs Videos, unter anderem zu den fünf Stimmgrundlagen und zum 3·2·1 Trick, sowie aus Zusammenfassungen seines Gesprächs mit Jay Shetty. Die Originale habe ich nicht selbst gesehen. Alle Übungen sind in eigenen Worten geschrieben. Was als Ergänzung markiert ist, stammt nicht von ihm. Die Säulen zu Inhalt und Gespräch folgen den Themenlisten aus zwei Reels, einem von Small Talk with Anna und einem von Paisley Brooks. Von dort stammen nur die Themen, die Techniken und Formulierungen sind meine Ergänzung.</p></div>`;
 }
 
 /* ---------- Rendern ---------- */
